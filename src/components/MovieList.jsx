@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import MovieCard from './MovieCard';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieList extends React.Component {
+  buttonAddMove() {
+  }
+
   render() {
     const { movies } = this.props;
     return (
@@ -21,7 +23,7 @@ class MovieList extends React.Component {
         {
           movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)
         }
-        <AddMovie />
+        <AddMovie onClick={ this.buttonAddMove } />
       </div>
     );
   }
