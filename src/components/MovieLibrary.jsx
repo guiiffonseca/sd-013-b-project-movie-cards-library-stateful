@@ -54,10 +54,9 @@ class MovieLibrary extends React.Component {
   };
 
   onClick = (movie) => {
-    const { movies } = this.props;
-    movies.push(movie);
+    const { movies } = this.state;
     this.setState({
-      movies,
+      movies: [...movies, movie],
     });
   };
 
