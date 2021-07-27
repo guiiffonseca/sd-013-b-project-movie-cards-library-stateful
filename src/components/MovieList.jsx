@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import MovieCard from './MovieCard';
-import SearchBar from './SearchBar';
-import AddMovie from './AddMovie';
 
 class MovieList extends React.Component {
   buttonAddMove() {
@@ -12,18 +10,9 @@ class MovieList extends React.Component {
     const { movies } = this.props;
     return (
       <div data-testid="movie-list" className="movie-list">
-        <SearchBar
-          searchText=""
-          onSearchTextChange={ () => { } }
-          bookmarkedOnly={ false }
-          onBookmarkedChange={ () => { } }
-          selectedGenre=""
-          onSelectedGenreChange={ () => { } }
-        />
         {
           movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)
         }
-        <AddMovie onClick={ this.buttonAddMove } />
       </div>
     );
   }
