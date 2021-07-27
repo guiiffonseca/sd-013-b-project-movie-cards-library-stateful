@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 // implement AddMovie component here
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -37,7 +38,7 @@ export default class AddMovie extends React.Component {
             type="text"
             value={ title }
             data-testid="title-input"
-            onChange={ this.handleChange} 
+            onChange={ this.handleChange }
           />
         </label>
         <label data-testid="subtitle-input-label" htmlFor="subtitle">
@@ -80,6 +81,20 @@ export default class AddMovie extends React.Component {
             value={ rating }
             onChange={ this.handleChange }
           />
+        </label>
+        <label data-testid="genre-input-label" htmlFor="genre">
+          Gênero
+          <select
+            data-testid="genre-input"
+            id="genre"
+            name="genre"
+            value={ genre }
+            onChange={ this.handleChange }
+          >
+            <option data-testid="genre-option" value="action">Ação</option>
+            <option data-testid="genre-option" value="comedy">Comédia</option>
+            <option data-testid="genre-option" value="thriller">Suspense</option>
+          </select>
         </label>
       </form>
     );
