@@ -4,7 +4,9 @@ class AddMovie extends React.Component {
   render() {
     return (
       <div>
-        AddMovie
+        <form action="" data-testid="add-movie-form">
+          Formulario
+        </form>
       </div>
     );
   }
