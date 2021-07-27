@@ -7,9 +7,9 @@ function App() {
   return (
     <div id="App" className="App">
       <Header />
-      <SeacrhBar 
-      searchText = ""
-      onSearchTextChange = ""
+      <SeacrhBar
+        searchText=""
+        onSearchTextChange=""
       />
     </div>
   );
