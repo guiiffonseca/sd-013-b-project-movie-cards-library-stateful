@@ -37,7 +37,13 @@ class SearchBar extends Component {
         </label>
         <label htmlFor="select-genero" data-testid="select-input-label">
           Filtrar por gênero
-          <select name="" id="select-genero" value={ selectedGenre } onChange={ onSelectedGenreChange } data-testid="select-input">
+          <select
+            name=""
+            id="select-genero"
+            value={ selectedGenre }
+            onChange={ onSelectedGenreChange }
+            data-testid="select-input"
+          >
             <option value="" data-testid="select-option">Todos</option>
             <option value="action" data-testid="select-option">Ação</option>
             <option value="comedy" data-testid="select-option">Comédia</option>
@@ -51,11 +57,11 @@ class SearchBar extends Component {
 
 export default SearchBar;
 
-SearchBar.prototypes = {
-  searchText: PropTypes.string,
-  onSearchTextChange: PropTypes.func,
-  bookmarkedOnly: PropTypes.bool,
-  onBookmarkedChange: PropTypes.func,
-  selectedGenre: PropTypes.string,
-  onSelectedGenreChange: PropTypes.func,
+SearchBar.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
 };
