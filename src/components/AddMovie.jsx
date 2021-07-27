@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -9,8 +10,8 @@ class AddMovie extends Component {
       title: '',
       imagePath: '',
       storyline: '',
-      rating: 0,
-      genre: 'action',
+      // rating: 0,
+      // genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -23,8 +24,8 @@ class AddMovie extends Component {
   }
 
   render() {
-    // const {  /* onClick  */} = this.props;
-    const { title/* , subtitle, imagePath, storyline, rating, genre  */ } = this.state;
+    // const { onClick } = this.props;
+    const { title, subtitle, imagePath, storyline/* , rating, genre */ } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">
@@ -34,6 +35,34 @@ class AddMovie extends Component {
             type="text"
             data-testid="title-input"
             value={ title }
+            onChange={ this.handleChange }
+          />
+        </label>
+        <label htmlFor="subtitle" data-testid="subtitle-input-label">
+          Subtítulo
+          <input
+            type="text"
+            value={ subtitle }
+            data-testid="subtitle-input"
+            onChange={ this.handleChange }
+          />
+        </label>
+        <label htmlFor="image" data-testid="image-input-label">
+          Imagem
+          <input
+            data-testid="image-input"
+            type="text"
+            value={ imagePath }
+            onChange={ this.handleChange }
+          />
+        </label>
+        <label htmlFor="sinopse" data-testid="storyline-input-label">
+          Sinopse
+          <textarea
+            name="sinopse"
+            id="sinopse"
+            data-testid="storyline-input"
+            value={ storyline }
             onChange={ this.handleChange }
           />
         </label>
