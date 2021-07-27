@@ -1,6 +1,10 @@
 // implement AddMovie component here
 import React from 'react';
 import PropTypes from 'prop-types';
+import Title from './AddMoviesInputs/Title';
+import Subtitle from './AddMoviesInputs/Subtitle';
+import ImagePath from './AddMoviesInputs/ImagePath';
+import Storyline from './AddMoviesInputs/Storyline';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -29,55 +33,14 @@ class AddMovie extends React.Component {
     return (
       <div>
         <form data-testid="add-movie-form">
+          <Title value={ s.title } onChange={ this.onInputChange } />
+          <Subtitle value={ s.subtitle } onChange={ this.onInputChange } />
+          <ImagePath value={ s.imagePath } onChange={ this.onInputChange } />
+          <Storyline value={ s.storyline } onChange={ this.onInputChange } />
 
-          <label data-testid="title-input-label" htmlFor="addmovietitleinput">
-            Título
-            <input
-              type="text"
-              value={ s.title }
-              id="addmovietitleinput"
-              data-testid="title-input"
-              onChange={ this.onInputChange }
-              name="title"
-            />
-          </label>
-
-          <label data-testid="subtitle-input-label" htmlFor="addmoviesubtitleinput">
-            Subtítulo:
-            <input
-              type="text"
-              id="addmoviesubtitleinput"
-              value={ s.subtitle }
-              data-testid="subtitle-input"
-              onChange={ this.onInputChange }
-              name="subtitle"
-            />
-          </label>
-
-          <label data-testid="image-input-label" htmlFor="addmovieimagepathinput">
-            Imagem:
-            <input
-              type="text"
-              id="addmovieimagepathinput"
-              value={ s.imagePath }
-              data-testid="image-input"
-              onChange={ this.onInputChange }
-              name="imagePath"
-            />
-          </label>
-
-          <label data-testid="storyline-input-label" htmlFor="addmovietextarea">
-            Sinopse:
-            <textarea
-              id="addmovietextarea"
-              value={ s.storyline }
-              data-testid="storyline-input"
-              onChange={ this.onInputChange }
-              name="storyline"
-            />
-          </label>
         </form>
-      </div>);
+      </div>
+    );
   }
 }
 
