@@ -1,6 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import InputLabeled from './InputLabeled';
 import InputLabeledImage from './InputLabeledImage';
 import TextAreaLabeled from './TextAreaLabeled';
@@ -31,6 +31,20 @@ class AddMovie extends React.Component {
     }));
   }
 
+  handleClick = () => {
+    const { onClick } = this.props;
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
+    onClick(subtitle, title, imagePath, storyline, rating, genre);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
 
@@ -52,13 +66,20 @@ class AddMovie extends React.Component {
         <TextAreaLabeled value={ storyline } handleData={ this.handleData } />
         <InputLabeledRating value={ rating } handleData={ this.handleData } />
         <SelectLabeled value={ genre } handleData={ this.handleData } />
+        <button
+          data-testid="send-button"
+          onClick={ this.handleClick }
+          type="button"
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
 
 AddMovie.propTypes = {
-  // onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default AddMovie;
