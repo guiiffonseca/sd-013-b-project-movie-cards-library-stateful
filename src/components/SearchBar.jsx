@@ -3,6 +3,12 @@ import PropTypes from 'prop-types';
 
 export default class SearchBar extends Component {
   render() {
+    const { searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange } = this.props;
     return (
       <form action="" data-testid="search-bar-form">
         <label htmlFor="searchText" data-testid="text-input-label">
