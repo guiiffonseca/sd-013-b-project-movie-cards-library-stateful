@@ -24,7 +24,7 @@ export default class AddMovie extends React.Component {
 
   render() {
     const { onClick } = this.props;
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <section>
         <form data-testid="add-movie-form">
@@ -38,7 +38,6 @@ export default class AddMovie extends React.Component {
               type="text"
             />
           </label>
-
           <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
             Subtítulo
             <input
@@ -49,7 +48,6 @@ export default class AddMovie extends React.Component {
               type="text"
             />
           </label>
-
           <label data-testid="image-input-label" htmlFor="image-input">
             Imagem
             <input
@@ -59,6 +57,10 @@ export default class AddMovie extends React.Component {
               onChange={ this.handleChange }
               type="text"
             />
+          </label>
+          <label data-testid="storyline-input-label" htmlFor="storyline-input">
+            Sinopse
+            <textarea data-testid="storyline-input" name="storyline" value={ storyline } onChange={ this.handleChange } />
           </label>
         </form>
       </section>
