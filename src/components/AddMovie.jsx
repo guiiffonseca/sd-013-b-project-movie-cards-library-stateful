@@ -13,6 +13,7 @@ class AddMovie extends React.Component {
     super();
 
     this.onInputChange = this.onInputChange.bind(this);
+    this.onFormSubmit = this.onFormSubmit.bind(this);
 
     this.state = {
       subtitle: '',
@@ -30,6 +31,19 @@ class AddMovie extends React.Component {
     });
   }
 
+  onFormSubmit(e) {
+    e.preventDefault();
+    const p = this.props;
+    p.onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action' });
+  }
+
   render() {
     const s = this.state;
     return (
@@ -41,6 +55,9 @@ class AddMovie extends React.Component {
           <Storyline value={ s.storyline } onChange={ this.onInputChange } />
           <Rating value={ s.rating } onChange={ this.onInputChange } />
           <Genre value={ s.genre } onChange={ this.onInputChange } />
+          <button type="submit" data-testid="send-button" onClick={ this.onFormSubmit }>
+            Adicionar filme
+          </button>
         </form>
       </div>
     );
