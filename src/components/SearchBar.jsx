@@ -13,6 +13,9 @@ class SearchBar extends React.Component {
       onSelectedGenreChange
     } = this.props;
     return (
+      <div>
+        <p>Teste</p>
+      </div>
     );
   }
 }

@@ -5,20 +5,25 @@ import SearchBar from './components/SearchBar';
 
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      <SearchBar
-        searchText=""
-        onSearchTextChange={ () => {} }
-        bookmarkedOnly
-        onBookmarkedChange={ () => {} }
-        selectedGenre=""
-        onSelectedGenreChange={ () => {} }
-      />
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    const fnDefault = () => {};
+    const stringDefault = '';
+    const boolDefault = true;
+    return (
+      <div className="App">
+        <Header />
+        <SearchBar
+          searchText={ stringDefault }
+          onSearchTextChange={ fnDefault }
+          bookmarkedOnly={ boolDefault }
+          onBookmarkedChange={ fnDefault }
+          selectedGenre={ stringDefault }
+          onSelectedGenreChange={ fnDefault }
+        />
+      </div>
+    );
+  }
 }
 
 export default App;
