@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 
 class AddMovie extends Component {
@@ -12,11 +12,12 @@ class AddMovie extends Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    }
+    };
   }
+
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.setState;
-    return(
+    return (
       <div>
         <h1>Opa</h1>
       </div>
