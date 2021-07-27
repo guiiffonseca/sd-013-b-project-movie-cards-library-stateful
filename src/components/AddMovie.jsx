@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Title from './Title';
-// import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -24,8 +23,19 @@ class AddMovie extends Component {
     });
   }
 
+  // onClick(event) {
+  //   event.preventDefault();
+  //   this.setState({
+  //     subtitle: '',
+  //     title: '',
+  //     imagePath: '',
+  //     storyLine: '',
+  //     rating: 0,
+  //     genre: 'action',
+  //   });
+  // }
+
   render() {
-    // const { onClick } = this.props;
     const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -53,12 +63,21 @@ class AddMovie extends Component {
               value={ genre }
               onChange={ this.handleChange }
             >
-              <option value="action" data-testid="genre-option">Ação</option>
-              <option value="comedy" data-testid="genre-option">Comédia</option>
-              <option value="thriller" data-testid="genre-option">Suspense</option>
+              <option value="action" data-testid="genre-option">
+                Ação
+              </option>
+              <option value="comedy" data-testid="genre-option">
+                Comédia
+              </option>
+              <option value="thriller" data-testid="genre-option">
+                Suspense
+              </option>
             </select>
           </label>
         </label>
+        {/* <button type="button" onClick={ onClick } data-testid="send-button">
+          Adicionar filme
+        </button> */}
       </form>
     );
   }

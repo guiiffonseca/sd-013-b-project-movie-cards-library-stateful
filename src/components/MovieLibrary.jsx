@@ -1,1 +1,27 @@
-// implement MovieLibrary component here
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import SearchBar from './SearchBar';
+import MovieList from './MovieList';
+import AddMovie from './AddMovie';
+
+class MovieLibrary extends Component {
+  // constructor(){
+  //   super();
+
+  // }
+  render() {
+    const { movies } = this.props;
+    return (
+      <div>
+        <h2>My awesome movie library</h2>
+        <SearchBar />
+        <MovieList movies={ movies } />
+        <AddMovie />
+      </div>
+    );
+  }
+}
+MovieLibrary.propTypes = {
+  movies: PropTypes.string.isRequired,
+};
+export default MovieLibrary;
