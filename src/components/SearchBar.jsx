@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import propTypes from 'prop-types'
+import propTypes from 'prop-types';
 
 export default class SearchBar extends Component {
   render() {
@@ -8,7 +8,7 @@ export default class SearchBar extends Component {
 
     return (
       <form data-testid="search-bar-form">
-        <label data-testid="text-input-label">
+        <label data-testid="text-input-label" htmlFor="SearchText">
           Inclui o texto
           <input
             data-testid="text-input"
@@ -16,6 +16,16 @@ export default class SearchBar extends Component {
             type="text"
             value={ searchText }
             onChange={ onSearchTextChange }
+          />
+        </label>
+        <label data-testid="checkbox-input-label">
+          Mostrar somente favoritos
+          <input
+            data-testid="checkbox-input"
+            name="bookmarkedOnly"
+            type="checkbox"
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
           />
         </label>
       </form>
