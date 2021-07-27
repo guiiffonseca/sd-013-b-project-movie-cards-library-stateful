@@ -16,7 +16,10 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    return <div>AddMovie</div>;
+    return (
+      <div>
+        <form data-testid="add-movie-form" />
+      </div>);
   }
 }
 
