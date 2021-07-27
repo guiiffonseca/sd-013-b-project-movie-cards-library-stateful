@@ -5,6 +5,7 @@ import Subtitle from './Subtitle';
 import ImagePath from './ImagePath';
 import Storyline from './Storyline';
 import Rating from './NewRating';
+import Genre from './Genre';
 
 export default class AddMovie extends React.Component {
   constructor() {
@@ -37,6 +38,7 @@ export default class AddMovie extends React.Component {
         <ImagePath imagePath={ imagePath } onChange={ this.handleChange } />
         <Storyline storyline={ storyline } onChange={ this.handleChange } />
         <Rating rating={ rating } onChange={ this.handleChange } />
+        <Genre genre={ genre } onChange={ this.handleChange } />
       </form>
     );
   }
