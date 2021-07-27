@@ -15,9 +15,7 @@ function App() {
         onBookmarkedChange=""
       />
 
-      <AddMovie
-      
-      />
+      <AddMovie />
     </div>
   );
 }
