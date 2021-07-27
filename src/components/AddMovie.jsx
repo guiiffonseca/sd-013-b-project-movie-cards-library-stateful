@@ -26,15 +26,24 @@ export default class AddMovies extends React.Component {
     return (
       <form data-testid="add-movie-form">
         <DefaultTextInput
+          testName="title"
           labelText="Título"
           name="title"
           value={ title }
           handleChange={ this.handleChange }
         />
         <DefaultTextInput
+          testName="subtitle"
           labelText="Subtítulo"
           name="subtitle"
           value={ subtitle }
+          handleChange={ this.handleChange }
+        />
+        <DefaultTextInput
+          testName="image"
+          labelText="Imagem"
+          name="imagePath"
+          value={ imagePath }
           handleChange={ this.handleChange }
         />
       </form>
