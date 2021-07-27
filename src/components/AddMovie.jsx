@@ -5,6 +5,7 @@ import Subtitle from './Subtitle';
 import ImagePath from './ImagePath';
 import Storyline from './Storyline';
 import RatingInput from './RatingInput';
+import Select from './Select';
 
 export default class AddMovie extends React.Component {
   constructor() {
@@ -29,7 +30,7 @@ export default class AddMovie extends React.Component {
 
   render() {
     const { onClick } = this.props;
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <section>
         <form data-testid="add-movie-form">
@@ -38,6 +39,7 @@ export default class AddMovie extends React.Component {
           <ImagePath handleChange={ this.handleChange } value={ imagePath } />
           <Storyline handleChange={ this.handleChange } value={ storyline } />
           <RatingInput handleChange={ this.handleChange } value={ rating } />
+          <Select handleChange={ this.handleChange } value={ genre } />
         </form>
       </section>
     );
