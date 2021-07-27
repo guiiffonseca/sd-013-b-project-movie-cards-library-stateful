@@ -49,6 +49,30 @@ class AddMovie extends Component {
               onChange={ atualizarEstado }
             />
           </label>
+          <label
+            htmlFor="imagem" 
+            data-testid="image-input-label">
+            Imagem
+            <input
+              type="text"
+              id="imagem"
+              value={ imagePath }
+              data-testid="image-input"
+              onChange={ atualizarEstado }
+            />
+          </label>
+          <label
+            htmlFor="textarea" 
+            data-testid="storyline-input-label">
+            Sinopse
+            <textarea
+              type="text"
+              id="textarea"
+              value={ storyline }
+              data-testid="storyline-input"
+              onChange={ atualizarEstado }
+            />
+          </label>
         </form>
       </div>
     );
