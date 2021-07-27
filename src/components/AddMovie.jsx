@@ -29,8 +29,8 @@ class AddMovie extends Component {
             type="text"
             data-testid="title-input"
             id="title-input"
-            value={ title }
-            onChange={ handleChange }
+            name={ title }
+            onChange={ this.handleChange }
           />
         </label>
         <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
@@ -39,8 +39,8 @@ class AddMovie extends Component {
             type="text"
             data-testid="subtitle-input"
             id="title-input"
-            value={ subtitle }
-            onChange={ handleChange }
+            name={ subtitle }
+            onChange={ this.handleChange }
           />
         </label>
         <label htmlFor="image-input" data-testid="image-input-label">
@@ -49,11 +49,21 @@ class AddMovie extends Component {
             type="text"
             data-testid="image-input"
             id="image-input"
-            value={ imagePath }
-            onChange={ handleChange }
+            name={ imagePath }
+            onChange={ this.handleChange }
           />
         </label>
-        
+        <label htmlFor="storyline-input" data-testid="storyline-input-label">
+          Sinopse
+          <textarea
+            data-testid="storyline-input"
+            id="storyline-input"
+            cols="30"
+            rows="10"
+            name={ storyline }
+            onChange={ this.handleChange }
+          />
+        </label>
       </form>
     );
   }
