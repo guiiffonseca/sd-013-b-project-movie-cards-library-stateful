@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import Input from './Input';
+
 class AddMovie extends React.Component {
   constructor() {
     super();
@@ -13,6 +15,12 @@ class AddMovie extends React.Component {
       subtitle: '',
       title: '',
     };
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
   }
 
   render() {
@@ -37,9 +45,18 @@ class AddMovie extends React.Component {
             rating,
             storyLine,
             subtitle,
-            title,
           )
         }
+        <Input
+          id="title"
+          label="Título"
+          name="title"
+          onChange={ this.handleChange }
+          testidInput="title-input"
+          testidLabel="title-input-label"
+          type="text"
+          value={ title }
+        />
       </form>
     );
   }
