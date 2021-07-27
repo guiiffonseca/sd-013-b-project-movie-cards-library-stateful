@@ -28,6 +28,10 @@ class AddMovie extends Component {
           Imagem
           <input type="text" data-testid="image-input" />
         </label>
+        <label htmlFor="storyline-input" data-testid="storyline-input-label">
+          Sinopse
+          <textarea name="" data-testid="storyline-input" id="" cols="30" rows="10" />
+        </label>
 
       </form>
     );
