@@ -14,12 +14,24 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
 
+    this.handleChange = this.handleChange.bind(this);
     this.onClick = this.onClick.bind(this);
   }
 
-  onClick(event) {
+  handleChange(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
+  }
+
+  onClick() {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
@@ -33,7 +45,7 @@ class AddMovie extends React.Component {
             type="text"
             value={ title }
             data-testid="title-input"
-            onChange={ this.onClick }
+            onChange={ this.handleChange }
           />
         </label>
         <label htmlFor="subtitulo" data-testid="subtitle-input-label">
@@ -43,7 +55,7 @@ class AddMovie extends React.Component {
             type="text"
             value={ subtitle }
             data-testid="subtitle-input"
-            onChange={ this.onClick }
+            onChange={ this.handleChange }
           />
         </label>
         <label htmlFor="imagePath" data-testid="image-input-label">
@@ -53,7 +65,7 @@ class AddMovie extends React.Component {
             type="text"
             value={ imagePath }
             data-testid="image-input"
-            onChange={ this.onClick }
+            onChange={ this.handleChange }
           />
         </label>
         <label htmlFor="storyline" data-testid="storyline-input-label">
@@ -62,7 +74,7 @@ class AddMovie extends React.Component {
             name="storyline"
             value={ storyline }
             data-testid="storyline-input"
-            onChange={ this.onClick }
+            onChange={ this.handleChange }
           />
         </label>
         <label htmlFor="rating" data-testid="rating-input-label">
@@ -72,7 +84,7 @@ class AddMovie extends React.Component {
             name="rating"
             value={ rating }
             data-testid="rating-input"
-            onChange={ this.onClick }
+            onChange={ this.handleChange }
           />
         </label>
         <label htmlFor="genre" data-testid="genre-input-label">
@@ -81,13 +93,14 @@ class AddMovie extends React.Component {
             name="genre"
             value={ genre }
             data-testid="genre-input"
-            onChange={ this.onClick }
+            onChange={ this.handleChange }
           >
               <option value="action" data-testid="genre-option">Ação</option>
               <option value="comedy" data-testid="genre-option">Comédia</option>
               <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
         </label>
+        <button data-testid="send-button" onClick={ this.onClick }>Adicionar filme</button>
       </form>
     );
   }
