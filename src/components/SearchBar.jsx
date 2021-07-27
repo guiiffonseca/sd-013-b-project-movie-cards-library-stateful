@@ -8,7 +8,9 @@ const SearchBar = ({
   selectedGenre,
   onSelectedGenreChange,
 }) => (
-  <h1>SearchBar</h1>
+  <form data-testid="search-bar-form" >
+
+  </form>
 )
 
 export default SearchBar;
