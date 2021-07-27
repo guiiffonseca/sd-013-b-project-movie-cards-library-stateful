@@ -37,7 +37,7 @@ export default class AddMovie extends React.Component {
             type="text"
             value={ title }
             data-testid="title-input"
-            onChange={ this.handleChange }
+            onChange={ this.handleChange} 
           />
         </label>
         <label data-testid="subtitle-input-label" htmlFor="subtitle">
@@ -67,6 +67,17 @@ export default class AddMovie extends React.Component {
             id="storyLine"
             data-testid="storyline-input"
             value={ storyLine }
+            onChange={ this.handleChange }
+          />
+        </label>
+        <label data-testid="rating-input-label" htmlFor="rating">
+          Avaliação
+          <input
+            type="number"
+            name="rating"
+            id="rating"
+            data-testid="rating-input"
+            value={ rating }
             onChange={ this.handleChange }
           />
         </label>
