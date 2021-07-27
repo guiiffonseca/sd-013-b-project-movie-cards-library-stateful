@@ -26,7 +26,7 @@ class SeacrhBar extends Component {
             id="radio"
             type="radio"
             checked={ bookmarkedOnly }
-            onChange={ onBookmarkedChange }
+            onClick={ onBookmarkedChange }
           />
         </label>
 

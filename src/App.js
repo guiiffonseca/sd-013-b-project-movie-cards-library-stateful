@@ -10,6 +10,8 @@ function App() {
       <SeacrhBar
         searchText=""
         onSearchTextChange=""
+        bookmarkedOnly=""
+        onBookmarkedChange=""
       />
     </div>
   );
