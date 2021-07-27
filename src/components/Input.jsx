@@ -3,20 +3,20 @@ import PropTypes from 'prop-types';
 
 function Input({
   id,
-  label,
-  testidInput,
-  testidLabel,
+  labelText,
+  name,
   ...rest
 }) {
   return (
     <label
-      data-testid={ testidLabel }
+      data-testid={ `${id}-input-label` }
       htmlFor={ id }
     >
-      { label }
+      { labelText }
       <input
-        data-testid={ testidInput }
+        data-testid={ `${id}-input` }
         id={ id }
+        name={ name || id }
         { ...rest }
       />
     </label>
@@ -25,9 +25,12 @@ function Input({
 
 Input.propTypes = {
   id: PropTypes.string.isRequired,
-  label: PropTypes.string.isRequired,
-  testidInput: PropTypes.string.isRequired,
-  testidLabel: PropTypes.string.isRequired,
+  labelText: PropTypes.string.isRequired,
+  name: PropTypes.string,
+};
+
+Input.defaultProps = {
+  name: undefined,
 };
 
 export default Input;

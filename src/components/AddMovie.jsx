@@ -27,49 +27,49 @@ class AddMovie extends React.Component {
     const { genre, imagePath, rating, storyLine, subtitle, title } = this.state;
     const { onClick } = this.props;
 
+    console.log(genre, onClick);
+
     return (
       <form data-testid="add-movie-form">
-        { console.log(onClick, genre, rating, storyLine) }
         <Input
           id="title"
-          label="Título"
-          name="title"
+          labelText="Título"
           onChange={ this.handleChange }
-          testidInput="title-input"
-          testidLabel="title-input-label"
           type="text"
           value={ title }
         />
         <Input
           id="subtitle"
-          label="Subtítulo"
-          name="subtitle"
+          labelText="Subtítulo"
           onChange={ this.handleChange }
-          testidInput="subtitle-input"
-          testidLabel="subtitle-input-label"
           type="text"
           value={ subtitle }
         />
         <Input
-          id="imagePath"
-          label="Imagem"
+          id="image"
+          labelText="Imagem"
           name="imagePath"
           onChange={ this.handleChange }
-          testidInput="image-input"
-          testidLabel="image-input-label"
           type="text"
           value={ imagePath }
         />
         <label data-testid="storyline-input-label" htmlFor="storyline">
           Sinopse
           <textarea
-            name="storyline"
-            id="storyline"
+            name="storyLine"
+            id="storyLine"
             defaultValue={ storyLine }
             data-testid="storyline-input"
             onChange={ this.handleChange }
           />
         </label>
+        <Input
+          id="rating"
+          labelText="Avaliação"
+          onChange={ this.handleChange }
+          type="number"
+          value={ rating }
+        />
       </form>
     );
   }
