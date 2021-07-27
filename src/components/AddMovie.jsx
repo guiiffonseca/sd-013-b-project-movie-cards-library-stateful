@@ -6,6 +6,7 @@ import ImagePath from './ImagePath';
 import Storyline from './Storyline';
 import RatingInput from './RatingInput';
 import Select from './Select';
+import Button from './Button';
 
 export default class AddMovie extends React.Component {
   constructor() {
@@ -28,18 +29,31 @@ export default class AddMovie extends React.Component {
     });
   }
 
+  handleClick(action) {
+    action(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
     const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <section>
         <form data-testid="add-movie-form">
-          <Title handleChange={ this.handleChange } value={ title } />
-          <Subtitle handleChange={ this.handleChange } value={ subtitle } />
-          <ImagePath handleChange={ this.handleChange } value={ imagePath } />
-          <Storyline handleChange={ this.handleChange } value={ storyline } />
-          <RatingInput handleChange={ this.handleChange } value={ rating } />
-          <Select handleChange={ this.handleChange } value={ genre } />
+          <Title handleChange={ this.handleChange } title={ title } />
+          <Subtitle handleChange={ this.handleChange } subtitle={ subtitle } />
+          <ImagePath handleChange={ this.handleChange } imagePath={ imagePath } />
+          <Storyline handleChange={ this.handleChange } storyline={ storyline } />
+          <RatingInput handleChange={ this.handleChange } rating={ rating } />
+          <Select handleChange={ this.handleChange } genre={ genre } />
+          <Button onClick={ () => this.handleClick(onClick) } />
         </form>
       </section>
     );
