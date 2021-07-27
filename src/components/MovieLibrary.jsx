@@ -17,7 +17,7 @@ class MovieLibrary extends React.Component {
   }
 
   onSearchTextChange = ({ target }) => {
-    const {name, value} = target;  
+    const { name, value } = target;
     const { movies } = this.props;
     const newList = movies.filter((movie) => (
       movie.title.includes(value)
@@ -30,7 +30,7 @@ class MovieLibrary extends React.Component {
   };
 
   onBookmarkedChange = ({ target }) => {
-    const {name, checked} = target;  
+    const { name, checked } = target;
     const { movies } = this.props;
     const newList = (checked)
       ? movies.filter(({ bookmarked }) => bookmarked)
@@ -57,7 +57,7 @@ class MovieLibrary extends React.Component {
     const { movies } = this.props;
     movies.push(movie);
     this.setState({
-      movies: movies,
+      movies,
     });
   };
 
