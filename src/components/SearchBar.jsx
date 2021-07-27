@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import FormSelect from './FormSelect';
+
 class SearchBar extends React.Component {
   render() {
     const {
@@ -18,12 +20,35 @@ class SearchBar extends React.Component {
           Inclui o texto:
           <input
             type="text"
+            name="search-text"
             id="search-text"
             data-testid="text-input"
             value={ searchText }
             onChange={ onSearchTextChange }
           />
         </label>
+
+        <label htmlFor="bookmarked-only" data-testid="checkbox-input-label">
+          <input
+            type="checkbox"
+            name="bookmarked-only"
+            id="bookmarked-only"
+            data-testid="checkbox-input"
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
+          />
+          Mostrar somente favoritos
+        </label>
+
+        <FormSelect
+          name="genre-select"
+          labelText="Filtrar por gênero"
+          labelTestId="select-input-label"
+          selectId="genre-select"
+          selectTestId="select-input"
+          selectValue={ selectedGenre }
+          onChange={ onSelectedGenreChange }
+        />
       </form>
     );
   }
