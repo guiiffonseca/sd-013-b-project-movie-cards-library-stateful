@@ -24,7 +24,6 @@ class Genre extends Component {
 }
 
 Genre.propTypes = {
-  valor: PropTypes.string.isRequired,
   funcao: PropTypes.func.isRequired,
 };
 
