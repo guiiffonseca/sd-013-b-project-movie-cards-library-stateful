@@ -30,11 +30,13 @@ export default class SearchBar extends React.Component {
         <label htmlFor="A" data-testid="checkbox-input-label">
           Mostrar somente favoritos
           <input
+            type="checkbox"
             checked={ this.props.bookmarkedOnly }
             onChange={ this.props.onBookmarkedChange }
             data-testid="checkbox-input"
           />
         </label>
+        
       </form>
     );
   }
