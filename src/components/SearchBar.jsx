@@ -5,9 +5,7 @@ export default class SearchBar extends React.Component {
     return (
       <form data-testid="search-bar-form">
         <label data-testid="text-input-label" htmlFor="textInput">
-
           Inclui o texto
-
           <input
             data-testid="text-input"
             id="textInput"
@@ -16,9 +14,7 @@ export default class SearchBar extends React.Component {
             type="text"
             value={ searchText }
           />
-
         </label>
-
         <label data-testid="checkbox-input-label" htmlFor="checkboxInput">
 
           Mostrar somente favoritos
