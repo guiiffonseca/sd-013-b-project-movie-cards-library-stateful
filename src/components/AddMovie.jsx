@@ -55,6 +55,15 @@ export default class AddMovie extends React.Component {
           onChange={ this.handleChange }
         />
         <TextArea value={ storyline } onChange={ this.handleChange } />
+        <TextInput
+          dataTestidLabel="rating-input-label"
+          text="Avaliação:"
+          type="number"
+          name="rating"
+          value={ rating }
+          dataTestid="rating-input"
+          onChange={ this.handleChange }
+        />
       </form>
     );
   }
