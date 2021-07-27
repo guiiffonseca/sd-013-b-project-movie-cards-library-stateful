@@ -17,7 +17,9 @@ export default class AddMovie extends Component {
   render() {
     const { onClick } = this.props;
     return (
-      <span> teste </span>
+      <form data-testid="add-movie-form">
+
+      </form>
     );
   }
 }
