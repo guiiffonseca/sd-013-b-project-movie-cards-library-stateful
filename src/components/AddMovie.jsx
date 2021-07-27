@@ -1,6 +1,7 @@
 // implement AddMovie component here
 import React from 'react';
 import AddSinopse from './AddSinopse';
+import AddRating from './AddRating';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -70,16 +71,7 @@ class AddMovie extends React.Component {
           />
         </label>
         <AddSinopse  storyline={ storyline } handleChange={ this.handleChange }/>
-        <label htmlFor="rating" data-testid="rating-input-label">
-          Avaliação
-          <input
-            type="number"
-            name="rating"
-            value={ rating }
-            data-testid="rating-input"
-            onChange={ this.handleChange }
-          />
-        </label>
+        <AddRating rating={ rating } handleChange={ this.handleChange }/>
         <label htmlFor="genre" data-testid="genre-input-label">
           Gênero
           <select
