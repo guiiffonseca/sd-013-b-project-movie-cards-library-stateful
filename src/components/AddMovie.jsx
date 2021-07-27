@@ -1,10 +1,16 @@
 // implement AddMovie component here
 import React from 'react';
 import PropTypes from 'prop-types';
+import Title from './Title';
+import Subtitle from './Subtitle';
+import ImagePath from './ImagePath';
+import Storyline from './Storyline';
+import RatingInput from './RatingInput';
+import Genre from './Genre';
 
 class AddMovie extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
       subtitle: '',
       title: '',
@@ -12,7 +18,7 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    }
+    };
   }
 
   handleChange = ({ target }) => {
@@ -20,7 +26,7 @@ class AddMovie extends React.Component {
     const { name } = target;
     this.setState({
       [name]: value,
-    })
+    });
   };
 
   onSubmit = () => {
@@ -33,7 +39,7 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    })
+    });
   };
 
   render() {
@@ -47,78 +53,15 @@ class AddMovie extends React.Component {
     } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title" data-testid="title-input-label">
-          Título
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value={ title }
-            onChange={ this.handleChange }
-            data-testid="title-input"
-          />
-        </label>
-        <label htmlFor="subtitle" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            type="text"
-            id="subtitle"
-            name="subtitle"
-            value={ subtitle }
-            onChange={ this.handleChange }
-            data-testid="subtitle-input"
-          />
-        </label>
-        <label htmlFor="imagePath" data-testid="image-input-label">
-          Imagem
-          <input
-            type="text"
-            id="imagePath"
-            name="imagePath"
-            value={ imagePath }
-            onChange={ this.handleChange }
-            data-testid="image-input"
-          />
-        </label>
-        <label htmlFor="storyline" data-testid="storyline-input-label">
-          Sinopse
-          <input
-            type="text"
-            id="storyline"
-            name="storyline"
-            value={ storyline }
-            onChange={ this.handleChange }
-            data-testid="storyline-input"
-          />
-        </label>
-        <label htmlFor="rating" data-testid="rating-input-label">
-          Avaliação
-          <input
-            type="number"
-            id="rating"
-            name="rating"
-            value={ rating }
-            onChange={ this.handleChange }
-            data-testid="rating-input"
-          />
-        </label>
-        <label htmlFor="genre" data-testid="genre-input-label">
-          Gênero
-          <select
-            type="number"
-            id="genre"
-            name="genre"
-            value={ genre }
-            onChange={ this.handleChange }
-            data-testid="genre-input"
-          >
-            <option value="action" data-testid="genre-option">Ação</option>
-            <option value="comedy" data-testid="genre-option">Comédia</option>
-            <option value="thriller" data-testid="genre-option">Suspense</option>
-          </select>
-        </label>
+        <Title title={ title } handleChange={ this.handleChange } />
+        <Subtitle subtitle={ subtitle } handleChange={ this.handleChange } />
+        <ImagePath imagePath={ imagePath } handleChange={ this.handleChange } />
+        <Storyline storyline={ storyline } handleChange={ this.handleChange } />
+        <RatingInput rating={ rating } handleChange={ this.handleChange } />
+        <Genre genre={ genre } handleChange={ this.handleChange } />
 
         <button
+          type="submit"
           onClick={ this.onSubmit }
           data-testid="send-button"
         >
@@ -133,4 +76,4 @@ AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 
-export default AddMovie
+export default AddMovie;
