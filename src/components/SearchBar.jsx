@@ -14,6 +14,8 @@ class SearchBar extends React.Component {
 
     return (
       <div>
+        <form action="" data-testid="search-bar-form" />
+
         {searchText}
         {onSearchTextChange}
         {bookmarkedOnly}
