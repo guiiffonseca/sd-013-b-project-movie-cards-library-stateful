@@ -5,7 +5,7 @@ import SeacrhBar from './components/SearchBar';
 import AddMovie from './components/AddMovie';
 
 function teste(estado) {
-  
+  console.log(estado);
 }
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
       />
 
       <AddMovie
-      onClick = {teste}
+        onClick={teste}
       />
     </div>
   );
