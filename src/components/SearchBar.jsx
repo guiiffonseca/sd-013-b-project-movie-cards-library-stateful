@@ -8,8 +8,8 @@ const SearchBar = ({
   selectedGenre,
   onSelectedGenreChange,
 }) => (
-  <form data-testid="search-bar-form" >
-    <label 
+  <form data-testid="search-bar-form">
+    <label
       data-testid="text-input-label"
       htmlFor="search"
     >
@@ -23,6 +23,6 @@ const SearchBar = ({
       />
     </label>
   </form>
-)
+);
 
 export default SearchBar;
