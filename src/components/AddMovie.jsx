@@ -13,11 +13,16 @@ class AddMovie extends Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
+    // this.runOnClick = this.runOnClick.bind(this);
   }
 
   handleChange({ name, value }) {
     this.setState({ [name]: value });
   }
+
+  // runOnClick() {
+
+  // }
 
   render() {
     const { onClick } = this.props;
@@ -25,7 +30,7 @@ class AddMovie extends Component {
     return (
       <form action="" data-testid="add-movie-form">
         {/* <AddMovieInputs props={ { type, data-testid, id, name, onChange }} /> */}
-          <label htmlFor="title-input" data-testid="title-input-label">
+        <label htmlFor="title-input" data-testid="title-input-label">
           Título
           <input
             type="text"
@@ -66,17 +71,36 @@ class AddMovie extends Component {
             onChange={ this.handleChange }
           />
         </label>
-        <label htmlFor="" data-testid="rating-input-label">
+        <label htmlFor="rating-input" data-testid="rating-input-label">
           Avaliação
           <input
             type="number"
             data-testid="rating-input"
-            id=""
+            id="rating-input"
             name={ rating }
             onChange={ this.handleChange }
           />
         </label>
-        
+        <label htmlFor="genre-input" data-testid="genre-input-label">
+          Gênero
+          <select
+            data-testid="genre-input"
+            id="genre-input"
+            name={ genre }
+            onChange={ this.handleChange }
+          >
+            <option data-testid="genre-option" value="action">Ação</option>
+            <option data-testid="genre-option" value="comedy">Comédia</option>
+            <option data-testid="genre-option" value="thriller">Suspense</option>
+          </select>
+        </label>
+        {/* <button
+          type="button"
+          data-testid="send-button"
+          onClick={ this.runOnClick }
+        >
+          Adicionar filme
+        </button> */}
       </form>
     );
   }
