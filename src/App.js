@@ -20,7 +20,7 @@ function App() {
       />
 
       <AddMovie
-        onClick={teste}
+        onClick={ teste }
       />
     </div>
   );
