@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 export default class SearchBar extends Component {
   render() {
     return (
-      <label htmlFor="">
-        <input type="text" />
-      </label>
+      <form action="" data-testid="search-bar-form">
+
+      </form>
     );
   }
 }
