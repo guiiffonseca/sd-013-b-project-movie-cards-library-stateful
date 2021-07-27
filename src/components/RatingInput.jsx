@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class RatingInput extends React.Component {
   render() {
@@ -18,3 +19,8 @@ export default class RatingInput extends React.Component {
     );
   }
 }
+
+RatingInput.propTypes = {
+  genre: PropTypes.number.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
