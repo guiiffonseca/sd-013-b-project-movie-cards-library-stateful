@@ -2,6 +2,7 @@
 import React from 'react';
 import AddSinopse from './AddSinopse';
 import AddRating from './AddRating';
+import AddGenre from './AddGenre';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -72,19 +73,7 @@ class AddMovie extends React.Component {
         </label>
         <AddSinopse  storyline={ storyline } handleChange={ this.handleChange }/>
         <AddRating rating={ rating } handleChange={ this.handleChange }/>
-        <label htmlFor="genre" data-testid="genre-input-label">
-          Gênero
-          <select
-            name="genre"
-            value={ genre }
-            data-testid="genre-input"
-            onChange={ this.handleChange }
-          >
-              <option value="action" data-testid="genre-option">Ação</option>
-              <option value="comedy" data-testid="genre-option">Comédia</option>
-              <option value="thriller" data-testid="genre-option">Suspense</option>
-          </select>
-        </label>
+        <AddGenre genre={ genre } handleChange={ this.handleChange } />
         <button data-testid="send-button" onClick={ this.onClick }>Adicionar filme</button>
       </form>
     );
