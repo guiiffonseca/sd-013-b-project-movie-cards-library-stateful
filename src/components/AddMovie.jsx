@@ -5,6 +5,7 @@ import InputLabeled from './InputLabeled';
 import InputLabeledImage from './InputLabeledImage';
 import TextAreaLabeled from './TextAreaLabeled';
 import InputLabeledRating from './InputLabeledRating';
+import SelectLabeled from './SelectLabeled';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -50,20 +51,7 @@ class AddMovie extends React.Component {
         <InputLabeledImage handleData={ this.handleData } value={ imagePath } />
         <TextAreaLabeled value={ storyline } handleData={ this.handleData } />
         <InputLabeledRating value={ rating } handleData={ this.handleData } />
-        <label htmlFor="genre" data-testid="genre-input-label">
-          Gênero
-          <select
-            name="genre"
-            id="genre"
-            data-testid="genre-input"
-            value={ genre }
-            onChange={ this.handleData }
-          >
-            <option value="action" data-testid="genre-option"> Ação </option>
-            <option value="comedy" data-testid="genre-option"> Comédia </option>
-            <option value="thriller" data-testid="genre-option"> Suspense </option>
-          </select>
-        </label>
+        <SelectLabeled value={ genre } handleData={ this.handleData } />
       </form>
     );
   }
