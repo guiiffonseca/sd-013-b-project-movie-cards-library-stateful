@@ -32,8 +32,16 @@ class SearchBar extends React.Component {
           checked={ bookmarkedOnly }
         />
         <Select
-          onSelectedGenreChange={ onSelectedGenreChange }
-          selectedGenre={ selectedGenre }
+          id="select"
+          genres={ [
+            { value: '', optionText: 'Todos' },
+            { value: 'action', optionText: 'Ação' },
+            { value: 'comedy', optionText: 'Comédia' },
+            { value: 'thriller', optionText: 'Suspense' },
+          ] }
+          labelText="Filtrar por gênero"
+          onChange={ onSelectedGenreChange }
+          value={ selectedGenre }
         />
       </form>
     );

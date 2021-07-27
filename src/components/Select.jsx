@@ -2,53 +2,52 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Select({
-  selectedGenre,
-  onSelectedGenreChange,
+  id,
+  labelText,
+  genres,
+  name,
+  ...rest
 }) {
   return (
     <label
-      data-testid="select-input-label"
-      htmlFor="Genre"
+      data-testid={ `${id}-input-label` }
+      htmlFor={ id }
     >
-      Filtrar por gênero:
+      { labelText }
       <select
-        data-testid="select-input"
-        id="Genre"
-        onChange={ onSelectedGenreChange }
-        value={ selectedGenre }
+        data-testid={ `${id}-input` }
+        id={ id }
+        name={ name || id }
+        { ...rest }
       >
-        <option
-          data-testid="select-option"
-          value=""
-        >
-          Todos
-        </option>
-        <option
-          data-testid="select-option"
-          value="action"
-        >
-          Ação
-        </option>
-        <option
-          data-testid="select-option"
-          value="comedy"
-        >
-          Comédia
-        </option>
-        <option
-          data-testid="select-option"
-          value="thriller"
-        >
-          Suspense
-        </option>
+        {
+          genres.map(({ value, optionText }, index) => (
+            <option
+              data-testid={ `${id}-option` }
+              key={ index }
+              value={ value }
+            >
+              { optionText }
+            </option>
+          ))
+        }
       </select>
     </label>
   );
 }
 
 Select.propTypes = {
-  selectedGenre: PropTypes.string.isRequired,
-  onSelectedGenreChange: PropTypes.func.isRequired,
+  id: PropTypes.string.isRequired,
+  genres: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.string,
+    optionText: PropTypes.string,
+  })).isRequired,
+  labelText: PropTypes.string.isRequired,
+  name: PropTypes.string,
+};
+
+Select.defaultProps = {
+  name: undefined,
 };
 
 export default Select;
