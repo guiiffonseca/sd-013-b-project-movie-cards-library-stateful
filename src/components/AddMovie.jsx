@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import AddRating from './AddRating';
+import AddSinopse from './AddSinopse';
 // import PropTypes from 'prop-types';
 
 export default class AddMovie extends Component {
@@ -9,7 +11,7 @@ export default class AddMovie extends Component {
       title: '',
       imagePath: '',
       storyline: '',
-      // rating: 0,
+      rating: 0,
       // genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
@@ -23,7 +25,7 @@ export default class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle, storyline, imagePath } = this.state;
+    const { title, subtitle, storyline, imagePath, rating } = this.state;
     // const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
@@ -59,16 +61,8 @@ export default class AddMovie extends Component {
             onChange={ this.handleChange }
           />
         </label>
-        <label htmlFor="input-area" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            id="input-area"
-            value={ storyline }
-            data-testid="storyline-input"
-            onChange={ this.handleChange }
-            name="storyline"
-          />
-        </label>
+        <AddSinopse value={ storyline } handleChange={ this.handleChange } />
+        <AddRating value={ rating } handleChange={ this.handleChange } />
       </form>
     );
   }
