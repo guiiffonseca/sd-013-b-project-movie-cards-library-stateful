@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AddGenre from './AddGenre';
 import AddRating from './AddRating';
 import AddSinopse from './AddSinopse';
 // import PropTypes from 'prop-types';
@@ -12,7 +13,7 @@ export default class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      // genre: 'action',
+      genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -25,7 +26,7 @@ export default class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle, storyline, imagePath, rating } = this.state;
+    const { title, subtitle, storyline, imagePath, rating, genre } = this.state;
     // const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
@@ -63,6 +64,7 @@ export default class AddMovie extends Component {
         </label>
         <AddSinopse value={ storyline } handleChange={ this.handleChange } />
         <AddRating value={ rating } handleChange={ this.handleChange } />
+        <AddGenre value={ genre } handleChange={ this.handleChange } />
       </form>
     );
   }
