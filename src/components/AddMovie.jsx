@@ -47,6 +47,7 @@ class AddMovie extends React.Component {
             type="text"
             id="subtitulo-input"
             name="subtitle"
+            value={subtitle}
             data-testid="subtitle-input"
             onChange={ this.handleChange }
           />
