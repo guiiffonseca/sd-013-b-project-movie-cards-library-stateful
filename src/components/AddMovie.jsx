@@ -18,8 +18,8 @@ class AddMovie extends React.Component {
   }
 
   onClick(event) {
-    const { value } = event.target;
-    this.setState({ title: value });
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   }
 
   render() {
@@ -33,6 +33,16 @@ class AddMovie extends React.Component {
             type="text"
             value={ title }
             data-testid="title-input"
+            onChange={ this.onClick }
+          />
+        </label>
+        <label htmlFor="subtitulo" data-testid="subtitle-input-label">
+          Subtítulo
+          <input
+            name="subtitle"
+            type="text"
+            value={ subtitle }
+            data-testid="subtitle-input"
             onChange={ this.onClick }
           />
         </label>
