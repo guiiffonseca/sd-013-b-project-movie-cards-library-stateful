@@ -4,6 +4,10 @@ import './App.css';
 import SeacrhBar from './components/SearchBar';
 import AddMovie from './components/AddMovie';
 
+function teste(estado) {
+  
+}
+
 function App() {
   return (
     <div id="App" className="App">
@@ -15,7 +19,9 @@ function App() {
         onBookmarkedChange=""
       />
 
-      <AddMovie />
+      <AddMovie
+      onClick = {teste}
+      />
     </div>
   );
 }
