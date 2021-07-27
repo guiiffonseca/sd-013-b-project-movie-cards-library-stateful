@@ -1,4 +1,5 @@
 import React from 'react';
+import DefaultTextInput from './DefaultTextInput';
 
 export default class AddMovies extends React.Component {
   constructor() {
@@ -24,26 +25,18 @@ export default class AddMovies extends React.Component {
     const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title" data-testid="title-input-label">
-          Título
-          <input
-            data-testid="title-input"
-            value={ title }
-            name="title"
-            type="text"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="subtitle" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            data-testid="subtitle-input"
-            value={ subtitle }
-            type="text"
-            name="subtitle"
-            onChange={ this.handleChange }
-          />
-        </label>
+        <DefaultTextInput
+          labelText="Título"
+          name="title"
+          value={ title }
+          handleChange={ this.handleChange }
+        />
+        <DefaultTextInput
+          labelText="Subtítulo"
+          name="subtitle"
+          value={ subtitle }
+          handleChange={ this.handleChange }
+        />
       </form>
     );
   }
