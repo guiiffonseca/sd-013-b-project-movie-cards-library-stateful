@@ -1,32 +1,29 @@
 import React, { Component } from 'react';
-// import AddMovieInputs from './AddMovieInputs';
+// import AddMovieInput from './AddMovieInput';
+
+const initialState = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
 
 class AddMovie extends Component {
   constructor() {
     super();
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+    this.state = initialState;
     this.handleChange = this.handleChange.bind(this);
-    // this.runOnClick = this.runOnClick.bind(this);
   }
 
-  handleChange({ name, value }) {
-    this.setState({ [name]: value });
+  handleChange(event) {
+    this.setState({ [event.target.name]: event.target.value });
   }
-
-  // runOnClick() {
-
-  // }
 
   render() {
-    const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
+    const { onClick } = this.props;
     return (
       <form action="" data-testid="add-movie-form">
         {/* <AddMovieInputs props={ { type, data-testid, id, name, onChange }} /> */}
@@ -36,7 +33,8 @@ class AddMovie extends Component {
             type="text"
             data-testid="title-input"
             id="title-input"
-            name={ title }
+            name="title"
+            value={ title }
             onChange={ this.handleChange }
           />
         </label>
@@ -46,7 +44,8 @@ class AddMovie extends Component {
             type="text"
             data-testid="subtitle-input"
             id="title-input"
-            name={ subtitle }
+            name="subtitle"
+            value={ subtitle }
             onChange={ this.handleChange }
           />
         </label>
@@ -56,7 +55,8 @@ class AddMovie extends Component {
             type="text"
             data-testid="image-input"
             id="image-input"
-            name={ imagePath }
+            name="imagePath"
+            value={ imagePath }
             onChange={ this.handleChange }
           />
         </label>
@@ -77,7 +77,8 @@ class AddMovie extends Component {
             type="number"
             data-testid="rating-input"
             id="rating-input"
-            name={ rating }
+            name="rating"
+            value={ rating }
             onChange={ this.handleChange }
           />
         </label>
@@ -94,13 +95,13 @@ class AddMovie extends Component {
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
-        {/* <button
+        <button
           type="button"
           data-testid="send-button"
-          onClick={ this.runOnClick }
+          onClick={ onClick }
         >
           Adicionar filme
-        </button> */}
+        </button>
       </form>
     );
   }
