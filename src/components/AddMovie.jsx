@@ -5,6 +5,7 @@ import Title from './AddMoviesInputs/Title';
 import Subtitle from './AddMoviesInputs/Subtitle';
 import ImagePath from './AddMoviesInputs/ImagePath';
 import Storyline from './AddMoviesInputs/Storyline';
+import Rating from './AddMoviesInputs/Rating';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -37,7 +38,7 @@ class AddMovie extends React.Component {
           <Subtitle value={ s.subtitle } onChange={ this.onInputChange } />
           <ImagePath value={ s.imagePath } onChange={ this.onInputChange } />
           <Storyline value={ s.storyline } onChange={ this.onInputChange } />
-
+          <Rating value={ s.rating } onChange={ this.onInputChange } />
         </form>
       </div>
     );
