@@ -9,13 +9,18 @@ function App() {
       <Header />
 
       <SearchBar 
-      searchText={} 
-      onSearchTextChange={}
-      bookmarkedOnly={}
-      onBookmarkedChange={}
-      selectedGenre={}
-      onSelectedGenreChange={}
+        searchText={} 
+        onSearchTextChange={}
+        bookmarkedOnly={}
+        onBookmarkedChange={}
+        selectedGenre={}
+        onSelectedGenreChange={}
       />
+
+      <AddMovie
+        onclick={}
+      />
+
     </div>
   );
 }

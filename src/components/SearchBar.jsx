@@ -3,7 +3,7 @@ import React from 'react';
 export default class SearchBar extends React.Component {
   render() {
     return (
-      <div>
+      <form data-testid="search-bar-form">
         <label data-testid="text-input-label" htmlFor="textInput">
 
           Inclui o texto
@@ -52,7 +52,7 @@ export default class SearchBar extends React.Component {
           </select>
 
         </label>
-      </div>
+      </form>
     );
   }
 }
