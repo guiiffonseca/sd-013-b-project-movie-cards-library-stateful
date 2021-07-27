@@ -9,7 +9,7 @@ export default class Title extends Component {
         Subtítulo
         <input
           type="text"
-          name="title"
+          name="subtitle"
           value={ subtitle }
           onChange={ onChange }
           data-testid="subtitle-input"
