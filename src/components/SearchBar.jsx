@@ -14,7 +14,15 @@ export default class SearchBar extends React.Component {
     return (
       <section>
         <form data-testid="search-bar-form">
-          <h1>{ `${searchText} ${onSearchTextChange} ${bookmarkedOnly} ${onBookmarkedChange} ${selectedGenre} ${onSelectedGenreChange} `}</h1>
+          <label data-testid="text-input-label" htmlFor="text-input">
+            Inclui o texto:
+            <input
+              data-testid="text-input"
+              value={ searchText }
+              onChange={ onSearchTextChange }
+              type="text"
+            />
+          </label>
         </form>
       </section>
     );
