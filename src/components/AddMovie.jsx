@@ -38,6 +38,17 @@ export default class AddMovie extends Component {
             onChange={ this.handleChange }
           />
         </label>
+        <label htmlFor="subtitle" data-testid="subtitle-input-label">
+          Subtítulo
+          <input
+            type="text"
+            value={ subtitle }
+            name="subtitle"
+            id="subtitle"
+            data-testid="subtitle-input"
+            onChange={ this.handleChange }
+          />
+        </label>
       </form>
     );
   }
