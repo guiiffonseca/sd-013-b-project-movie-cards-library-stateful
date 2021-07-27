@@ -9,9 +9,7 @@ function App() {
     <div className="App">
       <Header />
       <SearchBar />
-      <AddMovie 
-        onClick={() => (console.log('fon'))}
-      />
+      <AddMovie />
     </div>
   );
 }
