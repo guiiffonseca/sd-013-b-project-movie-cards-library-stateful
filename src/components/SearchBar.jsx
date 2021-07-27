@@ -7,7 +7,9 @@ export default class SearchBar extends React.Component {
     const { searchText, onSearchTextChange, bookmarkedOnly,
       onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
     return (
-      <>Hello World!</>
+      <form data-testid="search-bar-form">
+        Isso é um form
+      </form>
     );
   }
 }
