@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 export default class AddMovie extends Component {
   constructor() {
@@ -9,8 +9,8 @@ export default class AddMovie extends Component {
       title: '',
       imagePath: '',
       storyline: '',
-      rating: 0,
-      genre: 'action',
+      // rating: 0,
+      // genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -23,8 +23,8 @@ export default class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle, storyline, imagePath, rating, genre } = this.state;
-    const { onClick } = this.props;
+    const { title, subtitle, storyline, imagePath } = this.state;
+    // const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title-input" data-testid="title-input-label">
@@ -74,6 +74,6 @@ export default class AddMovie extends Component {
   }
 }
 
-AddMovie.propTypes = {
-  onClick: PropTypes.func.isRequired,
-};
+// AddMovie.propTypes = {
+//   onClick: PropTypes.func.isRequired,
+// };
