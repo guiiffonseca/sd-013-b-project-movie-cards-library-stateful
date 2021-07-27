@@ -1,6 +1,7 @@
 // implement SearchBar component here
 import React from 'react';
 import PropTypes from 'prop-types';
+import Select from './Select';
 
 class SearchBar extends React.Component {
   render() {
@@ -8,6 +9,7 @@ class SearchBar extends React.Component {
     const { onSearchTextChange } = this.props;
     const { bookmarkedOnly } = this.props;
     const { onBookmarkedChange } = this.props;
+    const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <form data-testid="search-bar-form">
         <label htmlFor="Incluiotexto" data-testid="text-input-label">
@@ -33,6 +35,7 @@ class SearchBar extends React.Component {
           />
 
         </label>
+        <Select value={ selectedGenre } onValue={ onSelectedGenreChange } />
       </form>
     );
   }
@@ -44,6 +47,8 @@ SearchBar.propTypes = {
   searchText: PropTypes.string.isRequired,
   bookmarkedOnly: PropTypes.bool.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.func.isRequired,
+  onSelectedGenreChange: PropTypes.bool.isRequired,
 
 };
 

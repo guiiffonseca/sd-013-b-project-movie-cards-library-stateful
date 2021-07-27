@@ -17,7 +17,7 @@ function App() {
         onSearchTextChange={ call }
         bookmarkedOnly={ false }
         onBookmarkedChange={ call }
-        selectedGenre=""
+        selectedGenre="abc"
         onSelectedGenreChange={ call }
       />
     </div>
