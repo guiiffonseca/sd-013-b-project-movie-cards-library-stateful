@@ -13,7 +13,7 @@ class SearchBar extends React.Component {
       onSelectedGenreChange,
     } = this.props;
     return (
-      <div data-testid="search-bar-form">
+      <form data-testid="search-bar-form">
         <label htmlFor="inputFilter">
           Filter:
           <input 
@@ -21,7 +21,7 @@ class SearchBar extends React.Component {
             id="inputFilter"
           />
         </label>
-      </div>
+      </form>
     );
   }
 }
