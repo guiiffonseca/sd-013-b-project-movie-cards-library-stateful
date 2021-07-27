@@ -1,5 +1,5 @@
 body {
-  background-color: whitesmoke;
+  background-color: rgb(229, 231, 240);
   box-sizing: border-box;
   font-size: 16px;
 }
@@ -26,12 +26,14 @@ body {
 }
 
 .movie-card {
-  background-color: white;
+  align-items: center;
+  background-color: rgb(240, 240, 240);
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 3px;
+  border-radius: 2%;
   display: flex;
   flex-direction: column;
   height: 450px;
+  justify-content: space-between;
   margin: 5px;
   overflow: hidden;
   width: 300px;
@@ -66,11 +68,13 @@ body {
 }
 
 .rating {
+  align-self: flex-end;
   background-color: #007bff;
-  border-radius: 25px;
+  border-radius: 25%;
   color: white;
   font-size: 16px;
   font-weight: 700;
+  margin-top: 15px;
   padding: 3px 9px;
 }
 
