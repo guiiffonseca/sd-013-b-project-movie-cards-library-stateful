@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
 
-export default class InputImage extends Component {
+export default class InputRating extends Component {
   render() {
-    const { imagePath, onChange } = this.props;
+    const { value, onChange } = this.props;
     return (
-      <label data-testid="image-input-label" htmlFor="imagePath">
-        Imagem
+      <label data-testid="rating-input-label" htmlFor="rating">
+        Avaliação
         <input
-          data-testid="image-input"
-          value={ imagePath }
-          name="imagePath"
+          data-testid="rating-input"
+          value={ value }
+          name="rating"
           onChange={ onChange }
+          type="number"
         />
       </label>
     );
   }
 }
 
-InputImage.propTypes = {
-  imagePath: propTypes.string.isRequired,
+InputRating.propTypes = {
+  value: propTypes.number.isRequired,
   onChange: propTypes.func.isRequired,
 };

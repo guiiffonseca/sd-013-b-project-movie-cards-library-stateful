@@ -3,13 +3,13 @@ import propTypes from 'prop-types';
 
 export default class InputSubtitle extends Component {
   render() {
-    const { subtitle, onChange } = this.props;
+    const { value, onChange } = this.props;
     return (
       <label data-testid="subtitle-input-label" htmlFor="subtitle">
         Subtítulo
         <input
           data-testid="subtitle-input"
-          value={ subtitle }
+          value={ value }
           name="subtitle"
           onChange={ onChange }
         />
@@ -19,6 +19,6 @@ export default class InputSubtitle extends Component {
 }
 
 InputSubtitle.propTypes = {
-  subtitle: propTypes.string.isRequired,
+  value: propTypes.string.isRequired,
   onChange: propTypes.func.isRequired,
 };
