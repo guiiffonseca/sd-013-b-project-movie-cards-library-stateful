@@ -6,6 +6,7 @@ import InputImage from './inputs/InputImage';
 import InputStoryline from './inputs/InputStoryline';
 import InputRating from './inputs/InputRating';
 import InputGenre from './inputs/InputGenre';
+import AddButton from './AddButton';
 
 export default class AddMovie extends Component {
   constructor() {
@@ -22,11 +23,23 @@ export default class AddMovie extends Component {
 
   handleChange= ({ target: { name, value } }) => {
     this.setState({ [name]: value });
-    console.log( this.state.title );
+    // console.log( this.state.title );
+  }
+
+  handleClick = () => {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
-    const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -36,7 +49,7 @@ export default class AddMovie extends Component {
         <InputStoryline value={ storyline } onChange={ this.handleChange } />
         <InputRating value={ rating } onChange={ this.handleChange } />
         <InputGenre value={ genre } onChange={ this.handleChange } />
-
+        <AddButton onClick={ this.handleClick } />
       </form>
     );
   }
