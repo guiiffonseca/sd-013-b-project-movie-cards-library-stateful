@@ -12,7 +12,11 @@ export default class SearchBar extends React.Component {
       onSelectedGenreChange,
     } = this.props;
     return (
-      <h1>{ `${searchText} ${onSearchTextChange} ${bookmarkedOnly} ${onBookmarkedChange} ${selectedGenre} ${onSelectedGenreChange} `}</h1>
+      <section>
+        <form data-testid="search-bar-form">
+          <h1>{ `${searchText} ${onSearchTextChange} ${bookmarkedOnly} ${onBookmarkedChange} ${selectedGenre} ${onSelectedGenreChange} `}</h1>
+        </form>
+      </section>
     );
   }
 }
