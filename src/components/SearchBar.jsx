@@ -48,22 +48,24 @@ class SearchBar extends React.Component {
             type="text"
             value={ searchText }
             esLint={
-              bookmarkedOnly
-              + onBookmarkedChange
-              + selectedGenre
+              selectedGenre
               + onSelectedGenreChange
             }
           />
         </label>
         <label
-          htmlFor="checkbob-input"
+          htmlFor="checkbox-input"
+          data-testid="checkbox-input-label"
         >
+          Mostrar somente favoritos
           <input
+            data-testid="checkbox-input"
             type="checkbox"
             id="checkbox-input"
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
           />
         </label>
-        <checkbox />
       </form>
     );
   }
