@@ -13,8 +13,10 @@ export default class AddMovie extends React.Component {
     };
   }
 
-  inputText = ({ target }) => {
-    this.setState({ title: target.value });
+  handleChange = ({ target }) => {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({ [name]: value });
   }
 
   render() {
@@ -22,13 +24,26 @@ export default class AddMovie extends React.Component {
     const { onclick } = this.props;
     return (
       <form data-testid="add-movie-form">
+
         <label htmlFor="title-input" data-testid="title-input-label">
           Título
           <input
             type="text"
+            name="title"
             data-testid="title-input"
             value={ title }
-            onChange={ this.inputText }
+            onChange={ this.handleChange }
+          />
+        </label>
+
+        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
+          Subtítulo
+          <input
+            type="text"
+            name="subtitle"
+            value={ subtitle }
+            data-testid="subtitle-input"
+            onChange={ this.handleChange }
           />
         </label>
       </form>
