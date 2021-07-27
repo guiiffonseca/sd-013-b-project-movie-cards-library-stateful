@@ -2,13 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-
-    };
-  }
-
   render() {
     const {
       searchText,
@@ -27,7 +20,7 @@ class SearchBar extends React.Component {
             value={ searchText }
             data-testid="text-input"
             type="text"
-            id="includes"
+            name="searchText"
           />
         </label>
         <label htmlFor="show-only-bookmarks" data-testid="checkbox-input-label">
@@ -37,7 +30,7 @@ class SearchBar extends React.Component {
             onChange={ onBookmarkedChange }
             data-testid="checkbox-input"
             type="checkbox"
-            id="show-only-bookmarks"
+            name="bookmarkedOnly"
           />
         </label>
         <label htmlFor="filter-by-genre" data-testid="select-input-label">
@@ -46,7 +39,7 @@ class SearchBar extends React.Component {
             onChange={ onSelectedGenreChange }
             value={ selectedGenre }
             data-testid="select-input"
-            name=""
+            name="selectedGenre"
             id="filter-by-genre"
           >
             <option data-testid="select-option" value="">Todos</option>
