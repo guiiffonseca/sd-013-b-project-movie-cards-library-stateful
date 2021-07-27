@@ -5,8 +5,20 @@ export default class SearchBar extends Component {
   render() {
     const { searchText, onSearchTextChange, bookmarkedOnly,
       onBookmarkedChange, selectedGenre, onSelectedGenreChange} = this.props;
+
     return (
-      <form data-testid="search-bar-form" ></form>
+      <form data-testid="search-bar-form">
+        <label data-testid="text-input-label">
+          Inclui o texto
+          <input
+            data-testid="text-input"
+            name="searchText"
+            type="text"
+            value={ searchText }
+            onChange={ onSearchTextChange }
+          />
+        </label>
+      </form>
     );
   }
 }
