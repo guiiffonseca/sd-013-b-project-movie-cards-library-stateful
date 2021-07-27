@@ -16,9 +16,10 @@ class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: '',
+      genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange(event) {
@@ -30,17 +31,32 @@ class AddMovie extends Component {
     });
   }
 
+  handleClick() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+  })};
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <Title valor={ title } funcao={ this.handleChange } />
-        <SubTitle valor={ subtitle } funcao={ this.handleChange } />
-        <ImagePath valor={ imagePath } funcao={ this.handleChange } />
-        <StoryLine valor={ storyline } funcao={ this.handleChange } />
-        <Rating valor={ rating } funcao={ this.handleChange } />
-        <Genre valor={ genre } funcao={ this.handleChange } />
-
+        <Title value={ title } onChange={ this.handleChange } />
+        <SubTitle value={ subtitle } onChange={ this.handleChange } />
+        <ImagePath value={ imagePath } onChange={ this.handleChange } />
+        <StoryLine value={ storyline } onChange={ this.handleChange } />
+        <Rating value={ rating } onChange={ this.handleChange } />
+        <Genre value={ genre } onChange={ this.handleChange } />
+        <button type="button"
+        data-testid="send-button"
+        onClick={this.handleClick}
+        >Adicionar filme</button>
       </form>
     );
   }
