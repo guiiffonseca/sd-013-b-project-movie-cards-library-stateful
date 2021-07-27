@@ -14,6 +14,8 @@ function App() {
         onSearchTextChange=""
         bookmarkedOnly=""
         onBookmarkedChange=""
+        selectedGenre=""
+        onSelectedGenre=""
       />
       <MovieList movies={ movies } />
     </div>
