@@ -20,7 +20,6 @@ class MovieLibrary extends React.Component {
   }
 
   onInputChange(e) {
-    const s = this.state;
     const { name, type } = e.target;
     let { value } = e.target;
     if (type === 'checkbox')value = e.target.checked;
