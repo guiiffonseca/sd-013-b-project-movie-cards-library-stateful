@@ -1,7 +1,10 @@
 // implement AddMovie component here
 import React from 'react';
+import Title from './Title';
+import Subtitle from './Subtitle';
+import ImagePath from './ImagePath';
 
-class AddMovie extends React.Component {
+export default class AddMovie extends React.Component {
   constructor() {
     super();
 
@@ -13,19 +16,24 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange({ target }) {
+    this.setState({
+      [target.name]: target.value,
+    });
   }
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-    const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="" data-test-id="title-input-label">
-          Título
-        </label>
+        <Title title={ title } onChange={ this.handleChange } />
+        <Subtitle title={ subtitle } onChange={ this.handleChange } />
+        <ImagePath title={ imagePath } onChange={ this.handleChange } />
       </form>
     );
   }
 }
-
-export default AddMovie;
