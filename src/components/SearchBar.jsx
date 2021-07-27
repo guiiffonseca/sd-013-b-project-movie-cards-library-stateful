@@ -12,8 +12,6 @@ const SearchBar = ({
   <form data-testid="search-bar-form">
     {
       console.log({
-        bookmarkedOnly,
-        onBookmarkedChange,
         selectedGenre,
         onSelectedGenreChange,
       })
@@ -29,6 +27,19 @@ const SearchBar = ({
         onChange={ onSearchTextChange }
         type="text"
         value={ searchText }
+      />
+    </label>
+    <label
+      data-testid="checkbox-input-label"
+      htmlFor="bookmark"
+    >
+      Mostrar somente favoritos
+      <input
+        data-testid="checkbox-input"
+        id="bookmark"
+        onChange={ onBookmarkedChange }
+        type="checkbox"
+        checked={ bookmarkedOnly }
       />
     </label>
   </form>
