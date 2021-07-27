@@ -5,6 +5,7 @@ import InputSubtitle from './inputs/InputSubtitle';
 import InputImage from './inputs/InputImage';
 import InputStoryline from './inputs/InputStoryline';
 import InputRating from './inputs/InputRating';
+import InputGenre from './inputs/InputGenre';
 
 export default class AddMovie extends Component {
   constructor() {
@@ -21,7 +22,7 @@ export default class AddMovie extends Component {
 
   handleChange= ({ target: { name, value } }) => {
     this.setState({ [name]: value });
-    console.log( this.state.rating );
+    console.log( this.state.title );
   }
 
   render() {
@@ -34,6 +35,7 @@ export default class AddMovie extends Component {
         <InputImage value={ imagePath } onChange={ this.handleChange } />
         <InputStoryline value={ storyline } onChange={ this.handleChange } />
         <InputRating value={ rating } onChange={ this.handleChange } />
+        <InputGenre value={ genre } onChange={ this.handleChange } />
 
       </form>
     );
