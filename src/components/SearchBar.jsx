@@ -11,7 +11,9 @@ export default class SearchBar extends React.Component {
       selectedGenre,
       onSelectedGenreChange } = this.props;
     return (
-      <p>Hello word</p>
+      <form data-testid="search-bar-form">
+
+      </form>
     );
   }
 }
