@@ -1,6 +1,11 @@
 // implement AddMovie component here
 import React from 'react';
 import PropTypes from 'prop-types';
+import InputImage from './InputImage';
+import StoryLineInput from './StoryLineInput';
+import SubtitleInput from './SubtitleInput';
+import InputRating from './InputRating';
+import GenreInput from './GenreInput';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -16,6 +21,7 @@ class AddMovie extends React.Component {
     };
 
     this.handleChanges = this.handleChanges.bind(this);
+    this.resetForm = this.resetForm.bind(this);
   }
 
   handleChanges({ target }) {
@@ -25,15 +31,23 @@ class AddMovie extends React.Component {
     });
   }
 
+  resetForm() {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyLine: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
     const { onClick } = this.props;
     const { subtitle, title, imagePath, storyLine, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label
-          htmlFor="title-input"
-          data-testid="title-input-label"
-        >
+        <label htmlFor="title-input" data-testid="title-input-label">
           Título
           <input
             data-testid="title-input"
@@ -44,34 +58,21 @@ class AddMovie extends React.Component {
             onChange={ this.handleChanges }
           />
         </label>
-        <label
-          htmlFor="subtitle-input"
-          data-testid="subtitle-input-label"
+        <InputImage value={ imagePath } handleChanges={ this.handleChanges } />
+        <StoryLineInput value={ storyLine } handleChanges={ this.handleChanges } />
+        <SubtitleInput value={ subtitle } handleChanges={ this.handleChanges } />
+        <InputRating value={ rating } handleChanges={ this.handleChanges } />
+        <GenreInput value={ genre } handleChanges={ this.handleChanges } />
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={ () => {
+            onClick(this.state);
+            this.resetForm();
+          } }
         >
-          Subtítulo
-          <input
-            type="text"
-            name="subtitle"
-            id="subtitle-input"
-            value={ subtitle }
-            data-testid="subtitle-input"
-            onChange={ this.handleChanges }
-          />
-        </label>
-        <label
-          htmlFor="image-input"
-          data-testid="image-input-label"
-        >
-          Imagem
-          <input
-            type="text"
-            name="ImagePath"
-            id="image-input"
-            value={ imagePath }
-            data-testid="image-input"
-            onChange={ this.handleChanges }
-          />
-        </label>
+          Adicionar filme
+        </button>
       </form>
     );
   }
