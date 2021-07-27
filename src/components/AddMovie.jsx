@@ -3,6 +3,7 @@ import React from 'react';
 import AddSinopse from './AddSinopse';
 import AddRating from './AddRating';
 import AddGenre from './AddGenre';
+import AddButton from './AddButton';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -74,13 +75,7 @@ class AddMovie extends React.Component {
         <AddSinopse storyline={ storyline } handleChange={ this.handleChange } />
         <AddRating rating={ rating } handleChange={ this.handleChange } />
         <AddGenre genre={ genre } handleChange={ this.handleChange } />
-        <button
-          type="button"
-          data-testid="send-button"
-          onClick={ this.onClick }
-        >
-          Adicionar filme
-        </button>
+        <AddButton onClick={ this.onClick } />
       </form>
     );
   }
