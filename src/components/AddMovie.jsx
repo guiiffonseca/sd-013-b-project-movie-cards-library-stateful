@@ -45,12 +45,13 @@ class AddMovie extends Component {
             <input
               type="text"
               id="subtitulo"
+              value={ subtitle }
               data-testid="subtitle-input"
               onChange={ atualizarEstado }
             />
           </label>
           <label
-            htmlFor="imagem" 
+            htmlFor="imagem"
             data-testid="image-input-label">
             Imagem
             <input
@@ -62,7 +63,7 @@ class AddMovie extends Component {
             />
           </label>
           <label
-            htmlFor="textarea" 
+            htmlFor="textarea"
             data-testid="storyline-input-label">
             Sinopse
             <textarea
@@ -72,6 +73,34 @@ class AddMovie extends Component {
               data-testid="storyline-input"
               onChange={ atualizarEstado }
             />
+          </label>
+          <label
+            htmlFor="number"
+            data-testid="rating-input-label">
+            Avaliação
+            <input
+              type="number"
+              id="number"
+              value={ rating }
+              data-testid="rating-input"
+              onChange={ atualizarEstado }
+            />
+          </label>
+          <label
+            htmlFor="number"
+            data-testid="genre-input-label">
+            Gênero
+            <select
+              type="text"
+              id="select"
+              value={ genre }
+              data-testid="genre-input"
+              onChange={ atualizarEstado }
+            >
+              <option data-testid="genre-option" value="action">Ação</option>
+              <option data-testid="genre-option" value="comedy">Comédia</option>
+              <option data-testid="genre-option" value="thriller">Suspense</option>
+            </select>
           </label>
         </form>
       </div>
