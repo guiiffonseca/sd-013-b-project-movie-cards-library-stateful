@@ -3,6 +3,7 @@ import React from 'react';
 import Title from './Title';
 import Subtitle from './Subtitle';
 import ImagePath from './ImagePath';
+import Storyline from './Storyline';
 
 export default class AddMovie extends React.Component {
   constructor() {
@@ -33,6 +34,7 @@ export default class AddMovie extends React.Component {
         <Title title={ title } onChange={ this.handleChange } />
         <Subtitle title={ subtitle } onChange={ this.handleChange } />
         <ImagePath title={ imagePath } onChange={ this.handleChange } />
+        <Storyline title={ storyline } onChange={ this.handleChange } />
       </form>
     );
   }
