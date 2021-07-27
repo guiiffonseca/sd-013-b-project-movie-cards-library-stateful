@@ -10,10 +10,12 @@ export default class SearchBar extends React.Component {
     return (
       <form data-testid="search-bar-form">
         <TextInput
+          dataTestidLabel="text-input-label"
           text="Inclui o texto:"
+          type="text"
+          name="text"
           value={ searchText }
           dataTestid="text-input"
-          dataTestidLabel="text-input-label"
           onChange={ onSearchTextChange }
         />
         <label htmlFor="checkbox-input" data-testid="checkbox-input-label">

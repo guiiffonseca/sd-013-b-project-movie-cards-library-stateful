@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 export default class TextInput extends React.Component {
   render() {
-    const { text, value, dataTestid, dataTestidLabel, onChange } = this.props;
+    const { dataTestidLabel, text, type, name, value, dataTestid, onChange } = this.props;
     return (
       <label htmlFor={ dataTestid } data-testid={ dataTestidLabel }>
         {text}
         <input
-          name={ dataTestid.split('-')[0] }
-          type="text"
+          name={ name }
+          type={ type }
           value={ value }
           data-testid={ dataTestid }
           onChange={ onChange }
@@ -20,6 +20,8 @@ export default class TextInput extends React.Component {
 }
 
 TextInput.propTypes = {
+  name: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   dataTestid: PropTypes.string.isRequired,

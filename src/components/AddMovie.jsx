@@ -27,17 +27,30 @@ export default class AddMovie extends React.Component {
     return (
       <form data-testid="add-movie-form">
         <TextInput
+          dataTestidLabel="title-input-label"
           text="Título:"
+          type="text"
+          name="title"
           value={ title }
           dataTestid="title-input"
-          dataTestidLabel="title-input-label"
           onChange={ this.handleChange }
         />
         <TextInput
+          dataTestidLabel="subtitle-input-label"
           text="Subtítulo:"
+          type="text"
+          name="subtitle"
           value={ subtitle }
           dataTestid="subtitle-input"
-          dataTestidLabel="subtitle-input-label"
+          onChange={ this.handleChange }
+        />
+        <TextInput
+          dataTestidLabel="image-input-label"
+          text="Imagem:"
+          type="text"
+          name="imagePath"
+          value={ imagePath }
+          dataTestid="image-input"
           onChange={ this.handleChange }
         />
       </form>
