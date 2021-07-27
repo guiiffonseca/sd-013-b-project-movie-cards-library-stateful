@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class SeacrhBar extends Component {
   render() {
-    const { searchText, onSearchTextChange } = this.props;
+    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange } = this.props;
     return (
       <form data-testid="search-bar-form">
         <label data-testid="text-input-label" htmlFor="inp">
@@ -18,6 +18,17 @@ class SeacrhBar extends Component {
 
         </label>
 
+        <label data-testid="checkbox-input-label" htmlFor="radio">
+          Mostrar somente favoritos
+          <input
+            data-testid="checkbox-input"
+            id="radio"
+            type="radio"
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
+          />
+        </label>
+
       </form>
     );
   }
@@ -26,6 +37,8 @@ class SeacrhBar extends Component {
 SeacrhBar.propTypes = {
   onSearchTextChange: PropTypes.func.isRequired,
   searchText: PropTypes.string.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
 };
 
 export default SeacrhBar;
