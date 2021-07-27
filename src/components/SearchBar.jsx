@@ -1,6 +1,19 @@
 // implement SearchBar component here
 import React from 'react';
 
+class Form extends React.Component {
+    render() {
+        return (
+            <div>
+                <h1>Form</h1>
+                <form data-testid="search-bar-form">
+
+                </form>
+            </div>
+        )
+    }
+}
+
 const SearchBar = (props) => {
         let searchText = props.searchText;
         let onSearchTextChange = props.onSearchTextChange;
@@ -17,6 +30,7 @@ const SearchBar = (props) => {
                 {onBookmarkedChange}
                 {selectedGenre}
                 {onSelectedGenreChange}
+                <Form />
             </div>
         )
     }
