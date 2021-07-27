@@ -12,6 +12,8 @@ function App() {
       <SearchBar
         searchText=""
         onSearchTextChange=""
+        bookmarkedOnly=""
+        onBookmarkedChange=""
       />
       <MovieList movies={ movies } />
     </div>
