@@ -22,7 +22,7 @@ export default class AddMovies extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
+    const { title, subtitle, imagePath, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <DefaultTextInput
@@ -46,6 +46,17 @@ export default class AddMovies extends React.Component {
           value={ imagePath }
           handleChange={ this.handleChange }
         />
+        <label htmlFor="storyline" data-testid="storyline-input-label">
+          Sinopse
+          <textarea
+            onChange={ this.handleChange }
+            data-testid="storyline-input"
+            name="storyline"
+            id=""
+            cols="30"
+            rows="10"
+          />
+        </label>
       </form>
     );
   }
