@@ -8,9 +8,9 @@ class AddMovie extends React.Component {
       subtitle: '',
       title: '',
       imagePath: '',
-      storyline: 0,
+      storyline: '',
       rating: 0,
-      genre: '',
+      genre: 'action',
     };
   }
 
