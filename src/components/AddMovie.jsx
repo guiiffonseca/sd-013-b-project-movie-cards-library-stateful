@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 class AddMovie extends React.Component {
   constructor() {
     super();
+    this.handleChange = this.handleChange.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -15,11 +16,27 @@ class AddMovie extends React.Component {
     };
   }
 
+  handleChange(event) {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  }
+
   render() {
     const { onClick } = this.props;
+    const { title } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <p>Teste</p>
+        <label htmlFor="title-input" data-testid="title-input-label">
+          Título
+          <input
+            type="text"
+            value={ title }
+            data-testid="title-input"
+            name="title"
+            onChange={ this.handleChange }
+          />
+        </label>
       </form>
     );
   }
