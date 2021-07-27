@@ -1,4 +1,4 @@
-// implement SearchBar component here
+// implement SearchBar component heres
 import React from 'react';
 import PropTypes from 'prop-types';
 
