@@ -57,6 +57,16 @@ export default class AddMovies extends React.Component {
             rows="10"
           />
         </label>
+        <label htmlFor="rating" data-testid="rating-input-label">
+          Avaliação
+          <input
+            value={ rating }
+            data-testid="rating-input"
+            type="number"
+            name="rating"
+            onChange={ this.handleChange }
+          />
+        </label>
       </form>
     );
   }
