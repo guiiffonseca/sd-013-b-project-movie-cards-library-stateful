@@ -12,8 +12,8 @@ class SeacrhBar extends Component {
             data-testid="text-input"
             id="inp"
             type="text"
-            value={searchText }
-            onChange={onSearchTextChange }
+            value={ searchText }
+            onChange={ onSearchTextChange }
           />
 
         </label>
@@ -26,6 +26,6 @@ class SeacrhBar extends Component {
 SeacrhBar.propTypes = {
   onSearchTextChange: PropTypes.func.isRequired,
   searchText: PropTypes.string.isRequired,
-}
+};
 
 export default SeacrhBar;
