@@ -1,7 +1,7 @@
 // implement SearchBar component here
 import React from 'react';
 import PropTypes from 'prop-types';
-import Select from './Select.jsx';
+import Select from './Select';
 
 class SearchBar extends React.Component {
   render() {

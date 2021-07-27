@@ -1,5 +1,7 @@
 // implement AddMovie component here
 import React from 'react';
+import Input from './Input';
+
 
 export default class AddMovie extends React.Component {
   constructor(props) {
@@ -20,7 +22,7 @@ export default class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle } = this.state;
+    const { title, subtitle, imagePath } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="add" data-testid="title-input-label">
@@ -47,17 +49,19 @@ export default class AddMovie extends React.Component {
           />
         </label>
 
-          <label htmlFor="addSub" data-testid="subtitle-input-label">
-         Imagem
+        <label htmlFor="addimg" data-testid="image-input-label">
+          Imagem
           <input
             type="text"
-            value={ subtitle }
-            name="subtitle"
-            id="addSub"
-            data-testid="subtitle-input"
+            value={ imagePath }
+            name="imagePath"
+            id="addimg"
+            data-testid="image-input"
             onChange={ this.EventSetstate }
           />
         </label>
+        <Input texto='' value='' nome="" tipo="" id="" onChange={ this.EventSetstate } value={ imagePath } />
+
       </form>
     );
   }
