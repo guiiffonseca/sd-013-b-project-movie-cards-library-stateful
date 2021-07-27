@@ -17,16 +17,13 @@ export default class AddMovie extends Component {
 
   handleChange({ target }) {
     const { name, value } = target;
-
     this.setState({
       [name]: value,
     });
   }
 
   render() {
-    const { title, subtitle, storyline,
-    imagePath, rating,
-    genre } = this.state;
+    const { title, subtitle, storyline, imagePath, rating, genre } = this.state;
     const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
@@ -35,7 +32,7 @@ export default class AddMovie extends Component {
           <input
             type="text"
             data-testid="title-input"
-            name=""
+            name="title"
             value={ title }
             id="title-input"
             onChange={ this.handleChange }
@@ -46,6 +43,7 @@ export default class AddMovie extends Component {
           <input
             type="text"
             id="input-subtitle"
+            name="subtitle"
             value={ subtitle }
             data-testid="subtitle-input"
             onChange={ this.handleChange }
@@ -55,12 +53,22 @@ export default class AddMovie extends Component {
           Imagem
           <input
             type="text"
+            name="imagePath"
             data-testid="image-input"
             value={ imagePath }
             onChange={ this.handleChange }
           />
         </label>
-
+        <label htmlFor="input-area" data-testid="storyline-input-label">
+          Sinopse
+          <textarea
+            id="input-area"
+            value={ storyline }
+            data-testid="storyline-input"
+            onChange={ this.handleChange }
+            name="storyline"
+          />
+        </label>
       </form>
     );
   }
