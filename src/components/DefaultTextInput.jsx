@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export default class DefaultTextInput extends React.Component {
   render() {
-    const { name, value, handleChange, labelText, testName} = this.props;
+    const { name, value, handleChange, labelText, testName } = this.props;
     return (
       <label htmlFor={ name } data-testid={ `${testName}-input-label` }>
         {labelText}
