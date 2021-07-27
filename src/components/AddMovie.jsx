@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import SubTitle from './source/SubTitle';
+import Title from './source/Title';
+import ImagePath from './source/ImagePath';
+import StoryLine from './source/StoryLine';
 
 class AddMovie extends Component {
   constructor() {
@@ -8,6 +12,7 @@ class AddMovie extends Component {
       subtitle: '',
       title: '',
       imagePath: '',
+      storyline: '',
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -20,44 +25,13 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="titulo" data-testid="title-input-label">
-          Título
-          <input
-            id="titulo"
-            type="text"
-            value={ title }
-            data-testid="title-input"
-            onChange={ this.handleChange }
-            name="title"
-          />
-        </label>
-
-        <label htmlFor="subtitle" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            data-testid="subtitle-input"
-            type="text"
-            value={ subtitle }
-            onChange={ this.handleChange }
-            name="subtitle"
-            id="subtitle"
-          />
-        </label>
-
-        <label htmlFor="imagePath" data-testid="image-input-label">
-          Imagem
-          <input
-            data-testid="image-input"
-            type="text"
-            value={ imagePath }
-            onChange={ this.handleChange }
-            name="imagePath"
-            id="imagePath"
-          />
-        </label>
+        <Title valor={ title } funcao={ this.handleChange } />
+        <SubTitle valor={ subtitle } funcao={ this.handleChange } />
+        <ImagePath valor={ imagePath } funcao={ this.handleChange } />
+        <StoryLine valor={ storyline } funcao={ this.handleChange } />
 
       </form>
     );
