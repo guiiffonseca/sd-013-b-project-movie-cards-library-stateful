@@ -6,7 +6,7 @@ export default class SearchBar extends Component {
     const { searchText, onSearchTextChange, bookmarkedOnly,
       onBookmarkedChange, selectedGenre, onSelectedGenreChange} = this.props;
     return (
-      <span>teste</span>
+      <form data-testid="search-bar-form" ></form>
     );
   }
 }
@@ -19,4 +19,3 @@ SearchBar.propTypes = {
   selectedGenre: propTypes.string.isRequired,
   onSelectedGenreChange: propTypes.func.isRequired,
 };
-
