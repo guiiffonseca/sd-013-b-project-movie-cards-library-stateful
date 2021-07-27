@@ -9,12 +9,25 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     this.props = {
-      //
+      searchText: '',
+      onSearchTextChange: '',
+      bookmarkedOnly: true,
+      onBookmarkedChange: '',
+      selectedGenre: 'action',
+      onSelectedGenreChange: '',
     };
   }
 
   render() {
-    const { movies } = this.props;
+    const {
+      movies,
+      searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange
+    } = this.props;
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -27,7 +40,9 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie
+          onClick={ this.onClick }
+        />
       </div>
     );
   }
@@ -35,6 +50,12 @@ class MovieLibrary extends Component {
 
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.string.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.string.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.string.isRequired,
 };
 
 export default MovieLibrary;
