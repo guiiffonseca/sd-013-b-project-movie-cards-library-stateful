@@ -40,7 +40,6 @@ class AddMovie extends React.Component {
             title,
           )
         }
-
       </form>
     );
   }
