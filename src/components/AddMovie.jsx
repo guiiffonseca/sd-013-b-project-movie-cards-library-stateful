@@ -5,6 +5,7 @@ import ImagePath from './input/ImagePath';
 import StoryLine from './input/StoryLine';
 import Rating from './input/Rating';
 import Genre from './input/Genre';
+import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
   constructor() {
