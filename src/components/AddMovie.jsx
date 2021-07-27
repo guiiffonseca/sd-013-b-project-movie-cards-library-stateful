@@ -6,9 +6,9 @@ export default class AddMovie extends Component {
   constructor() {
     super();
     this.state = {
-      // subtitle: '',
+      subtitle: '',
       title: '',
-      // imagePath: '',
+      imagePath: '',
       // storyline: '',
       // rating: 0,
       // genre: 'action',
@@ -25,9 +25,7 @@ export default class AddMovie extends Component {
   }
 
   render() {
-    // const { onClick } = this.props;
-    const { title } = this.state;
-
+    const { title, subtitle, imagePath } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">
@@ -41,6 +39,38 @@ export default class AddMovie extends Component {
             onChange={ this.handleChange }
           />
         </label>
+        <label htmlFor="subtitle" data-testid="subtitle-input-label">
+          Subtítulo
+          <input
+            name="subtitle"
+            id="subtitle"
+            type="text"
+            value={ subtitle }
+            data-testid="subtitle-input"
+            onChange={ this.handleChange }
+          />
+        </label>
+        <label htmlFor="imagePath" data-testid="image-input-label">
+          Imagem
+          <input
+            name="imagePath"
+            id="imagePath"
+            type="text"
+            value={ imagePath }
+            data-testid="image-input"
+            onChange={ this.handleChange }
+          />
+        </label>
+        {/* <label htmlFor="storyline" data-testid="storyline-input-label">
+          Sinopse
+          <input
+            name="storyline"
+            id="storyline"
+            type="textarea"
+            value={ storyline }
+            data-testid="storyline-input"
+            onChange={ this.handleChange }/>
+        </label> */}
       </form>
     );
   }
