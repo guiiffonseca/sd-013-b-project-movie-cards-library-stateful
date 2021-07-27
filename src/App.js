@@ -19,7 +19,7 @@ function App() {
         onSelectedGenre=""
       />
       <MovieList movies={ movies } />
-      <AddMovies onClick={ onClick } />
+      <AddMovies />
     </div>
   );
 }
