@@ -33,6 +33,13 @@ export default class AddMovie extends React.Component {
           dataTestidLabel="title-input-label"
           onChange={ this.handleChange }
         />
+        <TextInput
+          text="Subtítulo:"
+          value={ subtitle }
+          dataTestid="subtitle-input"
+          dataTestidLabel="subtitle-input-label"
+          onChange={ this.handleChange }
+        />
       </form>
     );
   }
