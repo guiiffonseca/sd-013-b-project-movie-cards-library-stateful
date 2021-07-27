@@ -21,6 +21,6 @@ export default class ImagePath extends React.Component {
 }
 
 ImagePath.propTypes = {
-  genre: PropTypes.string.isRequired,
+  imagePath: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
 };

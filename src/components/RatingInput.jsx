@@ -21,6 +21,6 @@ export default class RatingInput extends React.Component {
 }
 
 RatingInput.propTypes = {
-  genre: PropTypes.number.isRequired,
+  rating: PropTypes.number.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
