@@ -8,6 +8,7 @@ export default class TextInput extends React.Component {
       <label htmlFor={ dataTestid } data-testid={ dataTestidLabel }>
         {text}
         <input
+          name={ dataTestid.split('-')[0] }
           type="text"
           value={ value }
           data-testid={ dataTestid }
