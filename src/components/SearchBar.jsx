@@ -22,6 +22,28 @@ class SearchBar extends React.Component {
               data-testid="text-input"
             />
           </label>
+          <label htmlFor="bookmarkedOnly" data-testid="checkbox-input-label">
+            Mostrar somente favoritos
+            <input
+              type="checkbox"
+              name="bookmarkedOnly"
+              id="bookmarkedOnly"
+              checked={ bookmarkedOnly }
+              onChange={ onBookmarkedChange }
+              data-testid="checkbox-input"
+            />
+          </label>
+          <label htmlFor="bookmarkedOnly" data-testid="select-input-label">
+            Filtrar por gênero
+            <select
+              name={ name }
+              value={ selectedGenre }
+              onChange={ handleChange }
+            >
+              <option value="" />
+              {options.map((option) => <option key={ option } value={ option }>{option}</option>)}
+            </select>
+          </label>
         </form>
       </main>
 
