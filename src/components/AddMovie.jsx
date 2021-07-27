@@ -11,13 +11,17 @@ export default class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    }
+    };
   }
 
   render() {
     const { onClick } = this.props;
     return (
-      <h1>{ onClick }</h1>
+      <section>
+        <form data-testid="add-movie-form">
+          <h1>{ onClick }</h1>
+        </form>
+      </section>
     );
   }
 }
