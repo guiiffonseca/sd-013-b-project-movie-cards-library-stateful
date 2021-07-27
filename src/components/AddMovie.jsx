@@ -41,7 +41,8 @@ class AddMovie extends Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-  })};
+    });
+  }
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
@@ -53,13 +54,20 @@ class AddMovie extends Component {
         <StoryLine value={ storyline } onChange={ this.handleChange } />
         <Rating value={ rating } onChange={ this.handleChange } />
         <Genre value={ genre } onChange={ this.handleChange } />
-        <button type="button"
-        data-testid="send-button"
-        onClick={this.handleClick}
-        >Adicionar filme</button>
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ this.handleClick }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
