@@ -26,9 +26,9 @@ export default class MovieLibrary extends Component {
     const filteredByBookmarked = movies
       .filter((movie) => (bookmarkedOnly ? movie.bookmarked : movies));
     const filteredBySearchText = filteredByBookmarked
-      .filter((movie) => movie.title.toLowerCase().includes(searchText)
-      || movie.subtitle.toLowerCase().includes(searchText)
-      || movie.storyline.toLowerCase().includes(searchText));
+      .filter((movie) => movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText));
     const filteredByGenre = filteredBySearchText
       .filter((movie) => (selectedGenre === '' ? movies : movie.genre === selectedGenre));
     return filteredByGenre;

@@ -24,6 +24,6 @@ export default class Genre extends Component {
 }
 
 Genre.propTypes = {
-  genre: PropTypes.number.isRequired,
+  genre: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
