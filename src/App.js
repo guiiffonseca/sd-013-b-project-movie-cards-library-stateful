@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './components/Header';
 import './App.css';
 import SearchBar from './components/SearchBar';
+import AddMovie from './components/AddMovie';
 
 function App() {
   const call = () => {
@@ -20,6 +21,7 @@ function App() {
         selectedGenre="abc"
         onSelectedGenreChange={ call }
       />
+      <AddMovie onClick={ call } />
     </div>
   );
 }
