@@ -5,7 +5,7 @@ class Genre extends React.Component {
   render() {
     const { genre, handleOnChange } = this.props;
 
-    return(
+    return (
       <label data-testid="genre-input-label" htmlFor="genre-input">
         Gênero
         <select
