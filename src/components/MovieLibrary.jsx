@@ -1,7 +1,6 @@
 // implement MovieLibrary component here
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import movies from '../data';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
@@ -18,6 +17,21 @@ export default class MovieLibrary extends Component {
     };
 
     this.globalChange = this.globalChange.bind(this);
+    this.getFilteredMovies = this.getFilteredMovies.bind(this);
+    this.addMovieClick = this.addMovieClick.bind(this);
+  }
+
+  getFilteredMovies() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const filteredByBookmarked = movies
+      .filter((movie) => (bookmarkedOnly ? movie.bookmarked : movies));
+    const filteredBySearchText = filteredByBookmarked
+      .filter((movie) => movie.title.toLowerCase().includes(searchText)
+      || movie.subtitle.toLowerCase().includes(searchText)
+      || movie.storyline.toLowerCase().includes(searchText));
+    const filteredByGenre = filteredBySearchText
+      .filter((movie) => (selectedGenre === '' ? movies : movie.genre === selectedGenre));
+    return filteredByGenre;
   }
 
   globalChange({ target }) {
@@ -28,8 +42,13 @@ export default class MovieLibrary extends Component {
     });
   }
 
+  addMovieClick(newMovie) {
+    this.setState((previousState) => ({
+      movies: [...previousState.movies, newMovie] }));
+  }
+
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <SearchBar
@@ -40,7 +59,8 @@ export default class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.globalChange }
         />
-        <MovieList movies={ movies } />
+        <MovieList movies={ this.getFilteredMovies() } />
+        <AddMovie onClick={ this.addMovieClick } />
       </div>
     );
   }
@@ -48,12 +68,12 @@ export default class MovieLibrary extends Component {
 
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string.isRequired,
-    storyline: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    imagePath: PropTypes.string.isRequired,
-    bookmarked: PropTypes.bool.isRequired,
-    genre: PropTypes.string.isRequired,
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    storyline: PropTypes.string,
+    rating: PropTypes.number,
+    imagePath: PropTypes.string,
+    bookmarked: PropTypes.bool,
+    genre: PropTypes.string,
   })).isRequired,
 };
