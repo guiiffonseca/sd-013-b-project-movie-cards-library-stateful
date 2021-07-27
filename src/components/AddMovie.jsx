@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export default class AddMovie extends Component {
   render() {
-    const { onChange, title, subtitle } = this.props;
+    const { onChange, title, subtitle, imagePath } = this.props;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title-input-label" data-testid="title-input-label">
@@ -26,6 +26,16 @@ export default class AddMovie extends Component {
             onChange={ onChange }
           />
         </label>
+        <label htmlFor="image-input-label" data-testid="image-input-label">
+          Imagem
+          <input
+            type="text"
+            name="image-input"
+            data-testid="image-input"
+            value={ imagePath }
+            onChange={ onChange }
+          />
+        </label>
       </form>
     );
   }
@@ -35,4 +45,5 @@ AddMovie.propTypes = {
   onChange: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
+  imagePath: PropTypes.string.isRequired,
 };
