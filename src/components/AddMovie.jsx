@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
   constructor() {
@@ -8,10 +7,6 @@ class AddMovie extends Component {
     this.state = {
       subtitle: '',
       title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -57,6 +52,3 @@ class AddMovie extends Component {
 }
 
 export default AddMovie;
-
-AddMovie.propTypes = {
-};
