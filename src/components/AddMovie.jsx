@@ -24,9 +24,29 @@ class AddMovie extends React.Component {
     });
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+
+    this.setState((previousState) => {
+      const { onClick } = this.props;
+
+      onClick(previousState);
+
+      return {
+        genre: 'action',
+        imagePath: '',
+        rating: 0,
+        storyLine: '',
+        subtitle: '',
+        title: '',
+      };
+    });
+  }
+
   renderInput = ([id, labelText, value, type = 'text', name]) => (
     <Input
       id={ id }
+      key={ id }
       labelText={ labelText }
       name={ name }
       onChange={ this.handleChange }
@@ -47,7 +67,7 @@ class AddMovie extends React.Component {
         <textarea
           name="storyLine"
           id="storyLine"
-          defaultValue={ storyLine }
+          value={ storyLine }
           data-testid="storyline-input"
           onChange={ this.handleChange }
         />
@@ -70,13 +90,12 @@ class AddMovie extends React.Component {
   )
 
   render() {
-    const { onClick } = this.props;
-
-    console.log(onClick);
-
     return (
       <form data-testid="add-movie-form">
         { this.renderFormHandles(this.state) }
+        <button type="submit" data-testid="send-button" onClick={ this.handleSubmit }>
+          Adicionar filme
+        </button>
       </form>
     );
   }
