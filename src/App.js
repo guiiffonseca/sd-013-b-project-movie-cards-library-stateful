@@ -3,6 +3,8 @@ import Header from './components/Header';
 import './App.css';
 import SearchBar from './components/SearchBar';
 import AddMovie from './components/AddMovie';
+import MovieLibrary from './components/MovieLibrary';
+
 
 const propsSearchBar = {
   searchText: '',
@@ -18,6 +20,7 @@ function App() {
     <div className="App">
       <Header />
       <SearchBar />
+      <MovieLibrary />
       <AddMovie />
     </div>
   );
