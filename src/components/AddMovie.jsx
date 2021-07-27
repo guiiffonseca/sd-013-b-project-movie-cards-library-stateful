@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 class AddMovie extends Component {
   constructor() {
     super();
@@ -19,7 +18,18 @@ class AddMovie extends Component {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.setState;
     return (
       <div>
-        <h1>Opa</h1>
+        <form data-testid="add-movie-form">
+          <label 
+          htmlFor="titulo"
+          data-testid="title-input-label">
+            Título
+            <input type="text"
+            id="titulo"
+            value= { title }
+            data-testid="title-input"
+            />
+          </label>
+        </form>
       </div>
     );
   }
