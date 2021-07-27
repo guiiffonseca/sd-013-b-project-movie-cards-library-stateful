@@ -1,8 +1,9 @@
 // implement AddMovie component here
 import React from 'react';
-import MovieTitle from './subComponents/MovieTitle';
-import MovieSubTitle from './subComponents/MovieSubTitle';
-import ImgPath from './subComponents/ImgPath';
+import MovieTitle from './AddMoviesubComponents/MovieTitle';
+import MovieSubTitle from './AddMoviesubComponents/MovieSubTitle';
+import ImgPath from './AddMoviesubComponents/ImgPath';
+import StorylineTextArea from './AddMoviesubComponents/StorylineTextArea';
 
 export default class AddMovie extends React.Component {
   constructor() {
@@ -41,6 +42,7 @@ export default class AddMovie extends React.Component {
         <MovieTitle value={ title } callBack={ this.handleChange } />
         <MovieSubTitle value={ subtitle } callBack={ this.handleChange } />
         <ImgPath value={ imagePath } callBack={ this.handleChange } />
+        <StorylineTextArea value={ storyline } callBack={ this.handleChange } />
       </form>
     );
   }
