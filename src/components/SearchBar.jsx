@@ -40,10 +40,10 @@ export default class SearchBar extends Component {
             onChange={ onSelectedGenreChange }
             data-testid="select-input"
           >
-            <option value="">Todos</option>
-            <option value="action">Ação</option>
-            <option value="comedy">Comédia</option>
-            <option value="thriller">Suspense</option>
+            <option value="" data-testid="select-input">Todos</option>
+            <option value="action" data-testid="select-input">Ação</option>
+            <option value="comedy" data-testid="select-input">Comédia</option>
+            <option value="thriller" data-testid="select-input">Suspense</option>
           </select>
         </label>
       </form>
@@ -52,10 +52,10 @@ export default class SearchBar extends Component {
 }
 
 SearchBar.propTypes = {
-  searchText: PropTypes.string,
-  onSearchTextChange: PropTypes.func,
-  bookmarkedOnly: PropTypes.bool,
-  onBookmarkedChange: PropTypes.func,
-  selectedGenre: PropTypes.string,
-  onSelectedGenreChange: PropTypes.func,
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
 };

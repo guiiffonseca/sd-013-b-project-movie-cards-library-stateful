@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import LabelTextTitle from './LabelTextTitle';
+import LabelTextSubtitle from './LabelTextSubtitle';
+import LabelTextImage from './LabelTextImage';
+import LabelTextArea from './LabelTextArea';
+import LabelNumberRating from './LabelNumberRating';
 
 export default class AddMovie extends Component {
   constructor() {
@@ -27,40 +32,16 @@ export default class AddMovie extends Component {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form action="" data-testid="add-movie-form">
-        <label htmlFor="title" data-testid="title-input-label">
-          Título
-          <input
-            value={ title }
-            type="text"
-            name="title"
-            id="title"
-            data-testid="title-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="subtitle" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            type="text"
-            value={ subtitle }
-            name="subtitle"
-            id="subtitle"
-            data-testid="subtitle-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="imagePath" data-testid="image-input-label">
-          Imagem
-          <input
-            value={ imagePath }
-            type="text"
-            name="imagePath"
-            id="imagePath"
-            data-testid="image-input"
-            onChange={ this.handleChange }
-          />
-        </label>
+        <LabelTextTitle state={ title } change={ this.handleChange } />
+        <LabelTextSubtitle state={ subtitle } change={ this.handleChange } />
+        <LabelTextImage state={ imagePath } change={ this.handleChange } />
+        <LabelTextArea state={ storyline } change={ this.handleChange } />
+        <LabelNumberRating state={ rating } change={ this.handleChange } />
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
