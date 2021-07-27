@@ -18,7 +18,7 @@ export default class MovieLibrary extends Component {
 
     this.globalChange = this.globalChange.bind(this);
     this.getFilteredMovies = this.getFilteredMovies.bind(this);
-    this.addMovieClick = this.addMovieClick.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
   getFilteredMovies() {
@@ -42,9 +42,11 @@ export default class MovieLibrary extends Component {
     });
   }
 
-  addMovieClick(newMovie) {
-    this.setState((previousState) => ({
-      movies: [...previousState.movies, newMovie] }));
+  addMovie(newMovie) {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, newMovie],
+    });
   }
 
   render() {
@@ -60,7 +62,7 @@ export default class MovieLibrary extends Component {
           onSelectedGenreChange={ this.globalChange }
         />
         <MovieList movies={ this.getFilteredMovies() } />
-        <AddMovie onClick={ this.addMovieClick } />
+        <AddMovie onClick={ this.addMovie } />
       </div>
     );
   }
