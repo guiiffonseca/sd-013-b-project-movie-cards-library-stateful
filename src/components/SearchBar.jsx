@@ -3,6 +3,8 @@ import React from 'react';
 // Para resolver PropTypes is nor defined:
 // npm install --save prop-types
 import PropTypes from 'prop-types';
+import Select from './Select';
+import TextCheckboxSelect from './TextCheckboxSelect copy';
 
 class SearchBar extends React.Component {
   // constructor() {
@@ -36,36 +38,16 @@ class SearchBar extends React.Component {
       <form
         data-testid="search-bar-form"
       >
-        <label
-          htmlFor="text-input"
-          data-testid="text-input-label"
-        >
-          Inclui o texto=
-          <input
-            onChange={ onSearchTextChange }
-            id="text-input"
-            data-testid="text-input"
-            type="text"
-            value={ searchText }
-            esLint={
-              selectedGenre
-              + onSelectedGenreChange
-            }
-          />
-        </label>
-        <label
-          htmlFor="checkbox-input"
-          data-testid="checkbox-input-label"
-        >
-          Mostrar somente favoritos
-          <input
-            data-testid="checkbox-input"
-            type="checkbox"
-            id="checkbox-input"
-            checked={ bookmarkedOnly }
-            onChange={ onBookmarkedChange }
-          />
-        </label>
+        <TextCheckboxSelect
+          searchText={ searchText }
+          onSearchTextChange={ onSearchTextChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ onBookmarkedChange }
+        />
+        <Select
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ onSelectedGenreChange }
+        />
       </form>
     );
   }
