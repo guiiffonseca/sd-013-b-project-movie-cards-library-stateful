@@ -4,10 +4,10 @@ export default class AddMovies extends React.Component {
   constructor() {
     super();
     this.state = {
-      subtitle: "",
+      subtitle: '',
       title: '',
-      imagePath:"",
-      storyLine:"",
+      imagePath: '',
+      storyLine: '',
       rating: 0,
       genre: 'action',
     };
@@ -21,7 +21,7 @@ export default class AddMovies extends React.Component {
   }
 
   render() {
-    const { title } = this.state;
+    const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">
@@ -31,6 +31,16 @@ export default class AddMovies extends React.Component {
             value={ title }
             name="title"
             type="text"
+            onChange={ this.handleChange }
+          />
+        </label>
+        <label htmlFor="subtitle" data-testid="subtitle-input-label">
+          Subtítulo
+          <input
+            data-testid="subtitle-input"
+            value={ subtitle }
+            type="text"
+            name="subtitle"
             onChange={ this.handleChange }
           />
         </label>
