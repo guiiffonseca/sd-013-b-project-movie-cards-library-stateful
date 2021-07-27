@@ -4,6 +4,7 @@ import React from 'react';
 class AddMovie extends React.Component {
   constructor() {
     super();
+
     this.state = {
       subtitle: '',
       title: '',
@@ -12,10 +13,16 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick(event) {
+    const { value } = event.target;
+    this.setState({ title: value });
   }
 
   render() {
-    const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -26,7 +33,7 @@ class AddMovie extends React.Component {
             type="text"
             value={ title }
             data-testid="title-input"
-            onChange={ onClick }
+            onChange={ this.onClick }
           />
         </label>
       </form>
