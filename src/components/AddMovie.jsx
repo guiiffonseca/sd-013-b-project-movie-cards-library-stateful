@@ -2,7 +2,6 @@
 import React from 'react';
 import Input from './Input';
 
-
 export default class AddMovie extends React.Component {
   constructor(props) {
     super(props);
@@ -25,42 +24,39 @@ export default class AddMovie extends React.Component {
     const { title, subtitle, imagePath } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="add" data-testid="title-input-label">
-          Título
-          <input
-            type="text"
-            value={ title }
-            id="add"
-            name="title"
-            data-testid="title-input"
-            onChange={ this.EventSetstate }
-          />
-        </label>
 
-        <label htmlFor="addSub" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            type="text"
-            value={ subtitle }
-            name="subtitle"
-            id="addSub"
-            data-testid="subtitle-input"
-            onChange={ this.EventSetstate }
-          />
-        </label>
+        <Input
+          texto="Título"
+          value={ title }
+          nome="title"
+          tipo="text"
+          id="add"
+          dataID="title-input"
+          func={ this.EventSetstate }
+          idLabel="title-input-label"
+        />
 
-        <label htmlFor="addimg" data-testid="image-input-label">
-          Imagem
-          <input
-            type="text"
-            value={ imagePath }
-            name="imagePath"
-            id="addimg"
-            data-testid="image-input"
-            onChange={ this.EventSetstate }
-          />
-        </label>
-        <Input texto='' value='' nome="" tipo="" id="" onChange={ this.EventSetstate } value={ imagePath } />
+        <Input
+          texto="Subtítulo"
+          value={ subtitle }
+          nome="subtitle"
+          tipo="text"
+          id="addSub"
+          dataID="subtitle-input"
+          func={ this.EventSetstate }
+          idLabel="subtitle-input-label"
+        />
+
+        <Input
+          texto="Imagem"
+          value={ imagePath }
+          nome="imagePath"
+          tipo="text"
+          id="addimg"
+          dataID="image-input"
+          func={ this.EventSetstate }
+          idLabel="image-input-label"
+        />
 
       </form>
     );
