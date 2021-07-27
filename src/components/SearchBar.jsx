@@ -17,7 +17,15 @@ export default class SearchBar extends React.Component {
             onChange={ onSearchTextChange }
           />
         </label>
-        Isso é um form
+        <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
+          Mostrar somente favoritos:
+          <input
+            data-testid="checkbox-input"
+            type="checkbox"
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
+          />
+        </label>
       </form>
     );
   }
