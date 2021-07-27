@@ -29,7 +29,7 @@ class SearchBar extends React.Component {
             type="checkbox"
             name=""
             id=""
-            hecked={ bookmarkedOnly }
+            checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
           />
         </label>
