@@ -60,6 +60,16 @@ export default class AddMovie extends React.Component {
             onChange={ this.handleChange }
           />
         </label>
+        <label data-testid="storyline-input-label" htmlFor="storyLine">
+          Sinopse
+          <input
+            name="storyLine"
+            id="storyLine"
+            data-testid="storyline-input"
+            value={ storyLine }
+            onChange={ this.handleChange }
+          />
+        </label>
       </form>
     );
   }
