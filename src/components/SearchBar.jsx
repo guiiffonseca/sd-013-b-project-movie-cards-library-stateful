@@ -23,8 +23,29 @@ class SearchBar extends Component {
             onChange={ onSearchTextChange }
           />
         </label>
-        <label data-testid="checkbox-input-label" htmlFor="">Mostrar somente favoritos
-        <input type="checkbox" />
+
+        <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
+          Mostrar somente favoritos
+          <input
+            data-testid="checkbox-input"
+            type="checkbox"
+            value={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
+          />
+        </label>
+
+        <label data-testid="select-input-label" htmlFor="selected-input">
+          Filtrar por gênero
+          <select
+            data-testid="selected-input"
+            value={ selectedGenre }
+            onChange={ onselectedGenreChange }
+          >
+            <option data-testid="select-option" value="">Todos</option>
+            <option data-testid="select-option" value="action">Ação</option>
+            <option data-testid="select-option" value="comedy">comédia</option>
+            <option data-testid="select-option" value="thriller">Suspense</option>
+          </select>
         </label>
       </form>
     );
@@ -32,12 +53,12 @@ class SearchBar extends Component {
 }
 
 SearchBar.propTypes = {
-  bookmarkedOnly: PropTypes.any,
-  onBookmarkedChange: PropTypes.any,
-  onSearchTextChange: PropTypes.string.isRequired,
-  onselectedGenreChange: PropTypes.any,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  onselectedGenreChange: PropTypes.func.isRequired,
   searchText: PropTypes.string.isRequired,
-  selectedGenre: PropTypes.any
+  selectedGenre: PropTypes.string.isRequired,
 };
 
 export default SearchBar;
