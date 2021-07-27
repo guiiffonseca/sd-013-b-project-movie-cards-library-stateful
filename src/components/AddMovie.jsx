@@ -52,6 +52,7 @@ class AddMovie extends React.Component {
             onChange={ this.handleChange }
           />
         </label>
+
         <label htmlFor="subtitulo" data-testid="subtitle-input-label">
           Subtítulo
           <input
@@ -62,6 +63,7 @@ class AddMovie extends React.Component {
             onChange={ this.handleChange }
           />
         </label>
+
         <label htmlFor="imagePath" data-testid="image-input-label">
           Imagem
           <input
@@ -72,6 +74,7 @@ class AddMovie extends React.Component {
             onChange={ this.handleChange }
           />
         </label>
+
         <AddSinopse storyline={ storyline } handleChange={ this.handleChange } />
         <AddRating rating={ rating } handleChange={ this.handleChange } />
         <AddGenre genre={ genre } handleChange={ this.handleChange } />
