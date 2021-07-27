@@ -7,10 +7,10 @@ class SearchBar extends React.Component {
     this.state = {
       searchText: '',
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
   }
 
-  handleChange(event) {
+  onSearchTextChange(event) {
     this.setState({
       searchText: event.target.value,
     });
@@ -24,11 +24,10 @@ class SearchBar extends React.Component {
         <label htmlFor="search" data-testid="text-input-label">
           Inclui o texto:
           <input
-            onChange={ this.handleChange }
+            onChange={ onSearchTextChange }
             type="text"
             id="search"
             value={ searchText }
-            onChange={ onSearchTextChange }
             data-testid="text-input"
           />
         </label>
