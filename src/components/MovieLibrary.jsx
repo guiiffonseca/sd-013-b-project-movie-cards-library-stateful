@@ -14,7 +14,6 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: '',
     };
 
     this.handle = this.handle.bind(this);
