@@ -13,6 +13,7 @@ export default class SearchBar extends React.Component {
           <input
             data-testid="text-input"
             type="text"
+            name="searchText"
             value={ searchText }
             onChange={ onSearchTextChange }
           />
@@ -22,6 +23,7 @@ export default class SearchBar extends React.Component {
           <input
             data-testid="checkbox-input"
             type="checkbox"
+            name="bookmarkedOnly"
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
           />
