@@ -5,7 +5,7 @@ class Rating extends Component {
   render() {
     const { valor, funcao } = this.props;
     return (
-      <label htmlFor="subtitle" data-testid="subtitle-input-label">
+      <label htmlFor="rating" data-testid="rating-input-label">
         Avaliação
         <input
           data-testid="rating-input"
@@ -13,7 +13,7 @@ class Rating extends Component {
           value={ valor }
           onChange={ funcao }
           name="rating"
-          id="subtitle"
+          id="rating"
         />
       </label>
     );
