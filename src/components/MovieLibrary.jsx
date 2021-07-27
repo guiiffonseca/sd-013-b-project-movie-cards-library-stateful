@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 
 export default class MovieLibrary extends React.Component {
   render() {
+    const { movies } = this.props;
     return (
       <SearchBar
         searchText=""
@@ -15,3 +17,7 @@ export default class MovieLibrary extends React.Component {
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
