@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Select from './Select';
+import Checkbox from './Checkbox';
+import SearchInput from './SearchInput';
 
 class SearchBar extends React.Component {
   render() {
@@ -8,37 +11,23 @@ class SearchBar extends React.Component {
       onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange,
     } = this.props;
-
     return (
       <form data-testid="search-bar-form" action="">
-        <label
-          data-testid="text-input-label"
-          htmlFor="text-input"
-        >
-          Inclui o texto:
-          <input
-            data-testid="text-input"
-            id="text-input"
-            type="text"
-            value={ searchText }
-            onChange={ onSearchTextChange }
-          />
-        </label>
-
-        <label
-          data-testid="checkbox-input-label"
-          htmlFor="checkbox-input"
-        >
-          Mostrar somente favoritos
-          <input
-            data-testid="checkbox-input"
-            id="checkbox-input"
-            type="checkbox"
-            checked={ bookmarkedOnly }
-            onChange={ onBookmarkedChange }
-          />
-        </label>
+        <SearchInput
+          searchText={ searchText }
+          onSearchTextChange={ onSearchTextChange }
+        />
+        <Checkbox
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ onBookmarkedChange }
+        />
+        <Select
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ onSelectedGenreChange }
+        />
       </form>
     );
   }
@@ -49,7 +38,7 @@ SearchBar.propTypes = {
   onSearchTextChange: PropTypes.func.isRequired,
   bookmarkedOnly: PropTypes.bool.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
-  // selectedGenre: PropTypes.string.isRequired,
-  // onSelectedGenreChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
 };
 export default SearchBar;
