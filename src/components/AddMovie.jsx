@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import AddGenre from './AddGenre';
 import AddRating from './AddRating';
 import AddSinopse from './AddSinopse';
-// import PropTypes from 'prop-types';
+import Button from './Button';
 
 export default class AddMovie extends Component {
   constructor() {
@@ -16,6 +17,7 @@ export default class AddMovie extends Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange({ target }) {
@@ -25,9 +27,21 @@ export default class AddMovie extends Component {
     });
   }
 
+  handleSubmit(reset) {
+    reset(this.state);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
     const { title, subtitle, storyline, imagePath, rating, genre } = this.state;
-    // const { onClick } = this.props;
+    const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title-input" data-testid="title-input-label">
@@ -65,11 +79,12 @@ export default class AddMovie extends Component {
         <AddSinopse value={ storyline } handleChange={ this.handleChange } />
         <AddRating value={ rating } handleChange={ this.handleChange } />
         <AddGenre value={ genre } handleChange={ this.handleChange } />
+        <Button onClick={ () => this.handleSubmit(onClick) } />
       </form>
     );
   }
 }
 
-// AddMovie.propTypes = {
-//   onClick: PropTypes.func.isRequired,
-// };
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
