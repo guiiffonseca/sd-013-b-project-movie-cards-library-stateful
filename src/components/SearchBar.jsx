@@ -6,28 +6,30 @@ class SearchBar extends React.Component {
     super();
 
     this.state = {
-      search: '',
+      searchText: '',
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
   }
 
-  handleChange(event) {
+  onSearchTextChange(event) {
     this.setState({
       [event.target.name]: event.target.value,
     });
   }
 
   render() {
-    const { search } = this.state;
+    const { searchText } = this.state;
     return (
       <form data-testid="search-bar-form">
         <label htmlFor="search">
+          Inclui o texto
           <input
+            data-testid="text-input"
             type="text"
             name="search"
-            value={ search }
+            value={ searchText }
             id="search"
-            onChange={ this.handleChange }
+            onChange={ this.onSearchTextChange }
           />
         </label>
       </form>
