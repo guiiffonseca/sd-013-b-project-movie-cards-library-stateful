@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import AddMovieInputs from './AddMovieInputs';
 
 class AddMovie extends Component {
   constructor() {
@@ -23,7 +24,8 @@ class AddMovie extends Component {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form action="" data-testid="add-movie-form">
-        <label htmlFor="title-input" data-testid="title-input-label">
+        {/* <AddMovieInputs props={ { type, data-testid, id, name, onChange }} /> */}
+          <label htmlFor="title-input" data-testid="title-input-label">
           Título
           <input
             type="text"
@@ -64,6 +66,17 @@ class AddMovie extends Component {
             onChange={ this.handleChange }
           />
         </label>
+        <label htmlFor="" data-testid="rating-input-label">
+          Avaliação
+          <input
+            type="number"
+            data-testid="rating-input"
+            id=""
+            name={ rating }
+            onChange={ this.handleChange }
+          />
+        </label>
+        
       </form>
     );
   }
