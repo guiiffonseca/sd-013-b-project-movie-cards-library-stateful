@@ -53,6 +53,15 @@ export default class AddMovie extends React.Component {
           dataTestid="image-input"
           onChange={ this.handleChange }
         />
+        <label htmlFor="storyline-input" data-testid="storyline-input-label">
+          Sinopse:
+          <textarea
+            value={ storyline }
+            data-testid="storyline-input"
+            onChange={ this.handleChange }
+            name="storyline"
+          />
+        </label>
       </form>
     );
   }
