@@ -1,7 +1,9 @@
 import React from 'react';
-import textInput from './textInput';
-import textAreaInput from './textAreaInput';
-import numberInput from './numberInput';
+import ButtonInput from './ButtonInput';
+import TextInput from './TextInput';
+import TextAreaInput from './TextAreaInput';
+import NumberInput from './NumberInput';
+import SelectInput from './SelectInput';
 
 export default class AddMovie extends React.Component {
   constructor() {
@@ -29,48 +31,52 @@ export default class AddMovie extends React.Component {
     const { genre, imagePath, rating, storyline, subtitle, title } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <textInput
+        <TextInput
           inputTestId="title-input"
           labelTestId="title-input-label"
           onChange={ this.handleChange }
           text="Título"
           value={ title }
         />
-        <textInput
+        <TextInput
           inputTestId="subtitle-input"
           labelTestId="subtitle-input-label"
           onChange={ this.handleChange }
           text="Subtítulo"
           value={ subtitle }
         />
-        <textInput
+        <TextInput
           inputTestId="image-input"
           labelTestId="image-input-label"
           onChange={ this.handleChange }
           text="Imagem"
           value={ imagePath }
         />
-        <textAreaInput
+        <TextAreaInput
           inputTestId="storyline-input"
           labelTestId="storyline-input-label"
           onChange={ this.handleChange }
           text="Sinopse"
           value={ storyline }
         />
-        <numberInput
+        <NumberInput
           inputTestId="rating-input"
           labelTestId="rating-input-label"
           onChange={ this.handleChange }
           text="Avaliação"
           value={ rating }
         />
-        <selectInput
+        <SelectInput
           inputTestId="genre-input"
           labelTestId="genre-input-label"
           onChange={ this.handleChange }
           optionTestId="genre-option"
           text="Gênero"
           value={ genre }
+        />
+        <ButtonInput
+          inputTestId="send-button"
+          text="Adicionar Filme"
         />
       </form>
     );

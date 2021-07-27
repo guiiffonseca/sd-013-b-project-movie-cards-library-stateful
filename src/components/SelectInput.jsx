@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default class textInput extends React.Component {
+export default class SelectInput extends React.Component {
   render() {
-    const { text, inputTestId, labelTestId } = this.props;
+    const { text, inputTestId, labelTestId, optionTestId } = this.props;
     return (
       <label data-testid={ labelTestId } htmlFor={ inputTestId }>
         { text }

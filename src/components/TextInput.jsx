@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class textInput extends React.Component {
+export default class TextInput extends React.Component {
   render() {
     const { text, inputTestId, labelTestId } = this.props;
     return (
