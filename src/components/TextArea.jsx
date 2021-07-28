@@ -1,22 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class TextInput extends React.Component {
+class TextArea extends React.Component {
   render() {
-    const { label, type = 'text', id, value, onChange } = this.props;
-    let inputName = id.replace('-input', '');
-
-    if (inputName === 'image') inputName = 'imagePath';
-    else if (inputName === 'text') inputName = 'searchText';
+    const { label, id, name, value, onChange } = this.props;
 
     return (
       <label htmlFor={ id } data-testid={ `${id}-label` }>
         {label}
-        <input
-          type={ type }
+        <textarea
           id={ id }
+          name={ name }
           data-testid={ id }
-          name={ inputName }
+          cols="30"
+          rows="10"
           value={ value }
           onChange={ onChange }
         />
@@ -25,12 +22,12 @@ class TextInput extends React.Component {
   }
 }
 
-TextInput.propTypes = {
+TextArea.propTypes = {
   label: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
-export default TextInput;
+export default TextArea;

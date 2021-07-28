@@ -2,7 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import TextInput from './TextInput';
-import FormSelect from './FormSelect';
+import SelectInput from './SelectInput';
+
+const movieGenre = [
+  { value: '', text: 'Todos' },
+  { value: 'action', text: 'Ação' },
+  { value: 'comedy', text: 'Comédia' },
+  { value: 'thriller', text: 'Suspense' },
+];
 
 class SearchBar extends React.Component {
   render() {
@@ -20,6 +27,7 @@ class SearchBar extends React.Component {
         <TextInput
           label="Inclui o texto:"
           id="text-input"
+          name="searchText"
           value={ searchText }
           onChange={ onSearchTextChange }
         />
@@ -36,11 +44,12 @@ class SearchBar extends React.Component {
           Mostrar somente favoritos
         </label>
 
-        <FormSelect
+        <SelectInput
           label="Filtrar por gênero"
           id="select-input"
           value={ selectedGenre }
           onChange={ onSelectedGenreChange }
+          options={ movieGenre }
         />
       </form>
     );
