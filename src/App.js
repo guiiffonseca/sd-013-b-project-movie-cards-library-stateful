@@ -6,7 +6,7 @@ import MovieLibrary from './components/MovieLibrary';
 class App extends Component {
   render() {
     return (
-      <div className='App'>
+      <div className="App">
         <Header />
         <MovieLibrary />
       </div>

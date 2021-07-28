@@ -1,28 +1,33 @@
 import React, { Component } from 'react';
 
-import MovieList from './MovieList';
+// import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  //   constructor(props) {
-  //     super(props);
-  //   }
+  constructor(props) {
+    super(props);
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick() {
+    return console.log('');
+  }
 
   render() {
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
-          searchText={ '' }
+          searchText=""
           onSearchTextChange={ () => 'callback' }
-          bookmarkedOnl={'bolean'}
+          bookmarkedOnl="true"
           onBookmarkedChange={ () => 'callback' }
-          selectedGenre={'string'}
+          selectedGenre=""
           onSelectedGenreChange={ () => 'callback' }
         />
         {/* <MovieList movies={ this.props.movies } /> */}
-        <AddMovie onClick={ () => '' } />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }

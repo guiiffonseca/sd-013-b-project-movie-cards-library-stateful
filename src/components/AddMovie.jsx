@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import InfoNewCard1 from './InfoNewCard1';
 import InfoNewCard2 from './InfoNewCard2';
 
 class AddMovie extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       subtitle: '',
       title: '',
@@ -14,18 +15,8 @@ class AddMovie extends Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
-    this.addNewMovie = this.addNewMovie.bind(this);
   }
-  addNewMovie() {
-    this.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    });
-  }
+
   handleChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -33,16 +24,43 @@ class AddMovie extends Component {
       [name]: value,
     });
   }
+
   render() {
+    const { onClick } = this.props;
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form method='get' data-testid='add-movie-form'>
-        <InfoNewCard1 state={ this.state } handleChange={ this.handleChange } />
-        <InfoNewCard2 state={ this.state } handleChange={ this.handleChange } />
-        <button type='submit' data-testid='send-button' onClick={this.addNewMovie}>
+      <form method="get" data-testid="add-movie-form">
+        <InfoNewCard1
+          state={ { subtitle, title, imagePath } }
+          handleChange={ this.handleChange }
+        />
+        <InfoNewCard2
+          state={ { storyline, rating, genre } }
+          handleChange={ this.handleChange }
+        />
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ () => {
+            onClick();
+            return this.setState({
+              subtitle: '',
+              title: '',
+              imagePath: '',
+              storyline: '',
+              rating: 0,
+              genre: 'action',
+            });
+          } }
+        >
           Adicionar filme
         </button>
       </form>
-    )
+    );
   }
 }
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
+
 export default AddMovie;

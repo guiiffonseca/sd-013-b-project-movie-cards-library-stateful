@@ -1,48 +1,48 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class InfoNewCard2 extends Component {
   render() {
     const { state, handleChange } = this.props;
     const { storyline, rating, genre } = state;
-
     return (
       <div>
-        <label data-testid='storyline-input-label'>
-          Sinopse{' '}
+        <label htmlFor="storyline" data-testid="storyline-input-label">
+          Sinopse
           <textarea
-            name='storyline'
-            value={storyline}
-            cols='30'
-            rows='5'
-            data-testid='storyline-input'
-            onChange={handleChange}
-          ></textarea>
-        </label>
-        <label data-testid='rating-input-label'>
-          Avaliação
-          <input
-            type='number'
-            value={rating}
-            name='rating'
-            onChange={handleChange}
-            data-testid='rating-input'
+            name="storyline"
+            value={ storyline }
+            cols="30"
+            rows="5"
+            data-testid="storyline-input"
+            onChange={ handleChange }
           />
         </label>
-        <label data-testid='genre-input-label'>
+        <label htmlFor="rating" data-testid="rating-input-label">
+          Avaliação
+          <input
+            type="number"
+            value={ rating }
+            name="rating"
+            onChange={ handleChange }
+            data-testid="rating-input"
+          />
+        </label>
+        <label htmlFor="genre" data-testid="genre-input-label">
           Gênero
           <select
-            name='genre'
-            value={genre}
-            data-testid='genre-input'
-            onChange={handleChange}
+            name="genre"
+            value={ genre }
+            data-testid="genre-input"
+            onChange={ handleChange }
           >
-            <option value='action' data-testid='genre-option'>
+            <option value="action" data-testid="genre-option">
               Ação
             </option>
-            <option value='comedy' data-testid='genre-option'>
+            <option value="comedy" data-testid="genre-option">
               Comédia
             </option>
-            <option value='thriller' data-testid='genre-option'>
+            <option value="thriller" data-testid="genre-option">
               Suspense
             </option>
           </select>
@@ -51,4 +51,15 @@ class InfoNewCard2 extends Component {
     );
   }
 }
+InfoNewCard2.propTypes = {
+  state: PropTypes.objectOf(
+    PropTypes.shape({
+      storyline: PropTypes.string.isRequired,
+      rating: PropTypes.number.isRequired,
+      genre: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
+
 export default InfoNewCard2;
