@@ -42,7 +42,7 @@ class MovieLibrary extends Component {
     const filteredByTexts = movies.filter((movie) => movie.title.includes(searchText)
     || movie.subtitle.includes(searchText) || movie.storyline.includes(searchText));
     const filteredChecks = movies.filter((movie) => movie.bookmarked === true);
-    const filteredByGenre = movies.filter((movie)=> movie.genre === selectedGenre);
+    const filteredByGenre = movies.filter((movie) => movie.genre === selectedGenre);
     if (searchText !== '') {
       return filteredByTexts;
     }

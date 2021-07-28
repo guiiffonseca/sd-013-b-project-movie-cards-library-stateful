@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Button from './Button';
 import Title from './Title';
+import Button from './Button';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -21,6 +21,18 @@ class AddMovie extends Component {
     const { name, value } = target;
     this.setState({
       [name]: value,
+    });
+  }
+
+  clearFilm(event) {
+    event.preventDefault();
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyLine: '',
+      rating: 0,
+      genre: 'action',
     });
   }
 
