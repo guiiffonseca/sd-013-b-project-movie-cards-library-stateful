@@ -34,7 +34,16 @@ class AddMovie extends React.Component {
   handleClick = () => {
     const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
-    onClick(subtitle, title, imagePath, storyline, rating, genre);
+    const movie = {
+      title,
+      subtitle,
+      storyline,
+      rating,
+      imagePath,
+      bookmarked: false,
+      genre,
+    };
+    onClick(movie);
     this.setState({
       subtitle: '',
       title: '',
