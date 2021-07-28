@@ -10,6 +10,7 @@ export default class AddMovies extends React.Component {
   constructor() {
     super();
     this.state = {
+      bookmarked: false,
       subtitle: '',
       title: '',
       imagePath: '',
@@ -31,6 +32,7 @@ export default class AddMovies extends React.Component {
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
+      bookmarked: false,
       subtitle: '',
       title: '',
       imagePath: '',
