@@ -19,25 +19,37 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleChange({ target }) {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+  handleChange(event) {
+    const { name, value } = event.target;
     this.setState({
       [name]: value,
     });
   }
 
-  render() {
+  handleClick() {
     const { onClick } = this.props;
-    const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
+    onClick(this.state);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  render() {
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <LabelTitle value={ title } handleChange={ this.handleChange } />
         <LabelSubtitle value={ subtitle } handleChange={ this.handleChange } />
         <LabelImage value={ imagePath } handleChange={ this.handleChange } />
-        <LabelStoryLine value={ storyLine } handleChange={ this.handleChange } />
+        <LabelStoryLine value={ storyline } handleChange={ this.handleChange } />
         <label htmlFor="rating" data-testid="rating-input-label">
           Avaliação
           <input
@@ -67,7 +79,7 @@ class AddMovie extends React.Component {
             </option>
           </select>
         </label>
-        <button type="submit" data-testid="send-button" onClick={ onClick }>
+        <button type="submit" data-testid="send-button" onClick={ this.handleClick }>
           Adicionar filme
         </button>
       </form>

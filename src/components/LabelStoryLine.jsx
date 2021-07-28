@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 class LabelStoryLine extends React.Component {
   render() {
-    const { storyLine, handleChange } = this.props;
+    const { value, handleChange } = this.props;
     return (
       <label htmlFor="storyLine" data-testid="storyline-input-label">
         Sinopse
         <textarea
           name="storyLine"
-          value={ storyLine }
+          value={ value }
           data-testid="storyline-input"
           onChange={ handleChange }
         />
@@ -19,7 +19,7 @@ class LabelStoryLine extends React.Component {
 }
 
 LabelStoryLine.propTypes = {
-  storyLine: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 
