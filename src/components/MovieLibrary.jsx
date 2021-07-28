@@ -17,46 +17,44 @@ export default class MovieLibrary extends React.Component {
       selectedGenre: '',
       movies,
       allMovies: movies,
-    }
+    };
   }
 
   filterMovies = () => {
     this.setState(({ allMovies, bookmarkedOnly, selectedGenre, searchText }) => ({
       movies: allMovies
-        .filter(({ bookmarked }) => 
-          !bookmarkedOnly
-          || bookmarked
-        )
-        .filter(({ genre }) => 
-          !selectedGenre
-          || genre === selectedGenre
-        )
-        .filter(({ title, subtitle, storyline }) =>
-          !searchText
+        .filter(({ bookmarked }) => !bookmarkedOnly
+          || bookmarked)
+        .filter(({ genre }) => !selectedGenre
+          || genre === selectedGenre)
+        .filter(({ title, subtitle, storyline }) => !searchText
           || title.includes(searchText)
           || subtitle.includes(searchText)
-          || storyline.includes(searchText)
-        ),
+          || storyline.includes(searchText)),
     }));
   }
 
   handleChange = (event) => {
     this.setState({
-      [event.target.name]: 
+      [event.target.name]:
         event.target.type === 'checkbox'
-        ? event.target.checked
-        : event.target.value,
+          ? event.target.checked
+          : event.target.value,
     });
     this.filterMovies();
   }
 
   handleAdd = (movie) => {
     this.setState(({ allMovies }) => ({
-      allMovies: [ ...allMovies, { ...movie, rating: parseFloat(movie.rating), bookmarked: false } ],
+      allMovies: [...allMovies, {
+        ...movie,
+        rating: parseFloat(movie.rating),
+        bookmarked: false,
+      }],
     }));
     this.filterMovies();
   }
-  
+
   render() {
     const { bookmarkedOnly, movies, searchText, selectedGenre } = this.state;
 
@@ -70,10 +68,10 @@ export default class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList movies={ movies }/>
-        <AddMovie onClick={ this.handleAdd }/>
+        <MovieList movies={ movies } />
+        <AddMovie onClick={ this.handleAdd } />
       </>
-    )
+    );
   }
 }
 
