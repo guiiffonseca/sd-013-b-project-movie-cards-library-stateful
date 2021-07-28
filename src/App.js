@@ -1,25 +1,14 @@
 import React from 'react';
 import Header from './components/Header';
-import MovieList from './components/MovieList';
-import SearchBar from './components/SearchBar';
-import AddMovies from './components/AddMovie';
 import './App.css';
 import movies from './data';
+import MovieLibrary from './components/MovieLibrary';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <SearchBar
-        searchText=""
-        onSearchTextChange=""
-        bookmarkedOnly=""
-        onBookmarkedChange=""
-        selectedGenre=""
-        onSelectedGenre=""
-      />
-      <MovieList movies={ movies } />
-      <AddMovies onClick={ console.log } />
+      <MovieLibrary movies={ movies } />
     </div>
   );
 }
