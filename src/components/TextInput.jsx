@@ -7,6 +7,7 @@ export default class TextInput extends React.Component {
     const dataTestid = dataTestidLabel.replace('-label', '');
     const name = dataTestid.replace('-input', '') === 'image'
       ? 'imagePath' : dataTestid.replace('-input', '');
+
     return (
       <label htmlFor={ dataTestid } data-testid={ dataTestidLabel }>
         {text}

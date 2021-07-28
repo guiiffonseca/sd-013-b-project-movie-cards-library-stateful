@@ -57,6 +57,14 @@ export default class AddMovie extends React.Component {
           value={ rating }
           onChange={ this.handleChange }
         />
+        <Select
+          dataTestidLabel="genre-input-label"
+          text="Gênero"
+          value={ genre }
+          onChange={ this.handleChange }
+          options={ [{ action: 'Ação' },
+            { comedy: 'Comédia' }, { thriller: 'Suspense' }] }
+        />
       </form>
     );
   }
