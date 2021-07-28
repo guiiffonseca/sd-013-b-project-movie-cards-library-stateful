@@ -6,15 +6,22 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     const { movies } = this.props;
+    this.handleClick = this.handleClick.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies,
     };
+  }
+
+  handleClick(event) {
+    this.setState((prevState) => ({
+      movies: [...prevState.movies, event.target],
+    }));
   }
 
   render() {
@@ -28,14 +35,14 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.handleClick } />
       </div>
     );
   }
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf.isRequired,
+  movies: PropTypes.node.isRequired,
 };
 
 export default MovieLibrary;
