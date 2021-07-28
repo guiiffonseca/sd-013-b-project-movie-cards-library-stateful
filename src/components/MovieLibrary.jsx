@@ -28,4 +28,4 @@ export default MovieLibrary;
 
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-}
+};
