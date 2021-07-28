@@ -29,7 +29,7 @@ class AddMovie extends React.Component {
   }
 
   handleClick(onClick) {
-    onClick();
+    onClick(this.state);
     this.setState(
       {
         subtitle: '',

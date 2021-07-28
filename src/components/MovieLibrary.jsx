@@ -20,6 +20,7 @@ class MovieLibrary extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   onSearchTextChange({ target }) {
@@ -74,6 +75,15 @@ class MovieLibrary extends Component {
     }
   }
 
+  onClick(movie) {
+    this.setState((previous) => ({
+      movies: [...previous.movies, movie],
+    }));
+
+    // Pesquisei como atualizar um array no state, neste link:
+    // https://stackoverflow.com/questions/26253351/correct-modification-of-state-arrays-in-react-js
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
 
@@ -89,7 +99,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }
@@ -102,7 +112,7 @@ MovieLibrary.propTypes = {
         title: PropTypes.string.isRequired,
         subtitle: PropTypes.string.isRequired,
         storyline: PropTypes.string.isRequired,
-        rating: PropTypes.number.isRequired,
+        rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
         imagePath: PropTypes.string.isRequired,
         bookmarked: PropTypes.bool.isRequired,
         genre: PropTypes.string.isRequired,
