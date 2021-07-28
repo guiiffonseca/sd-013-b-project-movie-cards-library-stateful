@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import SelectInput from './SelectInput';
 
 class SearchBar extends Component {
   render() {
@@ -14,7 +15,9 @@ class SearchBar extends Component {
     } = this.props;
 
     return (
+      // requisito 2
       <form data-testid="search-bar-form">
+        {/* requisito 3 */}
         <label htmlFor="searchMovie" data-testid="text-input-label">
           Inclui o texto:
           <input
@@ -25,6 +28,7 @@ class SearchBar extends Component {
             onChange={ onSearchTextChange }
           />
         </label>
+        {/* requisito 4 */}
         <label
           htmlFor="checkboxInput"
           data-testid="checkbox-input-label"
@@ -38,6 +42,14 @@ class SearchBar extends Component {
             data-testid="checkbox-input"
           />
         </label>
+        <SelectInput
+          tagId="moviesGenre"
+          testIdLabel="select-input-label"
+          testIdTag="select-input"
+          tagText="Filtrar por gênero"
+          tagValue={ selectedGenre }
+          tagChange={ onSelectedGenreChange }
+        />
       </form>
     );
   }
@@ -50,7 +62,6 @@ SearchBar.propTypes = {
   onBookmarkedChange: PropTypes.func.isRequired,
   selectedGenre: PropTypes.string.isRequired,
   onSelectedGenreChange: PropTypes.func.isRequired,
-
   // consultado em https://reactjs.org/docs/typechecking-with-proptypes.html
 };
 
