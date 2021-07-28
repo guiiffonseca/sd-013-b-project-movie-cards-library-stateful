@@ -17,6 +17,7 @@ class MovieLibrary extends React.Component {
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.filteredMovies = this.filteredMovies.bind(this);
+    this.createMovie = this.createMovie.bind(this);
   }
 
   onSearchTextChange = (event) => {
@@ -46,6 +47,13 @@ class MovieLibrary extends React.Component {
     return thirdFilter;
   }
 
+  createMovie = (createdMovie) => {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, createdMovie],
+    });
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
@@ -59,7 +67,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ this.filteredMovies() } />
-        <AddMovie />
+        <AddMovie onClick={ this.createMovie } data-testid="add-movie-form" />
       </div>
     );
   }
