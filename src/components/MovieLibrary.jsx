@@ -25,16 +25,12 @@ class MovieLibrary extends Component {
 
   onSearchTextChange({ target }) {
     const { name, value } = target;
-    this.setState({
-      [name]: value,
-    });
+    this.updateState(name, value);
   }
 
   onBookmarkedChange({ target }) {
     const { name } = target;
-    this.setState({
-      [name]: true,
-    });
+    this.updateState(name, true);
   }
 
   onSelectedGenreChange({ target }) {
@@ -44,9 +40,7 @@ class MovieLibrary extends Component {
 
   onClick(e) {
     const { movies } = this.props;
-    this.setState(() => ({
-      movies: [...movies, e],
-    }));
+    this.updateState('movies', [...movies, e]);
   }
 
   filterMovies(movies) {
