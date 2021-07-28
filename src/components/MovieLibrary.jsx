@@ -15,7 +15,6 @@ class MovieLibrary extends Component {
       movies: props.movies,
       filteredMovies: props.movies,
     };
-    this.nomeDaFuncao = this.nomeDaFuncao.bind(this);
     this.handleChangeText = this.handleChangeText.bind(this);
     this.handleChangeChecked = this.handleChangeChecked.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
@@ -68,10 +67,6 @@ class MovieLibrary extends Component {
     });
   }
 
-  nomeDaFuncao() {
-    // Adicionar filmes no array movies
-  }
-
   render() {
     const {
       searchText,
@@ -91,7 +86,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleChangeText }
         />
         <MovieList movies={ filteredMovies } />
-        <AddMovie onClick={ this.nomeDaFuncao } />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }

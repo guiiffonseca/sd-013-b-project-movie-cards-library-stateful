@@ -58,7 +58,17 @@ class AddMovie extends Component {
         <button
           type="button"
           data-testid="send-button"
-          onClick={ onClick }
+          onClick={ () => {
+            onClick(this.state);
+            this.setState({
+              subtitle: '',
+              title: '',
+              imagePath: '',
+              storyline: '',
+              rating: 0,
+              genre: 'action',
+            });
+          } }
         >
           Adicionar filme
         </button>
