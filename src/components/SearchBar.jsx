@@ -5,10 +5,15 @@ class SearchBar extends React.Component {
   constructor() {
     super();
 
-    this.state = {
+    /* this.state = {
       searchText: '',
-    };
+      bookmarkedOnly: false,
+      selectedGenre: '',
+    }; */
+
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
   onSearchTextChange(event) {
@@ -17,32 +22,80 @@ class SearchBar extends React.Component {
     });
   }
 
+  onBookmarkedChange(event) {
+    const { target } = event;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const { name } = target;
+
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  onSelectedGenreChange(/* event */) {
+    this.setState({
+      /* selectedGenre: event.target.value, */
+    });
+  }
+
   render() {
-    const { searchText } = this.state;
+    const { searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange,
+    } = this.props;
+
     return (
-      <form data-testid="search-bar-form">
-        <label htmlFor="search">
-          Inclui o texto
-          <input
-            data-testid="text-input"
-            type="text"
-            name="search"
-            value={ searchText }
-            id="search"
-            onChange={ this.onSearchTextChange }
-          />
-        </label>
-      </form>
+      <section>
+        <form className="form" data-testid="search-bar-form">
+          <label htmlFor="text-input" data-testid="text-input-label">
+            Inclui o texto
+            <input
+              data-testid="text-input"
+              type="text"
+              name="searchText"
+              value={ searchText }
+              onChange={ onSearchTextChange }
+            />
+          </label>
+          <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
+            Mostrar somente favoritos
+            <input
+              data-testid="checkbox-input"
+              name="bookmarkedOnly"
+              type="checkbox"
+              checked={ bookmarkedOnly }
+              onChange={ onBookmarkedChange }
+            />
+          </label>
+          <label htmlFor="select-input" data-testid="select-input-label">
+            Filtrar por gênero
+            <select
+              data-testid="select-input"
+              value={ selectedGenre }
+              onChange={ onSelectedGenreChange }
+            >
+              <option value="">Todos</option>
+              <option value="action">Ação</option>
+              <option value="comedy">Comédia</option>
+              <option value="thriller">Suspense</option>
+            </select>
+          </label>
+        </form>
+      </section>
     );
   }
 }
 
-SearchBar.propTypes = {
-  movie: PropTypes.exact({
-    searchText: PropTypes.string,
-    bookmarkedOnly: PropTypes.bool,
-    selectedGenre: PropTypes.string,
-  }).isRequired,
-};
+SearchBar.propTypes = ({
+  searchText: PropTypes.string,
+  bookmarkedOnly: PropTypes.bool,
+  selectedGenre: PropTypes.string,
+  onSearchTextChange: PropTypes.func,
+  onBookmarkedChange: PropTypes.func,
+  onSelectedGenreChange: PropTypes.func,
+}).isRequired;
 
 export default SearchBar;

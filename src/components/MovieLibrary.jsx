@@ -1,10 +1,11 @@
 import React from 'react';
 import MovieList from './MovieList';
-import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import movies from '../data';
+import SearchBar from './SearchBar';
+/* import PropTypes from 'prop-types'; */
 
-class MovieLibrary extends Component {
+class MovieLibrary extends React.Component {
   render() {
     return (
       <div>
@@ -17,4 +18,7 @@ class MovieLibrary extends Component {
   }
 }
 
+/* MovieLibrary.propTypes = {
+}
+ */
 export default MovieLibrary;
