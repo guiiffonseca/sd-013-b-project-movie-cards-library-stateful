@@ -18,12 +18,19 @@ class MovieLibrary extends Component {
     this.handleChanges = this.handleChanges.bind(this);
     this.favoriteMovies = this.favoriteMovies.bind(this);
     this.genreMovies = this.genreMovies.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   handleChanges({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({ [name]: value });
+  }
+
+  // funcao usada no addMovie e passada como prop:
+  onClick(stateChildrenNewMovie) {
+    const { movies } = this.props;
+    movies.push(stateChildrenNewMovie);
   }
 
   favoriteMovies(movies) {
@@ -77,7 +84,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleChanges }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }
