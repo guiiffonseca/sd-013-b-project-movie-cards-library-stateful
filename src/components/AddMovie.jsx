@@ -13,12 +13,16 @@ class AddMovie extends React.Component {
       genre: '',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleClickBtn = this.handleClickBtn.bind(this);
   }
 
   handleChange(event) {
     this.setState({
       title: event.target.value,
     });
+  }
+  handleClickBtn(event) {
+    console.log('cliquei');
   }
 
   render() {
@@ -87,6 +91,11 @@ class AddMovie extends React.Component {
             <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
         </label>
+
+        <button data-testid="send-button" onClick={ this.handleClickBtn }>
+          Adicionar filme
+          
+        </button>
       </form>
     );
   }
