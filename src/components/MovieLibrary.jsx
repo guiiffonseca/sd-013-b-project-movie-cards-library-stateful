@@ -53,19 +53,6 @@ export default class MovieLibrary extends Component {
     this.setState({ [name]: value });
   }
 
-
-  // onSearchTextChange = ({ target: { name, value } }) => {
-  //   this.setState({ [name]: value });
-  // }
-
-  // onSelectedGenreChange = ({ target: { name, value } }) => {
-  //   this.setState({ [name]: value });
-  // }
-
-  // onBookmarkedChange = ({ target }) => {
-  //   this.setState({ bookmarkedOnly: target.checked });
-  // }
-
   render() {
     const { searchText, bookmarkedOnly,
       selectedGenre, movies } = this.state;
