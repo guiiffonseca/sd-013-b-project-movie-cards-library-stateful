@@ -28,8 +28,8 @@ export default class MovieLibrary extends Component {
   }
 
   bookMarkCallback(event) {
-    this.setState({ bookmarkedOnly
-    : event.target.checked });
+    this.setState({
+      bookmarkedOnly: event.target.checked });
   }
 
   selectedGenreCallback(event) {
