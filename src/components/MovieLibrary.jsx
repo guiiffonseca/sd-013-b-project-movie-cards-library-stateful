@@ -14,8 +14,8 @@ export default class MovieLibrary extends Component {
       selectedGenre: '',
       movies,
     };
-    this.titleinputCallback = this.titleinputCallback.bind(this);
-    this.bookmarkCallback = this.bookmarkCallback.bind(this);
+    this.titleInputCallback = this.titleInputCallback.bind(this);
+    this.bookMarkCallback = this.bookMarkCallback.bind(this);
     this.selectedGenreCallback = this.selectedGenreCallback.bind(this);
     this.MovieCallback = this.MovieCallback.bind(this);
     this.myFilter = this.myFilter.bind(this);
@@ -118,7 +118,7 @@ export default class MovieLibrary extends Component {
           searchText={ searchText }
           onSearchTextChange={ this.titleInputCallback }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.bookmarkCallback }
+          onBookmarkedChange={ this.bookMarkCallback }
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.selectedGenreCallback }
         />
