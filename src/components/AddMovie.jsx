@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import InpuField from './InputField';
 import InputTextarea from './InputTextarea';
 import InputImagePath from './InputImagePath';
+import InputSelect from './InputSelect';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -27,7 +28,7 @@ class AddMovie extends React.Component {
 
   render() {
     const { onClick } = this.props;
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <InpuField
@@ -61,6 +62,10 @@ class AddMovie extends React.Component {
           type="number"
           value={ rating }
           name="rating"
+          onChange={ this.handleChange }
+        />
+        <InputSelect
+          value={ genre }
           onChange={ this.handleChange }
         />
       </form>
