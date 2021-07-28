@@ -1,6 +1,9 @@
 // implement SearchBar component here
 import React from 'react';
 import PropTypes from 'prop-types';
+import SearchBarSearchText from './SearchBarSearchText';
+import SearchBarBookmarkedOnly from './SearchBarBookmarkedOnly';
+import SearchBarSelectedGenre from './SearchBarSelectedGenre';
 
 class SearchBar extends React.Component {
   render() {
@@ -14,43 +17,18 @@ class SearchBar extends React.Component {
     } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <label htmlFor="searchText" data-testid="text-input-label">
-          Inclui o texto:
-          <input
-            id="searchText"
-            name="searchText"
-            type="text"
-            data-testid="text-input"
-            value={ searchText }
-            onChange={ onSearchTextChange }
-          />
-        </label>
-        <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
-          Mostrar somente favoritos
-          <input
-            type="checkbox"
-            id="checkbox-input"
-            name="bookmarkedOnly"
-            data-testid="checkbox-input"
-            checked={ bookmarkedOnly }
-            onChange={ onBookmarkedChange }
-          />
-        </label>
-        <label htmlFor="selectedGenre" data-testid="select-input-label">
-          Filtrar por gênero
-          <select
-            id="selectedGenre"
-            name="selectedGenre"
-            data-testid="select-input"
-            value={ selectedGenre }
-            onChange={ onSelectedGenreChange }
-          >
-            <option value="" data-testid="select-option">Todos</option>
-            <option value="action" data-testid="select-option">Ação</option>
-            <option value="comedy" data-testid="select-option">Comédia</option>
-            <option value="thriller" data-testid="select-option">Suspense</option>
-          </select>
-        </label>
+        <SearchBarSearchText
+          value={ searchText }
+          onChange={ onSearchTextChange }
+        />
+        <SearchBarBookmarkedOnly
+          value={ bookmarkedOnly }
+          onChange={ onBookmarkedChange }
+        />
+        <SearchBarSelectedGenre
+          value={ selectedGenre }
+          onChange={ onSelectedGenreChange }
+        />
       </form>
     );
   }
