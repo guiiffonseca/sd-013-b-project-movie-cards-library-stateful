@@ -22,4 +22,5 @@ export default SelectGenre;
 SelectGenre.propTypes = {
   label: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 };
