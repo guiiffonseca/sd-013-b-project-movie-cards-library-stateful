@@ -8,18 +8,21 @@ import Storyline from './Storyline';
 import MovieRating from './MovieRating';
 import Genre from './Genre';
 
+const initialState = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
+
 export default class AddMovie extends React.Component {
   constructor() {
     super();
 
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+    this.state = initialState;
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -33,14 +36,7 @@ export default class AddMovie extends React.Component {
 
   handleSubmit(event) {
     event.preventDefault();
-    this.setState(() => ({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    }));
+    this.setState(initialState);
   }
 
   render() {
