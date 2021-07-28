@@ -13,6 +13,7 @@ class Storyline extends Component {
         <textarea
           type="text"
           id="textarea"
+          name="storyline"
           value={ value }
           data-testid="storyline-input"
           onChange={ onChange }

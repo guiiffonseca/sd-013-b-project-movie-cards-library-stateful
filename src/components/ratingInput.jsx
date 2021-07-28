@@ -13,6 +13,7 @@ class RatingInput extends Component {
         <input
           type="number"
           id="number"
+          name="rating"
           value={ value }
           data-testid="rating-input"
           onChange={ onChange }

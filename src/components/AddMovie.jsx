@@ -8,8 +8,8 @@ import RatingInput from './ratingInput';
 import Genre from './genre';
 
 class AddMovie extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       subtitle: '',
       title: '',
@@ -29,10 +29,19 @@ class AddMovie extends Component {
   atualizarEstado = () => {
     const { onClick } = this.props;
     onClick(this.state);
+
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
-    const { subtitle, title, imagePath, storyline, rating, genre } = this.setState;
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">

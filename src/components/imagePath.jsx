@@ -13,6 +13,7 @@ class ImagePath extends Component {
         <input
           type="text"
           id="imagem"
+          name="imagePath"
           value={ value }
           data-testid="image-input"
           onChange={ onChange }

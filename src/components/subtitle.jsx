@@ -13,6 +13,7 @@ class Subtitle extends Component {
         <input
           type="text"
           id="subtitulo"
+          name="subtitle"
           value={ value }
           data-testid="subtitle-input"
           onChange={ onChange }
