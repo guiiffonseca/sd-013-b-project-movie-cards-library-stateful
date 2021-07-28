@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
+import propTypes from 'prop-types';
 import AddSinopse from './AddSinopse';
 import AddRating from './AddRating';
 import AddGenre from './AddGenre';
@@ -85,5 +86,9 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: propTypes.func.isRequired,
+};
 
 export default AddMovie;
