@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import InputRating from './subcomponents/InputRating';
 
 // ID dos inputs, pois o lint reclamava do tamanho da linha OBS, se o tamanho do arquivo nao der problema,
 // quebrar a linha dos inputs ou criar sub-elementos.
@@ -8,18 +9,26 @@ const i1 = 'title-input';
 const i2 = 'subtitle-input';
 const i3 = 'image-input';
 const i = 'storyline-input';
-const i5 = 'rating-input';
+// const i5 = 'rating-input';
 
 class AddMovie extends React.Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     rating: 0,
-  //   };
-  // }
+  constructor() {
+    super();
+    this.state = {
+      rating: 0,
+    };
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+
+    });
+  }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating } = this.props;
+    const { rating } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.props;
     return (
       <div>
         <form action="" data-testid="add-movie-form">
@@ -39,10 +48,11 @@ class AddMovie extends React.Component {
             Sinopse
             <input value={ storyline } type="textarea" name="" id="d" data-testid={ i } />
           </label>
-          <label htmlFor="e" data-testid="rating-input-label">
+          {/* <label htmlFor="e" data-testid="rating-input-label">
             Avaliação
-            <input value={ rating } type="number" name="" id="e" data-testid={ i5 } />
-          </label>
+            <input value={ rating } type="number" name="rating" id="e" data-testid={ i5 } onChange={ this.handleChange } />
+          </label> */}
+          <InputRating value={ rating } onChange={ this.handleChange } />
           <label htmlFor="input-select-genre" data-testid="genre-input-label">
             Gênero
             <select
@@ -73,7 +83,7 @@ AddMovie.propTypes = {
   subtitle: PropTypes.string.isRequired,
   imagePath: PropTypes.string.isRequired,
   storyline: PropTypes.string.isRequired,
-  rating: PropTypes.number.isRequired,
+  // rating: PropTypes.number.isRequired,
 };
 
 export default AddMovie;
