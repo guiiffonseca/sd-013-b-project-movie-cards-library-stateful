@@ -44,7 +44,7 @@ class SearchBar extends React.Component {
             data-testid="select-input"
           >
             <option value="" data-testid="select-option">Todos</option>
-            <option value="action" data-testid="select-option">AçãoComédia</option>
+            <option value="action" data-testid="select-option">Ação</option>
             <option value="comedy" data-testid="select-option">Comédia</option>
             <option value="thriller" data-testid="select-option">Suspense</option>
           </select>
