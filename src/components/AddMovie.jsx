@@ -5,7 +5,7 @@ import Title from './title';
 import Subtitle from './subtitle';
 import Image from './image';
 import Storyline from './storyline';
-import Rating from './rating';
+import Rating from './movie-rating';
 import Genre from './genre';
 import Button from './button';
 
