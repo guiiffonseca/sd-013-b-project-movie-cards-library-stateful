@@ -51,7 +51,7 @@ class AddMovie extends Component {
         <LabelInputTxtArea
           label="Sinopse"
           id="storyline-input"
-          name="storyline"
+          name="storyLine"
           value={ storyLine }
           onChange={ this.handleChange }
         />
