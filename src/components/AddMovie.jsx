@@ -12,7 +12,7 @@ class AddMovie extends React.Component {
     } = this.props;
 
     return (
-      <span>Olá</span>
+      <form data-testid="add-movie-form" />
     );
   }
 }
