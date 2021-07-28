@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Title from './Title';
 import Subtitle from './Subtitle';
 import ImagePath from './ImagePath';
@@ -18,7 +19,11 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+
+    // https://medium.com/@justintulk/best-practices-for-resetting-an-es6-react-components-state-81c0c86df98d
+    this.initialState = this.state;
     this.handleChange = this.handleChange.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
   handleChange(event) {
@@ -26,6 +31,12 @@ class AddMovie extends React.Component {
     this.setState({
       [name]: value,
     });
+  }
+
+  reset() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState(this.initialState);
   }
 
   render() {
@@ -38,10 +49,21 @@ class AddMovie extends React.Component {
         <StoryLine state={ storyLine } callback={ this.handleChange } />
         <InputRating state={ rating } callback={ this.handleChange } />
         <Genre state={ genre } callback={ this.handleChange } />
+        <button
+          onClick={ this.reset }
+          data-testid="send-button"
+          type="submit"
+        >
+          Adicionar filme
+        </button>
 
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
