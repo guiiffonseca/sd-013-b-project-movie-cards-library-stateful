@@ -60,7 +60,6 @@ export default class SearchBar extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ onSelectedGenreChange }
         />
-        <button onClick={ this.handleChange } type="button">teste</button>
       </form>
     );
   }

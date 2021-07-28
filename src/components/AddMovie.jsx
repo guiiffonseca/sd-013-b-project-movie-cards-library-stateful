@@ -6,6 +6,7 @@ import ImagePath from './ImagePath';
 import TextAreaSynopsis from './TextAreaSynopsis';
 import InputRating from './InputRating';
 import SelectGenre from './SelectGenre';
+import ButtonSend from './ButtonSend';
 
 export default class AddMovie extends React.Component {
   constructor() {
@@ -28,7 +29,7 @@ export default class AddMovie extends React.Component {
   }
 
   render() {
-    const { subtitle, title, imagePath, storyline, rating, genre } = this.props;
+    const { title, subtitle, storyline, imagePath, rating, genre, onClick } = this.props;
     return (
       <form>
         <InputTitle title={ title } />
@@ -37,6 +38,7 @@ export default class AddMovie extends React.Component {
         <TextAreaSynopsis storyline={ storyline } />
         <InputRating rating={ rating } />
         <SelectGenre genre={ genre } />
+        <ButtonSend onClick={ onClick } />
       </form>
     );
   }
@@ -49,4 +51,5 @@ AddMovie.propTypes = {
   storyline: PropTypes.string.isRequired,
   rating: PropTypes.number.isRequired,
   genre: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
