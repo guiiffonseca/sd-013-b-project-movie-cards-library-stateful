@@ -11,6 +11,7 @@ class MovieLibrary extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
     this.handleFilter = this.handleFilter.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     const { movies } = this.props;
     this.state = {
       searchText: '',
@@ -38,6 +39,13 @@ class MovieLibrary extends Component {
     });
   }
 
+  handleClick(event) {
+    console.log(event);
+    this.setState((prevState) => ({
+      movies: [...prevState.movies, event],
+    }));
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
@@ -52,14 +60,14 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleFilter }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.handleClick } />
       </div>
     );
   }
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.node.isRequired,
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default MovieLibrary;
