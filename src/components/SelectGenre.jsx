@@ -3,15 +3,14 @@ import PropTypes from 'prop-types';
 
 class SelectGenre extends Component {
   render() {
-    const { label, id } = this.props;
+    const { label, id, name } = this.props;
     return (
       <label htmlFor={ id } data-testid={ `${id}-label` }>
         {`${label}`}
-        <select>
-          <option value="action">Ação</option>
-          <option value="comedy">Comédia</option>
-          <option value="thriller">Suspense</option>
-          <option value="op">op2</option>
+        <select data-testid={ id } name={ name }>
+          <option data-testid="genre-option" value="action">Ação</option>
+          <option data-testid="genre-option" value="comedy">Comédia</option>
+          <option data-testid="genre-option" value="thriller">Suspense</option>
         </select>
       </label>
     );
