@@ -26,7 +26,8 @@ export default class AddMovie extends Component {
     // console.log( this.state.title );
   }
 
-  handleClick = () => {
+  handleClick = (event) => {
+    event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
