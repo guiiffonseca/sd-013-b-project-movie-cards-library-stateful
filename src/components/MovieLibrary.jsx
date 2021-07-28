@@ -7,9 +7,15 @@ import PropTypes from 'prop-types';
 // import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
-//   constructor(props) {
-//     super(props);
-//   }
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: props.movies,
+    };
+  }
 
   render() {
     const { movies } = this.props;
@@ -23,10 +29,13 @@ class MovieLibrary extends React.Component {
 
 MovieLibrary.propTypes = {
   movies: PropTypes.array.isRequired,
-}
+};
 
 export default MovieLibrary;
 
+//   constructor(props) {
+//     super(props);
+//   }
 //       <div>
 //         <h2> My awesome movie library </h2>
 //         <SearchBar />
