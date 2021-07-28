@@ -46,9 +46,9 @@ class SearchBar extends Component {
           tagId="moviesGenre"
           testIdLabel="select-input-label"
           testIdTag="select-input"
-          labelText="Filtrar por gênero"
+          tagText="Filtrar por gênero"
           tagValue={ selectedGenre }
-          onChange={ onSelectedGenreChange }
+          tagChange={ onSelectedGenreChange }
         />
       </form>
     );

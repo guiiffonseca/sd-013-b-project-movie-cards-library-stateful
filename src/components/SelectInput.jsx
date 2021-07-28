@@ -13,17 +13,17 @@ const selectOptions = [
 
 class SelectInput extends Component {
   render() {
-    const { labelText, tagId, testIdLabel, testIdTag, tagValue, onChange } = this.props;
+    const { tagText, tagId, testIdLabel, testIdTag, tagValue, tagChange } = this.props;
     // fazendo deste jeito, e passando os valores que o requisito pede como props na tag que vai renderizar esse componente no SearchBar o teste reconhece os valores que preciso passar pedidos no requisito 5. E dessa forma o lint nao reclama do limite maximo de linhas do metodo render que precisa ser 50.
 
     return (
       <label htmlFor={ tagId } data-testid={ testIdLabel }>
-        { labelText }
+        { tagText }
         <select
           id={ tagId }
           data-testid={ testIdTag }
           value={ tagValue }
-          onChange={ onChange }
+          onChange={ tagChange }
         >
           {selectOptions.map(({ text, value, id }) => (
             <option key={ id } value={ value } data-testid="select-option">
@@ -37,12 +37,12 @@ class SelectInput extends Component {
 }
 
 SelectInput.propTypes = {
-  labelText: PropTypes.string.isRequired,
+  tagText: PropTypes.string.isRequired,
   tagId: PropTypes.string.isRequired,
   testIdLabel: PropTypes.string.isRequired,
   testIdTag: PropTypes.string.isRequired,
   tagValue: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  tagChange: PropTypes.func.isRequired,
 };
 
 export default SelectInput;
