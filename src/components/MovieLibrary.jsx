@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 
 export default class MovieLibrary extends Component {
   constructor(props) {
@@ -16,6 +17,7 @@ export default class MovieLibrary extends Component {
     };
 
     this.handleMovieChange = this.handleMovieChange.bind(this);
+    this.handleAddMovie = this.handleAddMovie.bind(this);
   }
 
   handleMovieChange({ target }) {
@@ -24,6 +26,12 @@ export default class MovieLibrary extends Component {
     this.setState({
       [name]: value,
     });
+  }
+
+  handleAddMovie(movie) {
+    this.setState(({ movies }) => ({
+      movies: [...movies, movie],
+    }));
   }
 
   render() {
@@ -39,6 +47,7 @@ export default class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleMovieChange }
         />
         <MovieList movies={ movies } />
+        <AddMovie onClick={ this.handleAddMovie } />
       </div>
     );
   }
