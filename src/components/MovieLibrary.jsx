@@ -13,6 +13,7 @@ class MovieLibrary extends Component {
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.showingBookmarked = this.showingBookmarked.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.submitMovie = this.submitMovie.bind(this);
     const { movies } = this.props;
     this.state = {
       searchText: '',
@@ -63,7 +64,10 @@ class MovieLibrary extends Component {
     || storyline.toLowerCase().includes([searchText.toLowerCase()])));
   }
 
-  submitMovie() {
+  submitMovie(obj) {
+    const { movies } = this.state;
+    const movieList = [...movies, obj];
+    this.setState({ movies: movieList });
   }
 
   render() {

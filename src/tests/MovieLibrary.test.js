@@ -224,7 +224,8 @@ describe('19 - Renderize `<AddMovie />` dentro de `<MovieLibrary />`', () => {
     fireEvent.change(storylineInput, { target: { value: newMovie.storyline } });
     event.type(ratingInput, newMovie.rating);
     event.selectOptions(genreInput, newMovie.genre);
-
+    
+    
     event.click(sendButton);
 
     movieCards = getAllByTestId(movieCardTestId);

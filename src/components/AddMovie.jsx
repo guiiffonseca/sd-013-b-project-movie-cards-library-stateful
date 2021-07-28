@@ -31,7 +31,7 @@ class AddMovie extends Component {
 
   onSubmit() {
     const { onClick } = this.props;
-    onClick();
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
