@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchSelect from './SearchSelect';
 
 class SearchBar extends React.Component {
   render() {
@@ -12,8 +13,8 @@ class SearchBar extends React.Component {
     } = this.props;
     return (
       <div>
-        <form data-testid="search-bar-form" >
-          <label data-testid="text-input-label"     htmlFor="search">
+        <form data-testid="search-bar-form">
+          <label data-testid="text-input-label" htmlFor="search">
             Inclui o texto:
             <input
               value={ searchText }
@@ -35,20 +36,7 @@ class SearchBar extends React.Component {
               onChange={ onBookmarkedChange }
             />
           </label>
-          <label data-testid="select-input-label" htmlFor="select">
-            Filtrar por gênero:
-            <select
-              id="select"
-              value={ selectedGenre }
-              onChange={ onSelectedGenreChange }
-              data-testid="select-input"
-            >
-              <option data-testid="select-option" value="">Todos</option>
-              <option data-testid="select-option" value="action">Ação</option>
-              <option data-testid="select-option" value="comedy">Comédia</option>
-              <option data-testid="select-option" value="thriller">Suspense</option>
-            </select>
-          </label>
+          <SearchSelect funcao={ onSelectedGenreChange } value={ selectedGenre } />
         </form>
       </div>
     );
