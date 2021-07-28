@@ -1,7 +1,6 @@
 // implement MovieLibrary component here
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
-
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
@@ -19,8 +18,9 @@ class MovieLibrary extends Component {
     this.handle = this.handle.bind(this);
   }
 
-  handle() {
-
+  handle(event) {
+    const { name } = event.target;
+    this.setState({ bookmarkedOnly: true });
   }
 
   render() {
@@ -31,9 +31,11 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           SearchText={ searchText }
-          handle={ this.handle }
+          onSearchTextChange={ this.handle }
           bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.handle }
           selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.handle }
         />
         <MovieList movies={ movies } />
         <AddMovie />
