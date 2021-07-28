@@ -8,8 +8,10 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleCheck = this.handleCheck.bind(this);
+    this.handleFilter = this.handleFilter.bind(this);
     const { movies } = this.props;
-    this.handleClick = this.handleClick.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -18,10 +20,22 @@ class MovieLibrary extends Component {
     };
   }
 
-  handleClick(event) {
-    this.setState((prevState) => ({
-      movies: [...prevState.movies, event.target],
-    }));
+  handleChange(event) {
+    this.setState({
+      searchText: event.target.value,
+    });
+  }
+
+  handleCheck() {
+    this.setState({
+      bookmarkedOnly: true,
+    });
+  }
+
+  handleFilter(event) {
+    this.setState({
+      selectedGenre: event.target.value,
+    });
   }
 
   render() {
@@ -31,11 +45,14 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
+          onSearchTextChange={ this.handleChange }
           bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.handleCheck }
           selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.handleFilter }
         />
         <MovieList movies={ movies } />
-        <AddMovie onClick={ this.handleClick } />
+        <AddMovie />
       </div>
     );
   }

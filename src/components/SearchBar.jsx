@@ -18,6 +18,7 @@ export default class SearchBar extends React.Component {
         <label data-testid="text-input-label" htmlFor="texto">
           Inclui o texto:
           <input
+            name="searchText"
             data-testid="text-input"
             type="text"
             id="texto"
