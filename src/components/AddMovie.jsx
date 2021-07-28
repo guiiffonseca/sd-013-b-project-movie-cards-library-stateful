@@ -34,6 +34,7 @@ class AddMovie extends React.Component {
             value={ title }
             data-testid="title-input"
             name="title"
+            id="title-input"
             onChange={ this.handleChange }
           />
         </label>
@@ -44,6 +45,7 @@ class AddMovie extends React.Component {
             value={ subtitle }
             data-testid="subtitle-input"
             name="subtitle"
+            id="subtitle-input"
             onChange={ this.handleChange }
           />
         </label>
@@ -54,6 +56,7 @@ class AddMovie extends React.Component {
             value={ imagePath }
             data-testid="image-input"
             name="imagePath"
+            id="image-input"
             onChange={ this.handleChange }
           />
         </label>
@@ -63,6 +66,7 @@ class AddMovie extends React.Component {
             name="storyline"
             value={ storyline }
             data-testid="storyline-input"
+            id="storyline-input"
             onChange={ this.handleChange }
           />
         </label>
