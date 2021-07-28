@@ -9,7 +9,7 @@ export default class Select extends Component {
       labelText,
       selectGenre,
       onSelectedGenreChange,
-      optioList,
+      optionList,
       optionId,
     } = this.props;
     const labelId = `${testId}-label`;
@@ -25,7 +25,7 @@ export default class Select extends Component {
           value={ selectGenre }
           onChange={ onSelectedGenreChange }
         >
-          { optioList.map((element) => (
+          { optionList.map((element) => (
             <option
               key={ element.value }
               value={ element.value }
@@ -47,5 +47,5 @@ Select.propTypes = {
   selectGenre: PropTypes.string.isRequired,
   onSelectedGenreChange: PropTypes.func.isRequired,
   optionId: PropTypes.string.isRequired,
-  optioList: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+  optionList: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
 };

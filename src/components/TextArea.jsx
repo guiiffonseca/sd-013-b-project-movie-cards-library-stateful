@@ -8,7 +8,6 @@ export default class TextArea extends Component {
       testId,
       labelText,
       inputText,
-      inputType,
       callback,
     } = this.props;
     const labelId = `${testId}-label`;
@@ -21,7 +20,6 @@ export default class TextArea extends Component {
         <textarea
           id={ name }
           data-testid={ testId }
-          type={ inputType }
           value={ inputText }
           onChange={ callback }
         />
@@ -35,6 +33,5 @@ TextArea.propTypes = {
   testId: PropTypes.string.isRequired,
   labelText: PropTypes.string.isRequired,
   inputText: PropTypes.string.isRequired,
-  inputType: PropTypes.string.isRequired,
   callback: PropTypes.func.isRequired,
 };

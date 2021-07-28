@@ -1,24 +1,25 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './input';
-import Select from './select';
 import TextArea from './TextArea';
+import Select from './select';
 
 export default class AddMovie extends Component {
   constructor() {
     super();
     this.state = {
-    //   subtitle: '',
+      subtitle: '',
       title: '',
-    //   imagePath: '',
-    //   storyline: '',
-    //   rating: 0,
-    //   genre: 'action',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+      bookMarked: false,
     };
 
     this.buttonClick = this.buttonClick.bind(this);
-    this.inputArray = this.inputArray.bind(this);
     this.newInput = this.newInput.bind(this);
+    this.inputArray = this.inputArray.bind(this);
     this.initialState = this.state;
   }
 
@@ -46,9 +47,9 @@ export default class AddMovie extends Component {
       {
         name: 'subtitle',
         text: subtitle,
-        labelText: 'subtítulo',
+        labelText: 'Subtítulo',
         type: 'text',
-        stateName: 'Subtitle',
+        stateName: 'subtitle',
       },
       {
         name: 'image',
@@ -61,7 +62,7 @@ export default class AddMovie extends Component {
         name: 'rating',
         text: rating,
         labelText: 'Avaliação',
-        type: 'text',
+        type: 'number',
         stateName: 'rating',
       },
     ];
@@ -71,7 +72,7 @@ export default class AddMovie extends Component {
     return (
       <Input
         name={ `${name}-input` }
-        textid={ `${name}-input` }
+        testId={ `${name}-input` }
         inputText={ text }
         labelText={ labelText }
         inputType={ type }
@@ -82,7 +83,7 @@ export default class AddMovie extends Component {
 
   render() {
     const { storyline, genre } = this.state;
-    const addmovieSelect = [
+    const addMovieSelect = [
       { value: 'action', content: 'Ação' },
       { value: 'comedy', content: 'Comédia' },
       { value: 'thriller', content: 'Suspense' },
@@ -93,11 +94,11 @@ export default class AddMovie extends Component {
         <br />
         { this.newInput(this.inputArray()[1]) }
         <br />
-        { this.newInput(this.inputArray())[2] }
+        { this.newInput(this.inputArray()[2]) }
         <br />
         <TextArea
           name="storyline-input"
-          testid="storyline-input"
+          testId="storyline-input"
           inputText={ storyline }
           labelText="Sinopse"
           callback={ (event) => this.handleChange(event, 'storyline') }
@@ -107,12 +108,12 @@ export default class AddMovie extends Component {
         <br />
         <Select
           name="genre-input"
-          testid="genre-input"
+          testId="genre-input"
           optionId="genre-option"
           labelText="Gênero"
           selectedGenre={ genre }
           onSelectedGenreChange={ (event) => this.handleChange(event, 'genre') }
-          optionList={ addmovieSelect }
+          optionList={ addMovieSelect }
         />
         <br />
         <button
@@ -120,7 +121,7 @@ export default class AddMovie extends Component {
           data-testid="send-button"
           onClick={ (event) => this.buttonClick(event) }
         >
-          Adicionar Filme
+          Adicionar filme
         </button>
       </form>
     );
