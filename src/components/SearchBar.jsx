@@ -28,6 +28,16 @@ const SearchBar = (props) => {
                             type="text">
                         </input>
                     </label>
+                    <label data-testid="checkbox-input-label">
+                    Mostrar somente favoritos
+                        <input 
+                        type="checkbox"
+                        data-testid="checkbox-input-label" 
+                        checked={ bookmarkedOnly } 
+                        onChange={ onBookmarkedChange } 
+                        data-testid="checkbox-input">
+                        </input>
+                    </label>
                 </form>
             </div>
         )
