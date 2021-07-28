@@ -62,7 +62,7 @@ class AddMovie extends Component {
           label="Gênero"
           id="genre-input"
           name="genre"
-          value= { genre }
+          value={ genre }
           onChange=""
         />
       </form>

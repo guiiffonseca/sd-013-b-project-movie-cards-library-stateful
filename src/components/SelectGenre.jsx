@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class SelectGenre extends Component {
   render() {
-    const {label, id} = this.props;
+    const { label, id } = this.props;
     return (
-      <label htmlFor={id} data-testid={`${id}-label`}>
+      <label htmlFor={ id } data-testid={ `${id}-label` }>
         {`${label}`}
         <select>
           <option value="action">Ação</option>
@@ -18,3 +19,8 @@ class SelectGenre extends Component {
 }
 
 export default SelectGenre;
+
+SelectGenre.propTypes = {
+  label: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+};
