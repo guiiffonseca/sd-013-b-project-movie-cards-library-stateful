@@ -9,6 +9,10 @@ import Rating from './AddMovieComponents/Rating';
 import Genre from './AddMovieComponents/Genre';
 
 class AddMovie extends React.Component {
+  // handleSubmit = () => {
+  //   console.log('eita');
+  // }
+
   render() {
     const { onClick } = this.props;
     return (
