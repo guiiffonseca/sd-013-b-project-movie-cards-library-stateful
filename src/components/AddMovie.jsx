@@ -7,6 +7,7 @@ import AddMovieRating from './AddMovieRating';
 import AddMovieStoryline from './AddMovieStoryline';
 import AddMovieSubtitle from './AddMovieSubtitle';
 import AddMovieTitle from './AddMovieTitle';
+import AddMovieButton from './AddMovieButton';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -19,7 +20,10 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+
     this.changeHandler = this.changeHandler.bind(this);
+    this.ratingChangeHandler = this.ratingChangeHandler.bind(this);
+    this.restoreState = this.restoreState.bind(this);
   }
 
   changeHandler(event) {
@@ -28,8 +32,26 @@ class AddMovie extends React.Component {
     });
   }
 
-  render() {
+  ratingChangeHandler(event) {
+    this.setState({
+      rating: Number(event.target.value),
+    });
+  }
+
+  restoreState() {
     const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -51,17 +73,13 @@ class AddMovie extends React.Component {
         />
         <AddMovieRating
           rating={ rating }
-          changeHandler={ this.changeHandler }
+          changeHandler={ this.ratingChangeHandler }
         />
         <AddMovieGenre
           genre={ genre }
           changeHandler={ this.changeHandler }
         />
-        <div>
-          <button type="button" data-testid="send-button" onClick={ onClick }>
-            Adicionar filme
-          </button>
-        </div>
+        <AddMovieButton onClick={ this.restoreState } />
       </form>
     );
   }
