@@ -47,9 +47,9 @@ class MovieLibrary extends Component {
     const newMovies = [];
     const { searchText } = this.state;
     movies.forEach((movie) => {
-      if (movie.title.indexOf(searchText) > 0) newMovies.push(movie);
-      if (movie.subtitle.indexOf(searchText) > 0) newMovies.push(movie);
-      if (movie.storyline.indexOf(searchText) > 0) newMovies.push(movie);
+      if (movie.title.indexOf(searchText) > 0
+      || movie.subtitle.indexOf(searchText) > 0
+      || movie.storyline.indexOf(searchText) > 0) newMovies.push(movie);
     });
     return newMovies;
   }
