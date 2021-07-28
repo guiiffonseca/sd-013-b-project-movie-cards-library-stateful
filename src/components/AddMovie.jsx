@@ -1,5 +1,8 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import Title from './Title';
+import Subtitle from './Subtitle';
+import ImagePath from './ImagePath';
+import StoryLine from './StoryLine';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -9,7 +12,7 @@ class AddMovie extends React.Component {
       subtitle: '',
       title: '',
       imagePath: '',
-      // storyLine: '',
+      storyLine: '',
       // rating: 0,
       // genre: 'action',
     };
@@ -24,41 +27,13 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyLine } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title" data-testid="title-input-label">
-          Título
-          <input
-            type="text"
-            name="title"
-            value={ title }
-            data-testid="title-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-
-        <label htmlFor="subtitle" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            type="text"
-            name="subtitle"
-            data-testid="subtitle-input"
-            value={ subtitle }
-            onChange={ this.handleChange }
-          />
-        </label>
-
-        <label htmlFor="imagePath" data-testid="image-input-label">
-          Imagem
-          <input
-            type="text"
-            name="imagePath"
-            data-testid="image-input"
-            value={ imagePath }
-            onChange={ this.handleChange }
-          />
-        </label>
+        <Title state={ title } callback={ this.handleChange } />
+        <Subtitle state={ subtitle } callback={ this.handleChange } />
+        <ImagePath state={ imagePath } callback={ this.handleChange } />
+        <StoryLine state={ storyLine } callback={ this.handleChange } />
 
       </form>
     );
