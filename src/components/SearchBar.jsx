@@ -50,13 +50,13 @@ class SearchBar extends Component {
   }
 }
 
-SearchBar.PropTypes = {
+SearchBar.propTypes = {
   searchText: PropTypes.string.isRequired,
-  onSearchTextChange: PropTypes.function.isRequired,
-  bookmarkedOnly: PropTypes.boolean.isRequired,
-  onBookmarkedChange: PropTypes.function.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
   selectedGenre: PropTypes.string.isRequired,
-  onSelectedGenreChange: PropTypes.function.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
 };
 
 export default SearchBar;
