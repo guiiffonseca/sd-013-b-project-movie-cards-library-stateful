@@ -77,10 +77,10 @@ class SearchBar extends React.Component {
               value={ selectedGenre }
               onChange={ onSelectedGenreChange }
             >
-              <option value="">Todos</option>
-              <option value="action">Ação</option>
-              <option value="comedy">Comédia</option>
-              <option value="thriller">Suspense</option>
+              <option data-testid="select-option" value="">Todos</option>
+              <option data-testid="select-option" value="action">Ação</option>
+              <option data-testid="select-option" value="comedy">Comédia</option>
+              <option data-testid="select-option" value="thriller">Suspense</option>
             </select>
           </label>
         </form>
