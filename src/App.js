@@ -5,11 +5,17 @@ import './App.css';
 import AddMovie from './components/AddMovie';
 
 function App() {
+  const onClick = (param) => {
+    console.log('bob');
+    console.log(param);
+    return 'estou aqui';
+  };
+
   return (
     <div className="App">
       <Header />
       <SearchBar />
-      <AddMovie />
+      <AddMovie onClick={ onClick } />
     </div>
   );
 }

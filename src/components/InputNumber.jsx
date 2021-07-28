@@ -6,6 +6,9 @@ class InputNumber extends React.Component {
     const {
       id,
       labelTest,
+      label,
+      value,
+      onChange,
       name,
     } = this.props;
 
@@ -14,12 +17,14 @@ class InputNumber extends React.Component {
         htmlFor={ id }
         data-testid={ labelTest }
       >
-        {name}
+        {label}
         <input
           data-testid={ id }
           type="number"
           id={ id }
-          value="0"
+          value={ value }
+          onChange={ onChange }
+          name={ name }
         />
       </label>
     );
@@ -31,10 +36,14 @@ InputNumber.propTypes = {
     .isRequired,
   labelTest: PropTypes.string
     .isRequired,
+  label: PropTypes.string
+    .isRequired,
+  value: PropTypes.number
+    .isRequired,
+  onChange: PropTypes.func
+    .isRequired,
   name: PropTypes.string
     .isRequired,
-  // value: PropTypes.number
-  //   .isRequired,
 };
 
 export default InputNumber;

@@ -8,8 +8,6 @@ class TextCheckboxSelect extends React.Component {
       onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
-      // selectedGenre,
-      // onSelectedGenreChange,
     } = this.props;
     return (
       <div>
@@ -53,10 +51,6 @@ TextCheckboxSelect.propTypes = {
     .isRequired,
   onBookmarkedChange: PropTypes.func
     .isRequired,
-  // selectedGenre: PropTypes.string
-  //   .isRequired,
-  // onSelectedGenreChange: PropTypes.func
-  //   .isRequired,
 };
 
 export default TextCheckboxSelect;

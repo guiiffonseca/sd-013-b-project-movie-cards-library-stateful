@@ -3,9 +3,12 @@ import React from 'react';
 // Para resolver PropTypes is nor defined:
 // npm install --save prop-types
 import PropTypes from 'prop-types';
-import Input from './Input';
-import InputNumber from './InputNumber';
+// import Input from './Input';
+// import InputNumber from './InputNumber';
 import Textarea from './Textarea';
+import SelectGender from './SelectGender';
+import Button from './Button';
+import Test from './Test';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -20,54 +23,61 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
 
-    // this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.handleOnChange = this.handleOnChange.bind(this);
   }
 
-  // onSearchTextChange(event) {
-  //   this.setState({
-  //     searchText: event.target.value,
-  //   });
-  //   console.log(this.state.searchText);
-  // }
+  handleOnChange(event) {
+    const { name } = event.target;
+    this.setState({
+      [name]: event.target.value,
+    });
+    // console.log(name);
+    // console.log(event.target.value);
+  }
+
+  onChange() {
+    const {
+      onClick,
+    } = this.props;
+    this.setState((state) => {
+      onClick(state);
+      return {
+        subtitle: '',
+        title: '',
+        imagePath: '',
+        storyline: '',
+        rating: 0,
+        genre: 'action',
+      };
+    });
+  }
 
   render() {
     const {
       onClick,
     } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
+    const addMovieProps = [subtitle, title, imagePath, rating];
     return (
       <div>
         <form data-testid="add-movie-form">
-          <Input
-            id="title-input"
-            labelTest="title-input-label"
-            name="Título"
-          />
-          <Input
-            id="subtitle-input"
-            labelTest="subtitle-input-label"
-            name="Subtítulo"
-          />
-          <Input
-            id="image-input"
-            labelTest="image-input-label"
-            name="Imagem"
+          <Test
+            value={ addMovieProps }
+            onChange={ this.handleOnChange }
           />
           <Textarea
-            id="storyline-input"
-            labelTest="storyline-input-label"
-            name="Sinopse"
+            value={ storyline }
+            onChange={ this.handleOnChange }
           />
-          <InputNumber
-            id="rating-input"
-            labelTest="rating-input-label"
-            name="Avaliação"
+          <SelectGender
+            selectedGenre={ genre }
+            onSelectedGenreChange={ this.handleOnChange }
           />
-          <div>
-            {
-              subtitle + title + imagePath + storyline + rating + genre + onClick
-            }
-          </div>
+          <Button
+            onClick={ this.onChange }
+            onClickEsLint={ onClick }
+          />
         </form>
       </div>
     );

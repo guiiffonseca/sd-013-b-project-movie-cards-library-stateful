@@ -7,6 +7,9 @@ class Input extends React.Component {
       id,
       labelTest,
       name,
+      label,
+      onChange,
+      value,
     } = this.props;
 
     return (
@@ -14,11 +17,14 @@ class Input extends React.Component {
         htmlFor={ id }
         data-testid={ labelTest }
       >
-        {name}
+        {label}
         <input
           data-testid={ id }
           type="text"
           id={ id }
+          value={ value }
+          name={ name }
+          onChange={ onChange }
         />
       </label>
     );
@@ -30,7 +36,13 @@ Input.propTypes = {
     .isRequired,
   labelTest: PropTypes.string
     .isRequired,
+  value: PropTypes.number
+    .isRequired,
+  label: PropTypes.string
+    .isRequired,
   name: PropTypes.string
+    .isRequired,
+  onChange: PropTypes.func
     .isRequired,
 };
 
