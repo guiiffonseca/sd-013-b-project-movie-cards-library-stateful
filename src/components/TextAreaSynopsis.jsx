@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default class TextAreaSynopsis extends React.Component {
-
   render() {
     const { storyline } = this.props;
     return (

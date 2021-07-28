@@ -7,11 +7,11 @@ import CheckBox from './CheckBox';
 export default class SearchBar extends React.Component {
   constructor() {
     super();
-    this.state = {
-      'text-input': '',
-      'checkbox-input': '',
-      'select-input': '',
-    };
+    // this.state = {
+    //   'text-input': '',
+    //   'checkbox-input': '',
+    //   'select-input': '',
+    // };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);

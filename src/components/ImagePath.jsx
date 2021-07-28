@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default class ImagePath extends React.Component {
-
   render() {
     const { imagePath } = this.props;
     return (

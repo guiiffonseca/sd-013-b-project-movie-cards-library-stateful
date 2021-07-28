@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default class InputTitle extends React.Component {
-
   render() {
     const { title } = this.props;
     return (

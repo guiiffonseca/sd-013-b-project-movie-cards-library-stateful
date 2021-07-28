@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default class InputSubTitle extends React.Component {
-
   render() {
     const { subtitle } = this.props;
     return (

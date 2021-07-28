@@ -8,14 +8,14 @@ import TextAreaSynopsis from './TextAreaSynopsis';
 export default class AddMovie extends React.Component {
   constructor() {
     super();
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+    // this.state = {
+    //   subtitle: '',
+    //   title: '',
+    //   imagePath: '',
+    //   storyline: '',
+    //   rating: 0,
+    //   genre: 'action',
+    // };
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -26,7 +26,7 @@ export default class AddMovie extends React.Component {
   }
 
   render() {
-    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.props;
     return (
       <form>
         <InputTitle title={ title } />

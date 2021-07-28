@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default class CheckBox extends React.Component {
-
   render() {
     const { bookmarkedOnly, onBookmarkedChange } = this.props;
     return (
