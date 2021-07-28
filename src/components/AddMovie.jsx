@@ -47,7 +47,7 @@ class AddMovie extends React.Component {
             type="text"
             id="subtitulo-input"
             name="subtitle"
-            value={subtitle}
+            value={ subtitle }
             data-testid="subtitle-input"
             onChange={ this.handleChange }
           />
@@ -75,6 +75,7 @@ class AddMovie extends React.Component {
         <label data-testid="rating-input-label">
           Avaliação
           <input
+            name="rating"
             type="number"
             value={ rating }
             data-testid="rating-input"
@@ -88,12 +89,13 @@ class AddMovie extends React.Component {
             name="genre"
             data-testid="genre-input"
             value={ genre }
+            onChange={ this.handleChange }
           >
             <option
               value="action"
               data-testid="genre-option"
             >
-              Avaliação
+              Ação
             </option>
             <option
               value="comedy"
@@ -109,7 +111,13 @@ class AddMovie extends React.Component {
             </option>
           </select>
         </label>
-        <button data-testid="send-button" onSubmit={ () => onClick(this.state) }>Adicionar filmes</button>
+        <button
+        type="submit"
+        data-testid="send-button"
+        // onSubimit={ this.handleSubmit }
+        onClick={ onClick }>
+          Adicionar filmes
+        </button>
       </form>
     );
   }

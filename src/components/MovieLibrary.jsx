@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
@@ -8,16 +10,18 @@ import movies from '../data';
 class MovieLibrary extends React.Component {
   constructor() {
     super();
+    // const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: [...movies],
+      movies,
     };
     this.filteredMovies = this.filteredMovies.bind(this);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.onClickHandle = this.onClickHandle.bind(this);
   }
 
   onSearchTextChange({ target }) {
@@ -38,6 +42,11 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  onClickHandle() {
+    const { movies } = this.state;
+    return <MovieList movies={ movies } />;
+  }
+
   filteredMovies() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     if (bookmarkedOnly === true) {
@@ -48,8 +57,10 @@ class MovieLibrary extends React.Component {
       return <MovieList movies={ sameGenre } />;
     } if (searchText.length !== 0) {
       const searchTextFilter = movies.filter(
-        ({ title, subtitle, storyline }) => title
-          .includes(searchText) || subtitle.includes(searchText) || storyline.includes(searchText),
+        ({ title, subtitle, storyline }) => title.toLowerCase()
+          .includes(searchText.toLowerCase()) || subtitle
+          .toLowerCase().includes(searchText
+            .toLowerCase()) || storyline.includes(searchText),
       );
       return <MovieList movies={ searchTextFilter } />;
     }
@@ -69,10 +80,16 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         {this.filteredMovies()}
-        <AddMovie />
+        <AddMovie onClick={ this.onClickHandle } />
       </div>
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.object,
+  ).isRequired,
+};
 
 export default MovieLibrary;
