@@ -17,6 +17,7 @@ class MovieLibrary extends Component {
 
     this.handleChanges = this.handleChanges.bind(this);
     this.favoriteMovies = this.favoriteMovies.bind(this);
+    this.genreMovies = this.genreMovies.bind(this);
   }
 
   handleChanges({ target }) {
@@ -34,12 +35,23 @@ class MovieLibrary extends Component {
     return newMovies;
   }
 
+  genreMovies(movies) {
+    const newMovies = [];
+    const { selectedGenre } = this.state;
+    movies.forEach((movie) => {
+      if (movie.genre === selectedGenre) newMovies.push(movie);
+    });
+    return newMovies;
+  }
+
   render() {
     let { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
 
     // se checkbox do bookmarkedOnly for true, lista apenas filmes marcados como favoritos:
     if (bookmarkedOnly === true) movies = this.favoriteMovies(movies);
+    // se selectedGenre não estiver vazio mostre apenas filmes com esse genero:
+    if (selectedGenre !== '') movies = this.genreMovies(movies);
 
     return (
       <div>
