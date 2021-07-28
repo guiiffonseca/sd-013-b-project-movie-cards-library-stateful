@@ -47,7 +47,6 @@ class MovieLibrary extends Component {
     this.setState(() => ({
       movies: [...movies, e],
     }));
-    console.log(movies);
   }
 
   filterMovies(movies) {
