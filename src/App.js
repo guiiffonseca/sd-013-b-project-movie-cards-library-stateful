@@ -12,7 +12,7 @@ function App() {
   return (
     <div id="App" className="App">
       <Header />
-      <MovieLibrary movies={ Movies } funcao={ alteraFilmes }/>
+      <MovieLibrary movies={ Movies } funcao={ alteraFilmes } />
     </div>
   );
 }
