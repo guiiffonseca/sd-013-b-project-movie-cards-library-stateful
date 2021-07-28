@@ -4,7 +4,7 @@ import React from 'react';
 // npm install --save prop-types
 import PropTypes from 'prop-types';
 import Select from './Select';
-import TextCheckboxSelect from './TextCheckboxSelect copy';
+import TextCheckboxSelect from './TextCheckboxSelect';
 
 class SearchBar extends React.Component {
   // constructor() {
