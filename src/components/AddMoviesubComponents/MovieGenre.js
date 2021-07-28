@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class MovieGenre extends React.Component {
-
   render() {
     const { value, callBack } = this.props;
     return (
