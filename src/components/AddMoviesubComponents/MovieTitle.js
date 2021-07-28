@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class MovieTitle extends Component {
   render() {
-    const { title, callBack } = this.props;
+    const { value, callBack } = this.props;
     return (
       <label htmlFor="movieName" data-testid="title-input-label">
         Título
@@ -11,7 +11,7 @@ class MovieTitle extends Component {
           type="text"
           name="title"
           id="movieName"
-          value={ title }
+          value={ value }
           data-testid="title-input"
           onChange={ callBack }
         />
@@ -23,6 +23,6 @@ class MovieTitle extends Component {
 export default MovieTitle;
 
 MovieTitle.propTypes = {
-  title: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   callBack: PropTypes.func.isRequired,
 };

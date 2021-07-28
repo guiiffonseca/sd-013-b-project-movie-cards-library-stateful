@@ -7,7 +7,8 @@ export default class StorylineTextArea extends React.Component {
     return (
       <label htmlFor="storyLine" data-testid="storyline-input-label">
         Sinopse
-        <textarea
+        <input
+          type="text"
           id="storyLine"
           name="storyline"
           value={ value }
