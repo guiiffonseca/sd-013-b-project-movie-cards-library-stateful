@@ -4,7 +4,7 @@ import Input from './Input';
 
 class CampoInputs extends React.Component {
   render() {
-    const { title, subtitle, imagePath , func } = this.props;
+    const { title, subtitle, imagePath, func } = this.props;
     return (
       <div>
         <Input
@@ -46,6 +46,6 @@ CampoInputs.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   imagePath: PropTypes.string.isRequired,
-  func:PropTypes.func.isRequired,
+  func: PropTypes.func.isRequired,
 };
 export default CampoInputs;
