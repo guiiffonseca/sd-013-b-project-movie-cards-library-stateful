@@ -29,7 +29,6 @@ class AddMovie extends Component {
 
   hadlerClickButton() {
     const { onClick } = this.props;
-    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -38,6 +37,7 @@ class AddMovie extends Component {
       rating: 0,
       genre: '',
     });
+    onClick(this.state);
   }
 
   render() {

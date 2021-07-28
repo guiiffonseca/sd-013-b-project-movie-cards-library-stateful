@@ -1,9 +1,8 @@
-// implement MovieLibrary component here
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
-import movies from '../data';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -17,35 +16,24 @@ class MovieLibrary extends Component {
     this.hadleSearchText = this.hadleSearchText.bind(this);
     this.hadleFilterFavorite = this.hadleFilterFavorite.bind(this);
     this.hadleFilterGenre = this.hadleFilterGenre.bind(this);
+    this.hadlerClickButton = this.hadlerClickButton.bind(this);
   }
 
   hadleSearchText({ target }) {
+    const { movies } = this.props;
     const { value } = target;
-    const { bookmarkedOnly } = this.state;
     this.setState({
       searchText: value,
       movies: movies.filter(({ title, subtitle, storyline }) => (
-        title.toLowerCase().includes(value.toLowerCase())
-        || subtitle.toLowerCase().includes(value.toLowerCase())
-        || storyline.toLowerCase().includes(value.toLowerCase())
+        title.includes(target.value)
+        || subtitle.includes(target.value)
+        || storyline.includes(target.value)
       )),
     });
-    // if (bookmarkedOnly === true) {
-    //   return (
-    //     this.setState({
-    //       movies: movies.filter(({ title, subtitle, storyline }) => (
-    //         title.toLowerCase().includes(value.toLowerCase())
-    //         || subtitle.toLowerCase().includes(value.toLowerCase())
-    //         || storyline.toLowerCase().includes(value.toLowerCase())
-    //       )),
-    //       searchText: target.value,
-    //       bookmarkedOnly: false,
-    //     })
-    //   );
-    // }
   }
 
   hadleFilterFavorite({ target }) {
+    const { movies } = this.props;
     const { checked } = target;
     this.setState({
       bookmarkedOnly: checked,
@@ -70,6 +58,7 @@ class MovieLibrary extends Component {
   }
 
   hadleFilterGenre({ target }) {
+    const { movies } = this.props;
     this.setState({
       selectedGenre: target.value,
       movies: movies
@@ -82,23 +71,37 @@ class MovieLibrary extends Component {
     if (value === genre) { return true; }
   }
 
+  hadlerClickButton(e) {
+    const { state } = this;
+    const { genre, imagePath, rating, storyLine, subtitle, title } = e;
+    const previusValue = state.movies;
+    previusValue.push({ genre, imagePath, rating, storyLine, subtitle, title });
+    this.setState({
+      movies: previusValue,
+    });
+  }
+
   render() {
-    const { movies } = this.props;
     const { state } = this;
     return (
       <div>
         <SearchBar
-          searchText={state.searchText}
-          onSearchTextChange={this.hadleSearchText}
-          bookmarkedOnly={state.bookmarkedOnly}
-          selectedGenre={state.selectedGenre}
-          onBookmarkedChange={this.hadleFilterFavorite}
-          onSelectedGenreChange={this.hadleFilterGenre}
+          searchText={ state.searchText }
+          onSearchTextChange={ this.hadleSearchText }
+          bookmarkedOnly={ state.bookmarkedOnly }
+          selectedGenre={ state.selectedGenre }
+          onBookmarkedChange={ this.hadleFilterFavorite }
+          onSelectedGenreChange={ this.hadleFilterGenre }
         />
-        <MovieList movies={state.movies} />
+        <MovieList movies={ state.movies } />
+        <AddMovie onClick={ this.hadlerClickButton } />
       </div>
     );
   }
 }
 
-export default MovieLibrary
+export default MovieLibrary;
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(Object).isRequired,
+};
