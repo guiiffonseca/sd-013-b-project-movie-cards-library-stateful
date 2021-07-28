@@ -44,7 +44,7 @@ class MovieLibrary extends React.Component {
     // const { handleChange } = this.props;
     const { movies } = this.state;
     this.setState({
-      movies: [...movies, handleChange],
+      movies: [...movies],
     });
   }
 
