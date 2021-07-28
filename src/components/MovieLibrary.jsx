@@ -44,17 +44,27 @@ export default class MovieLibrary extends Component {
     });
   }
 
-  onSearchTextChange = ({ target: { name, value } }) => {
+  handleChange = ({ target }) => {
+    const { name, value } = target;
+    if (target.type === 'checkbox') {
+      this.setState({ [name]: target.checked });
+      return;
+    }
     this.setState({ [name]: value });
   }
 
-  onSelectedGenreChange = ({ target: { name, value } }) => {
-    this.setState({ [name]: value });
-  }
 
-  onBookmarkedChange = ({ target }) => {
-    this.setState({ bookmarkedOnly: target.checked });
-  }
+  // onSearchTextChange = ({ target: { name, value } }) => {
+  //   this.setState({ [name]: value });
+  // }
+
+  // onSelectedGenreChange = ({ target: { name, value } }) => {
+  //   this.setState({ [name]: value });
+  // }
+
+  // onBookmarkedChange = ({ target }) => {
+  //   this.setState({ bookmarkedOnly: target.checked });
+  // }
 
   render() {
     const { searchText, bookmarkedOnly,
@@ -64,11 +74,11 @@ export default class MovieLibrary extends Component {
       <div>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.onSearchTextChange }
+          onSearchTextChange={ this.handleChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.onBookmarkedChange }
+          onBookmarkedChange={ this.handleChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.onSelectedGenreChange }
+          onSelectedGenreChange={ this.handleChange }
         />
         <AddMovie onClick={ this.pushMovie } />
         <MovieList
