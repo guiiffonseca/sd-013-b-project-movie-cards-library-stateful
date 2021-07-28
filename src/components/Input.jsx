@@ -7,7 +7,7 @@ class Input extends React.Component {
 
     return (
 
-      <label htmlFor={id} data-testid={ idLabel }>
+      <label htmlFor={ id } data-testid={ idLabel }>
         {texto}
         <input
           type={ tipo }

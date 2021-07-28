@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
+import CampoInputs from './CampoInputs';
 import Input from './Input';
 
 export default class AddMovie extends React.Component {
@@ -21,43 +22,50 @@ export default class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-
-        <Input
-          texto="Título"
-          value={ title }
-          nome="title"
-          tipo="text"
-          id="add"
-          dataID="title-input"
+        <CampoInputs
+          title={ title }
+          subtitle={ subtitle }
+          imagePath={ imagePath }
+          storyline={ storyline }
           func={ this.EventSetstate }
-          idLabel="title-input-label"
         />
-
+        <label htmlFor="textArea" data-testid="storyline-input-label">
+          Sinopse
+          <textarea
+            id="textArea"
+            name="storyline"
+            value={ storyline }
+            data-testid="storyline-input"
+            onChange={ this.EventSetstate }
+          />
+        </label>
         <Input
-          texto="Subtítulo"
-          value={ subtitle }
-          nome="subtitle"
-          tipo="text"
-          id="addSub"
-          dataID="subtitle-input"
+          texto="Avaliação"
+          value={ rating }
+          nome="rating"
+          tipo="number"
+          id="addNum"
+          dataID="rating-input"
           func={ this.EventSetstate }
-          idLabel="subtitle-input-label"
+          idLabel="rating-input-label"
         />
-
-        <Input
-          texto="Imagem"
-          value={ imagePath }
-          nome="imagePath"
-          tipo="text"
-          id="addimg"
-          dataID="image-input"
-          func={ this.EventSetstate }
-          idLabel="image-input-label"
-        />
-
+        <label data-testid="genre-input-label" htmlFor="idsel">
+          Gênero
+          <select
+            value={ genre }
+            onChange={ this.EventSetstate }
+            name="genre"
+            id="idSel"
+            data-testid="genre-input"
+          >
+            <option data-testid="genre-option" value="action">Ação</option>
+            <option data-testid="genre-option" value="comedy">Comédia</option>
+            <option data-testid="genre-option" value="thriller">Suspense</option>
+          </select>
+        </label>
       </form>
     );
   }
