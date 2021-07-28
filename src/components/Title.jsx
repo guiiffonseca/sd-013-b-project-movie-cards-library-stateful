@@ -2,7 +2,8 @@ import React from 'react';
 
 class Title extends React.Component {
   render() {
-    const { title, subtitle, imagePath, storyline, rating } = this.props;
+    const { subtitle } = this.props;
+    // imagePath, storyline, rating title,
     return (
       <label htmlFor="subtitle" data-testid="subtitle-input-label">
         Subtítulo:
@@ -17,5 +18,9 @@ class Title extends React.Component {
     );
   }
 }
+
+Title.propTypes = { 
+  subtitle: PropTypes.string.isRequired,
+};
 
 export default Title;
