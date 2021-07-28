@@ -1,26 +1,24 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
-import movies from '../data';
-// import { select } from 'async';
 
 class MovieLibrary extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      // movies,
+      movies: props.movies,
     };
     this.filteredMovies = this.filteredMovies.bind(this);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    // this.onClickHandle = this.onClickHandle.bind(this);
+    this.onClickHandle = this.onClickHandle.bind(this);
   }
 
   onSearchTextChange({ target }) {
@@ -37,20 +35,23 @@ class MovieLibrary extends React.Component {
 
   onSelectedGenreChange({ target }) {
     this.setState({
+      bookmarkedOnly: false,
       selectedGenre: target.value,
     });
   }
 
-  // onClickHandle() {
-  //   const { movies } = this.state;
-  //   return <MovieList movies={ movies } />;
-  // }
+  onClickHandle() {
+    const { movies } = this.state;
+    this.setState((previouslyState) => ({
+      movies: [previouslyState, ...movies],
+    }));
+  }
 
   filteredMovies() {
-    // const { movies } = this.props;
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     if (bookmarkedOnly === true) {
-      const favoriteMovies = movies.filter((movie) => movie.rating);
+      const favorite = 4.5;
+      const favoriteMovies = movies.filter((movie) => movie.rating >= favorite);
       return <MovieList movies={ favoriteMovies } />;
     } if (selectedGenre.length !== 0) {
       const sameGenre = movies.filter((movie) => movie.genre === selectedGenre);
@@ -86,10 +87,10 @@ class MovieLibrary extends React.Component {
   }
 }
 
-// MovieLibrary.propTypes = {
-//   movies: PropTypes.arrayOf(
-//     PropTypes.object,
-//   ).isRequired,
-// };
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.object,
+  ).isRequired,
+};
 
 export default MovieLibrary;

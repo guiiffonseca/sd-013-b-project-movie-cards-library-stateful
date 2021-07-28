@@ -18,11 +18,11 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-    this.hdCg = this.hdCg.bind(this);
-    this.hdSbt = this.hdSbt.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  hdCg({ target }) {
+  handleChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox'
       ? target.checked : target.value;
@@ -31,7 +31,7 @@ class AddMovie extends React.Component {
     });
   }
 
-  hdSbt() {
+  handleSubmit() {
     this.setState({
       subtitle: '',
       title: '',
@@ -46,7 +46,7 @@ class AddMovie extends React.Component {
     const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form data-testid="add-movie-form" onSubmit={ this.hdSbt }>
+      <form data-testid="add-movie-form" onSubmit={ this.handleSubmit }>
         <LblCpnt
           text="Título"
           dataTestType="title-input-label"
@@ -55,7 +55,7 @@ class AddMovie extends React.Component {
           name="title"
           value={ title }
           dataTestId="title-input"
-          onChange={ this.hdCg }
+          onChange={ this.handleSubmit }
         />
         <LblCpnt
           text="Subtítulo"
@@ -65,7 +65,7 @@ class AddMovie extends React.Component {
           name="subtitle"
           value={ subtitle }
           dataTestId="subtitle-input"
-          onChange={ this.hdCg }
+          onChange={ this.handleSubmit }
         />
         <LblCpnt
           text="Imagem"
@@ -75,11 +75,11 @@ class AddMovie extends React.Component {
           name="imagePath"
           value={ imagePath }
           dataTestId="image-input"
-          onChange={ this.hdCg }
+          onChange={ this.handleSubmit }
         />
-        <TxtCp value={ storyline } onChange={ this.hdCg } />
-        <LblRating value={ rating } onChange={ this.hdCg } />
-        <SlctCp value={ genre } onChange={ this.hdCg } />
+        <TxtCp value={ storyline } onChange={ this.handleSubmit } />
+        <LblRating value={ rating } onChange={ this.handleSubmit } />
+        <SlctCp value={ genre } onChange={ this.handleSubmit } />
         <button
           type="submit"
           data-testid="send-button"
