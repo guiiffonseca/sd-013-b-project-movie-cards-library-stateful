@@ -25,7 +25,6 @@ class MovieLibrary extends React.Component {
   }
 
   handleGenreChange(event) {
-    const { genre } = this.state;
     this.setState({
       genre: event.target.value,
     });
