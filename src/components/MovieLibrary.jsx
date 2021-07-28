@@ -6,10 +6,7 @@ import AddMovies from './AddMovie';
 export default class MovieLibrary extends React.Component {
   constructor(movies) {
     super();
-    // const { movies } = this.props;
-    this.handleBookmarkedChange = this.handleBookmarkedChange.bind(this);
-    this.handleSelectedChange = this.handleSelectedChange.bind(this);
-    this.handleSearchChange = this.handleSearchChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -18,21 +15,10 @@ export default class MovieLibrary extends React.Component {
     };
   }
 
-  handleSearchChange(event) {
+  handleChange(event) {
+    console.log(event.target);
     this.setState({
-      searchText: [event.target.value],
-    });
-  }
-
-  handleBookmarkedChange(event) {
-    this.setState({
-      bookmarkedOnly: [event.target.value],
-    });
-  }
-
-  handleSelectedChange(event) {
-    this.setState({
-      selectedGenre: [event.target.value],
+      [event.target.name]: [event.target.value],
     });
   }
 
@@ -43,11 +29,11 @@ export default class MovieLibrary extends React.Component {
       <div>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.handleSearchChange }
+          onSearchTextChange={ this.handleChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.handleBookmarkedChange }
+          onBookmarkedChange={ this.handleChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.handleSelectedChange }
+          onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ movies.movies } />
         <AddMovies />
@@ -55,3 +41,6 @@ export default class MovieLibrary extends React.Component {
     );
   }
 }
+
+//filtrar um array baseado no que estiver no state do searchBar
+//passar para movie List um array de elementos a serem renderizados
