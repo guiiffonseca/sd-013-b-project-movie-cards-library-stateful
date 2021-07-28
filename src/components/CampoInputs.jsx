@@ -4,7 +4,7 @@ import Input from './Input';
 
 class CampoInputs extends React.Component {
   render() {
-    const { title, subtitle, imagePath, func } = this.props;
+    const { title, subtitle, imagePath, func, rating } = this.props;
     return (
       <div>
         <Input
@@ -37,6 +37,17 @@ class CampoInputs extends React.Component {
           func={ func }
           idLabel="image-input-label"
         />
+        <Input
+          texto="Avaliação"
+          value={ rating }
+          nome="rating"
+          tipo="number"
+          id="addNum"
+          dataID="rating-input"
+          func={ func }
+          idLabel="rating-input-label"
+        />
+
       </div>
     );
   }
@@ -47,5 +58,6 @@ CampoInputs.propTypes = {
   subtitle: PropTypes.string.isRequired,
   imagePath: PropTypes.string.isRequired,
   func: PropTypes.func.isRequired,
+  rating: PropTypes.string.isRequired,
 };
 export default CampoInputs;
