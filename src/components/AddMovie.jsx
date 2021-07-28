@@ -33,6 +33,8 @@ class AddMovie extends React.Component {
   }
 
   handleClick() {
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -44,7 +46,6 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
 
     return (
@@ -57,12 +58,7 @@ class AddMovie extends React.Component {
         <Rating rating={ rating } handleOnChange={ this.handleOnChange } />
         <Genre genre={ genre } handleOnChange={ this.handleOnChange } />
 
-        <Button
-          onClick={ () => {
-            this.handleClick();
-            onClick(this.state);
-          } }
-        />
+        <Button handleClick={ this.handleClick } />
       </form>
     );
   }
