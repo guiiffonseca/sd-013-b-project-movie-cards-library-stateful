@@ -7,14 +7,33 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: props.movies,
+    };
+
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+  }
+
+  onSearchTextChange(event) {
+    this.setState({
+      searchText: event.target.value,
+    });
   }
 
   render() {
+    const { movies } = this.props;
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar />
-        <MovieList movies={this.props.movies} />
+        <SearchBar
+          searchText={ searchText }
+          onSearchTextChange={ this.onSearchTextChange }
+        />
+        <MovieList movies={ movies } />
         <AddMovie />
       </div>
     );
