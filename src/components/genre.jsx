@@ -12,7 +12,8 @@ class Genre extends Component {
         Gênero
         <select
           type="text"
-          id="select"
+          id="number"
+          name="genre"
           value={ value }
           data-testid="genre-input"
           onChange={ onChange }
