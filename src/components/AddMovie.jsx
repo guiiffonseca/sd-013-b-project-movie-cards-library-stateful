@@ -1,8 +1,9 @@
 // implement AddMovie component here
 import React from 'react';
+// import PropTypes from 'prop-types';
 import InputForm from './InputForm';
 import Data from './GeneratInputForms';
-import PropTypes from 'prop-types';
+
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
@@ -16,6 +17,7 @@ class AddMovie extends React.Component {
     };
     this.onChangeEvent = this.onChangeEvent.bind(this);
     this.getValue = this.getValue.bind(this);
+    this.addMovieButton = this.addMovieButton.bind(this);
   }
 
   onChangeEvent({ target }) {
@@ -32,8 +34,12 @@ class AddMovie extends React.Component {
     objectState.find((element) => element[0] === value);
   }
 
+  addMovieButton() {
+    console.log('teste');
+  }
+
   render() {
-    const { onClick } = this.props;
+    // const { onClick } = this.props;
     return (
       <form>
         <fieldset>
@@ -52,14 +58,22 @@ class AddMovie extends React.Component {
               <option name="genre" value="thriller">Suspense</option>
             </select>
           </label>
+          <button
+            data-testid="send-button"
+            id="btn"
+            type="button"
+            onClick={ this.addMovieButton }
+          >
+            Adicionar filme
+          </button>
         </fieldset>
       </form>
     );
   }
 }
 
-AddMovie.propTypes = {
-  onClick: PropTypes.func.isRequired,
-};
+// AddMovie.propTypes = {
+//   onClick: PropTypes.func.isRequired,
+// };
 
 export default AddMovie;

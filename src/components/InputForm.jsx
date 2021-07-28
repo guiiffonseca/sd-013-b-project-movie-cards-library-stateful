@@ -1,5 +1,5 @@
 import React from 'react';
-import data from './GeneratInputForms';
+import PropTypes from 'prop-types';
 
 class InputForm extends React.Component {
   render() {
@@ -20,9 +20,15 @@ class InputForm extends React.Component {
   }
 }
 
-// InputForm.propTypes = {
-//   name: PropTypes.func.isRequired,
-//   dataTest: PropTypes.func.isRequired,
-// };
+InputForm.propTypes = {
+  data: PropTypes.string.isRequired,
+  // name: PropTypes.string.isRequired,
+  // dataTestid: PropTypes.string.isRequired,
+  // id: PropTypes.string.isRequired,
+  // type: PropTypes.string.isRequired,
+  // title: PropTypes.string.isRequired,
+  get: PropTypes.func.isRequired,
+  onCha: PropTypes.func.isRequired,
+};
 
 export default InputForm;

@@ -34,6 +34,13 @@ const objectToInputInAddMovie = [
     name: 'rating',
     dataTestid: 'rating-input',
   },
+  {
+    title: 'Avaliação',
+    id: 'input-avaliation',
+    type: 'number',
+    name: 'rating',
+    dataTestid: 'rating-input',
+  },
 ];
 
 export default objectToInputInAddMovie;
