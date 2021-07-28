@@ -41,8 +41,13 @@ class MovieLibrary extends React.Component {
     });
   }
 
-  onClick() {
-    console.log('teste');
+  onClick(filmeNovo) {
+    const { movies } = this.state;
+    const newMovies = [...movies];
+    newMovies.push({ ...filmeNovo, bookmarked: false });
+    this.setState({
+      movies: newMovies,
+    });
   }
 
   render() {
