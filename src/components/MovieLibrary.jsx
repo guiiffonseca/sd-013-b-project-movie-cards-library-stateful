@@ -71,13 +71,11 @@ class MovieLibrary extends Component {
     if (value === genre) { return true; }
   }
 
-  hadlerClickButton(e) {
-    const { state } = this;
-    const { genre, imagePath, rating, storyLine, subtitle, title } = e;
-    const previusValue = state.movies;
-    previusValue.push({ genre, imagePath, rating, storyLine, subtitle, title });
+  hadlerClickButton(newMovie) {
+    const { movies } = this.state;
+    /* Com ajuda de Rodrigo Aug */
     this.setState({
-      movies: previusValue,
+      movies: [...movies, newMovie],
     });
   }
 
