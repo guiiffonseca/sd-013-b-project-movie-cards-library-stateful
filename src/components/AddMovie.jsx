@@ -1,7 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import TextInput from './TextInput';
 import TextArea from './TextArea';
 import Select from './Select';
+import Button from './Button';
 
 export default class AddMovie extends React.Component {
   constructor() {
@@ -23,8 +26,20 @@ export default class AddMovie extends React.Component {
     });
   };
 
+  handleButton = () => {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
-    const { onclick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -65,7 +80,12 @@ export default class AddMovie extends React.Component {
           options={ [{ action: 'Ação' },
             { comedy: 'Comédia' }, { thriller: 'Suspense' }] }
         />
+        <Button onClick={ this.handleButton } />
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
