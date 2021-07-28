@@ -33,7 +33,6 @@ class MovieLibrary extends Component {
     };
 
     movies.push(newMovie);
-   
   }
 
   render() {

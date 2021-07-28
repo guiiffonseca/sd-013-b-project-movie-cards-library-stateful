@@ -34,8 +34,8 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    }
-    
+    };
+    document.querySelector('form').reset();
   }
 
   render() {
@@ -75,7 +75,7 @@ class AddMovie extends React.Component {
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
           <button type="submit" data-testid="send-button">
-            Adcionar filme
+            Adicionar filme
           </button>
         </label>
         {' '}
