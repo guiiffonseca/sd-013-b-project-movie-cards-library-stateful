@@ -4,20 +4,7 @@ import MovieCard from './MovieCard';
 
 class MovieList extends React.Component {
   render() {
-    let { movies } = this.props;
-    const { searchText, bookmarkedOnly, selectedGenre } = this.props;
-    movies = movies
-      .filter((movie) => movie.title.includes(searchText)
-      || movie.subtitle.includes(searchText)
-      || movie.storyline.includes(searchText));
-    if (bookmarkedOnly) {
-      movies = movies
-        .filter((movie) => movie.bookmarked);
-    }
-    if (selectedGenre !== '') {
-      movies = movies
-        .filter((movie) => movie.genre === selectedGenre);
-    }
+    const { movies } = this.props;
     return (
       <div>
 
@@ -39,9 +26,6 @@ MovieList.propTypes = {
       imagePath: PropTypes.string.isRequired,
     }),
   ).isRequired,
-  searchText: PropTypes.string.isRequired,
-  selectedGenre: PropTypes.string.isRequired,
-  bookmarkedOnly: PropTypes.bool.isRequired,
 };
-// O
+
 export default MovieList;

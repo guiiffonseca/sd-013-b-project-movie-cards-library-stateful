@@ -10,7 +10,7 @@ function SelectFormat(props) {
       <select
         name={ `${name}` }
         data-testid={ `${newName}-input` }
-        id="title-input"
+        id="select-input"
         value={ state }
         onChange={ handle }
       >
