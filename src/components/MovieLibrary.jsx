@@ -6,14 +6,19 @@ import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
-  constructor(props) {
+  constructor({ movies }) {
     super();
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectGenre: '',
-      movies: props.movies,
+      movies: [...movies],
+      filtered: movies,
     };
+
+    this.onClick = this.onClick.bind(this);
+    this.changeHandler = this.changeHandler.bind(this);
+    this.updateState = this.updateState.bind(this);
   }
 
   onClick(state) {
@@ -32,7 +37,7 @@ class MovieLibrary extends React.Component {
   }
 
   updateState() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies, filtered } = this.state;
     if (searchText !== '') {
       const filteredArr = movies
         .filter((movie) => movie.title.toLowerCase().includes(searchText.toLowerCase())
@@ -56,17 +61,16 @@ class MovieLibrary extends React.Component {
 
     if (bookmarkedOnly) {
       this.setState({
-        movies: movies.filter((event) => event.bookmarked),
+        movies: filtered.filter((event) => event.bookmarked),
       });
     }
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectGenre } = this.state;
-    const filteredMovies = this.filterMovies();
+    const { searchText, bookmarkedOnly, selectGenre, movies } = this.state;
     return (
       <div>
-        <MovieList movies={ filteredMovies } />
+        <MovieList movies={ movies } />
         <SearchBar
           searchText={ searchText }
           bookmarkedOnly={ bookmarkedOnly }
