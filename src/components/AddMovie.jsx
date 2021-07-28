@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import LabelInput from './LabelInput';
 import LabelInputTxtArea from './LabelInputTxtArea';
+import SelectGenre from './SelectGenre';
 
 class AddMovie extends Component {
   constructor() {
@@ -48,6 +49,20 @@ class AddMovie extends Component {
           id="storyline-input"
           name="storyline"
           value={ storyLine }
+          onChange=""
+        />
+        <LabelInput
+          label="Avaliação"
+          type="number"
+          id="rating-input"
+          value={ rating }
+          onChange=""
+        />
+        <SelectGenre
+          label="Gênero"
+          id="genre-input"
+          name="genre"
+          value= { genre }
           onChange=""
         />
       </form>
