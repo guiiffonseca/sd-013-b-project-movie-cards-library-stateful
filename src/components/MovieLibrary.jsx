@@ -6,14 +6,14 @@ import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
-  constructor() {
+  constructor(props) {
     super();
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: [],
+      movies: [...props.movies],
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -37,7 +37,7 @@ class MovieLibrary extends React.Component {
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const { movies } = this.props;
+    const { movies } = this.state;
     return (
       <div>
         <SearchBar
