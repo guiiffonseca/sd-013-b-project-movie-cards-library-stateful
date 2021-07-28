@@ -13,10 +13,12 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies,
+      startedMovies: movies,
     };
     this.onChangeText = this.onChangeText.bind(this);
     this.onChangeBookmarked = this.onChangeBookmarked.bind(this);
     this.onChangeGenre = this.onChangeGenre.bind(this);
+    this.teste = this.teste.bind(this);
   }
 
   onChangeText(event) {
@@ -24,8 +26,8 @@ class MovieLibrary extends Component {
     this.setState({
       [name]: value,
     });
-    const { movies } = this.props;
-    const temp = movies.filter((filme) => {
+    const { startedMovies } = this.state;
+    const temp = startedMovies.filter((filme) => {
       const { title, subtitle, storyline } = filme;
       const arr = [title.toUpperCase(), subtitle.toUpperCase(), storyline.toUpperCase()];
       const result = arr.some((prop) => prop.includes(value.toUpperCase()));
@@ -45,19 +47,19 @@ class MovieLibrary extends Component {
     this.setState({
       [name]: !bookmarkedOnly,
     });
-    const { movies } = this.props;
+    const { startedMovies } = this.state;
     if (bookmarkedOnly) {
-      this.setState({ movies });
+      this.setState({ startedMovies });
     } else {
-      const temp = movies.filter((filme) => filme.bookmarked === true);
+      const temp = startedMovies.filter((filme) => filme.bookmarked === true);
       this.setState({ movies: temp });
     }
   }
 
   onChangeGenre(event) {
     const { value } = event.target;
-    const { movies } = this.props;
-    const temp = movies.filter((filme) => filme.genre === value);
+    const { startedMovies } = this.state;
+    const temp = startedMovies.filter((filme) => filme.genre === value);
     this.setState({
       selectedGenre: value,
       movies: temp,
@@ -65,7 +67,11 @@ class MovieLibrary extends Component {
   }
 
   teste(estado) {
-    console.log(estado);
+    const { startedMovies } = this.state;
+    startedMovies.push(estado);
+    this.setState({
+      startedMovies,
+    });
   }
 
   render() {
