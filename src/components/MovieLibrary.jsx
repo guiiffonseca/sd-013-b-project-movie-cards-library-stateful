@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 
 export default class MovieLibrary extends React.Component {
   constructor(props) {
@@ -15,14 +16,13 @@ export default class MovieLibrary extends React.Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies,
+      allMovies: movies,
     }
   }
 
-  filterMovies() {
-    const { movies } = this.props;
-
-    this.setState(({ bookmarkedOnly, selectedGenre, searchText }) => ({
-      movies: movies
+  filterMovies = () => {
+    this.setState(({ allMovies, bookmarkedOnly, selectedGenre, searchText }) => ({
+      movies: allMovies
         .filter(({ bookmarked }) => 
           !bookmarkedOnly
           || bookmarked
@@ -49,6 +49,13 @@ export default class MovieLibrary extends React.Component {
     });
     this.filterMovies();
   }
+
+  handleAdd = (movie) => {
+    this.setState(({ allMovies }) => ({
+      allMovies: [ ...allMovies, { ...movie, rating: parseFloat(movie.rating), bookmarked: false } ],
+    }));
+    this.filterMovies();
+  }
   
   render() {
     const { bookmarkedOnly, movies, searchText, selectedGenre } = this.state;
@@ -64,6 +71,7 @@ export default class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ movies }/>
+        <AddMovie onClick={ this.handleAdd }/>
       </>
     )
   }
