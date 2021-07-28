@@ -31,8 +31,8 @@ class AddMovie extends React.Component {
     });
   }
 
-  onButtonClick= (event) => {
-    event.preventDefault();
+  onButtonClick= () => {
+    // event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
@@ -75,7 +75,7 @@ class AddMovie extends React.Component {
           genre={ genre }
         />
         <button
-          type="submit"
+          type="button"
           data-testid="send-button"
           onClick={ this.onButtonClick }
         >

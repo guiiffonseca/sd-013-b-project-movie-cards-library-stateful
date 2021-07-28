@@ -16,6 +16,10 @@ class MovieLibrary extends React.Component {
     };
   }
 
+  onClick() {
+    console.log('teste');
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
@@ -25,7 +29,7 @@ class MovieLibrary extends React.Component {
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
         />
-        <AddMovie />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }

@@ -11,7 +11,7 @@ class Genre extends React.Component {
           name="genre"
           id="genre"
           data-testid="genre-input"
-          defaultValue={ genre }
+          value={ genre }
           onChange={ handleChange }
         >
           <option data-testid="genre-option" value="action">Ação</option>
