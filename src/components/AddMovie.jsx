@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import LabelTitle from './LabelTitle';
-import LabelSubtitle from './LabelSubtitle';
-import LabelImage from './LabelImage';
-import LabelStoryLine from './LabelStoryLine';
+
+import LabelTitle from './LabelTitle.jsx';
+import LabelSubtitle from './LabelSubtitle.jsx';
+import LabelImage from './LabelImage.jsx';
+import LabelStoryLine from './LabelStoryLine.jsx';
 
 class AddMovie extends React.Component {
   constructor() {
