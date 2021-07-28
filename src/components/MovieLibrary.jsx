@@ -10,15 +10,24 @@ class MovieLibrary extends React.Component {
     this.state = {
       searchText: '',
       favBooks: false,
+      genre: '',
     };
     this.searchTextChange = this.searchTextChange.bind(this);
     this.handleBookFavCheck = this.handleBookFavCheck.bind(this);
+    this.handleGenreChange = this.handleGenreChange.bind(this);
   }
 
   handleBookFavCheck() {
     const { favBooks } = this.state;
     this.setState({
       favBooks: !favBooks,
+    });
+  }
+
+  handleGenreChange(event) {
+    const { genre } = this.state;
+    this.setState({
+      genre: event.target.value,
     });
   }
 
@@ -29,7 +38,7 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
-    const { searchText, favBooks } = this.state;
+    const { searchText, favBooks, genre } = this.state;
     const { movies } = this.props;
     // const { title } = data;
     return (
@@ -40,6 +49,8 @@ class MovieLibrary extends React.Component {
             onSearchTextChange={ this.searchTextChange }
             bookmarkedOnly={ favBooks }
             onBookmarkedChange={ this.handleBookFavCheck }
+            selectedGenre={ genre }
+            onSelectedGenreChange={ this.handleGenreChange }
           />
         </div>
         <div className="movieList">
