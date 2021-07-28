@@ -15,7 +15,7 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.EventSetstate = this.EventSetstate.bind(this);
-    this.ClickButton = this.ClickButton(this);
+    this.ClickButton = this.ClickButton.bind(this);
   }
 
   EventSetstate(event) {
@@ -24,9 +24,18 @@ class AddMovie extends React.Component {
 
   ClickButton(event) {
     event.preventDefault();
-    console.log(event);
     const { onClick } = this.props;
     onClick(this.state);
+
+    this.state = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    }
+    
   }
 
   render() {
