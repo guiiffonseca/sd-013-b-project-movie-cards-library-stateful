@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Button from './Button';
 import Title from './Title';
 
 class AddMovie extends Component {
@@ -25,6 +26,7 @@ class AddMovie extends Component {
 
   render() {
     const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
+    const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         <Title
@@ -63,9 +65,7 @@ class AddMovie extends Component {
             </select>
           </label>
         </label>
-        {/* <button type="button" onClick={ onClick } data-testid="send-button">
-          Adicionar filme
-        </button> */}
+        <Button onClick={ onClick } />
       </form>
     );
   }
