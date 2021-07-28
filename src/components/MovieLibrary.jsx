@@ -34,7 +34,7 @@ class MovieLibrary extends Component {
     const { checked } = event.target;
     this.setState({
       bookmarkedOnly: checked,
-      filteredMovies: this.filterBookmarked(),
+      filteredMovies: this.filterBookmarked(checked),
     });
   }
 
@@ -42,23 +42,23 @@ class MovieLibrary extends Component {
     const { value } = event.target;
     this.setState({
       selectedGenre: value,
-      filteredMovies: this.filterGenre(),
+      filteredMovies: this.filterGenre(value),
     });
   }
 
-  filterGenre() {
-    const { selectedGenre } = this.state;
+  filterGenre(value) {
+    // const { selectedGenre } = this.state;
     const { movies } = this.props;
-    if (selectedGenre === true) {
-      return movies.filter((movie) => movie.genre === true);
+    if (value !== '') {
+      return movies.filter((movie) => movie.genre === value);
     }
     return movies;
   }
 
-  filterBookmarked() {
-    const { bookmarkedOnly } = this.state;
+  filterBookmarked(checked) {
+    // const { bookmarkedOnly } = this.state;
     const { movies } = this.props;
-    if (bookmarkedOnly === false) {
+    if (checked === true) {
       return movies.filter((movie) => movie.bookmarked === true);
     }
     return movies;
