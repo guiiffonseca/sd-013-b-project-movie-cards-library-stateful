@@ -21,6 +21,7 @@ class AddMovie extends React.Component {
       title: event.target.value,
     });
   }
+
   handleClickBtn(event) {
     console.log('cliquei');
   }
@@ -44,41 +45,41 @@ class AddMovie extends React.Component {
 
         <label htmlFor="subtitle" data-testid="subtitle-input-label">
           Subtítulo:
-          <input 
-          type="text"
-          value={ this.subtitle }
-          onChange={ subtitle }
-          data-testid="subtitle-input"
+          <input
+            type="text"
+            value={ this.subtitle }
+            onChange={ subtitle }
+            data-testid="subtitle-input"
           />
         </label>
 
         <label htmlFor="image" data-testid="image-input-label">
           Imagem:
-          <input 
-          type="text"
-          value={ this.imagePath }
-          onChange={ imagePath }
-          data-testid="image-input"
+          <input
+            type="text"
+            value={ this.imagePath }
+            onChange={ imagePath }
+            data-testid="image-input"
           />
         </label>
 
         <label htmlFor="sinopse" data-testid="storyline-input-label">
           Sinopse:
-          <textarea 
-          type="text"
-          value={ this.storyline }
-          onChange={ storyline }
-          data-testid="storyline-input"
+          <textarea
+            type="text"
+            value={ this.storyline }
+            onChange={ storyline }
+            data-testid="storyline-input"
           />
         </label>
 
         <label htmlFor="rate" data-testid="rating-input-label">
           Avaliação:
-          <input 
-          type="number"
-          value= { this.rating }
-          onChange={ rating }
-          data-testid="rating-input"
+          <input
+            type="number"
+            value={ this.rating }
+            onChange={ rating }
+            data-testid="rating-input"
           />
         </label>
 
@@ -94,7 +95,7 @@ class AddMovie extends React.Component {
 
         <button data-testid="send-button" onClick={ this.handleClickBtn }>
           Adicionar filme
-          
+
         </button>
       </form>
     );
@@ -109,6 +110,5 @@ AddMovie.propTypes = {
   rating: PropTypes.number,
   genre: PropTypes.string,
 };
-
 
 export default AddMovie;
