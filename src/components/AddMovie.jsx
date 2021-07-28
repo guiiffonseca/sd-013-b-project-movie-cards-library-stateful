@@ -35,19 +35,20 @@ class AddMovie extends React.Component {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
 
     return (
+    // tive que alterar o nome da props de "value" para "ranting" do componente Rating, pois passando "value" o teste não estava reconhecendo o estado inicial de "rating", então mudei o nome das demais props para padronizar a chamada dos componentes;
       <form data-testid="add-movie-form">
-        <Title value={ title } handleOnChange={ this.handleOnChange } />
-        <Subtitle value={ subtitle } handleOnChange={ this.handleOnChange } />
-        <Image value={ imagePath } handleOnChange={ this.handleOnChange } />
-        <Storyline value={ storyline } handleOnChange={ this.handleOnChange } />
-        <Rating value={ rating } handleOnChange={ this.handleOnChange } />
-        <Genre value={ genre } handleOnChange={ this.handleOnChange } />
+        <Title title={ title } handleOnChange={ this.handleOnChange } />
+        <Subtitle subtitle={ subtitle } handleOnChange={ this.handleOnChange } />
+        <Image imagePath={ imagePath } handleOnChange={ this.handleOnChange } />
+        <Storyline storyline={ storyline } handleOnChange={ this.handleOnChange } />
+        <Rating rating={ rating } handleOnChange={ this.handleOnChange } />
+        <Genre genre={ genre } handleOnChange={ this.handleOnChange } />
 
         <button
           type="button"
           data-testid="send-button"
         >
-          Adicionar Filme
+          Adicionar filme
         </button>
       </form>
     );
