@@ -8,13 +8,14 @@ class Title extends React.Component {
     return (
       <Input
         labelId="title-input-label"
-        txt="Título:"
-        testid="title-input"
+        txt="Título"
+        testId="title-input"
         id="title"
         type="text"
         value={ value }
         onChange={ change }
       />
+
     );
   }
 }

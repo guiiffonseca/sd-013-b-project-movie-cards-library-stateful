@@ -68,7 +68,7 @@ class AddMovie extends Component {
 
         <button
           data-testid="send-button"
-          type="reset"
+          type="submit"
           onClick={ () => (onClick(this.state)) }
         >
           Adicionar filme

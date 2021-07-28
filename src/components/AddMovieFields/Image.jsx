@@ -9,8 +9,8 @@ class Image extends React.Component {
     return (
       <Input
         labelId="image-input-label"
-        txt="Imagem:"
-        testid="image-input"
+        txt="Imagem"
+        testId="image-input"
         id="imagePath"
         type="text"
         value={ value }

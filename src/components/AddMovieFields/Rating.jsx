@@ -9,8 +9,8 @@ class Rating extends React.Component {
     return (
       <Input
         labelId="rating-input-label"
-        txt="Avaliação:"
-        testid="rating-input"
+        txt="Avaliação"
+        testId="rating-input"
         id="rating"
         type="number"
         value={ value }

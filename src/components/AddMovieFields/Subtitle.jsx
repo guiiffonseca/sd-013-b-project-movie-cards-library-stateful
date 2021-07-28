@@ -9,8 +9,8 @@ class Subtitle extends React.Component {
     return (
       <Input
         labelId="subtitle-input-label"
-        txt="Subtítulo:"
-        testid="subtitle-input"
+        txt="Subtítulo"
+        testId="subtitle-input"
         id="subtitle"
         type="text"
         value={ value }

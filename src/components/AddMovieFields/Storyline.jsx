@@ -9,8 +9,8 @@ class Storyline extends React.Component {
     return (
       <TextArea
         labelId="storyline-input-label"
-        txt="Sinopse:"
-        testid="storyline-input"
+        txt="Sinopse"
+        testId="storyline-input"
         id="storyline"
         value={ value }
         onChange={ change }
