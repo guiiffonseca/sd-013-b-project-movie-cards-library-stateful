@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import SearchBar from './SearchBar';
+import MovieList from './MovieList';
 
 export default class MovieLibrary extends React.Component {
   constructor(props) {
@@ -17,6 +18,28 @@ export default class MovieLibrary extends React.Component {
     }
   }
 
+  filterMovies() {
+    const { movies } = this.props;
+
+    this.setState(({ bookmarkedOnly, selectedGenre, searchText }) => ({
+      movies: movies
+        .filter(({ bookmarked }) => 
+          !bookmarkedOnly
+          || bookmarked
+        )
+        .filter(({ genre }) => 
+          !selectedGenre
+          || genre === selectedGenre
+        )
+        .filter(({ title, subtitle, storyline }) =>
+          !searchText
+          || title.includes(searchText)
+          || subtitle.includes(searchText)
+          || storyline.includes(searchText)
+        ),
+    }));
+  }
+
   handleChange = (event) => {
     this.setState({
       [event.target.name]: 
@@ -24,6 +47,7 @@ export default class MovieLibrary extends React.Component {
         ? event.target.checked
         : event.target.value,
     });
+    this.filterMovies();
   }
   
   render() {
@@ -39,6 +63,7 @@ export default class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />
+        <MovieList movies={ movies }/>
       </>
     )
   }
