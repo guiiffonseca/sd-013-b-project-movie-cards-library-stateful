@@ -3,14 +3,13 @@ import PropTypes from 'prop-types';
 
 export default class LabelTextArea extends Component {
   render() {
-    const { state, change } = this.props;
+    const { stateProp, change } = this.props;
     return (
       <label htmlFor="storyline" data-testid="storyline-input-label">
         Sinopse
         <textarea
-          value={ state }
+          value={ stateProp }
           name="storyline"
-          id="storyline"
           cols="30"
           rows="10"
           data-testid="storyline-input"
@@ -22,6 +21,6 @@ export default class LabelTextArea extends Component {
 }
 
 LabelTextArea.propTypes = {
-  state: PropTypes.string.isRequired,
+  stateProp: PropTypes.string.isRequired,
   change: PropTypes.func.isRequired,
 };

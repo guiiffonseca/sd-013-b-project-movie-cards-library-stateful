@@ -3,15 +3,14 @@ import PropTypes from 'prop-types';
 
 export default class LabelTextImage extends Component {
   render() {
-    const { state, change } = this.props;
+    const { stateProp, change } = this.props;
     return (
       <label htmlFor="imagePath" data-testid="image-input-label">
-        Avaliação
+        Imagem
         <input
-          value={ state }
-          type="number"
+          value={ stateProp }
+          type="text"
           name="imagePath"
-          id="imagePath"
           data-testid="image-input"
           onChange={ change }
         />
@@ -21,6 +20,6 @@ export default class LabelTextImage extends Component {
 }
 
 LabelTextImage.propTypes = {
-  state: PropTypes.string.isRequired,
+  stateProp: PropTypes.string.isRequired,
   change: PropTypes.func.isRequired,
 };

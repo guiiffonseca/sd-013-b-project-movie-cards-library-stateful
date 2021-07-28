@@ -3,15 +3,14 @@ import PropTypes from 'prop-types';
 
 export default class LabelNumberRating extends Component {
   render() {
-    const { state, change } = this.props;
+    const { stateProp, change } = this.props;
     return (
       <label htmlFor="rating" data-testid="rating-input-label">
-        Imagem
+        Avaliação
         <input
-          value={ state }
+          value={ stateProp }
           type="number"
           name="rating"
-          id="rating"
           data-testid="rating-input"
           onChange={ change }
         />
@@ -21,6 +20,6 @@ export default class LabelNumberRating extends Component {
 }
 
 LabelNumberRating.propTypes = {
-  state: PropTypes.string.isRequired,
+  stateProp: PropTypes.number.isRequired,
   change: PropTypes.func.isRequired,
 };

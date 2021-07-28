@@ -3,14 +3,13 @@ import PropTypes from 'prop-types';
 
 export default class LabelSelectGenre extends Component {
   render() {
-    const { state, change } = this.props;
+    const { stateProp, change } = this.props;
     return (
       <label htmlFor="genre" data-testid="genre-input-label">
         Gênero
         <select
-          name="select"
-          id="genre"
-          value={ state }
+          name="genre"
+          value={ stateProp }
           onChange={ change }
           data-testid="genre-input"
         >
@@ -24,6 +23,6 @@ export default class LabelSelectGenre extends Component {
 }
 
 LabelSelectGenre.propTypes = {
-  state: PropTypes.string.isRequired,
+  stateProp: PropTypes.string.isRequired,
   change: PropTypes.func.isRequired,
 };
