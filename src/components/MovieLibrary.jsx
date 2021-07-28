@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -77,6 +78,22 @@ class MovieLibrary extends React.Component {
     this.filterByGenre(target.value);
   }
 
+  // title: '',
+  // subtitle: '',
+  // imagePath: '',
+  // storyline: '',
+  // rating: 0,
+  // genre: 'action',
+
+  handleAddMovie = (newMovieInfo) => {
+    const { movies } = this.state;
+    const newMovieList = [...movies];
+
+    newMovieList.push({ ...newMovieInfo, bookmarked: false });
+
+    this.setState({ movies: newMovieList, filteredMovies: newMovieList });
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, filteredMovies } = this.state;
 
@@ -91,6 +108,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.handleGenreChange }
         />
         <MovieList movies={ filteredMovies } />
+        <AddMovie onClick={ this.handleAddMovie } />
       </div>
     );
   }
