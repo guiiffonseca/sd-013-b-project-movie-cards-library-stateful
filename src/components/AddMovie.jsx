@@ -27,7 +27,7 @@ class AddMovie extends React.Component {
 
   render() {
     const { onClick } = this.props;
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
         <InpuField
@@ -54,6 +54,13 @@ class AddMovie extends React.Component {
           label="Sinopse"
           value={ storyline }
           name="storyline"
+          onChange={ this.handleChange }
+        />
+        <InpuField
+          label="Avaliação"
+          type="number"
+          value={ rating }
+          name="rating"
           onChange={ this.handleChange }
         />
       </form>
