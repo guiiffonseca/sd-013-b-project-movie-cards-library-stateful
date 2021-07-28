@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import AddTitle from './AddTitle';
 import AddSubtitle from './AddSubtitle';
 import AddImagem from './AddImagem';
@@ -32,30 +33,30 @@ class AddMovie extends React.Component {
   handleClick() {
     const { onClick } = this.props;
     onClick(this.state);
-    this.setState = {
+    this.setState = ({
       subtitle: '',
       title: '',
       imagePath: '',
       storyline: '',
       rating: 0,
       genre: 'action',
-    };
+    });
   }
 
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <AddTitle value={ title } funcao={ handleChange } />
-        <AddSubtitle value={ subtitle } funcao={ handleChange } />
-        <AddImagem value={ imagePath } funcao={ handleChange } />
-        <AddTextArea value={ storyline } funcao={ handleChange } />
-        <AddAvaliacao value={ rating } funcao={ handleChange } />
-        <AddGenero value={ genre } funcao={ handleChange } />
+        <AddTitle value={ title } funcao={ this.handleChange } />
+        <AddSubtitle value={ subtitle } funcao={ this.handleChange } />
+        <AddImagem value={ imagePath } funcao={ this.handleChange } />
+        <AddTextArea value={ storyline } funcao={ this.handleChange } />
+        <AddAvaliacao value={ rating } funcao={ this.handleChange } />
+        <AddGenero value={ genre } funcao={ this.handleChange } />
         <button
           type="button"
           data-testid="send-button"
-          onClick={ handleClick }
+          onClick={ this.handleClick }
         >
           Adicionar filme
         </button>
@@ -63,4 +64,9 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
+
 export default AddMovie;

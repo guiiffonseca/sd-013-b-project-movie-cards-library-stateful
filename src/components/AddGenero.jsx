@@ -1,9 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddGenero extends React.Component {
   render() {
-    const { value } = this.props;
-    const { funcao } = this.props;
+    const { value, funcao } = this.props;
     return (
       <label data-testid="genre-input-label" htmlFor="genre">
         Gênero
@@ -21,5 +21,10 @@ class AddGenero extends React.Component {
     );
   }
 }
+
+AddGenero.propTypes = {
+  value: PropTypes.string.isRequired,
+  funcao: PropTypes.func.isRequired,
+};
 
 export default AddGenero;

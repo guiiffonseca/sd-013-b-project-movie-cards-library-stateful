@@ -1,11 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddTitle extends React.Component {
   render() {
-    const { value } = this.props;
-    const { funcao } = this.props;
+    const { value, funcao } = this.props;
     return (
-      <label htmlFor="title" data-testid="title-input-label">
+      <label htmlFor="title-input" data-testid="title-input-label">
         Título
         <input
           type="text"
@@ -19,5 +19,10 @@ class AddTitle extends React.Component {
     );
   }
 }
+
+AddTitle.propTypes = {
+  value: PropTypes.string.isRequired,
+  funcao: PropTypes.func.isRequired,
+};
 
 export default AddTitle;

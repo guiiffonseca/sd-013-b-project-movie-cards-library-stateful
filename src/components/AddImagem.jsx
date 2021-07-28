@@ -1,9 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddImagem extends React.Component {
   render() {
-    const { value } = this.props;
-    const { funcao } = this.props;
+    const { value, funcao } = this.props;
     return (
       <label htmlFor="imagem" data-testid="image-input-label">
         Imagem
@@ -19,5 +19,10 @@ class AddImagem extends React.Component {
     );
   }
 }
+
+AddImagem.propTypes = {
+  value: PropTypes.string.isRequired,
+  funcao: PropTypes.func.isRequired,
+};
 
 export default AddImagem;
