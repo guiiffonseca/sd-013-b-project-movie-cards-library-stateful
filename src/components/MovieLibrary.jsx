@@ -6,23 +6,29 @@ import MovieList from './MovieList';
 export default class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: props.movies,
     };
+
     this.updateState = this.updateState.bind(this);
+    this.filterMovie = this.filterMovie.bind(this);
   }
 
-  filterMovies() {
+  filterMovie() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    movies.filter((movie) => (bookmarkedOnly ? movie.bookmarkedOnly : movie));
-    movies.filter((movie) => (movie.title.includes(searchText)
-    || movie.subtitle.includes(searchText) || movie.storyline.includes(searchText)));
-    const filterGenre = movies
-      .filter((movie) => (selectedGenre === '' ? movie.genre : movie));
-    return filterGenre;
+    const filteredByBookmarked = movies
+      .filter((movie) => (bookmarkedOnly ? movie.bookmarked : movies));
+    const filteredBySearchText = filteredByBookmarked
+      .filter((movie) => movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText));
+    const filteredByGenre = filteredBySearchText
+      .filter((movie) => (selectedGenre === '' ? movies : movie.genre === selectedGenre));
+    return filteredByGenre;
   }
 
   updateState({ target }) {
@@ -46,7 +52,7 @@ export default class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.updateState }
         />
-        <MovieList movies={ this.filterMovies() } />
+        <MovieList movies={ this.filterMovie() } />
       </div>
     );
   }

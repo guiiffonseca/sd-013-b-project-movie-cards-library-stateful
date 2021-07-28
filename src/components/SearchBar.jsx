@@ -15,6 +15,7 @@ export default class SearchBar extends Component {
           <input
             type="text"
             id="searchText"
+            name="searchText"
             data-testid="text-input"
             value={ searchText }
             onChange={ onSearchTextChange }
@@ -25,6 +26,7 @@ export default class SearchBar extends Component {
           <input
             type="checkbox"
             id="favorites"
+            name="bookmarkedOnly"
             data-testid="checkbox-input"
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
@@ -33,7 +35,7 @@ export default class SearchBar extends Component {
         <label htmlFor="selectInput" data-testid="select-input-label">
           Filtrar por gênero
           <select
-            name="filterGenrer"
+            name="selectedGenre"
             id="selectInput"
             value={ selectedGenre }
             data-testid="select-input"
