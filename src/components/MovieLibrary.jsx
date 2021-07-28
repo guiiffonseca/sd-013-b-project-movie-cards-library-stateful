@@ -38,7 +38,7 @@ export default class MovieLibrary extends Component {
   handleFilterChanges() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return movies.filter((movie) => (bookmarkedOnly ? movie.bookmarked : movies))
-      .filter((movie) => (selectedGenre === '' ? movies : movie.genre === selectedGenre))
+      .filter((movie) => movie.genre.includes(selectedGenre))
       .filter((movie) => movie.title.includes(searchText)
       || movie.subtitle.includes(searchText) || movie.storyline.includes(searchText));
   }
