@@ -9,7 +9,7 @@ export default class AddRating extends React.Component {
         Avaliação
         <input
           type="number"
-          name="rating-input"
+          name="rating"
           id="rating-input"
           value={ value }
           data-testid="rating-input"

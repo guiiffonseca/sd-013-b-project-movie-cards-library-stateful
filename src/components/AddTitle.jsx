@@ -9,7 +9,7 @@ export default class AddTitle extends React.Component {
         Título
         <input
           type="text"
-          name="title-input"
+          name="title"
           id="tile-input"
           value={ value }
           data-testid="title-input"

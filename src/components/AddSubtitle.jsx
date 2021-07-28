@@ -9,7 +9,7 @@ export default class AddSubtitle extends React.Component {
         Subtítulo
         <input
           type="text"
-          name="subtitle-input"
+          name="subtitle"
           id="subtitle-input"
           value={ value }
           data-testid="subtitle-input"

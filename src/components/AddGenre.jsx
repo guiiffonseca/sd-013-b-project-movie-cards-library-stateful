@@ -8,6 +8,7 @@ export default class AddGenre extends React.Component {
       <label htmlFor="genre-input" data-testid="genre-input-label">
         Gênero
         <select
+          name="genre"
           value={ value }
           onChange={ handleChange }
           data-testid="genre-input"

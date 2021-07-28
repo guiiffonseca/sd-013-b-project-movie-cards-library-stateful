@@ -9,7 +9,7 @@ export default class AddImage extends React.Component {
         Imagem
         <input
           type="text"
-          name="image-input"
+          name="imagePath"
           id="image-input"
           value={ value }
           data-testid="image-input"
