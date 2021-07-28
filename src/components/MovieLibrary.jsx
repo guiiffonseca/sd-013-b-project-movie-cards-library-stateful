@@ -16,12 +16,26 @@ class MovieLibrary extends Component {
     };
     this.onChangeText = this.onChangeText.bind(this);
     this.onChangeBookmarked = this.onChangeBookmarked.bind(this);
+    this.onChangeGenre = this.onChangeGenre.bind(this);
   }
 
   onChangeText(event) {
     const { name, value } = event.target;
     this.setState({
       [name]: value,
+    });
+    const { movies } = this.props;
+    const temp = movies.filter((filme) => {
+      const { title, subtitle, storyline } = filme;
+      const arr = [title.toUpperCase(), subtitle.toUpperCase(), storyline.toUpperCase()];
+      const result = arr.some((prop) => prop.includes(value.toUpperCase()));
+      if (result) {
+        return true;
+      }
+      return false;
+    });
+    this.setState({
+      movies: temp,
     });
   }
 
@@ -40,6 +54,15 @@ class MovieLibrary extends Component {
     }
   }
 
+  onChangeGenre(event) {
+    const { value } = event.target;
+    const { movies } = this.props;
+    const temp = movies.filter((filme) => filme.genre === value);
+    this.setState({
+      movies: temp,
+    });
+  }
+
   teste(estado) {
     console.log(estado);
   }
@@ -54,7 +77,7 @@ class MovieLibrary extends Component {
           bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ this.onChangeBookmarked }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.onChangeText }
+          onSelectedGenreChange={ this.onChangeGenre }
 
         />
 
