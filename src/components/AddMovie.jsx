@@ -25,9 +25,11 @@ export default class AddMovie extends React.Component {
     this.handleButton = this.handleButton.bind(this);
   }
 
-  handleChange(event) {
+  handleChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
-      [event.target.name]: event.target.value,
+      [name]: value,
     });
   }
 
