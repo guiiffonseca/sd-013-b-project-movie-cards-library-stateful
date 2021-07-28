@@ -3,45 +3,54 @@ import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
-    const { searchText, onSearchTextChange, onBookmarkedChange, bookmarkedOnly,
-      selectedGenre, onSelectedGenreChange } = this.props;
+    const { searchText, onSearchTextChange } = this.props;
+    const { bookmarkedOnly, onBookmarkedChange } = this.props;
+    const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
-      <form data-testid="search-bar-form">
-        <label htmlFor="search-input" data-testid="text-input-label">
+      <form data-testid='search-bar-form'>
+        <label htmlFor='search-input' data-testid='text-input-label'>
           Inclui o texto
           <input
-            type="text"
-            id="search-bar-input"
-            name="search-bar-input"
-            value={ searchText }
-            onChange={ onSearchTextChange }
-            data-testid="text-input"
+            type='text'
+            id='search-bar-input'
+            name='search-bar-input'
+            value={searchText}
+            onChange={onSearchTextChange}
+            data-testid='text-input'
           />
         </label>
-        <label htmlFor="favorite-checkbox" data-testid="checkbox-input-label">
+        <label htmlFor='favorite-checkbox' data-testid='checkbox-input-label'>
           Mostrar somente favoritos
           <input
-            type="checkbox"
-            name="favorite-checkbox"
-            id="favorite-checkbox"
-            checked={ bookmarkedOnly }
-            onChange={ onBookmarkedChange }
-            data-testid="checkbox-input"
+            type='checkbox'
+            name='favorite-checkbox'
+            id='favorite-checkbox'
+            checked={bookmarkedOnly}
+            onChange={onBookmarkedChange}
+            data-testid='checkbox-input'
           />
         </label>
-        <label htmlFor="search-bar-select" data-testid="select-input-label">
+        <label htmlFor='search-bar-select' data-testid='select-input-label'>
           Filtrar por gênero
           <select
-            id="search-bar-select"
-            name="search-bar-select"
-            value={ selectedGenre }
-            onChange={ onSelectedGenreChange }
-            data-testid="select-input"
+            id='search-bar-select'
+            name='search-bar-select'
+            value={selectedGenre}
+            onChange={onSelectedGenreChange}
+            data-testid='select-input'
           >
-            <option value="" data-testid="select-option">Todos</option>
-            <option value="action" data-testid="select-option">Ação</option>
-            <option value="comedy" data-testid="select-option">Comédia</option>
-            <option value="thriller" data-testid="select-option">Suspense</option>
+            <option value='' data-testid='select-option'>
+              Todos
+            </option>
+            <option value='action' data-testid='select-option'>
+              Ação
+            </option>
+            <option value='comedy' data-testid='select-option'>
+              Comédia
+            </option>
+            <option value='thriller' data-testid='select-option'>
+              Suspense
+            </option>
           </select>
         </label>
       </form>
