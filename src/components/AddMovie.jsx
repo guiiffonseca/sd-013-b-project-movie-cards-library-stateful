@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import TxtCp from './TxtCp';
+import SlctCp from './SlctCp';
+import LblCpnt from './LblCpnt';
+import LblRating from './LblRating';
+
 class AddMovie extends React.Component {
   constructor() {
     super();
@@ -13,12 +18,11 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-
+    this.hdCg = this.hdCg.bind(this);
+    this.hdSbt = this.hdSbt.bind(this);
   }
 
-  handleChange({ target }) {
+  hdCg({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox'
       ? target.checked : target.value;
@@ -27,7 +31,7 @@ class AddMovie extends React.Component {
     });
   }
 
-  handleSubmit() {
+  hdSbt() {
     this.setState({
       subtitle: '',
       title: '',
@@ -42,93 +46,45 @@ class AddMovie extends React.Component {
     const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form data-testid="add-movie-form" onSubmit={this.handleSubmit}>
-        <label htmlFor="titulo-input" data-testid="title-input-label">
-          Título
-          <input
-            type="text"
-            id="titulo-input"
-            name="title"
-            value={ title }
-            data-testid="title-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="subtitulo-input" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            type="text"
-            id="subtitulo-input"
-            name="subtitle"
-            value={ subtitle }
-            data-testid="subtitle-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="imagem" data-testid="image-input-label">
-          Imagem
-          <input
-            name="imagePath"
-            value={ imagePath }
-            type="text"
-            onChange={ this.handleChange }
-            data-testid="image-input"
-          />
-        </label>
-        <label htmlFor="textarea-input" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            id="textarea-input"
-            name="storyline"
-            data-testid="storyline-input"
-            value={ storyline }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label data-testid="rating-input-label">
-          Avaliação
-          <input
-            name="rating"
-            type="number"
-            value={ rating }
-            data-testid="rating-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="select-input" data-testid="genre-input-label">
-          Gênero
-          <select
-            id="select-input"
-            name="genre"
-            data-testid="genre-input"
-            value={ genre }
-            onChange={ this.handleChange }
-          >
-            <option
-              value="action"
-              data-testid="genre-option"
-            >
-              Ação
-            </option>
-            <option
-              value="comedy"
-              data-testid="genre-option"
-            >
-              Comédia
-            </option>
-            <option
-              value="thriller"
-              data-testid="genre-option"
-            >
-              Suspense
-            </option>
-          </select>
-        </label>
+      <form data-testid="add-movie-form" onSubmit={ this.hdSbt }>
+        <LblCpnt
+          text="Título"
+          dataTestType="title-input-label"
+          type="text"
+          id="titulo-input"
+          name="title"
+          value={ title }
+          dataTestId="title-input"
+          onChange={ this.hdCg }
+        />
+        <LblCpnt
+          text="Subtítulo"
+          dataTestType="subtitle-input-label"
+          type="text"
+          id="subtitulo-input"
+          name="subtitle"
+          value={ subtitle }
+          dataTestId="subtitle-input"
+          onChange={ this.hdCg }
+        />
+        <LblCpnt
+          text="Imagem"
+          dataTestType="image-input-label"
+          type="text"
+          id="imagem"
+          name="imagePath"
+          value={ imagePath }
+          dataTestId="image-input"
+          onChange={ this.hdCg }
+        />
+        <TxtCp value={ storyline } onChange={ this.hdCg } />
+        <LblRating value={ rating } onChange={ this.hdCg } />
+        <SlctCp value={ genre } onChange={ this.hdCg } />
         <button
-        type="submit"
-        data-testid="send-button"
-        // onSubimit={ this.handleSubmit }
-        onClick={ onClick }>
+          type="submit"
+          data-testid="send-button"
+          onClick={ onClick }
+        >
           Adicionar filmes
         </button>
       </form>
