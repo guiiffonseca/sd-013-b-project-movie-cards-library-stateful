@@ -67,7 +67,7 @@ export default class MovieLibrary extends Component {
     this.setState({
       movies: [...movies, back],
     });
-  };
+  }
 
   render() {
     const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
