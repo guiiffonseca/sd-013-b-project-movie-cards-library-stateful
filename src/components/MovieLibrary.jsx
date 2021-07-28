@@ -52,6 +52,7 @@ class MovieLibrary extends React.Component {
           movies={ movies }
           searchText={ searchText }
           selectedGenre={ selectedGenre }
+          bookmarkedOnly={ bookmarkedOnly }
         />
         <AddMovie onClick={ this.addMovie } />
       </div>
@@ -59,20 +60,8 @@ class MovieLibrary extends React.Component {
   }
 }
 
-MovieLibrary.defaultProps = {
-  movies: {},
-};
-
 MovieLibrary.propTypes = {
-  movies: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string.isRequired,
-    storyline: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    imagePath: PropTypes.string.isRequired,
-    bookmarked: PropTypes.bool.isRequired,
-    genre: PropTypes.string.isRequired,
-  }),
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default MovieLibrary;
