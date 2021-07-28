@@ -21,8 +21,8 @@ class MovieLibrary extends Component {
           selectedGenre={'string'}
           onSelectedGenreChange={ () => 'callback' }
         />
-        {/* <MovieList movies={this.props.movies} />
-        <AddMovie /> */}
+        {/* <MovieList movies={ this.props.movies } /> */}
+        <AddMovie onClick={ () => '' } />
       </div>
     );
   }
