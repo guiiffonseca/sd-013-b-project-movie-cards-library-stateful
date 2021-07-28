@@ -23,7 +23,11 @@ class SearchBar extends React.Component {
     } = this.props;
 
     return (
-      <form className="search-bar" data-testid="search-bar-form">
+      <form
+        onSubmit={ (event) => event.preventDefault() }
+        className="search-bar"
+        data-testid="search-bar-form"
+      >
         <TextInput
           label="Inclui o texto:"
           id="text-input"
@@ -35,7 +39,6 @@ class SearchBar extends React.Component {
         <label htmlFor="bookmarked-only" data-testid="checkbox-input-label">
           <input
             type="checkbox"
-            name="bookmarked-only"
             id="bookmarked-only"
             data-testid="checkbox-input"
             checked={ bookmarkedOnly }
