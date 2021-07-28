@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import LabelTitle from './LabelTitle';
 import LabelSubtitle from './LabelSubtitle';
 import LabelImage from './LabelImage';
