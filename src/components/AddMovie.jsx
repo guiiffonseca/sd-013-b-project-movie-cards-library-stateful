@@ -32,8 +32,10 @@ export default class AddMovie extends Component {
     });
   }
 
-  handleClick(callback) {
-    callback(this.state);
+  handleClick(event) {
+    event.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState({
       title: '',
       subtitle: '',
@@ -46,7 +48,6 @@ export default class AddMovie extends Component {
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-    const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         <Title title={ title } onChange={ this.handleChange } />
@@ -55,7 +56,7 @@ export default class AddMovie extends Component {
         <Storyline storyline={ storyline } onChange={ this.handleChange } />
         <Rating rating={ rating } onChange={ this.handleChange } />
         <Genre genre={ genre } onChange={ this.handleChange } />
-        <Button onClick={ () => this.handleClick(onClick) } />
+        <Button onClick={ this.handleClick } />
       </form>
     );
   }

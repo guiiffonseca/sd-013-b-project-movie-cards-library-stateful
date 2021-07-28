@@ -18,6 +18,7 @@ export default class MovieLibrary extends Component {
 
     this.handleMovieChange = this.handleMovieChange.bind(this);
     this.handleAddMovie = this.handleAddMovie.bind(this);
+    this.handleFilterChanges = this.handleFilterChanges.bind(this);
   }
 
   handleMovieChange({ target }) {
@@ -34,8 +35,16 @@ export default class MovieLibrary extends Component {
     }));
   }
 
-  render() {
+  handleFilterChanges() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    return movies.filter((movie) => (bookmarkedOnly ? movie.bookmarked : movies))
+      .filter((movie) => (selectedGenre === '' ? movies : movie.genre === selectedGenre))
+      .filter((movie) => movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText) || movie.storyline.includes(searchText));
+  }
+
+  render() {
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <SearchBar
@@ -46,7 +55,7 @@ export default class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleMovieChange }
         />
-        <MovieList movies={ movies } />
+        <MovieList movies={ this.handleFilterChanges() } />
         <AddMovie onClick={ this.handleAddMovie } />
       </div>
     );

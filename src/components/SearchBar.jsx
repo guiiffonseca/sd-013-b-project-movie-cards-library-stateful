@@ -19,7 +19,7 @@ export default class SearchBar extends Component {
             data-testid="text-input"
           />
         </label>
-        <label data-testid="checkbox-input-label" htmlFor="bookmarked">
+        <label data-testid="checkbox-input-label" htmlFor="bookmarkedOnly">
           Mostrar somente favoritos
           <input
             name="bookmarkedOnly"
