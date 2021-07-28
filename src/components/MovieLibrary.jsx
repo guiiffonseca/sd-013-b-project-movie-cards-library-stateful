@@ -16,16 +16,20 @@ export default class MovieLibrary extends React.Component {
       array: 'string',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange(event) {
     const { target } = event;
-    event.preventDefault();
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [name]: value,
     });
+  }
+
+  handleClick(object) {
+    this.setState({ array: object });
   }
 
   render() {
@@ -64,7 +68,7 @@ export default class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
         />
         <AddMovie
-          onClick={ this.handleChange }
+          onClick={ this.handleClick }
           array={ array }
         />
       </div>

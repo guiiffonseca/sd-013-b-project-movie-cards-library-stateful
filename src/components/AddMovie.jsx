@@ -70,10 +70,10 @@ class AddMovie extends React.Component {
           state={ genre }
         />
         <button
-          type="submit"
+          type="button"
           data-testid="send-button"
-          onClick={ (e) => {
-            onClick(e);
+          onClick={ () => {
+            onClick(this.state);
             this.stateReset();
           } }
         >
