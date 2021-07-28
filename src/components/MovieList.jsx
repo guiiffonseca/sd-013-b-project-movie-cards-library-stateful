@@ -1,4 +1,4 @@
-/* import React from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import MovieCard from './MovieCard';
@@ -21,4 +21,4 @@ MovieList.propTypes = {
   ).isRequired,
 };
 
-export default MovieList; */
+export default MovieList;
