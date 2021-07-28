@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 
 export default class MovieLibrary extends Component {
+  // dica do Matheusao de colocar a props como parametro
   constructor(props) {
     super(props);
 
@@ -15,21 +17,23 @@ export default class MovieLibrary extends Component {
     };
 
     this.updateState = this.updateState.bind(this);
-    this.filterMovie = this.filterMovie.bind(this);
+    this.filterMovies = this.filterMovies.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
-  filterMovie() {
+  filterMovies() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    const filteredByBookmarked = movies
+    const filterBookmarked = movies
       .filter((movie) => (bookmarkedOnly ? movie.bookmarked : movies));
-    const filteredBySearchText = filteredByBookmarked
+    const filterSearchText = filterBookmarked
       .filter((movie) => movie.title.includes(searchText)
       || movie.subtitle.includes(searchText)
       || movie.storyline.includes(searchText));
-    const filteredByGenre = filteredBySearchText
+    const filterGenre = filterSearchText
       .filter((movie) => (selectedGenre === '' ? movies : movie.genre === selectedGenre));
-    return filteredByGenre;
+    return filterGenre;
   }
+  // includes - metodo ensinado na aula ao vivo 12.1
 
   updateState({ target }) {
     const { name } = target;
@@ -37,6 +41,14 @@ export default class MovieLibrary extends Component {
 
     this.setState({
       [name]: value,
+    });
+  }
+
+  addMovie(state) {
+    // console.log(state);
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, state],
     });
   }
 
@@ -52,7 +64,8 @@ export default class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.updateState }
         />
-        <MovieList movies={ this.filterMovie() } />
+        <MovieList movies={ this.filterMovies() } />
+        <AddMovie onClick={ this.addMovie } />
       </div>
     );
   }

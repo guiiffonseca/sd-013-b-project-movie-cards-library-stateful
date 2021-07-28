@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import AddGenre from './AddGenre';
-import AddRating from './AddRating';
-import AddSinopse from './AddSinopse';
-import Button from './Button';
+import AddGenre from './ComponentsDoAddMovie/AddGenre';
+import AddRating from './ComponentsDoAddMovie/AddRating';
+import AddSinopse from './ComponentsDoAddMovie/AddSinopse';
+import Button from './ComponentsDoAddMovie/Button';
+
+// Requisitos feito com ajuda da documentacao sobre Fom
+// https://pt-br.reactjs.org/docs/forms.html
 
 export default class AddMovie extends Component {
   constructor() {
@@ -27,8 +30,10 @@ export default class AddMovie extends Component {
     });
   }
 
-  handleSubmit(reset) {
-    reset(this.state);
+  handleSubmit(event) {
+    event.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState({
       title: '',
       subtitle: '',
@@ -41,7 +46,6 @@ export default class AddMovie extends Component {
 
   render() {
     const { title, subtitle, storyline, imagePath, rating, genre } = this.state;
-    const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title-input" data-testid="title-input-label">
@@ -79,7 +83,7 @@ export default class AddMovie extends Component {
         <AddSinopse value={ storyline } handleChange={ this.handleChange } />
         <AddRating value={ rating } handleChange={ this.handleChange } />
         <AddGenre value={ genre } handleChange={ this.handleChange } />
-        <Button onClick={ () => this.handleSubmit(onClick) } />
+        <Button onClick={ this.handleSubmit } />
       </form>
     );
   }
