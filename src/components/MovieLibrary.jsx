@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+import movies from '../data';
 
 class MovieLibrary extends Component {
   // constructor(props) {
@@ -11,22 +12,32 @@ class MovieLibrary extends Component {
   // }
 
   render() {
-    const { movies } = this.props;
+    const call = () => {
+      const texto = 'teste';
+      console.log(texto);
+    };
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar />
+        <SearchBar
+          searchText=""
+          onSearchTextChange={ call }
+          bookmarkedOnly={ false }
+          onBookmarkedChange={ call }
+          selectedGenre="abc"
+          onSelectedGenreChange={ call }
+        />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ call } />
       </div>
     );
   }
 }
 
-MovieLibrary.propTypes = {
+// MovieLibrary.propTypes = {
 
-  movies: PropTypes.string.isRequired,
+//   movies: PropTypes.string.isRequired,
 
-};
+// };
 
 export default MovieLibrary;

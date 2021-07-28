@@ -65,6 +65,7 @@ export default class AddMovie extends React.Component {
             <option data-testid="genre-option" value="comedy">Comédia</option>
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
+          <button type="submit" data-testid="send-button">Adcionar filme</button>
         </label>
       </form>
     );
