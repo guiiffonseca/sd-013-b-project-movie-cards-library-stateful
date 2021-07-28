@@ -21,7 +21,7 @@ class AddMovieAvaliation extends Component {
 }
 
 AddMovieAvaliation.propTypes = {
-  rating: PropTypes.number.isRequired,
+  rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
