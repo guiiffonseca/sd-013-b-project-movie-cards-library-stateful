@@ -28,7 +28,8 @@ class AddMovie extends React.Component {
 
   render() {
     const movie = this.props;
-    const { title, subtitle, imagePath, storyline, rating, genre } = movie;
+    // subtitle, imagePath, storyline, rating, genre
+    const { title } = movie;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">
@@ -49,19 +50,19 @@ class AddMovie extends React.Component {
 
 AddMovie.propTypes = {
   title: PropTypes.string,
-  subtitle: PropTypes.string,
-  imagePath: PropTypes.string,
-  storyline: PropTypes.string,
-  rating: PropTypes.number,
-  genre: PropTypes.string,
+  // subtitle: PropTypes.string,
+  // imagePath: PropTypes.string,
+  // storyline: PropTypes.string,
+  // rating: PropTypes.number,
+  // genre: PropTypes.string,
 };
 
 AddMovie.defaultProps = {
   title: '',
-  subtitle: '',
-  imagePath: '',
-  storyline: '',
-  rating: 0,
-  genre: '',
-}
+  // subtitle: '',
+  // imagePath: '',
+  // storyline: '',
+  // rating: 0,
+  // genre: '',
+};
 export default AddMovie;
