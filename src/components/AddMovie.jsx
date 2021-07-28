@@ -36,11 +36,12 @@ class AddMovie extends Component {
   }
 
   handleClick() {
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState(INITIAL_STATE);
   }
 
   render() {
-    const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
 
     return (
@@ -53,9 +54,9 @@ class AddMovie extends Component {
         <AddMovieSelect genre={ genre } onChange={ this.handleChange } />
 
         <button
-          type="reset"
+          type="button"
           data-testid="send-button"
-          onClick={ (onClick(this.state), this.handleClick) }
+          onClick={ this.handleClick }
         >
           Adicionar filme
         </button>
