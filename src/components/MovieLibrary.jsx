@@ -9,6 +9,7 @@ export default class MovieLibrary extends Component {
   constructor(props) {
     super();
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -17,13 +18,39 @@ export default class MovieLibrary extends Component {
     };
   }
 
-  onBookmarkedChange(event) {
+  onBookmarkedChange() {
     const { movies } = this.props;
-    const { value } = event.target;
-    const filterMovies = movies.filter((movie) => movie.bookmarkedOnly === true);
+    const { bookmarkedOnly } = this.state;
+    const filterMovies = movies.filter((movie) => movie.bookmarked === true);
+    if (bookmarkedOnly === false) {
+      return this.setState({
+        bookmarkedOnly: true,
+        movies: filterMovies,
+      });
+    } this.setState({
+      bookmarkedOnly: false,
+      movies,
+    });
+  }
+
+  onSearchTextChange({ target }) {
+    const { value } = target;
+    this.setState({ searchText: value });
+  }
+
+  onSelectedGenreChange = ({ target }) => {
+    const { movies } = this.props;
+    const { value } = target;
+    if (value === '') {
+      return this.setState({
+        selectedGenre: '',
+        movies,
+      });
+    }
+    const filterGenreMovies = movies.filter((movie) => movie.genre === value);
     this.setState({
-      searchText: value,
-      movies: filterMovies,
+      selectedGenre: value,
+      movies: filterGenreMovies,
     });
   }
 
@@ -37,6 +64,8 @@ export default class MovieLibrary extends Component {
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
           onBookmarkedChange={ this.onBookmarkedChange }
+          onSearchTextChange={ this.onSearchTextChange }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
         <AddMovie />

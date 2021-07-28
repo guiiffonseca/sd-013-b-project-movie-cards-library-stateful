@@ -52,7 +52,7 @@ export default class AddMovie extends Component {
         <LabelTextArea stateProp={ storyline } change={ this.handleChange } />
         <LabelNumberRating stateProp={ rating } change={ this.handleChange } />
         <LabelSelectGenre stateProp={ genre } change={ this.handleChange } />
-        <button type="submit" data-testid="send-button" onClick={ this.handleClick }>
+        <button type="button" data-testid="send-button" onClick={ this.handleClick }>
           Adicionar filme
         </button>
       </form>
