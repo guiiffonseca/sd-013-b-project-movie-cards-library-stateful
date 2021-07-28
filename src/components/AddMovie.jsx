@@ -23,18 +23,6 @@ class AddMovie extends Component {
     });
   }
 
-  // onClick(event) {
-  //   event.preventDefault();
-  //   this.setState({
-  //     subtitle: '',
-  //     title: '',
-  //     imagePath: '',
-  //     storyLine: '',
-  //     rating: 0,
-  //     genre: 'action',
-  //   });
-  // }
-
   render() {
     const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
     return (
