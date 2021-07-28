@@ -1,14 +1,15 @@
 // implement MovieLibrary component here
 import React from 'react';
 import PropTypes from 'prop-types';
+import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
 
 // import MovieList from './MovieList';
-// import SearchBar from './SearchBar';
-// import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
+    this.handleChange = this.handleChange.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -17,18 +18,35 @@ class MovieLibrary extends React.Component {
     };
   }
 
+  handleChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({
+      [name]: value,
+    });
+  }
+
   render() {
-    const { movies } = this.props;
+    // const { movies } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre, handleChange } = this.state;
     return (
       <div>
-        <p>Teste</p>
+        <SearchBar
+          searchText={ searchText }
+          onSearchTextChange={ handleChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ handleChange }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ handleChange }
+        />
+        <AddMovie />
       </div>
     );
   }
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.array.isRequired,
+  // movies: PropTypes.array.isRequired,
 };
 
 export default MovieLibrary;
