@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 // ID dos inputs, pois o lint reclamava do tamanho da linha OBS, se o tamanho do arquivo nao der problema,
 // quebrar a linha dos inputs ou criar sub-elementos.
+// rever as consts de id, principalmente a numero 4 que está fora do padrao.
 const i1 = 'title-input';
 const i2 = 'subtitle-input';
 const i3 = 'image-input';
@@ -42,7 +43,22 @@ class AddMovie extends React.Component {
             Avaliação
             <input value={ rating } type="number" name="" id="e" data-testid={ i5 } />
           </label>
-
+          <label htmlFor="input-select-genre" data-testid="genre-input-label">
+            Gênero
+            <select
+              id="input-select-genre"
+              value="genre"
+              onChange="onSelectedGenreChange"
+              data-testid="genre-input"
+            >
+              <option value="action" data-testid="genre-option">Ação</option>
+              <option value="comedy" data-testid="genre-option">Comédia</option>
+              <option value="thriller" data-testid="genre-option">Suspense</option>
+            </select>
+          </label>
+          <button type="submit" data-testid="send-button" onChange="">
+            Adicionar filme
+          </button>
         </form>
       </div>
     );
@@ -50,6 +66,8 @@ class AddMovie extends React.Component {
 }
 
 // Lembrar do onChange do input Titulo.
+// Verificar como o value e o onChange do select vao funcionar (valor e função que vao usar)
+// Veirificar como o onChange do botao vai funcionar, requisito 14
 AddMovie.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
