@@ -19,8 +19,8 @@ class MovieLibrary extends Component {
   }
 
   handle(event) {
-    const { name } = event.target;
-    this.setState({ bookmarkedOnly: true });
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   }
 
   render() {
