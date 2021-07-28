@@ -14,7 +14,7 @@ function App() {
       <Header />
       <SeacrhBar
         searchText=""
-        onSearchTextChange=""
+        onSearchTextChange=" "
         bookmarkedOnly=""
         onBookmarkedChange=""
       />
