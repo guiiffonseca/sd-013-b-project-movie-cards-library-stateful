@@ -22,7 +22,6 @@ class MovieLibrary extends Component {
 
   handleChanges({ target }) {
     const { name } = target;
-    // n deu certo -> type === 'checkbox' ? value = target.checked : value = value;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({ [name]: value });
   }
@@ -44,6 +43,17 @@ class MovieLibrary extends Component {
     return newMovies;
   }
 
+  textMovies(movies) {
+    const newMovies = [];
+    const { searchText } = this.state;
+    movies.forEach((movie) => {
+      if (movie.title.indexOf(searchText) > 0) newMovies.push(movie);
+      if (movie.subtitle.indexOf(searchText) > 0) newMovies.push(movie);
+      if (movie.storyline.indexOf(searchText) > 0) newMovies.push(movie);
+    });
+    return newMovies;
+  }
+
   render() {
     let { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
@@ -52,6 +62,8 @@ class MovieLibrary extends Component {
     if (bookmarkedOnly === true) movies = this.favoriteMovies(movies);
     // se selectedGenre não estiver vazio mostre apenas filmes com esse genero:
     if (selectedGenre !== '') movies = this.genreMovies(movies);
+    // se searchText não estiver vazio mostra filmes com titulo, subtitulo ou sinopse com as letras/palavras:
+    if (searchText !== '') movies = this.textMovies(movies);
 
     return (
       <div>
