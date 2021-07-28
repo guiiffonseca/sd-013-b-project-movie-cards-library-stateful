@@ -15,6 +15,7 @@ class SeacrhBar extends Component {
             id="inp"
             type="text"
             value={ searchText }
+            name="searchText"
             onChange={ onSearchTextChange }
           />
 
@@ -26,6 +27,7 @@ class SeacrhBar extends Component {
             data-testid="checkbox-input"
             id="radio"
             type="radio"
+            name="bookmarkedOnly"
             checked={ bookmarkedOnly }
             onClick={ onBookmarkedChange }
           />
@@ -38,6 +40,7 @@ class SeacrhBar extends Component {
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }
             data-testid="select-input"
+            name="selectedGenre"
           >
             <option data-testid="select-option" value="">Todos</option>
             <option data-testid="select-option" value="action">Ação</option>

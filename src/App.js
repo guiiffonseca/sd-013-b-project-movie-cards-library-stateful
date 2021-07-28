@@ -1,27 +1,14 @@
 import React from 'react';
 import Header from './components/Header';
 import './App.css';
-import SeacrhBar from './components/SearchBar';
-import AddMovie from './components/AddMovie';
-
-function teste(estado) {
-  console.log(estado);
-}
+import MovieLibrary from './components/MovieLibrary';
+import Movies from './data.js';
 
 function App() {
   return (
     <div id="App" className="App">
       <Header />
-      <SeacrhBar
-        searchText=""
-        onSearchTextChange=" "
-        bookmarkedOnly=""
-        onBookmarkedChange=""
-      />
-
-      <AddMovie
-        onClick={ teste }
-      />
+      <MovieLibrary movies={Movies}/>
     </div>
   );
 }
