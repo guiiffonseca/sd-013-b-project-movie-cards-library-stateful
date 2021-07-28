@@ -19,7 +19,7 @@ class AddMovie extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.onClick = this.onClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange(event) {
@@ -27,7 +27,7 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  onClick() {
+  handleClick() {
     this.setState({
       subtitle: '',
       title: '',
@@ -78,7 +78,7 @@ class AddMovie extends React.Component {
         <AddSinopse storyline={ storyline } handleChange={ this.handleChange } />
         <AddRating rating={ rating } handleChange={ this.handleChange } />
         <AddGenre genre={ genre } handleChange={ this.handleChange } />
-        <AddButton onClick={ this.onClick } />
+        <AddButton handleClick={ this.handleClick } />
       </form>
     );
   }
