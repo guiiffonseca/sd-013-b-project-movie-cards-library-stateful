@@ -16,6 +16,7 @@ class MovieLibrary extends Component {
     };
 
     this.handleChanges = this.handleChanges.bind(this);
+    this.favoriteMovies = this.favoriteMovies.bind(this);
   }
 
   handleChanges({ target }) {
@@ -25,9 +26,21 @@ class MovieLibrary extends Component {
     this.setState({ [name]: value });
   }
 
+  favoriteMovies(movies) {
+    const newMovies = [];
+    movies.forEach((movie) => {
+      if (movie.bookmarked === true) newMovies.push(movie);
+    });
+    return newMovies;
+  }
+
   render() {
-    const { movies } = this.props;
+    let { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+
+    // se checkbox do bookmarkedOnly for true, lista apenas filmes marcados como favoritos:
+    if (bookmarkedOnly === true) movies = this.favoriteMovies(movies);
+
     return (
       <div>
         <h2> My awesome movie library </h2>
