@@ -1,27 +1,28 @@
 import React from 'react';
-const data = require('./GeneratInputForms');
+import data from './GeneratInputForms';
 
 class InputForm extends React.Component {
   render() {
-    const { name, dataTest } = this.props;
+    const { data: { name, dataTestid, id, type, title }, get, onCha } = this.props;
     return (
-      <label htmlFor={ name } data-testid="title-input-label">
-        Título:
+      <label htmlFor={ name } data-testid={ `${dataTestid}-label` }>
+        { title }
         <input
-          type="text"
+          type={ type }
+          id={ id }
           name={ name }
-          data-testid={ dataTest }
-          value={ name }
-          onChange={ this.onChangeEvent }
+          data-testid={ dataTestid }
+          value={ get(name) }
+          onChange={ onCha }
         />
       </label>
     );
   }
 }
 
-InputForm.propTypes = {
-  name: PropTypes.func.isRequired,
-  dataTest: PropTypes.func.isRequired,
-};
+// InputForm.propTypes = {
+//   name: PropTypes.func.isRequired,
+//   dataTest: PropTypes.func.isRequired,
+// };
 
 export default InputForm;

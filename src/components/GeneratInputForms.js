@@ -1,22 +1,39 @@
-const objectToInputInAddMovie = [{
-  title: {
+const objectToInputInAddMovie = [
+  {
+    title: 'Título',
+    id: 'input-title',
+    type: 'text',
     name: 'title',
     dataTestid: 'title-input',
-    value: { title },
-
   },
-
-  subtile: {
+  {
+    title: 'Subtítulo',
+    id: 'input-subtitle',
+    type: 'text',
     name: 'subtitle',
     dataTestid: 'subtitle-input',
-    value: { subtitle },
   },
-
-  image: {
+  {
+    title: 'Imagem',
+    id: 'input-image',
+    type: 'text',
     name: 'imagePath',
     dataTestid: 'imagePath-input',
-    value: { imagePath },
   },
-}];
+  {
+    title: 'Sinopse',
+    id: 'input-sinopse',
+    type: 'text',
+    name: 'storyline',
+    dataTestid: 'storyline-input',
+  },
+  {
+    title: 'Avaliação',
+    id: 'input-avaliation',
+    type: 'number',
+    name: 'rating',
+    dataTestid: 'rating-input',
+  },
+];
 
-module.exports = objectToInputInAddMovie;
+export default objectToInputInAddMovie;

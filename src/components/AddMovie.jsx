@@ -1,9 +1,11 @@
 // implement AddMovie component here
 import React from 'react';
+import InputForm from './InputForm';
+import Data from './GeneratInputForms';
 import PropTypes from 'prop-types';
 class AddMovie extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       subtitle: '',
       title: '',
@@ -13,62 +15,43 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.onChangeEvent = this.onChangeEvent.bind(this);
+    this.getValue = this.getValue.bind(this);
   }
 
   onChangeEvent({ target }) {
+    console.log('chamou onchange');
     const { name, value } = target;
     this.setState({
       [name]: value,
     });
   }
 
-  // const { onClick } = this.props;
+  getValue(value) {
+    console.log('chamou get');
+    const objectState = Object.entries(this.state);
+    objectState.find((element) => element[0] === value);
+  }
+
   render() {
-    const teste = 'title';
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { onClick } = this.props;
     return (
-      <form data-testid="add-movie-form">
+      <form>
         <fieldset>
-          {/* <label htmlFor="title" data-testid={ `${teste}-input-label` }>
-            Título:
-            <input
-              type="text"
-              name="title"
-              data-testid="title-input"
-              value={ title }
-              onChange={ this.onChangeEvent }
-            />
+          { Data.map((value) => (
+            <InputForm
+              key={ value.title }
+              data={ value }
+              onCha={ this.onChangeEvent }
+              get={ this.getValue }
+            />))}
+          <label htmlFor="input-select" data-testid="genre-input-label">
+            Gênero
+            <select id="slct" data-testid="genre-input" onChange={ this.onChangeEvent }>
+              <option name="genre" value="action" selected>Ação</option>
+              <option name="genre" value="comedy">Comédia</option>
+              <option name="genre" value="thriller">Suspense</option>
+            </select>
           </label>
-          <label htmlFor="input-subtitle" data-testid="subtitle-input-label">
-            Subtítulo:
-            <input
-              type="text"
-              name="subtitle"
-              data-testid="subtitle-input"
-              value={ subtitle }
-              onChange={ this.onChangeEvent }
-            />
-          </label>
-          <label htmlFor="imagePath" data-testid="image-input-label">
-            Imagem:
-            <input
-              type="text"
-              name="imagePath"
-              data-testid="image-input"
-              value={ imagePath }
-              onChange={ this.onChangeEvent }
-            />
-          </label>
-          <label htmlFor="storyline" data-testid="storyline-input-label">
-            Sinopse:
-            <input
-              type="text"
-              name="storyline"
-              data-testid="storyline-input"
-              value={ storyline }
-              onChange={ this.onChangeEvent }
-            />
-          </label> */}
         </fieldset>
       </form>
     );
