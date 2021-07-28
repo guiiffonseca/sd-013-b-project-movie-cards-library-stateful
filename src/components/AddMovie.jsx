@@ -18,7 +18,7 @@ class AddMovie extends React.Component {
 
   handleChange(event) {
     this.setState({
-      [event.target.name]: event.target.value, 
+      [event.target.name]: event.target.value,
     });
   }
 
@@ -48,7 +48,7 @@ class AddMovie extends React.Component {
 }
 
 AddMovie.propTypes = {
-  title: PropTypes.string,
+  // title: PropTypes.string,
   // subtitle: PropTypes.string,
   // imagePath: PropTypes.string,
   // storyline: PropTypes.string,
