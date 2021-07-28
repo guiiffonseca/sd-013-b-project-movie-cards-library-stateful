@@ -19,25 +19,26 @@ export default class SearchBar extends React.Component {
             <input
               data-testid="text-input"
               value={ searchText }
+              name="searchText"
               onChange={ onSearchTextChange }
               type="text"
             />
           </label>
-
           <label data-testid="checkbox-input-label" htmlFor="text-input">
             Mostrar somente favoritos
             <input
               data-testid="checkbox-input"
+              name="bookmarkedOnly"
               checked={ bookmarkedOnly }
               onChange={ onBookmarkedChange }
               type="checkbox"
             />
           </label>
-
           <label data-testid="select-input-label" htmlFor="select-input">
             Filtrar por gênero
             <select
               data-testid="select-input"
+              name="selectedGenre"
               value={ selectedGenre }
               onChange={ onSelectedGenreChange }
             >
