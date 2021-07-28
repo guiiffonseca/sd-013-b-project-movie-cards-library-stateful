@@ -13,9 +13,7 @@ export default class SearchBar extends React.Component {
           dataTestidLabel="text-input-label"
           text="Inclui o texto:"
           type="text"
-          name="text"
           value={ searchText }
-          dataTestid="text-input"
           onChange={ onSearchTextChange }
         />
         <label htmlFor="checkbox-input" data-testid="checkbox-input-label">

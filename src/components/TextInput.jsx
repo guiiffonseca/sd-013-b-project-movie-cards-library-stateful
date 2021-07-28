@@ -3,7 +3,10 @@ import PropTypes from 'prop-types';
 
 export default class TextInput extends React.Component {
   render() {
-    const { dataTestidLabel, text, type, name, value, dataTestid, onChange } = this.props;
+    const { dataTestidLabel, text, type, value, onChange } = this.props;
+    const dataTestid = dataTestidLabel.replace('-label', '');
+    const name = dataTestid.replace('-input', '') === 'image'
+      ? 'imagePath' : dataTestid.replace('-input', '');
     return (
       <label htmlFor={ dataTestid } data-testid={ dataTestidLabel }>
         {text}
@@ -20,11 +23,12 @@ export default class TextInput extends React.Component {
 }
 
 TextInput.propTypes = {
-  name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  dataTestid: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
   dataTestidLabel: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
