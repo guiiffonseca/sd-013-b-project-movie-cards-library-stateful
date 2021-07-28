@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TitleTextInput from './TitleTextInput';
+import SubitleTextInput from './SubtitleTextInput';
 
 class AddMovie extends React.Component {
   render() {
@@ -10,6 +11,7 @@ class AddMovie extends React.Component {
       <div>
         <form data-testid="add-movie-form">
           <TitleTextInput />
+          <SubitleTextInput />
         </form>
         {onClick}
       </div>
