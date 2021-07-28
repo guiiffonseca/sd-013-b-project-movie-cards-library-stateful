@@ -31,10 +31,11 @@ class AddMovie extends React.Component {
     });
   }
 
-  handleSubmit() {
+  handleSubmit(event) {
+    event.preventDefault();
     this.setState({
-      subtitle: '',
       title: '',
+      subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
@@ -55,7 +56,7 @@ class AddMovie extends React.Component {
           name="title"
           value={ title }
           dataTestId="title-input"
-          onChange={ this.handleSubmit }
+          onChange={ this.handleChange }
         />
         <LblCpnt
           text="Subtítulo"
@@ -65,7 +66,7 @@ class AddMovie extends React.Component {
           name="subtitle"
           value={ subtitle }
           dataTestId="subtitle-input"
-          onChange={ this.handleSubmit }
+          onChange={ this.handleChange }
         />
         <LblCpnt
           text="Imagem"
@@ -75,11 +76,11 @@ class AddMovie extends React.Component {
           name="imagePath"
           value={ imagePath }
           dataTestId="image-input"
-          onChange={ this.handleSubmit }
+          onChange={ this.handleChange }
         />
-        <TxtCp value={ storyline } onChange={ this.handleSubmit } />
-        <LblRating value={ rating } onChange={ this.handleSubmit } />
-        <SlctCp value={ genre } onChange={ this.handleSubmit } />
+        <TxtCp value={ storyline } onChange={ this.handleChange } />
+        <LblRating value={ rating } onChange={ this.handleChange } />
+        <SlctCp value={ genre } onChange={ this.handleChange } />
         <button
           type="submit"
           data-testid="send-button"

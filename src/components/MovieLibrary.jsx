@@ -41,17 +41,17 @@ class MovieLibrary extends React.Component {
   }
 
   onClickHandle() {
+    // const { handleChange } = this.props;
     const { movies } = this.state;
-    this.setState((previouslyState) => ({
-      movies: [previouslyState, ...movies],
-    }));
+    this.setState({
+      movies: [...movies, handleChange],
+    });
   }
 
   filteredMovies() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     if (bookmarkedOnly === true) {
-      const favorite = 4.5;
-      const favoriteMovies = movies.filter((movie) => movie.rating >= favorite);
+      const favoriteMovies = movies.filter((movie) => movie.bookmarked === true);
       return <MovieList movies={ favoriteMovies } />;
     } if (selectedGenre.length !== 0) {
       const sameGenre = movies.filter((movie) => movie.genre === selectedGenre);
