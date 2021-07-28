@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class MovieRating extends React.Component {
+class Rating extends React.Component {
   render() {
     const { rating, onChange } = this.props;
     return (
@@ -10,6 +10,7 @@ class MovieRating extends React.Component {
         <input
           data-testid="rating-input"
           type="number"
+          name="rating"
           value={ rating }
           onChange={ onChange }
         />
@@ -18,9 +19,9 @@ class MovieRating extends React.Component {
   }
 }
 
-MovieRating.propTypes = {
+Rating.propTypes = {
   rating: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
-export default MovieRating;
+export default Rating;

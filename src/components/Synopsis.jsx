@@ -10,6 +10,7 @@ class Synopsis extends React.Component {
         <textarea
           data-testid="storyline-input"
           type="text"
+          name="storyline"
           value={ storyline }
           onChange={ onChange }
         />
