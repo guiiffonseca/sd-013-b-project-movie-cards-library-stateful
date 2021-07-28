@@ -9,8 +9,17 @@ class MovieLibrary extends React.Component {
     super();
     this.state = {
       searchText: '',
+      favBooks: false,
     };
     this.searchTextChange = this.searchTextChange.bind(this);
+    this.handleBookFavCheck = this.handleBookFavCheck.bind(this);
+  }
+
+  handleBookFavCheck() {
+    const { favBooks } = this.state;
+    this.setState({
+      favBooks: !favBooks,
+    });
   }
 
   searchTextChange(event) {
@@ -20,7 +29,7 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
-    const { searchText } = this.state;
+    const { searchText, favBooks } = this.state;
     const { movies } = this.props;
     // const { title } = data;
     return (
@@ -29,6 +38,8 @@ class MovieLibrary extends React.Component {
           <SearchBar
             searchText={ searchText }
             onSearchTextChange={ this.searchTextChange }
+            bookmarkedOnly={ favBooks }
+            onBookmarkedChange={ this.handleBookFavCheck }
           />
         </div>
         <div className="movieList">

@@ -27,13 +27,12 @@ class SearchBar extends React.Component {
           Mostrar somente favoritos:
           <input
             type="checkbox"
-            defaultChecked={ bookmarkedOnly }
+            checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
             data-testid="checkbox-input"
             id="fav"
           />
         </label>
-
         <label htmlFor="genre" data-testid="select-input-label">
           Filtrar por gênero:
           <select
