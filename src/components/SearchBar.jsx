@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import SearchText from './SearchText';
+import ShowFavorites from './ShowFavorites';
+import FilterGenre from './FilterGenre';
+
 class SearchBar extends React.Component {
   render() {
     const {
@@ -13,40 +17,18 @@ class SearchBar extends React.Component {
     } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <label data-testid="text-input-label" htmlFor="text">
-          Inclui o texto:
-          <input
-            data-testid="text-input"
-            type="text"
-            value={ searchText }
-            id="text"
-            onChange={ onSearchTextChange }
-          />
-        </label>
-        <label data-testid="checkbox-input-label" htmlFor="favorite">
-          Mostrar somente favoritos
-          <input
-            data-testid="checkbox-input"
-            type="checkbox"
-            id="favorite"
-            checked={ bookmarkedOnly }
-            onChange={ onBookmarkedChange }
-          />
-        </label>
-        <label data-testid="select-input-label" htmlFor="genre">
-          Filtrar por gênero
-          <select
-            id="genre"
-            value={ selectedGenre }
-            onChange={ onSelectedGenreChange }
-            data-testid="select-input"
-          >
-            <option data-testid="select-option" value="">Todos</option>
-            <option data-testid="select-option" value="action">Ação</option>
-            <option data-testid="select-option" value="comedy">Comédia</option>
-            <option data-testid="select-option" value="thriller">Suspense</option>
-          </select>
-        </label>
+        <SearchText
+          searchText={ searchText }
+          onSearchTextChange={ onSearchTextChange }
+        />
+        <ShowFavorites
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ onBookmarkedChange }
+        />
+        <FilterGenre
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ onSelectedGenreChange }
+        />
       </form>
     );
   }

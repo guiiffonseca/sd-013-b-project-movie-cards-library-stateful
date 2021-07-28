@@ -15,6 +15,8 @@ export default class RatingForms extends React.Component {
           type="number"
           value={ rating }
           id="rating"
+          min="0"
+          max="5"
           onChange={ handleChange }
         />
       </label>
