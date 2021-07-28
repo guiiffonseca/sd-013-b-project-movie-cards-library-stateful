@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import IncludeText from './includeText';
+import ShowFavorites from './showFavorites';
+import SelectByGenre from './selectByGenre';
+
 class SearchBar extends React.Component {
   render() {
     const {
@@ -14,39 +18,18 @@ class SearchBar extends React.Component {
 
     return (
       <form data-testid="search-bar-form">
-        <label data-testid="text-input-label" htmlFor="text-input">
-          Inclui o texto:
-          <input
-            type="text"
-            value={ searchText }
-            onChange={ onSearchTextChange }
-            data-testid="text-input"
-          />
-        </label>
-
-        <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
-          Mostrar somente favoritos
-          <input
-            type="checkbox"
-            checked={ bookmarkedOnly }
-            onChange={ onBookmarkedChange }
-            data-testid="checkbox-input"
-          />
-        </label>
-
-        <label data-testid="select-input-label" htmlFor="select-input">
-          Filtrar por gênero:
-          <select
-            value={ selectedGenre }
-            onChange={ onSelectedGenreChange }
-            data-testid="select-input"
-          >
-            <option value="" data-testid="select-option">Todos</option>
-            <option value="action" data-testid="select-option">Ação</option>
-            <option value="comedy" data-testid="select-option">Comédia</option>
-            <option value="thriller" data-testid="select-option">Suspense</option>
-          </select>
-        </label>
+        <IncludeText
+          searchText={ searchText }
+          onSearchTextChange={ onSearchTextChange }
+        />
+        <ShowFavorites
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ onBookmarkedChange }
+        />
+        <SelectByGenre
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ onSelectedGenreChange }
+        />
       </form>
     );
   }
