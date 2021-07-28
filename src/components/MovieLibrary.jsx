@@ -8,8 +8,10 @@ import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
+    // FONTE: https://github.com/facebook/react/issues/3599/
     super(props);
     let { movies } = this.props;
+    // FONTE: https://www.samanthaming.com/tidbits/70-3-ways-to-clone-objects/
     movies = JSON.parse(JSON.stringify(movies));
     this.state = {
       searchText: '',
