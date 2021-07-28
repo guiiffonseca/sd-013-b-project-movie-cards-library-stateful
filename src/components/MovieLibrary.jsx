@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import SearchBar from './SearchBar';
+
 export default class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
@@ -14,10 +16,30 @@ export default class MovieLibrary extends React.Component {
       movies,
     }
   }
+
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: 
+        event.target.type === 'checkbox'
+        ? event.target.checked
+        : event.target.value,
+    });
+  }
   
   render() {
+    const { bookmarkedOnly, movies, searchText, selectedGenre } = this.state;
+
     return (
-      <h1>MovieLibrary</h1>
+      <>
+        <SearchBar
+          searchText={ searchText }
+          onSearchTextChange={ this.handleChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.handleChange }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.handleChange }
+        />
+      </>
     )
   }
 }

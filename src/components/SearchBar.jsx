@@ -19,6 +19,7 @@ class SearchBar extends React.Component {
       <form data-testid="search-bar-form">
         <Input
           id="text"
+          name="searchText"
           labelText="Inclui o texto:"
           onChange={ onSearchTextChange }
           type="text"
@@ -26,6 +27,7 @@ class SearchBar extends React.Component {
         />
         <Input
           id="checkbox"
+          name="bookmarkedOnly"
           labelText="Mostrar somente favoritos"
           onChange={ onBookmarkedChange }
           type="checkbox"
@@ -33,6 +35,7 @@ class SearchBar extends React.Component {
         />
         <Select
           id="select"
+          name="selectedGenre"
           genres={ [
             { value: '', optionText: 'Todos' },
             { value: 'action', optionText: 'Ação' },
