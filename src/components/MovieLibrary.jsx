@@ -13,15 +13,26 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: props.movies,
+      filteredMovies: props.movies,
     };
     this.nomeDaFuncao = this.nomeDaFuncao.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChangeText = this.handleChangeText.bind(this);
+    this.handleChangeChecked = this.handleChangeChecked.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
   }
 
-  handleChange({ target }) {
+  handleChangeText({ target }) {
+    const { name, value } = target;
+    this.setState({
+      [name]: value,
+    });
+    this.filterMovies();
+  }
+
+  handleChangeChecked({ target }) {
     const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const { bookmarkedOnly } = this.state;
+    const value = !bookmarkedOnly;
     this.setState({
       [name]: value,
     });
@@ -36,28 +47,25 @@ class MovieLibrary extends Component {
       selectedGenre,
       movies,
     } = this.state;
-    if (bookmarkedOnly === false || selectedGenre === '' || searchText === '') {
-      this.setState({
-        movies: this.props.movies,
-      });
-    } else if (bookmarkedOnly === true) {
+    if (bookmarkedOnly === true && selectedGenre === '' && searchText === '') {
+      newArray = movies;
+    }
+    if (!bookmarkedOnly) {
       newArray = movies.filter((movie) => movie.bookmarked);
-      this.setState({
-        movies: newArray,
-      });
-    } else if (selectedGenre !== '') {
-      newArray = movies.filter((movie) => movie.genre.includes(selectedGenre));
-      this.setState({
-        movies: newArray,
-      });
-    } else if (searchText !== '') {
-      newArray = movies.filter((movie) => movie.title.includes(searchText)
+    } else {
+      newArray = movies;
+    }
+    if (selectedGenre !== '') {
+      newArray = newArray.filter((movie) => movie.genre.includes(selectedGenre));
+    }
+    if (searchText !== '') {
+      newArray = newArray.filter((movie) => movie.title.includes(searchText)
       || movie.subtitle.includes(searchText)
       || movie.storyline.includes(searchText));
-      this.setState({
-        movies: newArray,
-      });
     }
+    this.setState({
+      filteredMovies: newArray,
+    });
   }
 
   nomeDaFuncao() {
@@ -65,24 +73,24 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { movies } = this.props;
     const {
       searchText,
       bookmarkedOnly,
       selectedGenre,
+      filteredMovies,
     } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.handleChange }
+          onSearchTextChange={ this.handleChangeText }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.handleChange }
+          onBookmarkedChange={ this.handleChangeChecked }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.handleChange }
+          onSelectedGenreChange={ this.handleChangeText }
         />
-        <MovieList movies={ movies } />
+        <MovieList movies={ filteredMovies } />
         <AddMovie onClick={ this.nomeDaFuncao } />
       </div>
     );

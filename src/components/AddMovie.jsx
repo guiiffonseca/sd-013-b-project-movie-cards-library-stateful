@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-// import AddMovieInput from './AddMovieInput';
+import PropTypes from 'prop-types';
+
+import TitleInput from './TitleInput';
+import SubtitleInput from './SubtitleInput';
+import ImageInput from './ImageInput';
+import TextArea from './TextArea';
+import RatingInput from './RatingInput';
 
 const initialState = {
   subtitle: '',
@@ -26,68 +32,22 @@ class AddMovie extends Component {
     const { onClick } = this.props;
     return (
       <form action="" data-testid="add-movie-form">
-        {/* <AddMovieInputs props={ { type, data-testid, id, name, onChange }} /> */}
-        <label htmlFor="title-input" data-testid="title-input-label">
-          Título
-          <input
-            type="text"
-            data-testid="title-input"
-            id="title-input"
-            name="title"
-            value={ title }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
-          Subtítulo:
-          <input
-            type="text"
-            data-testid="subtitle-input"
-            id="title-input"
-            name="subtitle"
-            value={ subtitle }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="image-input" data-testid="image-input-label">
-          Imagem
-          <input
-            type="text"
-            data-testid="image-input"
-            id="image-input"
-            name="imagePath"
-            value={ imagePath }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="storyline-input" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            data-testid="storyline-input"
-            id="storyline-input"
-            cols="30"
-            rows="10"
-            name={ storyline }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="rating-input" data-testid="rating-input-label">
-          Avaliação
-          <input
-            type="number"
-            data-testid="rating-input"
-            id="rating-input"
-            name="rating"
-            value={ rating }
-            onChange={ this.handleChange }
-          />
-        </label>
+        <TitleInput input="title" value={ title } onChange={ this.handleChange } />
+        <SubtitleInput
+          input="subtitle"
+          value={ subtitle }
+          onChange={ this.handleChange }
+        />
+        <ImageInput input="image" value={ imagePath } onChange={ this.handleChange } />
+        <TextArea input="storyline" value={ storyline } onChange={ this.handleChange } />
+        <RatingInput value={ rating } onChange={ this.handleChange } />
         <label htmlFor="genre-input" data-testid="genre-input-label">
           Gênero
           <select
             data-testid="genre-input"
             id="genre-input"
-            name={ genre }
+            name="genre"
+            value={ genre }
             onChange={ this.handleChange }
           >
             <option data-testid="genre-option" value="action">Ação</option>
@@ -106,5 +66,9 @@ class AddMovie extends Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
