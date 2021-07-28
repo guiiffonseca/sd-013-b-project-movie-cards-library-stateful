@@ -7,7 +7,7 @@ import AddMovie from './AddMovie';
 
 export default class MovieLibrary extends Component {
   constructor(props) {
-    super();
+    super(props);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.state = {
@@ -34,8 +34,15 @@ export default class MovieLibrary extends Component {
   }
 
   onSearchTextChange({ target }) {
+    const { movies } = this.props;
     const { value } = target;
-    this.setState({ searchText: value });
+    const filterSearchMovies = movies.filter((movie) => movie.title.includes(value)
+      || movie.subtitle.includes(value)
+      || movie.storyline.includes(value));
+    this.setState({
+      searchText: value,
+      movies: filterSearchMovies,
+    });
   }
 
   onSelectedGenreChange = ({ target }) => {
