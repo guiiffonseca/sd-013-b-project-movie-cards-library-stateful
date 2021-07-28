@@ -13,58 +13,27 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: props.movies,
-      filteredMovies: props.movies,
     };
-    this.handleChangeText = this.handleChangeText.bind(this);
-    this.handleChangeChecked = this.handleChangeChecked.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.onClick = this.onClick.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
   }
 
-  handleChangeText({ target }) {
-    const { name, value } = target;
+  handleChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [name]: value,
     });
     this.filterMovies();
   }
 
-  handleChangeChecked({ target }) {
-    const { name } = target;
-    const { bookmarkedOnly } = this.state;
-    const value = !bookmarkedOnly;
-    this.setState({
-      [name]: value,
-    });
-    this.filterMovies();
+  onClick(newMovie) {
+    this.setState((prevState) => ({ movies: [...prevState.movies, newMovie] }));
   }
 
   filterMovies() {
-    let newArray = [];
-    const {
-      searchText,
-      bookmarkedOnly,
-      selectedGenre,
-      movies,
-    } = this.state;
-    if (bookmarkedOnly === true && selectedGenre === '' && searchText === '') {
-      newArray = movies;
-    }
-    if (!bookmarkedOnly) {
-      newArray = movies.filter((movie) => movie.bookmarked);
-    } else {
-      newArray = movies;
-    }
-    if (selectedGenre !== '') {
-      newArray = newArray.filter((movie) => movie.genre.includes(selectedGenre));
-    }
-    if (searchText !== '') {
-      newArray = newArray.filter((movie) => movie.title.includes(searchText)
-      || movie.subtitle.includes(searchText)
-      || movie.storyline.includes(searchText));
-    }
-    this.setState({
-      filteredMovies: newArray,
-    });
+    console.log(this.state);
   }
 
   render() {
@@ -72,20 +41,20 @@ class MovieLibrary extends Component {
       searchText,
       bookmarkedOnly,
       selectedGenre,
-      filteredMovies,
+      movies,
     } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.handleChangeText }
+          onSearchTextChange={ this.handleChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.handleChangeChecked }
+          onBookmarkedChange={ this.handleChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.handleChangeText }
+          onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList movies={ filteredMovies } />
+        <MovieList movies={ movies } />
         <AddMovie onClick={ this.onClick } />
       </div>
     );
