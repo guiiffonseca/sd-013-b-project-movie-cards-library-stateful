@@ -40,11 +40,11 @@ class MovieLibrary extends React.Component {
     });
   }
 
-  onClickHandle() {
-    // const { handleChange } = this.props;
+  onClickHandle(objectReceve) {
+    // Feita com ajuda de Rodrigo Augusto;
     const { movies } = this.state;
     this.setState({
-      movies: [...movies],
+      movies: [...movies, objectReceve],
     });
   }
 
