@@ -7,7 +7,7 @@ class AddMovie extends React.Component {
 
     return (
       <div>
-        <form>
+        <form data-testid="add-movie-form">
           {onClick}
         </form>
       </div>
