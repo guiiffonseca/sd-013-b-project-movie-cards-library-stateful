@@ -65,8 +65,6 @@ SearchBar.defaultProps = {
   searchText: '',
   bookmarkedOnly: false,
   selectedGenre: '',
-  // onSearchTextChange: func,
-  // onBookmarkedChange: func,
 };
 
 export default SearchBar;
