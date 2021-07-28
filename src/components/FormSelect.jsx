@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const movieGenres = [
+const movieGenre = [
   { value: '', text: 'Todos' },
   { value: 'action', text: 'Ação' },
   { value: 'comedy', text: 'Comédia' },
@@ -11,27 +11,24 @@ const movieGenres = [
 class FormSelect extends React.Component {
   render() {
     const {
-      name,
-      labelText,
-      labelTestId,
-      selectId,
-      selectTestId,
-      selectValue,
+      label,
+      id,
+      value,
       onChange,
     } = this.props;
 
     return (
-      <label htmlFor={ selectId } data-testid={ labelTestId }>
-        { labelText }
+      <label htmlFor={ id } data-testid={ `${id}-label` }>
+        { label }
         <select
-          name={ name }
-          id={ selectId }
-          data-testid={ selectTestId }
-          value={ selectValue }
+          name={ id }
+          id={ id }
+          data-testid={ id }
+          value={ value }
           onChange={ onChange }
         >
-          {movieGenres.map(({ value, text }) => (
-            <option key={ text } value={ value } data-testid="select-option">
+          {movieGenre.map(({ value: genreValue, text }) => (
+            <option key={ text } value={ genreValue } data-testid="select-option">
               {text}
             </option>
           ))}
@@ -42,12 +39,9 @@ class FormSelect extends React.Component {
 }
 
 FormSelect.propTypes = {
-  name: PropTypes.string.isRequired,
-  labelText: PropTypes.string.isRequired,
-  labelTestId: PropTypes.string.isRequired,
-  selectId: PropTypes.string.isRequired,
-  selectTestId: PropTypes.string.isRequired,
-  selectValue: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
