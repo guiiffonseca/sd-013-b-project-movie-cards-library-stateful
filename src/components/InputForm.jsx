@@ -22,11 +22,6 @@ class InputForm extends React.Component {
 
 InputForm.propTypes = {
   data: PropTypes.string.isRequired,
-  // name: PropTypes.string.isRequired,
-  // dataTestid: PropTypes.string.isRequired,
-  // id: PropTypes.string.isRequired,
-  // type: PropTypes.string.isRequired,
-  // title: PropTypes.string.isRequired,
   get: PropTypes.func.isRequired,
   onCha: PropTypes.func.isRequired,
 };
