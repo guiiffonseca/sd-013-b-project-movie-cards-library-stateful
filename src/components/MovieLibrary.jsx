@@ -18,10 +18,10 @@ class MovieLibrary extends Component {
     this.handleChanges = this.handleChanges.bind(this);
   }
 
-  handleChanges(event) {
-    const { name, value } = event.target;
+  handleChanges({ target }) {
+    const { name } = target;
     // n deu certo -> type === 'checkbox' ? value = target.checked : value = value;
-    // const value = type === 'checkbox' ? target.checked : target.value;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({ [name]: value });
   }
 
