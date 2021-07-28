@@ -13,11 +13,14 @@ export default class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      array: 'string',
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange({ target }) {
+  handleChange(event) {
+    const { target } = event;
+    event.preventDefault();
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
@@ -25,13 +28,8 @@ export default class MovieLibrary extends React.Component {
     });
   }
 
-  onCLickHandle(event) {
-    event.preventDefault();
-    console.log(event.target);
-  }
-
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, array } = this.state;
     let { movies } = this.props;
     movies = movies
       .filter((movie) => movie.title.includes(searchText)
@@ -45,6 +43,10 @@ export default class MovieLibrary extends React.Component {
       movies = movies
         .filter((movie) => movie.genre === selectedGenre);
     }
+    if (array !== 'string') {
+      movies.push(array);
+    }
+
     return (
       <div>
         <SearchBar
@@ -61,7 +63,10 @@ export default class MovieLibrary extends React.Component {
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
         />
-        <AddMovie onClick={ this.onCLickHandle } />
+        <AddMovie
+          onClick={ this.handleChange }
+          array={ array }
+        />
       </div>
     );
   }
