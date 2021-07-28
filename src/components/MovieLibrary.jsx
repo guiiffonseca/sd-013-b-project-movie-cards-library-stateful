@@ -31,7 +31,7 @@ class MovieLibrary extends React.Component {
 
   addMovie(state) {
     this.setState((atual) => ({
-      movies: atual.movies.push(...state),
+      movies: ([...atual.movies, state]),
     }));
   }
 
@@ -48,15 +48,31 @@ class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />
+        <MovieList
+          movies={ movies }
+          searchText={ searchText }
+          selectedGenre={ selectedGenre }
+        />
         <AddMovie onClick={ this.addMovie } />
-        <MovieList movies={ movies } />
       </div>
     );
   }
 }
 
+MovieLibrary.defaultProps = {
+  movies: {},
+};
+
 MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.string).isRequired,
+  movies: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    storyline: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    imagePath: PropTypes.string.isRequired,
+    bookmarked: PropTypes.bool.isRequired,
+    genre: PropTypes.string.isRequired,
+  }),
 };
 
 export default MovieLibrary;

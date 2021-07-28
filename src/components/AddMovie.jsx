@@ -66,7 +66,8 @@ class AddMovie extends React.Component {
         <button
           type="submit"
           data-testid="send-button"
-          onClick={ () => {
+          onClick={ (e) => {
+            e.preventDefault();
             onClick(this.state);
             this.resetForm();
           } }
