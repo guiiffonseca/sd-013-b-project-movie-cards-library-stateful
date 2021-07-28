@@ -4,6 +4,8 @@ import InputTitle from './InputTitle';
 import InputSubTitle from './InputSubTitle';
 import ImagePath from './ImagePath';
 import TextAreaSynopsis from './TextAreaSynopsis';
+import InputRating from './InputRating';
+import SelectGenre from './SelectGenre';
 
 export default class AddMovie extends React.Component {
   constructor() {
@@ -33,6 +35,8 @@ export default class AddMovie extends React.Component {
         <InputSubTitle subtitle={ subtitle } />
         <ImagePath imagePath={ imagePath } />
         <TextAreaSynopsis storyline={ storyline } />
+        <InputRating rating={ rating } />
+        <SelectGenre genre={ genre } />
       </form>
     );
   }

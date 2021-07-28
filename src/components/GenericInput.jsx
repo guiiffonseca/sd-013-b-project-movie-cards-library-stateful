@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import PropTypes from 'prop-types';
 
 export default class Input extends React.Component {
@@ -33,3 +33,4 @@ Input.propTypes = {
   dataId: PropTypes.string.isRequired,
   dataLabel: PropTypes.string.isRequired,
 };
+ */
