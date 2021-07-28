@@ -15,6 +15,8 @@ class Rating extends React.Component {
           value={ rating }
           data-testid="rating-input"
           onChange={ handleChange }
+          max="5"
+          min="0"
         />
       </label>
     );

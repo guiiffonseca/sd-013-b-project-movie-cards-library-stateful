@@ -47,7 +47,7 @@ class AddMovie extends React.Component {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
 
     return (
-      <form data-testid="add-movie-form">
+      <form data-testid="add-movie-form" className="Add-Form">
 
         <Title handleChange={ this.handleChange } title={ title } />
         <Subtitle handleChange={ this.handleChange } subtitle={ subtitle } />
