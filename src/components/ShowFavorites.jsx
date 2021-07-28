@@ -20,6 +20,6 @@ export default class ShowFavorites extends React.Component {
 }
 
 ShowFavorites.propTypes = {
-  bookmarkedOnly: PropTypes.string.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
 };

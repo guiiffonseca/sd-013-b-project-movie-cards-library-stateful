@@ -88,9 +88,8 @@ class MovieLibrary extends Component {
       imagePath,
       genre,
     };
-    console.log(this.state);
     this.setState((_, props) => ({
-      movies: [props.movies, ...newMovieToData],
+      movies: [...props.movies, newMovieToData],
     }));
   };
 
