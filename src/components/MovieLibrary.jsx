@@ -1,4 +1,5 @@
 // implement MovieLibrary component here
+// Como colocar no estado o movies? Fica undefined sempre. Cria um movie, atualiza mas o teste não pega.
 import React from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
@@ -6,12 +7,15 @@ import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    let { movies } = this.props;
+    movies = JSON.parse(JSON.stringify(movies));
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      movies,
 
     };
     this.handleData = this.handleData.bind(this);
@@ -59,16 +63,18 @@ class MovieLibrary extends React.Component {
   }
 
   createMovieCard = (movie) => {
-    const { movies } = this.props;
+    const { movies } = this.state;
     movies.push(movie);
-    console.log(movies);
-    this.forceUpdate();
+    this.setState({
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+    });
   }
 
   render() {
-    const { props } = this;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    let { movies } = props;
+    let { movies } = this.state;
     movies = this.filterBookmarked(movies);
     movies = this.filterGenre(movies);
     movies = this.filterSearchText(movies);
