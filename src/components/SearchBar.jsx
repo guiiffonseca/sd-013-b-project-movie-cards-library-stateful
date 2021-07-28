@@ -1,6 +1,23 @@
 import React from 'react';
 
 export default class SearchBar extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(target) {
+    console.log(target);
+    this.setState({
+      [target.name]: target.value,
+    });
+  }
+
   render() {
     const { bookmarkedOnly,
       onBookmarkedChange,

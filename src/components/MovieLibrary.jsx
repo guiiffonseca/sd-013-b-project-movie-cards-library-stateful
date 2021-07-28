@@ -13,25 +13,55 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: { movies },
+      filteredMovies: movies,
     };
+
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.bookmarkedOnly = this.bookmarkedOnly.bind(this);
+    this.selectedGenre = this.selectedGenre.bind(this);
   }
 
+  onSearchTextChange(event) {
+    const { searchText } = this.state;
+    this.setState({ searchText: event.target.value });
+    console.log(movies
+      .filter(({ title, subtitle, storyline }) => title.includes(searchText)
+    || subtitle.includes(searchText)
+    || storyline.includes(searchText)));
+  }
+
+  bookmarkedOnly(event) {
+    const { bookmarkedOnly } = this.state;
+    this.setState({ bookmarkedOnly: event.target.checked });
+    console.log((!bookmarkedOnly)
+      ? movies.filter(({ bookmarked }) => bookmarked === true) : movies);
+  }
+
+  selectedGenre(event) {
+    const { selectedGenre } = this.state;
+    this.setState({ selectedGenre: event.target.value }, () => {
+      console.log(selectedGenre);
+    });
+  }
+  //  console.log(movies
+  //  .filter(({ genre }) => genre.includes(selectedGenre))));
+
   render() {
-    const { bookmarkedOnly, movies, searchText, selectedGenre } = this.state;
+    const { bookmarkedOnly, searchText, selectedGenre, filteredMovies } = this.state;
     return (
       <div>
-        <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ () => console.log('1') }
+          onSearchTextChange={ this.onSearchTextChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ () => console.log('2') }
+          onBookmarkedChange={ this.bookmarkedOnly }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ () => console.log('3') }
+          onSelectedGenreChange={ this.selectedGenre }
         />
-        <MovieList movies={ movies } />
-        <AddMovie />
+        <MovieList movies={ filteredMovies } />
+        <AddMovie
+          onCLick={ () => console.log('4') }
+        />
       </div>
     );
   }
