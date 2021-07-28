@@ -19,6 +19,10 @@ class AddMovie extends Component {
     };
   }
 
+  handleChange = ({ target }) => {
+    this.setState({ [target.name]: target.value });
+  };
+
   render() {
     const { subtitle, title, imagePath, storyLine, rating, genre } = this.state;
     return (
@@ -27,21 +31,21 @@ class AddMovie extends Component {
           label="Título"
           id="title-input"
           value={ title }
-          onChange=""
+          onChange={ this.handleChange }
         />
         <br />
         <LabelInput
           label="Subtítulo"
           id="subtitle-input"
           value={ subtitle }
-          onChange=""
+          onChange={ this.handleChange }
         />
         <br />
         <LabelInput
           label="Imagem"
           id="image-input"
           value={ imagePath }
-          onChange=""
+          onChange={ this.handleChange }
         />
         <br />
         <LabelInputTxtArea
@@ -49,21 +53,21 @@ class AddMovie extends Component {
           id="storyline-input"
           name="storyline"
           value={ storyLine }
-          onChange=""
+          onChange={ this.handleChange }
         />
         <LabelInput
           label="Avaliação"
           type="number"
           id="rating-input"
           value={ rating }
-          onChange=""
+          onChange={ this.handleChange }
         />
         <SelectGenre
           label="Gênero"
           id="genre-input"
           name="genre"
           value={ genre }
-          onChange=""
+          onChange={ this.handleChange }
         />
       </form>
     );

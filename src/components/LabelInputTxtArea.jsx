@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 class LabelInputTxtArea extends Component {
   render() {
     const { label, id, name, value, onChange } = this.props;
+
     return (
       <label htmlFor={ id } data-testid={ `${id}-label` }>
         {label}
@@ -26,6 +27,6 @@ LabelInputTxtArea.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.number.isRequired,
-  onChange: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 
 };
