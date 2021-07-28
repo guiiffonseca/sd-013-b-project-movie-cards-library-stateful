@@ -1,10 +1,13 @@
 import React from 'react';
-import InportText from './inportText';
-import InportSubtitle from './inportSubtitle';
-import InportImagePath from './inportImagePath';
-import InportStoryline from './inportStoryline';
-import InportRating from './inportRating';
-import InportGenre from './inportGenre';
+
+import PropTypes from 'prop-types';
+
+import ImportText from './importText';
+import ImportSubtitle from './importSubtitle';
+import ImportImagePath from './importImagePath';
+import ImportStoryline from './importStoryline';
+import ImportRating from './importRating';
+import ImportGenre from './importGenre';
 
 export default class AddMovie extends React.Component {
   constructor() {
@@ -25,18 +28,41 @@ export default class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
+  buttonAddFilme = () => {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
-    /* const { onclick } = this.props; */
     return (
       <form data-testid="add-movie-form">
-        <InportText title={ title } handleChange={ this.handleChange } />
-        <InportSubtitle subtitle={ subtitle } handleChange={ this.handleChange } />
-        <InportImagePath imagePath={ imagePath } handleChange={ this.handleChange } />
-        <InportStoryline imagePath={ storyline } handleChange={ this.handleChange } />
-        <InportRating imagePath={ rating } handleChange={ this.handleChange } />
-        <InportGenre imagePath={ genre } handleChange={ this.handleChange } />
+        <ImportText title={ title } handleChange={ this.handleChange } />
+        <ImportSubtitle subtitle={ subtitle } handleChange={ this.handleChange } />
+        <ImportImagePath imagePath={ imagePath } handleChange={ this.handleChange } />
+        <ImportStoryline storyline={ storyline } handleChange={ this.handleChange } />
+        <ImportRating rating={ rating } handleChange={ this.handleChange } />
+        <ImportGenre genre={ genre } handleChange={ this.handleChange } />
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={ this.buttonAddFilme }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
