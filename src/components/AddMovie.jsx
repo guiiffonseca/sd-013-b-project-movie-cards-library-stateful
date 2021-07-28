@@ -1,6 +1,9 @@
 // implement AddMovie component here
 import React from 'react';
 import PropTypes from 'prop-types';
+import InpuField from './InputField';
+import InputTextarea from './InputTextarea';
+import InputImagePath from './InputImagePath';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -27,49 +30,32 @@ class AddMovie extends React.Component {
     const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title-input" data-testid="title-input-label">
-          Título
-          <input
-            type="text"
-            value={ title }
-            data-testid="title-input"
-            name="title"
-            id="title-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            type="text"
-            value={ subtitle }
-            data-testid="subtitle-input"
-            name="subtitle"
-            id="subtitle-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="image-input" data-testid="image-input-label">
-          Imagem
-          <input
-            type="text"
-            value={ imagePath }
-            data-testid="image-input"
-            name="imagePath"
-            id="image-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="storyline-input" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            name="storyline"
-            value={ storyline }
-            data-testid="storyline-input"
-            id="storyline-input"
-            onChange={ this.handleChange }
-          />
-        </label>
+        <InpuField
+          label="Título"
+          type="text"
+          value={ title }
+          name="title"
+          onChange={ this.handleChange }
+        />
+        <InpuField
+          label="Subtítulo"
+          type="text"
+          value={ subtitle }
+          name="subtitle"
+          onChange={ this.handleChange }
+        />
+        {/* Para o campo InputImage, fui obrigado a criar um novo componente, pois,
+        este campo não seguiu o padrão dos outros. */}
+        <InputImagePath
+          value={ imagePath }
+          onChange={ this.handleChange }
+        />
+        <InputTextarea
+          label="Sinopse"
+          value={ storyline }
+          name="storyline"
+          onChange={ this.handleChange }
+        />
       </form>
     );
   }
