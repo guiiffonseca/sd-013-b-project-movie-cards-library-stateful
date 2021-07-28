@@ -6,10 +6,6 @@ import FavoritesCheckBox from './SearchBarSubComponents/FavoritesCheckBox';
 import GenreSelect from './SearchBarSubComponents/GenreSelect';
 
 class SearchBar extends React.Component {
-  constructor() {
-    super();
-  }
-
   render() {
     const {
       searchText,
