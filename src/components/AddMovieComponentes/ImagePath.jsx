@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class ImagePath extends React.Component {
   render() {
@@ -18,5 +19,15 @@ class ImagePath extends React.Component {
     );
   }
 }
+
+ImagePath.propTypes = {
+  state: PropTypes.string,
+  evento: PropTypes.func,
+};
+
+ImagePath.defaultProps = {
+  state: '',
+  evento: undefined,
+};
 
 export default ImagePath;
