@@ -23,7 +23,7 @@ function AddMovie(props) {
           } }
         />
       </label>
-      <label htmlFor="label-movie-title" data-testid="subitle-input-label">
+      <label htmlFor="label-movie-subtitle" data-testid="subtitle-input-label">
         Subtítulo
         <input
           type="text"
@@ -31,6 +31,17 @@ function AddMovie(props) {
           data-testid="subtitle-input"
           onChange={ (event) => {
             setSubtitle(event.target.value);
+          } }
+        />
+      </label>
+      <label htmlFor="label-movie-image" data-testid="image-input-label">
+        Imagem
+        <input
+          type="text"
+          value={ imagePath }
+          data-testid="image-input"
+          onChange={ (event) => {
+            setImagePath(event.target.value);
           } }
         />
       </label>
