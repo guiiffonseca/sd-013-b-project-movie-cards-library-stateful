@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
@@ -42,6 +43,17 @@ function AddMovie(props) {
           data-testid="image-input"
           onChange={ (event) => {
             setImagePath(event.target.value);
+          } }
+        />
+      </label>
+      <label htmlFor="label-movie-textarea" data-testid="storyline-input-label">
+        Sinopse
+        <input
+          type="text"
+          value={ storyLine }
+          data-testid="storyline-input"
+          onChange={ (event) => {
+            setStoryline(event.target.value);
           } }
         />
       </label>
