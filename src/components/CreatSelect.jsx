@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class CreatSelect extends React.Component {
   render() {
@@ -18,3 +19,8 @@ export default class CreatSelect extends React.Component {
     );
   }
 }
+
+CreatSelect.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
