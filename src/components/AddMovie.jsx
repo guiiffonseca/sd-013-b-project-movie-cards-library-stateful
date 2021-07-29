@@ -23,6 +23,17 @@ function AddMovie(props) {
           } }
         />
       </label>
+      <label htmlFor="label-movie-title" data-testid="subitle-input-label">
+        Subtítulo
+        <input
+          type="text"
+          value={ subtitle }
+          data-testid="subtitle-input"
+          onChange={ (event) => {
+            setSubtitle(event.target.value);
+          } }
+        />
+      </label>
     </form>
   );
 }
