@@ -1,25 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class FormLabels extends React.Component {
+class InputLabel extends React.Component {
   render() {
-    const { handleChange, addMovieState } = this.props;
-    const { title, subtitle, imagePath, storyline } = addMovieState;
+    const { name, type = 'text', textContent, handleChange, value, } = this.props;
+    // const { title, subtitle, imagePath, storyline } = addMovieState;
     // imagePath, storyline, rating title,
     return (
       <>
-        <label htmlFor="title" data-testid="title-input-label">
-          Título:
+        <label htmlFor={ name } data-testid={ `${(name === 'imagePath') ? 'image' : name}-input-label` }>
+          {textContent}
           <input
-            type="text"
-            name="title"
-            id="text"
-            value={ title }
-            data-testid="title-input"
+            type={ type }
+            name={ name }
+            value={ value }
+            data-testid={ `${(name === 'imagePath') ? 'image' : name}-input` }
             onChange={ handleChange }
           />
         </label>
-        <label htmlFor="subtitle" data-testid="subtitle-input-label">
+        {/* <label htmlFor="subtitle" data-testid="subtitle-input-label">
           Subtítulo:
           <input
             type="text"
@@ -39,29 +38,20 @@ class FormLabels extends React.Component {
             data-testid="image-input"
           />
         </label>
-        <label htmlFor="sinopse" data-testid="storyline-input-label">
-          Sinopse:
-          <textarea
-            type="text"
-            name="storyline"
-            value={ storyline }
-            onChange={ handleChange }
-            data-testid="storyline-input"
-          />
-        </label>
+         */}
       </>
     );
   }
 }
 
-FormLabels.propTypes = {
+InputLabel.propTypes = {
   addMovieState: PropTypes.objectOf(PropTypes.string),
   handleChange: PropTypes.objectOf(PropTypes.object),
 };
 
-FormLabels.defaultProps = {
+InputLabel.defaultProps = {
   addMovieState: PropTypes.objectOf(PropTypes.string),
   handleChange: PropTypes.objectOf(PropTypes.object),
 };
 
-export default FormLabels;
+export default InputLabel;

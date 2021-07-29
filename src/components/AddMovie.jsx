@@ -1,5 +1,5 @@
 import React from 'react';
-import FormLabels from './FormLabels';
+import InputLabel from './InputLabel';
 // import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
@@ -10,8 +10,8 @@ class AddMovie extends React.Component {
       subtitle: '',
       imagePath: '',
       storyline: '',
-      // rating: 0,
-      // genre: 'action',
+      rating: 0,
+      genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
     // this.handleClickBtn = this.handleClickBtn.bind(this);
@@ -24,14 +24,31 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline } = this.state;
-    const addMovieState = { title, subtitle, imagePath, storyline };
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    // const addMovieState = { title, subtitle, imagePath, storyline };
     return (
       <form data-testid="add-movie-form">
-        <FormLabels handleChange={ this.handleChange } addMovieState={ addMovieState } />
-        <button type="button" data-testid="send-button" onClick="">
-          Adicionar filme
-        </button>
+        <InputLabel
+          handleChange={ this.handleChange }
+          name="title"
+          textContent="Título"
+          value={ title }
+        />
+        <InputLabel
+          handleChange={ this.handleChange }
+          name="subtitle"
+          textContent="Subtítulo"
+          value={ subtitle }
+        />
+        <InputLabel
+          handleChange={ this.handleChange }
+          name="imagePath"
+          textContent="Imagem"
+          dataTest="imagePath"
+          value={ imagePath }
+        />
+        {/* <button type="button" data-testid="send-button" onClick=""> */}
+        {/* </button> */}
       </form>
     );
   }
