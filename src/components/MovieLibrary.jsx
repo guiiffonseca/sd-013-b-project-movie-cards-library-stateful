@@ -48,10 +48,17 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <MovieList
-          movies={ movies }
-          searchText={ searchText }
-          bookmarkedOnly={ bookmarkedOnly }
-          selectedGenre={ selectedGenre }
+          movies={ movies
+            .filter((movie) => ((bookmarkedOnly) ? movie.bookmarked === true : movie))
+            .filter((movie) => ((selectedGenre !== '')
+              ? movie.genre === selectedGenre : movie))
+            .filter((movie) => ((searchText !== '')
+              ? movie.title.toLowerCase().includes(searchText.toLowerCase())
+                || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
+                || movie.storyline.toLowerCase().includes(searchText.toLowerCase())
+              : movie
+            )) }
+
         />
         <AddMovie
           onClick={ this.addNewMovie }
