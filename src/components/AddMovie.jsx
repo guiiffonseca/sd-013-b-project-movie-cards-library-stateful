@@ -10,7 +10,7 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       imagePath: '',
-      // genre: 'action',
+      genre: 'action',
     };
 
     this.onNewTitle = this.onNewTitle.bind(this);
@@ -18,6 +18,7 @@ class AddMovie extends React.Component {
     this.onNewImagePath = this.onNewImagePath.bind(this);
     this.onNewStoryline = this.onNewStoryline.bind(this);
     this.onNewRating = this.onNewRating.bind(this);
+    this.onNewGenre = this.onNewGenre.bind(this);
   }
 
   onNewTitle(event) {
@@ -45,9 +46,14 @@ class AddMovie extends React.Component {
     this.setState({ rating: event.target.value });
   }
 
+  onNewGenre(event) {
+    console.log(event.target.value);
+    this.setState({ genre: event.target.value });
+  }
+
   render() {
     const { callBack } = this.props;
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="newTitle" data-testid="title-input-label">
@@ -99,6 +105,19 @@ class AddMovie extends React.Component {
             data-testid="rating-input"
             id="newRating"
           />
+        </label>
+        <label htmlFor="newGenre" data-testid="genre-input-label">
+          Gênero
+          <select
+            value={ genre }
+            onChange={ this.onNewGenre }
+            data-testid="genre-input"
+            id="newGenre"
+          >
+            <option value="action" data-testid="genre-option">Ação</option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
+          </select>
         </label>
         { console.log(callBack) }
       </form>
