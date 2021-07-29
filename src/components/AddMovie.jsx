@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Genre from './Genre';
 import InputLabel from './InputLabel';
-// import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -89,20 +89,15 @@ class AddMovie extends React.Component {
 }
 
 AddMovie.propTypes = {
-  // title: PropTypes.string,
-  // subtitle: PropTypes.string,
-  // imagePath: PropTypes.string,
-  // storyline: PropTypes.string,
-  // rating: PropTypes.number,
-  // genre: PropTypes.string,
+  onClick: PropTypes.func.isRequired,
 };
 
-AddMovie.defaultProps = {
-  title: '',
-  // subtitle: '',
-  // imagePath: '',
-  // storyline: '',
-  // rating: 0,
-  // genre: '',
-};
+// AddMovie.defaultProps = {
+//   title: '',
+//   // subtitle: '',
+//   // imagePath: '',
+//   // storyline: '',
+//   // rating: 0,
+//   // genre: '',
+// };
 export default AddMovie;
