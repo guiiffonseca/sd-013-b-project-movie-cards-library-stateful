@@ -37,11 +37,9 @@ class MovieLibrary extends Component {
       || subtitle.includes(searchText)
       || storyline.includes(searchText))
       .filter(({ genre }) => genre.includes(selectedGenre))
-      .filter(({ bookmarked }) => {
-        return bookmarkedOnly === false
-          ? movies
-          : bookmarked;
-      });
+      .filter(({ bookmarked }) => (bookmarkedOnly === false
+        ? movies
+        : bookmarked));
     return filteredMovie;
   }
 
