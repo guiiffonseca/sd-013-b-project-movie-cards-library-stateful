@@ -8,7 +8,6 @@ export default class Genre extends React.Component {
       <label htmlFor="genre" data-testid="genre-input-label">
         Gênero
         <select
-          type="number"
           id="genre"
           name="genre"
           value={ genre }
