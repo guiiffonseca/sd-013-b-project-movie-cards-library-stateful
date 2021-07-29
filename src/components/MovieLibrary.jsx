@@ -13,10 +13,11 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      // movies: props.movies,
+      movies: props.movies,
     };
 
     this.handleInputs = this.handleInputs.bind(this);
+    this.filterMovies = this.filterMovies.bind(this);
   }
 
   handleInputs({ target }) {
@@ -29,9 +30,23 @@ class MovieLibrary extends Component {
     });
   }
 
+  filterMovies() {
+    const { searchText, selectedGenre, bookmarkedOnly, movies } = this.state;
+    const filteredMovie = movies
+      .filter(({ title, subtitle, storyline }) => title.includes(searchText)
+      || subtitle.includes(searchText)
+      || storyline.includes(searchText))
+      .filter(({ genre }) => genre.includes(selectedGenre))
+      .filter(({ bookmarked }) => {
+        return bookmarkedOnly === false
+          ? movies
+          : bookmarked;
+      });
+    return filteredMovie;
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const { movies } = this.props;
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -43,8 +58,9 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleInputs }
         />
-        <MovieList movies={ movies } />
+        <MovieList movies={ this.filterMovies() } />
         <AddMovie />
+        {/* <div>{console.log(this.filterMovies())}</div> */}
       </div>
     );
   }
