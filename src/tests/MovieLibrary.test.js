@@ -42,31 +42,31 @@ const movieCardTestId = 'movie-card';
 const movieCardTitleId = 'movie-card-title';
 
 describe('15 - Crie um componente chamado `<MovieLibrary />`', () => {
-  it.only('Renderize o componente', () => {
+  it('Renderize o componente', () => {
     render(<MovieLibrary movies={ movies } />);
   });
 });
 
 describe('16 - Configure o estado inicial do componente `<MovieLibrary />`', () => {
-  it.only('Defina o estado inicial de `searchText` como uma string vazia', () => {
+  it('Defina o estado inicial de `searchText` como uma string vazia', () => {
     const { getByTestId } = render(<MovieLibrary movies={ movies } />);
     const searchText = getByTestId(textTestId);
     expect(searchText).toHaveValue('');
   });
 
-  it.only('Defina o estado inicial de `bookmarkedOnly` como o boleano `falso`', () => {
+  it('Defina o estado inicial de `bookmarkedOnly` como o boleano `falso`', () => {
     const { getByTestId } = render(<MovieLibrary movies={ movies } />);
     const bookmarkedOnly = getByTestId(checkboxTestId);
     expect(bookmarkedOnly).not.toBeChecked();
   });
 
-  it.only('Defina o estado inicial de `selectedGenre` como uma string vazia', () => {
+  it('Defina o estado inicial de `selectedGenre` como uma string vazia', () => {
     const { getByTestId } = render(<MovieLibrary movies={ movies } />);
     const selectInput = getByTestId(selectTestId);
     expect(selectInput).toHaveValue('');
   });
 
-  it.only('Renderize todos os filmes passados pela prop `movies`', () => {
+  it('Renderize todos os filmes passados pela prop `movies`', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const movieCards = getAllByTestId(movieCardTestId);
     expect(movieCards).toHaveLength(movies.length);
@@ -189,7 +189,7 @@ describe('18 - Renderize `<MovieList />` dentro de `<MovieLibrary />`', () => {
 });
 
 describe('19 - Renderize `<AddMovie />` dentro de `<MovieLibrary />`', () => {
-  it.only('Renderize o componente `<AddMovie />`', () => {
+  it('Renderize o componente `<AddMovie />`', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const addMovieForm = getAllByTestId('add-movie-form');
     expect(addMovieForm).toHaveLength(1);
