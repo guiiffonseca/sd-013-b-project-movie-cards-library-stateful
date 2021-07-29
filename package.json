@@ -5,6 +5,7 @@
   "dependencies": {
     "acorn": "7.1.1",
     "eslint-config-trybe-frontend": "1.1.0",
+    "eslint-plugin-import": "^2.23.4",
     "minimist": "1.2.3",
     "prop-types": "^15.7.2",
     "react": "16.14.0",
