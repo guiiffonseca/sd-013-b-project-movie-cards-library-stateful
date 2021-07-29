@@ -7,6 +7,7 @@ import ImagePath from './ImagePath';
 import Storyline from './Storyline';
 import InputRating from './InputRating';
 import Genre from './Genre';
+import Button from './Button';
 
 class AddMovie extends Component {
   constructor() {
@@ -30,6 +31,7 @@ class AddMovie extends Component {
     this.setState({ [name]: value });
   }
 
+  // @mariananogueirab me deu a dica de usar arrow function para não precisar utilizar o bind.
   handleClick = () => {
     const { onClick } = this.props;
     onClick(this.state);
@@ -53,13 +55,7 @@ class AddMovie extends Component {
         <Storyline storyline={ storyline } handleOnChange={ this.handleOnChange } />
         <InputRating rating={ rating } handleOnChange={ this.handleOnChange } />
         <Genre genre={ genre } handleOnChange={ this.handleOnChange } />
-        <button
-          type="button"
-          data-testid="send-button"
-          onClick={ this.handleClick.bind(this) }
-        >
-          Adicionar filme
-        </button>
+        <Button onClick={ this.handleClick } />
       </form>
     );
   }
