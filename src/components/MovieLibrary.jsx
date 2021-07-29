@@ -10,11 +10,8 @@ class MovieLibrary extends Component {
     super();
     this.state = {
       searchText: '',
-      onSearchTextChange: () => {},
       bookmarkedOnly: false,
-      onBookmarkedChange: () => {},
       selectedGenre: '',
-      onSelectedGenreChange: () => {},
     };
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
