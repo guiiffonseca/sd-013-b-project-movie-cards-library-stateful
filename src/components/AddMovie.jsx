@@ -49,11 +49,22 @@ function AddMovie(props) {
       <label htmlFor="label-movie-textarea" data-testid="storyline-input-label">
         Sinopse
         <input
-          type="text"
+          type="textarea"
           value={ storyLine }
           data-testid="storyline-input"
           onChange={ (event) => {
             setStoryline(event.target.value);
+          } }
+        />
+      </label>
+      <label htmlFor="label-movie-rating" data-testid="rating-input-label">
+        Avaliação
+        <input
+          type="number"
+          value={ rating }
+          data-testid="rating-input"
+          onChange={ (event) => {
+            setRating(event.target.value);
           } }
         />
       </label>
