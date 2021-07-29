@@ -11,12 +11,12 @@ class SearchInput extends React.Component {
     return (
       <label
         data-testid="text-input-label"
-        htmlFor="text-input"
+        htmlFor="searchText"
       >
         Inclui o texto:
         <input
           data-testid="text-input"
-          id="text-input"
+          id="searchText"
           type="text"
           value={ searchText }
           onChange={ onSearchTextChange }

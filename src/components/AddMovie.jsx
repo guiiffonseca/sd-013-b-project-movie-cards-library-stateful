@@ -41,30 +41,15 @@ class AddMovie extends Component {
           change={ this.handleChange }
         />
 
-        <Subtitle
-          value={ subtitle }
-          change={ this.handleChange }
-        />
+        <Subtitle value={ subtitle } change={ this.handleChange } />
 
-        <Image
-          value={ imagePath }
-          change={ this.handleChange }
-        />
+        <Image value={ imagePath } change={ this.handleChange } />
 
-        <Storyline
-          value={ storyline }
-          change={ this.handleChange }
-        />
+        <Storyline value={ storyline } change={ this.handleChange } />
 
-        <Rating
-          value={ rating }
-          change={ this.handleChange }
-        />
+        <Rating value={ rating } change={ this.handleChange } />
 
-        <Genre
-          value={ genre }
-          change={ this.handleChange }
-        />
+        <Genre value={ genre } change={ this.handleChange } />
 
         <button
           data-testid="send-button"

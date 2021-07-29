@@ -11,12 +11,12 @@ class Checkbox extends React.Component {
     return (
       <label
         data-testid="checkbox-input-label"
-        htmlFor="checkbox-input"
+        htmlFor="bookmarkedOnly"
       >
         Mostrar somente favoritos
         <input
           data-testid="checkbox-input"
-          id="checkbox-input"
+          id="bookmarkedOnly"
           type="checkbox"
           checked={ bookmarkedOnly }
           onChange={ onBookmarkedChange }
