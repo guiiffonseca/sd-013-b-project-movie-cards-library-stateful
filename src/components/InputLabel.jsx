@@ -28,12 +28,14 @@ InputLabel.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   textContent: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  handleChange: PropTypes.objectOf(PropTypes.object),
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number]).isRequired,
+  handleChange: PropTypes.func.isRequired,
 };
 
-InputLabel.defaultProps = {
-  handleChange: PropTypes.objectOf(PropTypes.object),
-};
+// InputLabel.defaultProps = {
+//   handleChange: PropTypes.objectOf(PropTypes.object),
+// };
 
 export default InputLabel;

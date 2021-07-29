@@ -1,4 +1,5 @@
 import React from 'react';
+import Genre from './Genre';
 import InputLabel from './InputLabel';
 // import PropTypes from 'prop-types';
 
@@ -11,7 +12,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      // genre: 'action',
+      genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -23,32 +24,35 @@ class AddMovie extends React.Component {
     });
   }
 
-  handleClick(event) {
+  handleClick() {
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState({
       title: '',
       subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
+      genre: 'action',
     });
-    console.log(event);
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
-    // const addMovieState = { title, subtitle, imagePath, storyline };
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <InputLabel
           handleChange={ this.handleChange }
           name="title"
           textContent="Título"
+          type="text"
           value={ title }
         />
         <InputLabel
           handleChange={ this.handleChange }
           name="subtitle"
           textContent="Subtítulo"
+          type="text"
           value={ subtitle }
         />
         <InputLabel
@@ -56,6 +60,7 @@ class AddMovie extends React.Component {
           name="imagePath"
           textContent="Imagem"
           dataTest="imagePath"
+          type="text"
           value={ imagePath }
         />
         <InputLabel
@@ -63,7 +68,7 @@ class AddMovie extends React.Component {
           name="storyline"
           textContent="Sinopse"
           dataTest="storyline"
-          type="textarea"
+          type="text"
           value={ storyline }
         />
         <InputLabel
@@ -74,6 +79,7 @@ class AddMovie extends React.Component {
           type="number"
           value={ rating }
         />
+        <Genre value={ genre } handleChange={ this.handleChange } />
         <button type="button" data-testid="send-button" onClick={ this.handleClick }>
           Adicionar filme
         </button>
