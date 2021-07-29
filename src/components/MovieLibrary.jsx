@@ -10,6 +10,7 @@ class MovieLibrary extends Component {
   }
 
   render() {
+    const { movie } = this.props;
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -18,8 +19,8 @@ class MovieLibrary extends Component {
           onBookmarkedChange={ () => 'test' }
           onSelectedGenreChange={ () => 'test' }
         />
-        {/* <MovieList />
-        <AddMovie onClick={ () => 'test' } /> */}
+        {/* <MovieList movie={ movie } /> */}
+        <AddMovie onClick={ () => 'test' } />
       </div>
     );
   }
