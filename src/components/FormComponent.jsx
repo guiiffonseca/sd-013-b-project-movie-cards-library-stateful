@@ -7,7 +7,8 @@ export default class FormComponent extends React.Component {
     return (
       <label
         htmlFor={ name }
-        data-testid={ `${(name === 'imagePath') ? 'image' : name}-input-label` }>
+        data-testid={ `${(name === 'imagePath') ? 'image' : name}-input-label` }
+      >
         {`${text}`}
         <input
           type={ type }
@@ -27,4 +28,5 @@ FormComponent.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
+  type: PropTypes.string.isRequired,
 };

@@ -18,8 +18,7 @@ class AddMovie extends React.Component {
   }
 
   handleChange = ({ target }) => {
-    const { value } = target;
-    const { name } = target;
+    const { name, value } = target;
     this.setState({
       [name]: value,
     });
@@ -82,11 +81,7 @@ class AddMovie extends React.Component {
           type="number"
         />
         <Genre genre={ genre } handleChange={ this.handleChange } />
-        <button
-          type="submit"
-          onClick={ this.onSubmit }
-          data-testid="send-button"
-        >
+        <button type="submit" onClick={ this.onSubmit } data-testid="send-button">
           Adicionar filme
         </button>
       </form>
