@@ -22,15 +22,16 @@ class AddMovie extends React.Component {
   }
 
   handleChange(event) {
-    const { value } = event.target;
+    const value = event.target.name === 'rating'
+      ? parseFloat(event.target.value || 0)
+      : event.target.value;
     const name = event.target.name === 'image' ? 'imagePath' : event.target.name;
 
     this.setState({ [name]: value });
   }
 
-  handleSubmit(event) {
+  handleSubmit() {
     const { onClick } = this.props;
-    event.preventDefault();
     onClick(this.state);
     this.setState(INITIAL_STATE);
   }
@@ -85,7 +86,7 @@ class AddMovie extends React.Component {
           </select>
         </label>
         <button
-          type="submit"
+          type="button"
           onClick={ this.handleSubmit }
           data-testid="send-button"
         >

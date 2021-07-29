@@ -23,25 +23,29 @@ class MovieLibrary extends Component {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     const { movies } = this.props;
     const filteredMovies = movies
-      .filter((movie) => movie.title.toUpperCase().includes(searchText.toUpperCase()))
+      .filter((movie) => movie.title.toUpperCase().includes(searchText.toUpperCase())
+        || movie.subtitle.toUpperCase().includes(searchText.toUpperCase())
+        || movie.storyline.toUpperCase().includes(searchText.toUpperCase()))
       .filter((movie) => bookmarkedOnly === false || movie.bookmarked === bookmarkedOnly)
       .filter((movie) => selectedGenre === '' || movie.genre === selectedGenre);
     this.setState({ movies: filteredMovies });
   }
 
-  onSearchTextChange = async (event) => {
-    await this.setState({ searchText: event.target.value });
-    this.applyFilter();
+  onSearchTextChange = (event) => {
+    this.setState({ searchText: event.target.value }, this.applyFilter);
   }
 
-  onBookmarkedChange = async (event) => {
-    await this.setState({ bookmarkedOnly: event.target.checked });
-    this.applyFilter();
+  onBookmarkedChange = (event) => {
+    this.setState({ bookmarkedOnly: event.target.checked }, this.applyFilter);
   }
 
-  onSelectedGenreChange = async (event) => {
-    await this.setState({ selectedGenre: event.target.value });
-    this.applyFilter();
+  onSelectedGenreChange = (event) => {
+    this.setState({ selectedGenre: event.target.value }, this.applyFilter);
+  }
+
+  addMovie = (newMovie) => {
+    const { movies } = this.props;
+    this.setState({ movies: [...movies, newMovie] });
   }
 
   render() {
@@ -58,7 +62,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie onClick={ () => {} } />
+        <AddMovie onClick={ this.addMovie } />
       </div>
     );
   }
