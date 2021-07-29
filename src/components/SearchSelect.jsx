@@ -10,6 +10,7 @@ class SearchSelect extends React.Component {
         Filtrar por gênero:
         <select
           id="select"
+          name="selectedGenre"
           value={ value }
           onChange={ funcao }
           data-testid="select-input"
