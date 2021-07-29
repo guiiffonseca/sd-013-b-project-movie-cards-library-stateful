@@ -16,9 +16,9 @@ class AddMovie extends React.Component {
 
   render() {
     const { subtitle,
-      title, /* ,
-       imagePath,
-       storyline,
+      title,
+      imagePath,
+      /* storyline,
        rating,
        genre */
     } = this.props;
@@ -29,9 +29,13 @@ class AddMovie extends React.Component {
             Título
             <input type="text" value={ title } data-testid="title-input" />
           </label>
-          <label htmlFor="title-input" data-testid="subtitle-input-label">
+          <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
             Subtítulo
             <input type="text" value={ subtitle } data-testid="subtitle-input" />
+          </label>
+          <label htmlFor="image-input" data-testid="image-input-label">
+            Imagem
+            <input value={ imagePath } data-testid="image-input" />
           </label>
         </form>
       </section>
