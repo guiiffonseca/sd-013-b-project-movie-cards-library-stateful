@@ -7,27 +7,7 @@ import CheckBox from './CheckBox';
 export default class SearchBar extends React.Component {
   constructor() {
     super();
-    // this.state = {
-    //   'text-input': '',
-    //   'checkbox-input': '',
-    //   'select-input': '',
-    // };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-  }
-
-  handleClick({ e, target }) {
-    e.preventDefault();
-    console.log(target.type);
-    return target === 'click' ? console.log('foi click') : console.log('NADA');
-  }
-
-  handleChange({ target }) {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState({ [name]: value });
   }
 
   onSearchTextChange({ target }) {
@@ -36,10 +16,6 @@ export default class SearchBar extends React.Component {
     this.setState({
       [inputText]: target.value,
     });
-  }
-
-  onSelectedGenreChange({ target }) {
-    console.log(target);
   }
 
   render() {

@@ -31,7 +31,7 @@ export default class AddMovie extends React.Component {
   render() {
     const { title, subtitle, storyline, imagePath, rating, genre, onClick } = this.props;
     return (
-      <form>
+      <form data-testid="add-movie-form">
         <InputTitle title={ title } />
         <InputSubTitle subtitle={ subtitle } />
         <ImagePath imagePath={ imagePath } />
