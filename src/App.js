@@ -7,7 +7,7 @@ function App() {
   return (
     <main className="App">
       <Header />
-      <MovieLibrary />
+      <MovieLibrary movies="" />
       {/* <SearchBar
         searchText=""
         onSearchTextChange=""

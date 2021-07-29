@@ -9,6 +9,9 @@ class MovieLibrary extends React.Component {
 
   //   };
   // }
+  onClickChange() {
+    return 'teste';
+  }
 
   render() {
     return (
@@ -20,7 +23,7 @@ class MovieLibrary extends React.Component {
           selectedGenre=""
           onSelectedGenreChange=""
         />
-        <AddMovie onClick="" />
+        <AddMovie onClick={ this.onClickChange } />
       </div>
     );
   }

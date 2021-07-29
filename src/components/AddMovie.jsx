@@ -1,6 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import InputForm from './InputForm';
 import Data from './GeneratInputForms';
 
@@ -28,19 +28,24 @@ class AddMovie extends React.Component {
   }
 
   getValue(value) {
-    const objectState = Object.entries(this.state);
-    let toReturn;
-    objectState.forEach((element) => {
-      if (element[0] === value) {
-        const test = element[1];
-        toReturn = test;
-      }
-    });
-    return toReturn;
+    const getState = this.state;
+
+    // const objectState = Object.entries(this.state);
+    // let toReturn;
+    // objectState.forEach((element) => {
+    //   if (element[0] === value) {
+    //     const test = element[1];
+    //     toReturn = test;
+    //     console.log([1]);
+    //   }
+    // });
+    return getState[value];
   }
 
   addMovieButton() {
-    return this.setState({
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
       subtitle: '',
       title: '',
       imagePath: '',
@@ -51,9 +56,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { onClick } = this.props;
-    // console.log(this.getValue('title'));
-    const gn = 'genre';
+    const { genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <fieldset>
@@ -66,7 +69,12 @@ class AddMovie extends React.Component {
             />))}
           <label htmlFor="input-select" data-testid="genre-input-label">
             Gênero
-            <select name="genre" data-testid="genre-input" onChange={ this.onChange }>
+            <select
+              name="genre"
+              data-testid="genre-input"
+              value={ genre }
+              onChange={ this.onChange }
+            >
               <option value="action" data-testid="genre-option" selected>Ação</option>
               <option value="comedy" data-testid="genre-option">Comédia</option>
               <option value="thriller" data-testid="genre-option">Suspense</option>
@@ -75,7 +83,7 @@ class AddMovie extends React.Component {
           <button
             data-testid="send-button"
             id="btn"
-            type="submit"
+            type="button"
             onClick={ this.addMovieButton }
           >
             Adicionar filme
@@ -86,8 +94,8 @@ class AddMovie extends React.Component {
   }
 }
 
-// AddMovie.propTypes = {
-//   onClick: PropTypes.func.isRequired,
-// };
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
