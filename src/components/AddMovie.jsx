@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       subtitle: '',
@@ -21,26 +22,18 @@ class AddMovie extends Component {
 
   handleChange(event) {
     const { name } = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-
+    //  const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = '';
     this.setState({
       [name]: value,
     });
   }
 
-  /*  handleChange({ target }) {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState({
-      [name]: value,
-    });
-  }  */
-
   render() {
     const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form data-testid="add-movie-form" onSubmit={ this.handleSubmit }>
+      <form data-testid="add-movie-form">
         <label htmlFor="title-input-lab" data-testid="title-input-label">
           Título
           <input
