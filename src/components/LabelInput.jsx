@@ -8,7 +8,6 @@ class LabelInput extends Component {
     let elementName = id.replace('-input', '');
 
     if (elementName === 'image') elementName = 'imagePath';
-    else if (elementName === 'text') elementName = 'searchText';
 
     // console.log(this.props);
     return (

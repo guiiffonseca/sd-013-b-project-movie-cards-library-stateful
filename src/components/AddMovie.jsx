@@ -6,8 +6,8 @@ import LabelInputTxtArea from './LabelInputTxtArea';
 import SelectGenre from './SelectGenre';
 
 class AddMovie extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       subtitle: '',
