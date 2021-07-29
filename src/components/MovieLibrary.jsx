@@ -78,7 +78,7 @@ export default class MovieLibrary extends Component {
         favoritos com o genêro ${selectedGenre} e o texto ${searchText}`);
         return movies.filter((movie) => movie.bookmarked === true)
           .filter((movie) => movie.genre === selectedGenre)
-          .filte((movie) => (
+          .filter((movie) => (
             movie.storyline.toLowerCase().includes(searchText.toLowerCase())
         || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
         || movie.title.toLowerCase().includes(searchText.toLowerCase())));
@@ -89,7 +89,7 @@ export default class MovieLibrary extends Component {
     }
     if (searchText !== '') {
       console.log(`todos os filmes favoritos com o texto ${searchText}`);
-      return movies.filter((movie) => movie.bookMarked === true)
+      return movies.filter((movie) => movie.bookmarked === true)
         .filter((movie) => (
           movie.title.toLowerCase().includes(searchText.toLowerCase())
             || movie.subtitle.toLowerCase().include(searchText.toLowerCase())

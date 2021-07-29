@@ -14,7 +14,7 @@ export default class AddMovie extends Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-      bookMarked: false,
+      bookmarked: false,
     };
 
     this.buttonClick = this.buttonClick.bind(this);
