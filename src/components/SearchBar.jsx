@@ -1,6 +1,7 @@
 // implement SearchBar component here
 import React from 'react';
 import PropTypes from 'prop-types';
+import InputForm from './InputForm';
 
 class SearchBar extends React.Component {
   constructor(props) {

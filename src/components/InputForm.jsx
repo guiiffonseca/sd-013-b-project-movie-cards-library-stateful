@@ -5,7 +5,7 @@ class InputForm extends React.Component {
   render() {
     const { data: { name, dataTestid, id, type, title }, get, onCha } = this.props;
     return (
-      <label htmlFor={ name } data-testid={ `${dataTestid}-label` }>
+      <label htmlFor={ id } data-testid={ `${dataTestid}-label` }>
         { title }
         <input
           type={ type }

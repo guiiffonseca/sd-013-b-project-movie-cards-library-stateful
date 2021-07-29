@@ -21,7 +21,6 @@ class AddMovie extends React.Component {
   }
 
   onChangeEvent({ target }) {
-    console.log('chamou onchange');
     const { name, value } = target;
     this.setState({
       [name]: value,
@@ -29,19 +28,25 @@ class AddMovie extends React.Component {
   }
 
   getValue(value) {
-    console.log('chamou get');
     const objectState = Object.entries(this.state);
-    objectState.find((element) => element[0] === value);
+    let toReturn;
+    objectState.forEach((element) => {
+      if (element[0] === value) {
+        const test = element[1];
+        toReturn = test;
+      }
+    });
+    return toReturn;
   }
 
   addMovieButton() {
-    console.log('teste');
   }
 
   render() {
     // const { onClick } = this.props;
+    // console.log(this.getValue('title'));
     return (
-      <form>
+      <form data-testid="add-movie-form">
         <fieldset>
           { Data.map((value) => (
             <InputForm
@@ -53,15 +58,15 @@ class AddMovie extends React.Component {
           <label htmlFor="input-select" data-testid="genre-input-label">
             Gênero
             <select id="slct" data-testid="genre-input" onChange={ this.onChangeEvent }>
-              <option name="genre" value="action" selected>Ação</option>
-              <option name="genre" value="comedy">Comédia</option>
-              <option name="genre" value="thriller">Suspense</option>
+              <option value="action" selected data-testid="genre-option">Ação</option>
+              <option value="comedy" data-testid="genre-option">Comédia</option>
+              <option value="thriller" data-testid="genre-option">Suspense</option>
             </select>
           </label>
           <button
             data-testid="send-button"
             id="btn"
-            type="button"
+            type="submit"
             onClick={ this.addMovieButton }
           >
             Adicionar filme

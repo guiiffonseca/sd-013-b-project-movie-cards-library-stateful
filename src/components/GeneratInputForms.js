@@ -18,7 +18,7 @@ const objectToInputInAddMovie = [
     id: 'input-image',
     type: 'text',
     name: 'imagePath',
-    dataTestid: 'imagePath-input',
+    dataTestid: 'image-input',
   },
   {
     title: 'Sinopse',
@@ -26,13 +26,6 @@ const objectToInputInAddMovie = [
     type: 'text',
     name: 'storyline',
     dataTestid: 'storyline-input',
-  },
-  {
-    title: 'Avaliação',
-    id: 'input-avaliation',
-    type: 'number',
-    name: 'rating',
-    dataTestid: 'rating-input',
   },
   {
     title: 'Avaliação',
