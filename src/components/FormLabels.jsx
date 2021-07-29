@@ -55,12 +55,11 @@ class FormLabels extends React.Component {
 }
 
 FormLabels.propTypes = {
-  subtitle: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  imagePath: PropTypes.string.isRequired,
-  storyline: PropTypes.string.isRequired,
-  // rating: PropTypes.number.isRequired,
-  // genre: PropTypes.string.isRequired,
+  addMovieState: PropTypes.objectOf(PropTypes.string),
+};
+
+FormLabels.defaultProps = {
+  addMovieState: PropTypes.objectOf(PropTypes.string),
 };
 
 export default FormLabels;

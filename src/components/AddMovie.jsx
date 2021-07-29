@@ -25,7 +25,6 @@ class AddMovie extends React.Component {
 
   render() {
     const { ...addMovieState } = this.state;
-    // , imagePath, , rating, genre
     return (
       <form data-testid="add-movie-form">
         <FormLabels handleChange={ this.handleChange } addMovieState={ addMovieState } />
