@@ -11,5 +11,5 @@
     },
     "sourceType": "module"
   },
-  "plugins": ["react", "sonarjs", "typescript"]
+  "plugins": ["react", "sonarjs"]
 }
