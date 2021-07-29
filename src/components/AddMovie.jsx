@@ -20,9 +20,8 @@ class AddMovie extends Component {
   //  handleChange generico, com o [name] ( ao usar os colchetes conseguimos pegar uma variavel e utilizar o valor dentro da variavel pra acessar as propriedades de um objeto)
 
   handleChange(event) {
-    const target = event.target;
+    const { name } = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
 
     this.setState({
       [name]: value,
