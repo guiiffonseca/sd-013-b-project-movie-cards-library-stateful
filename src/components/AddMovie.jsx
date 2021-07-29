@@ -1,5 +1,8 @@
 import React from 'react';
-import CreatInput from './CreatInput';
+import InputText from './CreatInputText';
+import CreatLabel from './CreatLabel';
+import CreatSelect from './CreatSelect';
+import CreatTextArea from './CreatTextArea';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -20,44 +23,28 @@ class AddMovie extends React.Component {
 
   render() {
     const { state, handleChange } = this;
+    const { title, subtitle, imagePath, storyline, rating, genre } = state;
     return (
       <form data-testid="add-movie-form">
-        <CreatInput
-          labelText="Titúlo"
-          type="text"
-          name="title"
-          id="A"
-          value={ state.title }
+        <CreatLabel forHtml="title" text="Título" id="title" />
+        <InputText name="title" value={ title } on={ handleChange } id="title" />
+        <CreatLabel forHtml="subtitle" text="Subtítulo" id="subtitle" />
+        <InputText name="subtitle" value={ subtitle } on={ handleChange } id="subtitle" />
+        <CreatLabel forHtml="image" text="Imagem" id="image" />
+        <InputText name="imagePath" value={ imagePath } on={ handleChange } id="image" />
+        <CreatLabel forHtml="storyline" text="Sinopse" id="storyline" />
+        <CreatTextArea value={ storyline } onChange={ handleChange } />
+        <CreatLabel forHtml="rating" text="Avaliação" id="rating" />
+        <input
+          type="number"
+          id="rating"
+          name="rating"
+          data-testid="rating-input"
           onChange={ handleChange }
+          value={ rating }
         />
-        <CreatInput
-          labelText="Subtítulo"
-          type="text"
-          name="subtitle"
-          id="B"
-          value={ state.subtitle }
-          onChange={ handleChange }
-        />
-        <CreatInput
-          labelText="Imagem"
-          type="text"
-          name="imagePath"
-          id="C"
-          value={ state.imagePath }
-          onChange={ handleChange }
-        />
-        <label htmlFor="C" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            type="text"
-            name="storyline"
-            id="C"
-            data-testid="storyline-input"
-            value={ state.storyline }
-            onChange={ handleChange }
-          />
-        </label>
-
+        <CreatLabel forHtml="genre" text="Gênero" id="genre" />
+        <CreatSelect name="genre" value={ genre } on={ handleChange } id="genre" />
       </form>
     );
   }
