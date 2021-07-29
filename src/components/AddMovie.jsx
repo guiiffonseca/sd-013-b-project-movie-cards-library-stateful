@@ -17,7 +17,7 @@ class AddMovie extends React.Component {
   render() {
     const { callBack } = this.props;
     return (
-      <form>
+      <form data-testid="add-movie-form">
         <input type="text" onClick={ callBack } />
       </form>
     );
