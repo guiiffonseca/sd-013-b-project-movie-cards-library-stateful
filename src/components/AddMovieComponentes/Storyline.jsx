@@ -16,7 +16,7 @@ class Storyline extends React.Component {
           data-testid="storyline-input"
         />
       </label>
-    )
+    );
   }
 }
 

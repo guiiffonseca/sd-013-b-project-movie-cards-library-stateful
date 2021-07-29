@@ -6,6 +6,7 @@ import ImagePath from './AddMovieComponentes/ImagePath';
 import Storyline from './AddMovieComponentes/Storyline';
 import Rating from './AddMovieComponentes/Rating';
 import Genre from './AddMovieComponentes/Genre';
+/* import Button from './AddMovieComponentes/Button'; */
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -37,6 +38,7 @@ class AddMovie extends React.Component {
         <Storyline state={ storyline } evento={ this.handleOnClick } />
         <Rating state={ rating } evento={ this.handleOnClick } />
         <Genre state={ genre } evento={ this.handleOnClick } />
+        {/* <Button /> */}
       </form>
     );
   }
