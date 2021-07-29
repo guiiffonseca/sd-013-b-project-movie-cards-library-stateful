@@ -5,12 +5,11 @@
   },
   "extends": "trybe-frontend",
   "parser": "babel-eslint",
-  "plugin": "import/typescript",
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
     },
     "sourceType": "module"
   },
-  "plugins": ["react", "sonarjs"]
+  "plugins": ["react", "sonarjs", "typescript"]
 }
