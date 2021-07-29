@@ -8,8 +8,8 @@ import InputSelect from './InputSelect';
 import InputFieldNumber from './InputFieldNumber';
 
 class AddMovie extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.handleChange = this.handleChange.bind(this);
     this.onClick = this.onClick.bind(this);
     this.state = {
@@ -23,9 +23,13 @@ class AddMovie extends React.Component {
   }
 
   handleChange(event) {
+    const value = (event.target.name === 'rating')
+      ? parseFloat(event.target.value) : event.target.value;
     this.setState({
-      [event.target.name]: event.target.value,
+      [event.target.name]: value,
     });
+    const { handleChangeAddMovie } = this.props;
+    handleChangeAddMovie(event.target.name, value);
   }
 
   onClick(event) {
@@ -93,6 +97,7 @@ class AddMovie extends React.Component {
 
 AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
+  handleChangeAddMovie: PropTypes.func.isRequired,
 };
 
 export default AddMovie;

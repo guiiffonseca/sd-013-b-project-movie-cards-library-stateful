@@ -32,6 +32,17 @@ class MovieLibrary extends React.Component {
       selectedGenre,
       movies,
     } = this.state;
+    const {
+      title,
+      subtitle,
+      storyline,
+      rating,
+      imagePath,
+      bookmarked,
+      genre,
+      addNewMovie,
+      handleChangeAddMovie,
+    } = this.props;
     return (
       <div>
         <SearchBar
@@ -48,7 +59,17 @@ class MovieLibrary extends React.Component {
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
         />
-        <AddMovie />
+        <AddMovie
+          onClick={ addNewMovie }
+          handleChangeAddMovie={ handleChangeAddMovie }
+          addtitle={ title }
+          addsubtitle={ subtitle }
+          addstoryline={ storyline }
+          addrating={ rating }
+          addimagePath={ imagePath }
+          addbookmarked={ bookmarked }
+          addgenre={ genre }
+        />
       </div>
     );
   }
@@ -58,6 +79,15 @@ MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.object,
   ).isRequired,
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  storyline: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
+  imagePath: PropTypes.string.isRequired,
+  bookmarked: PropTypes.bool.isRequired,
+  genre: PropTypes.string.isRequired,
+  addNewMovie: PropTypes.func.isRequired,
+  handleChangeAddMovie: PropTypes.func.isRequired,
 };
 
 export default MovieLibrary;
