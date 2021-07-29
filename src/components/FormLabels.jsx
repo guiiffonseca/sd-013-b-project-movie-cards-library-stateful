@@ -56,10 +56,12 @@ class FormLabels extends React.Component {
 
 FormLabels.propTypes = {
   addMovieState: PropTypes.objectOf(PropTypes.string),
+  handleChange: PropTypes.objectOf(PropTypes.object),
 };
 
 FormLabels.defaultProps = {
   addMovieState: PropTypes.objectOf(PropTypes.string),
+  handleChange: PropTypes.objectOf(PropTypes.object),
 };
 
 export default FormLabels;
