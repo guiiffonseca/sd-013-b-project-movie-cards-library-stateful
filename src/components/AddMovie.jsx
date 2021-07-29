@@ -1,7 +1,7 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
-import Subtitle from './subtitle';
 import Title from './title';
+import Subtitle from './subtitle';
 import Imagem from './Imagem';
 import StoryLine from './StoryLine';
 import RatingInput from './RatingInput';
