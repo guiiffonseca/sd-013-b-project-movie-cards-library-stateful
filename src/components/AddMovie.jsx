@@ -95,7 +95,7 @@ class AddMovie extends Component {
             onChange={ this.handleChange }
           />
         </label>
-        <label data-testid="genre-input-label" htmlFor="genre-input-lab">
+          <label data-testid="genre-input-label" htmlFor="genre-input-lab">
         Gênero
           <select
             id="genre-input-lab"
@@ -113,12 +113,18 @@ class AddMovie extends Component {
           type="submit"
           data-testid="send-button"
           onClick={ onClick }
-        >
+          >
         Adicionar filme
         </button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.arrayOf(
+    PropTypes.object,
+  ).isRequired,
+};
 
 export default AddMovie;
