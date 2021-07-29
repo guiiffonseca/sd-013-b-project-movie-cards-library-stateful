@@ -50,6 +50,7 @@ class SearchBar extends React.Component {
         <SelectInput
           label="Filtrar por gênero"
           id="select-input"
+          name="genre"
           value={ selectedGenre }
           onChange={ onSelectedGenreChange }
           options={ movieGenre }

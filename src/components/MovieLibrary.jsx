@@ -13,13 +13,12 @@ class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: props.movies,
       filteredMovies: [...props.movies],
     };
   }
 
   filterMovies = (search) => {
-    const { movies } = this.state;
+    const { movies } = this.props;
 
     this.setState({
       filteredMovies: movies.filter((movie) => {
@@ -33,7 +32,7 @@ class MovieLibrary extends React.Component {
   };
 
   filterBookmarked = (checked) => {
-    const { movies } = this.state;
+    const { movies } = this.props;
     let tempFilteredMovies = [...movies];
 
     if (checked) {
@@ -46,7 +45,7 @@ class MovieLibrary extends React.Component {
   }
 
   filterByGenre = (genre) => {
-    const { movies } = this.state;
+    const { movies } = this.props;
     let tempFilteredMovies = [...movies];
 
     if (genre !== '') {
@@ -78,20 +77,13 @@ class MovieLibrary extends React.Component {
     this.filterByGenre(target.value);
   }
 
-  // title: '',
-  // subtitle: '',
-  // imagePath: '',
-  // storyline: '',
-  // rating: 0,
-  // genre: 'action',
-
   handleAddMovie = (newMovieInfo) => {
-    const { movies } = this.state;
+    const { movies } = this.props;
     const newMovieList = [...movies];
 
     newMovieList.push({ ...newMovieInfo, bookmarked: false });
 
-    this.setState({ movies: newMovieList, filteredMovies: newMovieList });
+    this.setState({ filteredMovies: newMovieList });
   }
 
   render() {

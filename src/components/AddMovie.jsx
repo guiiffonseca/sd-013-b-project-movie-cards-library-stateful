@@ -84,7 +84,7 @@ class AddMovie extends React.Component {
           onChange={ this.handleInput }
           options={ movieGenre }
         />
-        <button type="submit" onClick={ this.handleClick } data-testid="send-button">
+        <button type="button" onClick={ this.handleClick } data-testid="send-button">
           Adicionar filme
         </button>
       </form>
