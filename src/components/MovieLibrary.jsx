@@ -61,10 +61,10 @@ export default class MovieLibrary extends Component {
     }
     if (searchText !== '') {
       console.log(`todos os filmes  com o texto ${searchText}`);
-      return movies.filter((movieAll) => (
-        movieAll.title.toLowerCase().includes(searchText.toLowerCase())
-        || movieAll.subtitle.toLowerCase().includes(searchText.toLowerCase())
-        || movieAll.storyline.toLowerCase().includes(searchText.toLowerCase())));
+      return movies.filter((movie) => (
+        movie.title.toLowerCase().includes(searchText.toLowerCase())
+        || movie.storyline.toLowerCase().includes(searchText.toLowerCase())
+        || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())));
     }
     console.log('todos os filmes');
     return movies;
@@ -76,14 +76,15 @@ export default class MovieLibrary extends Component {
       if (searchText !== '') {
         console.log(`todos os filmes
         favoritos com o genêro ${selectedGenre} e o texto ${searchText}`);
-        return movies.filter((movie) => movie.bookMarked === true)
-          .filter((movie) => (
+        return movies.filter((movie) => movie.bookmarked === true)
+          .filter((movie) => movie.genre === selectedGenre)
+          .filte((movie) => (
             movie.storyline.toLowerCase().includes(searchText.toLowerCase())
         || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
         || movie.title.toLowerCase().includes(searchText.toLowerCase())));
       }
       console.log(`todos os filmes favoritos com o genêro ${selectedGenre}`);
-      return movies.filter((movie) => movie.bookMarked === true)
+      return movies.filter((movie) => movie.bookmarked === true)
         .filter((movie) => movie.genre === selectedGenre);
     }
     if (searchText !== '') {
@@ -94,6 +95,8 @@ export default class MovieLibrary extends Component {
             || movie.subtitle.toLowerCase().include(searchText.toLowerCase())
             || movie.storyline.toLowerCase().includes(searchText.toLowerCase())));
     }
+    console.log('todos os filmes favoritos');
+    return movies.filter((movie) => movie.bookmarked === true);
   }
 
   myFilter() {
