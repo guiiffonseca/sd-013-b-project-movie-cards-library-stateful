@@ -1,22 +1,27 @@
 // implement MovieLibrary component here
 import React, { Component } from 'react';
 
-import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+import MovieList from './MovieList';
 
+const objState = {
+  searchText: '',
+  bookmarkedOnly: false,
+  selectedGenre: '',
+};
 class MovieLibrary extends Component {
-  /* constructor(props) {
-    super(props);
-  } */
+  constructor() {
+    super();
+    this.state = objState;
+  }
 
   render() {
-    const { movie } = this.props;
+    const { movies } = this.props;
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar />
-        <MovieList movies={ movie } />
         <AddMovie />
       </div>
     );
