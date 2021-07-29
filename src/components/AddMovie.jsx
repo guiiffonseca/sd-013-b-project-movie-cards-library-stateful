@@ -1,4 +1,11 @@
 import React from 'react';
+// import PropTypes from 'prop-types';
+import Subtitle from './subtitle';
+import Title from './title';
+import Imagem from './Imagem';
+import StoryLine from './StoryLine';
+import RatingInput from './RatingInput';
+import Genre from './Genre';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -6,44 +13,48 @@ class AddMovie extends React.Component {
     this.state = {
       subtitle: '',
       title: '',
-      // imagePath: '',
-      // storyline: '',
-      // rating: 0,
-      // genre: 'action',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
     this.setState({
-      title: event.target.value,
-      subtitle: event.target.value,
+      [event.target.name]: event.target.value,
     });
   }
 
   render() {
-    // const { onClick } = this.props;
-    const { title, subtitle } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label" htmlFor="title">
-          Título
-          <input
-            data-testid="title-input"
-            value={ title }
-            id="title"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label data-testid="title-input-label" htmlFor="subtitle">
-          Subtítulo
-          <input
-            data-testid="subtitle-input"
-            value={ subtitle }
-            id="subtitle"
-            onChange={ this.handleChange }
-          />
-        </label>
+        <Title
+          value={ title }
+          onChange={ this.handleChange }
+        />
+        <Subtitle
+          value={ subtitle }
+          onChange={ this.handleChange }
+        />
+        <Imagem
+          value={ imagePath }
+          onChange={ this.handleChange }
+        />
+        <StoryLine
+          value={ storyline }
+          onChange={ this.handleChange }
+        />
+        <RatingInput
+          rating={ rating }
+          onChange={ this.handleChange }
+        />
+        <Genre
+          value={ genre }
+          onChange={ this.handleChange }
+        />
       </form>
     );
   }
