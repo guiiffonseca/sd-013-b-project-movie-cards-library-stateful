@@ -31,7 +31,7 @@ class AddMovie extends Component {
     this.setState({ [name]: value });
   }
 
-  // @mariananogueirab me deu a dica de usar arrow function para não precisar utilizar o bind
+  // @mariananogueirab me deu a dica de usar arrow function para não precisar utilizar o bind.
   handleClick = () => {
     const { onClick } = this.props;
     onClick(this.state);
