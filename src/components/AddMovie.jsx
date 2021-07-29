@@ -48,8 +48,7 @@ function AddMovie(props) {
       </label>
       <label htmlFor="label-movie-textarea" data-testid="storyline-input-label">
         Sinopse
-        <input
-          type="textarea"
+        <textarea
           value={ storyLine }
           data-testid="storyline-input"
           onChange={ (event) => {
@@ -83,6 +82,21 @@ function AddMovie(props) {
           <option value="thriller" data-testid="genre-option">Suspense</option>
         </select>
       </label>
+      <button
+        data-testid="send-button"
+        type="reset"
+        onClick={ () => {
+          setTitle('');
+          setSubtitle('');
+          setStoryline('');
+          setRating(0);
+          setGenre('action');
+          onClick();
+        } }
+      >
+        Adicionar filme
+
+      </button>
     </form>
   );
 }
