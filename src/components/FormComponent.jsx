@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 
 export default class FormComponent extends React.Component {
   render() {
-    const { text, name, value, handleChange, test, type = 'text' } = this.props;
+    const { text, name, value, handleChange, type = 'text' } = this.props;
     return (
-      <label htmlFor={ name } data-testid={ `${test}-input-label` }>
+      <label
+        htmlFor={ name }
+        data-testid={ `${(name === 'imagePath') ? 'image' : name}-input-label` }>
         {`${text}`}
         <input
           type={ type }
@@ -13,7 +15,7 @@ export default class FormComponent extends React.Component {
           name={ name }
           value={ value }
           onChange={ handleChange }
-          data-testid={ `${test}-input` }
+          data-testid={ `${(name === 'imagePath') ? 'image' : name}-input` }
         />
       </label>
     );
@@ -25,6 +27,4 @@ FormComponent.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
-  test: PropTypes.string.isRequired,
-  type: PropTypes.string,
 };
