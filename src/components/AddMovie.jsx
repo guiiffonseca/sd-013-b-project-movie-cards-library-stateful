@@ -11,8 +11,8 @@ class AddMovie extends React.Component {
   constructor() {
     super();
     this.state = {
-      subtitle: '',
       title: '',
+      subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
@@ -23,19 +23,19 @@ class AddMovie extends React.Component {
   }
 
   handleChange({ target }) {
-    const { name } = target;
-    const value = target.type === 'checked' ? target.checked : target.value;
-    this.setState = ({
+    const { name, value } = target;
+    this.setState({
       [name]: value,
     });
   }
 
-  handleClick() {
+  handleClick(event) {
+    event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
-    this.setState = ({
-      subtitle: '',
+    this.setState({
       title: '',
+      subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,

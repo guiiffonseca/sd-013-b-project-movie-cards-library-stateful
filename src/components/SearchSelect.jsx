@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class SearchSelect extends React.Component {
   render() {
@@ -9,7 +10,7 @@ class SearchSelect extends React.Component {
         Filtrar por gênero:
         <select
           id="select"
-          value={ velue }
+          value={ value }
           onChange={ funcao }
           data-testid="select-input"
         >
@@ -22,5 +23,10 @@ class SearchSelect extends React.Component {
     );
   }
 }
+
+SearchSelect.propTypes = {
+  value: PropTypes.string.isRequired,
+  funcao: PropTypes.func.isRequired,
+};
 
 export default SearchSelect;

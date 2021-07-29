@@ -8,7 +8,9 @@ class AddGenero extends React.Component {
       <label data-testid="genre-input-label" htmlFor="genre">
         Gênero
         <select
+        // type="number"???
           id="genre"
+          name="genre"
           value={ value }
           onChange={ funcao }
           data-testid="genre-input"
