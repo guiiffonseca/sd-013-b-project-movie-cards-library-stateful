@@ -10,7 +10,7 @@ class AddMovie extends React.Component {
       // storyline: '',
       // rating: 0,
       // imagePath: '',
-      //genre: 'action',
+      // genre: 'action',
     };
 
     this.onNewTitle = this.onNewTitle.bind(this);
@@ -36,6 +36,7 @@ class AddMovie extends React.Component {
             id="newTitle"
           />
         </label>
+        { console.log(callBack) }
       </form>
     );
   }
