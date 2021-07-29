@@ -50,11 +50,42 @@ class AddMovie extends React.Component {
     } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <FormComponent text="Título" name="title" value={ title } handleChange={ this.handleChange } test="title" />
-        <FormComponent text="Subtítulo" name="subtitle" value={ subtitle } handleChange={ this.handleChange } test="subtitle" />
-        <FormComponent text="Imagem" name="imagePath" value={ imagePath } handleChange={ this.handleChange } test="image" />
-        <FormComponent text="Sinopse" name="storyline" value={ storyline } handleChange={ this.handleChange } test="storyline" />
-        <FormComponent text="Avaliação" name="rating" value={ rating } handleChange={ this.handleChange } test="rating" type="number" />
+        <FormComponent
+          text="Título"
+          name="title"
+          value={ title }
+          handleChange={ this.handleChange }
+          test="title"
+        />
+        <FormComponent
+          text="Subtítulo"
+          name="subtitle"
+          value={ subtitle }
+          handleChange={ this.handleChange }
+          test="subtitle"
+        />
+        <FormComponent
+          text="Imagem"
+          name="imagePath"
+          value={ imagePath }
+          handleChange={ this.handleChange }
+          test="image"
+        />
+        <FormComponent
+          text="Sinopse"
+          name="storyline"
+          value={ storyline }
+          handleChange={ this.handleChange }
+          test="storyline"
+        />
+        <FormComponent
+          text="Avaliação"
+          name="rating"
+          value={ rating }
+          handleChange={ this.handleChange }
+          test="rating"
+          type="number"
+        />
         <Genre genre={ genre } handleChange={ this.handleChange } />
 
         <button
