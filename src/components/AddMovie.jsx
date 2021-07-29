@@ -68,6 +68,21 @@ function AddMovie(props) {
           } }
         />
       </label>
+      <label htmlFor="select-genre" data-testid="genre-input-label">
+        Gênero
+        <select
+          id="select-genre"
+          data-testid="genre-input"
+          value={ genre }
+          onChange={ (event) => {
+            setGenre(event.target.value);
+          } }
+        >
+          <option value="action" data-testid="genre-option">Ação</option>
+          <option value="comedy" data-testid="genre-option">Comédia</option>
+          <option value="thriller" data-testid="genre-option">Suspense</option>
+        </select>
+      </label>
     </form>
   );
 }
