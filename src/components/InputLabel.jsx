@@ -27,6 +27,8 @@ class InputLabel extends React.Component {
 InputLabel.propTypes = {
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
+  textContent: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   handleChange: PropTypes.objectOf(PropTypes.object),
 };
 
