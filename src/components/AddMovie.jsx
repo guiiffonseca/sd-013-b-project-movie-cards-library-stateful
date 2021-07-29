@@ -11,7 +11,19 @@ function AddMovie(props) {
   const [genre, setGenre] = useState('action');
 
   return (
-    <h1>teste</h1>
+    <form data-testid="add-movie-form">
+      <label htmlFor="label-movie-title" data-testid="title-input-label">
+        Título
+        <input
+          type="text"
+          value={ title }
+          data-testid="title-input"
+          onChange={ (event) => {
+            setTitle(event.target.value);
+          } }
+        />
+      </label>
+    </form>
   );
 }
 
