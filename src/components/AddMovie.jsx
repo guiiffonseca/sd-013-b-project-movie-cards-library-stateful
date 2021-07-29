@@ -11,7 +11,7 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    this.onClick = this.onClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -25,15 +25,16 @@ class AddMovie extends React.Component {
   handleChange(event) {
     const value = (event.target.name === 'rating')
       ? parseFloat(event.target.value) : event.target.value;
+    const { name } = event.target;
     this.setState({
-      [event.target.name]: value,
+      [name]: value,
     });
-    const { handleChangeAddMovie } = this.props;
-    handleChangeAddMovie(event.target.name, value);
   }
 
-  onClick(event) {
+  handleClick(event) {
     event.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -45,10 +46,9 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form data-testid="add-movie-form" onSubmit={ this.onClick }>
+      <form data-testid="add-movie-form">
         <InpuField
           label="Título"
           type="text"
@@ -86,7 +86,7 @@ class AddMovie extends React.Component {
         <button
           type="submit"
           data-testid="send-button"
-          onClick={ onClick }
+          onClick={ this.handleClick }
         >
           Adicionar filme
         </button>
@@ -97,7 +97,6 @@ class AddMovie extends React.Component {
 
 AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
-  handleChangeAddMovie: PropTypes.func.isRequired,
 };
 
 export default AddMovie;
