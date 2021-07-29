@@ -1,6 +1,7 @@
 import React from 'react';
 
-class Form extends React.Component {
+class FormSearchBar extends React.Component {
+
   render() {
     const { searchText,
       onSearchTextChange,
@@ -12,6 +13,7 @@ class Form extends React.Component {
     return (
       <form data-testid="search-bar-form">
         <label data-testid="text-input-label" htmlFor="insertText">
+          Inclui o texto:
           <input
             data-testid="text-input"
             type="text"
@@ -20,7 +22,6 @@ class Form extends React.Component {
             value={ searchText }
             onChange={ onSearchTextChange }
           />
-          Inclui o texto:
         </label>
         <label data-testid="checkbox-input-label" htmlFor="favorite">
           <input
@@ -53,4 +54,4 @@ class Form extends React.Component {
   }
 }
 
-export default Form;
+export default FormSearchBar;

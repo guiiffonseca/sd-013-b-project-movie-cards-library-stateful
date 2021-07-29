@@ -1,11 +1,11 @@
 import React from 'react';
-import Form from './Form';
+import FormSearchBar from './FormSearchBar';
 
 class SearchBar extends React.Component {
   render() {
     return (
       <div>
-        <Form />
+        <FormSearchBar />
       </div>
     );
   }
