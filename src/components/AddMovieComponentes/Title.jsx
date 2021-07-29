@@ -5,14 +5,14 @@ class Title extends React.Component {
     const { state, evento } = this.props;
     return (
       <label htmlFor="imputTitle" data-testid="title-input-label">
-        Títul
+        Título
         <input
           id="imputTitle"
           value={ state }
           onChange={ evento }
           name="title"
           type="text"
-          /* data-testid="title-input" */
+          data-testid="title-input"
         />
       </label>
     );
