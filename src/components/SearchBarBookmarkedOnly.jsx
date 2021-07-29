@@ -21,7 +21,7 @@ class SearchBarBookmarkedOnly extends React.Component {
 }
 
 SearchBarBookmarkedOnly.propTypes = {
-  value: PropTypes.string.isRequired,
+  value: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 

@@ -5,6 +5,7 @@ import InpuField from './InputField';
 import InputTextarea from './InputTextarea';
 import InputImagePath from './InputImagePath';
 import InputSelect from './InputSelect';
+import InputFieldNumber from './InputFieldNumber';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -70,7 +71,7 @@ class AddMovie extends React.Component {
           name="storyline"
           onChange={ this.handleChange }
         />
-        <InpuField
+        <InputFieldNumber
           label="Avaliação"
           type="number"
           value={ rating }
@@ -81,7 +82,7 @@ class AddMovie extends React.Component {
         <button
           type="submit"
           data-testid="send-button"
-          onClick={ onClick(this.state) }
+          onClick={ onClick }
         >
           Adicionar filme
         </button>
