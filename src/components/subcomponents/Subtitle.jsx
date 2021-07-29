@@ -8,12 +8,12 @@ class Subtitle extends React.Component {
       <label htmlFor="Input subtitle" data-testid="subtitle-input-label">
         Subtítulo
         <input
-          value={ subtitle }
-          type="text"
-          name=""
-          id="Input subtitle"
           data-testid="subtitle-input"
+          id="Input subtitle"
+          name="subtitle"
           onChange={ onChange }
+          type="text"
+          value={ subtitle }
         />
       </label>
     );
