@@ -7,7 +7,7 @@ class AddMovie extends React.Component {
     this.state = {
       title: '',
       subtitle: '',
-      // storyline: '',
+      storyline: '',
       // rating: 0,
       imagePath: '',
       // genre: 'action',
@@ -16,6 +16,7 @@ class AddMovie extends React.Component {
     this.onNewTitle = this.onNewTitle.bind(this);
     this.onNewSubTitle = this.onNewSubTitle.bind(this);
     this.onNewImagePath = this.onNewImagePath.bind(this);
+    this.onNewStoryline = this.onNewStoryline.bind(this);
   }
 
   onNewTitle(event) {
@@ -33,9 +34,14 @@ class AddMovie extends React.Component {
     this.setState({ imagePath: event.target.value });
   }
 
+  onNewStoryline(event) {
+    console.log(event.target.value);
+    this.setState({ storyline: event.target.value });
+  }
+
   render() {
     const { callBack } = this.props;
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="newTitle" data-testid="title-input-label">
@@ -66,6 +72,16 @@ class AddMovie extends React.Component {
             onChange={ this.onNewImagePath }
             data-testid="image-input"
             id="newImagePath"
+          />
+        </label>
+        <label htmlFor="newStoryline" data-testid="storyline-input-label">
+          Sinopse
+          <input
+            type="textarea"
+            value={ storyline }
+            onChange={ this.onNewStoryline }
+            data-testid="storyline-input"
+            id="newStoryline"
           />
         </label>
         { console.log(callBack) }
