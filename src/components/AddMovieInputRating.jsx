@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovieInputRating extends React.Component {
-
   render() {
     const { rating, handleChange } = this.props;
     return (
@@ -19,5 +19,14 @@ class AddMovieInputRating extends React.Component {
     );
   }
 }
+
+AddMovieInputRating.propTypes = {
+  rating: PropTypes.string,
+  handleChange: PropTypes.func.isRequired,
+};
+
+AddMovieInputRating.defaultProps = {
+  rating: 0,
+};
 
 export default AddMovieInputRating;

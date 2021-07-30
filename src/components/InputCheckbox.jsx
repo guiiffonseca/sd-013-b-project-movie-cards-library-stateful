@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class InputCheckbox extends React.Component {
   render() {
@@ -17,5 +18,10 @@ class InputCheckbox extends React.Component {
     );
   }
 }
+
+InputCheckbox.propTypes = {
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+};
 
 export default InputCheckbox;

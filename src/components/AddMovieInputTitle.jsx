@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovieInputTitle extends React.Component {
-
   render() {
     const { title, handleChange } = this.props;
     return (
@@ -19,5 +19,10 @@ class AddMovieInputTitle extends React.Component {
     );
   }
 }
+
+AddMovieInputTitle.propTypes = {
+  title: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
 
 export default AddMovieInputTitle;

@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovieInputGenre extends React.Component {
-
   render() {
     const { genre, handleChange } = this.props;
     return (
@@ -23,5 +23,10 @@ class AddMovieInputGenre extends React.Component {
     );
   }
 }
+
+AddMovieInputGenre.propTypes = {
+  genre: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
 
 export default AddMovieInputGenre;
