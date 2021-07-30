@@ -6,7 +6,8 @@ class InputImage extends Component {
     return (
       <label
         htmlFor="imagem"
-        data-testid="image-input-label">
+        data-testid="image-input-label"
+      >
         Imagem
         <input
           id="imagem"

@@ -6,7 +6,8 @@ class InputText extends Component {
     return (
       <label
         htmlFor="text1"
-        data-testid="title-input-label">
+        data-testid="title-input-label"
+      >
         Título
         <input
           name="text1"
