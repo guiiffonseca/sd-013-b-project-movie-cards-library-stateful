@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class InputSelect extends React.Component {
   render() {
-    const { genre } = this.state;
+    const { genre, onChange } = this.props;
     return (
       <label data-testid="genre-input-label" htmlFor="genre-input-lab">
         Gênero
@@ -25,6 +25,7 @@ class InputSelect extends React.Component {
 
 InputSelect.propTypes = {
   genre: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default InputSelect;
