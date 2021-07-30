@@ -2,9 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class createInput extends React.Component {
-
   render() {
-    const { input: { tag, key, id, type, label, name, checked }, value, onChange } = this.props;
+    const { input: {
+      tag,
+      key,
+      id,
+      type,
+      label,
+      name,
+      checked,
+    }, value, onChange } = this.props;
     return (
       <label
         key={ key }
