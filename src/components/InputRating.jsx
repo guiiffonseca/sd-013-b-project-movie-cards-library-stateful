@@ -13,6 +13,8 @@ class InputRating extends React.Component {
             onChange={ onChange }
             data-testid="rating-input"
             name="rating"
+            id="rating"
+            type="number"
           />
         </label>
       </div>
