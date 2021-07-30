@@ -20,12 +20,17 @@ export default class AddMovie extends React.Component {
     //   genre: 'action',
     // };
     this.handleChange = this.handleChange.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   handleChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({ [name]: value });
+  }
+
+  onClick() {
+
   }
 
   render() {

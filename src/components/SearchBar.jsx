@@ -5,19 +5,6 @@ import Input from './Input';
 import CheckBox from './CheckBox';
 
 export default class SearchBar extends React.Component {
-  constructor() {
-    super();
-    this.onSearchTextChange = this.onSearchTextChange.bind(this);
-  }
-
-  onSearchTextChange({ target }) {
-    const { inputText } = this.state;
-    console.log(target.value);
-    this.setState({
-      [inputText]: target.value,
-    });
-  }
-
   render() {
     const { searchText, onSearchTextChange, bookmarkedOnly,
       onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
