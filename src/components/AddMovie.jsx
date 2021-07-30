@@ -14,7 +14,6 @@ class AddMovie extends Component {
     super();
 
     this.handleOnChange = this.handleOnChange.bind(this);
-    // this.handleClick = this.handleClick.bind(this);
 
     this.state = {
       subtitle: '',
