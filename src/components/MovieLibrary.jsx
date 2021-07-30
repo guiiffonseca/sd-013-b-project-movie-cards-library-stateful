@@ -10,9 +10,9 @@ class MovieLibrary extends Component {
     super(props);
 
     this.state = {
-      searchText: '',
-      bookmarkedOnly: false,
-      selectedGenre: '',
+      // searchText: '',
+      // bookmarkedOnly: false,
+      // selectedGenre: '',
       // movies: ,
     };
   }
@@ -30,8 +30,11 @@ class MovieLibrary extends Component {
   }
 }
 
-MovieLibrary.protoType = {
+MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+  // searchText: PropTypes.string.isRequired,
+  // bookmarkedOnly: PropTypes.bool.isRequired,
+  // selectedGenre: PropTypes.string.isRequired,
 };
 
 export default MovieLibrary;

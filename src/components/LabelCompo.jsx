@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class LabelCompo extends React.Component {
   render() {
@@ -11,5 +11,11 @@ class LabelCompo extends React.Component {
     );
   }
 }
+
+LabelCompo.propTypes = {
+  htmlFor: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+};
 
 export default LabelCompo;

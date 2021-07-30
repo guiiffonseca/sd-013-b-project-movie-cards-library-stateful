@@ -34,7 +34,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { state, handleChange, restoreChanges } = this;
+    const { handleChange, restoreChanges } = this;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
