@@ -1,9 +1,9 @@
 // implement MovieLibrary component here
 import React from 'react';
+import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-import movies from '../data';
 
 class MovieLibrary extends React.Component {
   handleRececeState = (evento) => {
@@ -11,6 +11,7 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
+    const { movies } = this.props;
     return (
       <div>
         <h2>My awesome movie library </h2>
@@ -21,5 +22,13 @@ class MovieLibrary extends React.Component {
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.string,
+};
+
+MovieLibrary.defaultProps = {
+  movies: '',
+};
 
 export default MovieLibrary;
