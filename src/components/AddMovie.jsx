@@ -28,9 +28,19 @@ class AddMovie extends React.Component {
 
   handleClick(event) {
     event.preventDefault();
-    const { onClick } = this.props;
-    onClick(this.state);
-    this.setState(this.props);
+    const { onClick } = this.props; // referencia: Projeto do caribe
+    onClick(this.state); // referencia: Projeto do caribe
+    this.setState(() => {
+      const defaultState = {
+        subtitle: '',
+        title: '',
+        imagePath: '',
+        storyline: '',
+        rating: 0,
+        genre: 'action',
+      };
+      return defaultState;
+    });
   }
 
   render() {

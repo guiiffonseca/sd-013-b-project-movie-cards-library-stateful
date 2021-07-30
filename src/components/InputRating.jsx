@@ -25,6 +25,6 @@ class InputRating extends React.Component {
 export default InputRating;
 
 InputRating.propTypes = {
-  value: PropTypes.number.isRequired,
+  value: PropTypes.node.isRequired,
   onChange: PropTypes.func.isRequired,
 };
