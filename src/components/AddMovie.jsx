@@ -21,13 +21,14 @@ class AddMovie extends React.Component {
     this.state = objState;
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleClcik = this.handleClcik.bind(this);
+    this.handleClik = this.handleClik.bind(this);
   }
 
-  handleClcik(event) {
+  handleClik(event) {
     event.preventDefault();
-    this.state = objState;
-    alert('diego');
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState(objState);
   }
 
   handleChange(event) {
@@ -52,7 +53,7 @@ class AddMovie extends React.Component {
         />
         <AddMovieInputRating rating={ rating } handleChange={ this.handleChange } />
         <AddMovieInputGenre genre={ genre } handleChange={ this.handleChange } />
-        <button type="submit" data-testid="send-button" onClick={ this.handleClcik }>
+        <button type="submit" data-testid="send-button" onClick={ this.handleClik }>
           Adicionar filme
         </button>
       </form>
