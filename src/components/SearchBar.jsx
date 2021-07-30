@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 import PropTypes from 'prop-types';
 import React from 'react';
 
