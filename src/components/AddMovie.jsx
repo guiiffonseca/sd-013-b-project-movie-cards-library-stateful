@@ -21,6 +21,7 @@ class AddMovie extends Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   //  funcao handleChange foi pega de https://pt-br.reactjs.org/docs/forms.html#gatsby-focus-wrapper
@@ -36,13 +37,23 @@ class AddMovie extends Component {
     });
   }
 
-  /*  handleSubmit = (event) => {
-    event.preventDefault();
+  //  rever logica abaixo, pois nao entendi ainda, acompanhei raciocinio do Lucio.
 
-  }  */
+  handleSubmit(event) {
+    event.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
 
   render() {
-    const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -56,7 +67,7 @@ class AddMovie extends Component {
         <button
           type="submit"
           data-testid="send-button"
-          onClick={ onClick }
+          onClick={ this.handleSubmit }
         >
           Adicionar filme
         </button>
@@ -65,14 +76,14 @@ class AddMovie extends Component {
   }
 }
 
-AddMovie.propTypes = {
+/*  AddMovie.propTypes = {
   onClick: PropTypes.arrayOf(
     PropTypes.func,
   ).isRequired,
-};
-
-/*  AddMovie.propTypes = {
-  onClick: PropTypes.func.isRequired,
 };  */
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
