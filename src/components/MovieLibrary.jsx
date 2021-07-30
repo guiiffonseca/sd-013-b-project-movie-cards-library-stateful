@@ -6,6 +6,12 @@ import SearchBar from './SearchBar';
 /* import PropTypes from 'prop-types'; */
 
 class MovieLibrary extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      
+    }
+  }
   render() {
     return (
       <div>
