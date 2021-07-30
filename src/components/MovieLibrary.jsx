@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
@@ -12,7 +13,7 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      // movies: props.movies,
+      movies: props.movies,
     };
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
@@ -24,14 +25,12 @@ class MovieLibrary extends Component {
     });
   }
 
-  /*  updateMovies = () => {
-    const { movies } = this.props;
-    const { bookmarkedOnly } = this.state;
-    const filteredMovie = movies.filter((movie) => movie.bookmarked);
-    this.setState({
-      []
-    })
-  }  */
+  handleUpdateMovies = () => {
+    const { bookmarkedOnly, movies } = this.state;
+    const filteredMovie = movies
+      .filter((movie) => (bookmarkedOnly ? movie.bookmarked : movies));
+    return filteredMovie;
+  }
 
   render() {
     const { movies } = this.props;

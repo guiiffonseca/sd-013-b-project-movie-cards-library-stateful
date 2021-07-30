@@ -36,7 +36,10 @@ class AddMovie extends Component {
     });
   }
 
-  //  handleSubmit = (event) => {}
+  /*  handleSubmit = (event) => {
+    event.preventDefault();
+
+  }  */
 
   render() {
     const { onClick } = this.props;
@@ -67,5 +70,9 @@ AddMovie.propTypes = {
     PropTypes.func,
   ).isRequired,
 };
+
+/*  AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};  */
 
 export default AddMovie;
