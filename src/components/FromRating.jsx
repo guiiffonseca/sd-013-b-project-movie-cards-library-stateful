@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class FromRating extends React.Component {
   render() {
@@ -17,5 +18,10 @@ class FromRating extends React.Component {
     );
   }
 }
+
+FromRating.propTypes = {
+  valor: PropTypes.number.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
 
 export default FromRating;
