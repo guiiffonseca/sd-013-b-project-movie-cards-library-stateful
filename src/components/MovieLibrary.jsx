@@ -12,7 +12,7 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: props.movies,
+      // movies: props.movies,
     };
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
