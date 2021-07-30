@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import TitleTextInput from './TitleTextInput';
 import SubitleTextInput from './SubtitleTextInput';
 import ImageInput from './ImageInput';
+import SinopseTextArea from './SinopseTextArea';
 
 class AddMovie extends React.Component {
   render() {
@@ -14,6 +15,7 @@ class AddMovie extends React.Component {
           <TitleTextInput />
           <SubitleTextInput />
           <ImageInput />
+          <SinopseTextArea />
         </form>
         {onClick}
       </div>
