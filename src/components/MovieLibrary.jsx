@@ -16,24 +16,37 @@ class MovieLibrary extends Component {
       movies: props.movies,
     };
 
-    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onMovieChange = this.onMovieChange.bind(this);
+    this.handleUpdateMovies = this.handleUpdateMovies.bind(this);
+    this.handleOnClick = this.handleOnClick.bind(this);
   }
 
-  onSearchTextChange(event) {
-    this.setState({
-      searchText: event.target.value,
-    });
+  handleOnClick(movie) {
+    const { movies } = this.state;
+    const filteredList = [...movies, movie];
+    this.setState({ movies: filteredList });
   }
 
-  handleUpdateMovies = () => {
-    const { bookmarkedOnly, movies } = this.state;
+  handleUpdateMovies() {
+    const { bookmarkedOnly, movies, selectedGenre, searchText } = this.state;
     const filteredMovie = movies
-      .filter((movie) => (bookmarkedOnly ? movie.bookmarked : movies));
+      .filter((movie) => (bookmarkedOnly ? movie.bookmarked : movies))
+      .filter((movie) => movie.genre.includes(selectedGenre))
+      .filter((movie) => movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText) || movie.storyline.includes(searchText));
     return filteredMovie;
   }
 
+  onMovieChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({
+      [name]: value,
+    });
+  }
+
   render() {
-    const { movies } = this.props;
+    //  const { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
@@ -42,10 +55,12 @@ class MovieLibrary extends Component {
           searchText={ searchText }
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
-          onSearchTextChange={ this.onSearchTextChange }
+          onSearchTextChange={ this.onMovieChange }
+          onBookmarkedChange={ this.onMovieChange }
+          onSelectedGenreChange={ this.onMovieChange }
         />
-        <MovieList movies={ movies } />
-        <AddMovie />
+        <MovieList movies={ this.handleUpdateMovies() } />
+        <AddMovie onClick={ this.handleOnClick } />
       </div>
     );
   }

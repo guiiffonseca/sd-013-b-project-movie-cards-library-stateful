@@ -9,8 +9,8 @@ import InputStoryline from './InputStoryline';
 import InputSelect from './InputSelect';
 
 class AddMovie extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       title: '',
@@ -28,10 +28,9 @@ class AddMovie extends Component {
 
   //  handleChange generico, com o [name] ( ao usar os colchetes conseguimos pegar uma variavel e utilizar o valor dentro da variavel pra acessar as propriedades de um objeto)
 
-  handleChange(event) {
-    const { name } = event.target;
-    //  const value = target.type === 'checkbox' ? target.checked : target.value;
-    const value = '';
+  handleChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [name]: value,
     });
