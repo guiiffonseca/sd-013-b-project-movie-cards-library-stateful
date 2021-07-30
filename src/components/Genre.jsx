@@ -25,7 +25,7 @@ class Genre extends React.Component {
 }
 
 Genre.propTypes = {
-  state: PropTypes.number.isRequired,
+  state: PropTypes.string.isRequired,
   callback: PropTypes.func.isRequired,
 };
 
