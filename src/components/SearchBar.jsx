@@ -3,13 +3,8 @@ import PropTypes from 'prop-types';
 import InputSearchBar from './InputSearchBar';
 import InputCheckBox from './InputCheckBox';
 import InputSelect from './InputSelect';
-class SearchBar extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
 
+class SearchBar extends React.Component {
   render() {
     const {
       searchText,
@@ -24,7 +19,7 @@ class SearchBar extends React.Component {
         <fieldset>
           <InputSearchBar searchText={ searchText } onSe={ onSearchTextChange } />
           <InputCheckBox checked={ bookmarkedOnly } onChange={ onBookmarkedChange } />
-          <InputSelect selectedGenre={ selectedGenre } onSelectedChange={ onSelectedGenreChange } />
+          <InputSelect selGenre={ selectedGenre } onSelChange={ onSelectedGenreChange } />
         </fieldset>
       </form>
     );

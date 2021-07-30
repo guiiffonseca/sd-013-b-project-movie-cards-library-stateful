@@ -25,13 +25,15 @@ class MovieLibrary extends React.Component {
 
   genericChange({ target }) {
     const { name, value } = target;
-    if (!name === 'bookmarkedOnly') {
+    if (name === 'bookmarkedOnly') {
+      this.setState((prevValue) => ({
+        [name]: !prevValue.bookmarkedOnly,
+      }));
+    } else {
       this.setState({
         [name]: value,
       });
-    } this.setState((prevValue) => ({
-      [name]: !prevValue,
-    }));
+    }
   }
 
   render() {
