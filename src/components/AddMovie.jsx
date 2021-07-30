@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import InputForm from './InputForm';
-import Data from './GeneratInputForms';
+import Data from './Data-add-movie';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -29,16 +29,6 @@ class AddMovie extends React.Component {
 
   getValue(value) {
     const getState = this.state;
-
-    // const objectState = Object.entries(this.state);
-    // let toReturn;
-    // objectState.forEach((element) => {
-    //   if (element[0] === value) {
-    //     const test = element[1];
-    //     toReturn = test;
-    //     console.log([1]);
-    //   }
-    // });
     return getState[value];
   }
 

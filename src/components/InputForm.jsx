@@ -23,7 +23,13 @@ class InputForm extends React.Component { // cria a classe que vai ser o ponto d
 }
 
 InputForm.propTypes = {
-  data: PropTypes.string.isRequired,
+  data: PropTypes.shape({
+    title: PropTypes.string,
+    id: PropTypes.string,
+    type: PropTypes.string,
+    name: PropTypes.string,
+    dataTestid: PropTypes.string,
+  }).isRequired,
   get: PropTypes.func.isRequired,
   onCha: PropTypes.func.isRequired,
 };

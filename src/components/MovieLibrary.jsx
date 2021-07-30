@@ -1,32 +1,60 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
+import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  //   state = {
+  constructor(props) {
+    super(props);
 
-  //   };
-  // }
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: props.movies,
+    };
+
+    this.onClickChange = this.onClickChange.bind(this);
+    this.genericChange = this.genericChange.bind(this);
+  }
+
   onClickChange() {
-    return 'teste';
+    return null;
+  }
+
+  genericChange({ target }) {
+    const { name, value } = target;
+    if (!name === 'bookmarkedOnly') {
+      this.setState({
+        [name]: value,
+      });
+    } this.setState((prevValue) => ({
+      [name]: !prevValue,
+    }));
   }
 
   render() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <SearchBar
-          searchText=""
-          onSearchTextChange=""
-          onBookmarkedChange=""
-          selectedGenre=""
-          onSelectedGenreChange=""
+          searchText={ searchText }
+          onSearchTextChange={ this.genericChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.genericChange }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.genericChange }
         />
         <AddMovie onClick={ this.onClickChange } />
+        <MovieList movies={ movies } />
       </div>
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default MovieLibrary;
