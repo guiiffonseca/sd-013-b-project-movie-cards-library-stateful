@@ -1,23 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class TitleTextInput extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      title: '',
-    };
-    this.handleChangeOnTitle = this.handleChangeOnTitle.bind(this);
-  }
-
-  handleChangeOnTitle = (event) => {
-    this.setState({
-      title: event.target.value,
-    });
-    console.log(this);
-  };
-
   render() {
-    const { title } = this.state;
+    const { value, onChange } = this.props;
 
     return (
       <label htmlFor="title-input" data-testid="title-input-label">
@@ -26,12 +12,17 @@ class TitleTextInput extends React.Component {
           type="text"
           data-testid="title-input"
           id="title-input"
-          value={ title }
-          onChange={ this.handleChangeOnTitle }
+          value={ value }
+          onChange={ onChange }
         />
       </label>
     );
   }
 }
+
+TitleTextInput.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default TitleTextInput;

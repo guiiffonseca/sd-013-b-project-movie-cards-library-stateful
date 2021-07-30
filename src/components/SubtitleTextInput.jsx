@@ -1,23 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class SubitleTextInput extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      subtitle: '',
-    };
-    this.handleChangeOnSubtitle = this.handleChangeOnSubtitle.bind(this);
-  }
-
-  handleChangeOnSubtitle = (event) => {
-    this.setState({
-      subtitle: event.target.value,
-    });
-    console.log(this);
-  };
-
   render() {
-    const { subtitle } = this.state;
+    const { value, onChange } = this.props;
 
     return (
       <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
@@ -26,12 +12,17 @@ class SubitleTextInput extends React.Component {
           type="text"
           data-testid="subtitle-input"
           id="subtitle-input"
-          value={ subtitle }
-          onChange={ this.handleChangeOnSubtitle }
+          value={ value }
+          onChange={ onChange }
         />
       </label>
     );
   }
 }
+
+SubitleTextInput.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default SubitleTextInput;

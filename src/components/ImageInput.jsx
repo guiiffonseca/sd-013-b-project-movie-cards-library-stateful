@@ -1,23 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class ImageInput extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      imagePath: '',
-    };
-    this.handleChangeOnImage = this.handleChangeOnImage.bind(this);
-  }
-
-  handleChangeOnImage = (event) => {
-    this.setState({
-      imagePath: event.target.value,
-    });
-    console.log(this);
-  }
-
   render() {
-    const { imagePath } = this.state;
+    const { value, onChange } = this.props;
 
     return (
       <label htmlFor="image-input" data-testid="image-input-label">
@@ -26,12 +12,17 @@ class ImageInput extends React.Component {
           type="text"
           data-testid="image-input"
           id="image-input"
-          value={ imagePath }
-          onChange={ this.handleChangeOnImage }
+          value={ value }
+          onChange={ onChange }
         />
       </label>
     );
   }
 }
+
+ImageInput.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default ImageInput;

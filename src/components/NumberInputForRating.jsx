@@ -1,23 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class NumberInput extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      rating: 0,
-    };
-    this.handleChangeOnRating = this.handleChangeOnRating.bind(this);
-  }
-
-  handleChangeOnRating = (event) => {
-    this.setState({
-      rating: event.target.value,
-    });
-    console.log(this);
-  };
-
   render() {
-    const { rating } = this.state;
+    const { value, onChange } = this.props;
 
     return (
       <label htmlFor="number-input" data-testid="rating-input-label">
@@ -26,12 +12,17 @@ class NumberInput extends React.Component {
           type="number"
           data-testid="rating-input"
           id="number-input"
-          value={ rating }
-          onChange={ this.handleChangeOnRating }
+          value={ value }
+          onChange={ onChange }
         />
       </label>
     );
   }
 }
+
+NumberInput.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default NumberInput;

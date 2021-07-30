@@ -1,23 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class SinopseTextArea extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      storyline: '',
-    };
-    this.handleChangeOnTextArea = this.handleChangeOnTextArea.bind(this);
-  }
-
-  handleChangeOnTextArea = (event) => {
-    this.setState({
-      storyline: event.target.value,
-    });
-    console.log(this);
-  };
-
   render() {
-    const { storyline } = this.state;
+    const { value, onChange } = this.props;
 
     return (
       <label htmlFor="textarea-input" data-testid="storyline-input-label">
@@ -26,12 +12,17 @@ class SinopseTextArea extends React.Component {
           type="text"
           data-testid="storyline-input"
           id="textarea-input"
-          value={ storyline }
-          onChange={ this.handleChangeOnTextArea }
+          value={ value }
+          onChange={ onChange }
         />
       </label>
     );
   }
 }
+
+SinopseTextArea.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default SinopseTextArea;
