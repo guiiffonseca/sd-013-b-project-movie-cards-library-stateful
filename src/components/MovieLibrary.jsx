@@ -35,6 +35,10 @@ class MovieLibrary extends Component {
     this.setState({ movies: filteredList });
   }
 
+  //  como estava com dificuldade para encontrar o erro, acabava nas mentorias coletivas observando
+  //  o que outros colegas estavam fazendo e fui modificando meu codigo a ver se conseguia passar nos requisitos.
+  //  esse abaixo nem me lembro quem estava compartiçhando, mas segui o mesmo raciocinio.
+
   handleUpdateMovies() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     const filteredMovie = movies
