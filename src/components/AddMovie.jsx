@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import InputTitle from './InputTitle';
 import InputSubtitle from './InputSubtitle';
 import InputImage from './InputImage';
-import InputRating from './InputRating';
 import InputStoryline from './InputStoryline';
+import InputRating from './InputRating';
 import InputSelect from './InputSelect';
 
 class AddMovie extends Component {
@@ -20,6 +20,7 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
+
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -29,8 +30,8 @@ class AddMovie extends Component {
   //  handleChange generico, com o [name] ( ao usar os colchetes conseguimos pegar uma variavel e utilizar o valor dentro da variavel pra acessar as propriedades de um objeto)
 
   handleChange({ target }) {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const { name, value } = target;
+    //  const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [name]: value,
     });

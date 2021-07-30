@@ -9,7 +9,7 @@ class InputStoryline extends React.Component {
         Sinopse
         <textarea
           id="storyline-input-lab"
-          name="storyline-input"
+          name="storyline"
           value={ storyline }
           data-testid="storyline-input"
           onChange={ onChange }

@@ -9,7 +9,7 @@ class InputSelect extends React.Component {
         Gênero
         <select
           id="genre-input-lab"
-          name="genre-input"
+          name="genre"
           value={ genre }
           onChange={ onChange }
           data-testid="genre-input"
