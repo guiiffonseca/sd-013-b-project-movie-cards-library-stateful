@@ -4,7 +4,7 @@ class NumberInput extends React.Component {
   constructor() {
     super();
     this.state = {
-      rating: '',
+      rating: 0,
     };
     this.handleChangeOnRating = this.handleChangeOnRating.bind(this);
   }

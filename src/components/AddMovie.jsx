@@ -5,6 +5,7 @@ import SubitleTextInput from './SubtitleTextInput';
 import ImageInput from './ImageInput';
 import SinopseTextArea from './SinopseTextArea';
 import NumberInput from './NumberInputForRating';
+import SelectGender from './SelectGender';
 
 class AddMovie extends React.Component {
   render() {
@@ -18,6 +19,7 @@ class AddMovie extends React.Component {
           <ImageInput />
           <SinopseTextArea />
           <NumberInput />
+          <SelectGender />
         </form>
         {onClick}
       </div>
