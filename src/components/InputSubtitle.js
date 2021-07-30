@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class InputSubtitle extends Component {
   render() {
-  const { value, handleSubTitleChange } = this.props;//
+    const { value, handleSubTitleChange } = this.props;//
     return (
       <label htmlFor="subtitle" data-testid="subtitle-input-label">
         Subtítulo

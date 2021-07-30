@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import MovieList from './MovieList';
-import SearchBar from './SearchBar';
 
 class InputsDefault extends Component {
   render() {
-    const { searchText, onSearchTextChange } = this.props;
+    const { searchText, textChange } = this.props;
     return (
       <label
         htmlFor="search-bar-form"
@@ -16,7 +13,7 @@ class InputsDefault extends Component {
           name="search-bar-form"
           type="text"
           value={ searchText }
-          onChange={ onSearchTextChange }
+          onChange={ textChange }
           data-testid="text-input"
         />
       </label>

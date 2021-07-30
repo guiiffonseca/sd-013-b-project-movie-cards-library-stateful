@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class InputImage extends Component {
   render() {
-     const { imagePath, handleImageChange } = this.props;//
+    const { imagePath, handleImageChange } = this.props;//
     return (
       <label
         htmlFor="imagem"
