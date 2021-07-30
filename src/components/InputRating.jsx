@@ -12,7 +12,6 @@ export default class InputRating extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     const { rating } = this.state;
     return (
       <label htmlFor="rating" data-testid="rating-input-label">

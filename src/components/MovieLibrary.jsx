@@ -19,13 +19,18 @@ export default class MovieLibrary extends React.Component {
   }
 
   handleChange({ target }) {
-    const { name } = target;
-    const value = (target.type === 'checkbox' ? 'checked' : target.value);
-    this.setState({ [name]: value });
+    const { name, type, value } = target;
+    const elementValue = (type === 'checkbox' ? 'checked' : value);
+    this.setState({ [name]: elementValue },
+      () => { this.handleMovies(elementValue); });
   }
 
-  onSearchTextChange({ target }) {
-    this.handleChange(target);
+  handleMovies(value) {
+    const { movies } = this.props;
+    this.setState({ movies: movies
+      .filter(({ title, storyline }) => (title)
+        .toLowerCase().includes(value.toLowerCase()) || (storyline)
+        .toLowerCase().includes(value.toLowerCase())) });
   }
 
   onBookmarkedChange = () => {
