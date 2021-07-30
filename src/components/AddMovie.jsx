@@ -7,7 +7,6 @@ import Storyline from './Storyline';
 import FromRating from './FromRating';
 import Select from './Select';
 
-
 class AddMovie extends React.Component {
   constructor() {
     super();
@@ -20,21 +19,23 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleChange = ({ target }) => {
+  handleChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [name]: value,
     });
-  };
+  }
 
-  handleClick = (event) => {
-    event.preventDefault();
+  handleClick() {
     const { onClick } = this.props;
     onClick(this.state);
-    this.setState = ({
+    this.setState({
       subtitle: '',
       title: '',
       imagePath: '',

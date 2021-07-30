@@ -1,7 +1,6 @@
 import React from 'react';
 
 class FromRating extends React.Component {
-
   render() {
     const { valor, handleChange } = this.props;
     return (
@@ -10,7 +9,7 @@ class FromRating extends React.Component {
         <input
           type="number"
           name="rating"
-          valor={ valor }
+          value={ valor }
           onChange={ handleChange }
           data-testid="rating-input"
         />
