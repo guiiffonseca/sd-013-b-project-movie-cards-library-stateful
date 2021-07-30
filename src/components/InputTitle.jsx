@@ -20,7 +20,7 @@ class InputTitle extends React.Component {
   }
 }
 
-InputImage.propTypes = {
+InputTitle.propTypes = {
   title: PropTypes.string.isRequired,
 };
 

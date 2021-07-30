@@ -23,7 +23,7 @@ class InputSelect extends React.Component {
   }
 }
 
-InputImage.propTypes = {
+InputSelect.propTypes = {
   genre: PropTypes.string.isRequired,
 };
 

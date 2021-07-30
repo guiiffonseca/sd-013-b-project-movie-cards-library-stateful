@@ -20,7 +20,7 @@ class InputSubtitle extends React.Component {
   }
 }
 
-InputImage.propTypes = {
+InputSubtitle.propTypes = {
   subtitle: PropTypes.string.isRequired,
 };
 
