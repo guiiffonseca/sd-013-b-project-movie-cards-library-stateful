@@ -19,8 +19,7 @@ class MovieLibrary extends Component {
     };
   }
 
-
-  //função baseada em diversos exemplos do course
+  // função baseada em diversos exemplos do course
   handleChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
