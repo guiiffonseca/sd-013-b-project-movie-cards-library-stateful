@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class InputText extends Component {
   render() {
@@ -14,12 +15,17 @@ class InputText extends Component {
           data-testid="title-input"
           type="text"
           value={ value }
-          onChange={ handleTitleChange }//
+          onChange={ handleTitleChange }
         />
       </label>
 
     );
   }
 }
+
+InputText.propTypes = {
+  value: PropTypes.string.isRequired,
+  handleTitleChange: PropTypes.func.isRequired,
+};
 
 export default InputText;
