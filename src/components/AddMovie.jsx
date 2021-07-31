@@ -6,7 +6,7 @@ class AddMovie extends React.Component {
     super(props);
 
     this.state = {
-      // subtitle: '', // guarda o subtítulo preenchido no formulário por quem usa a aplicação;
+      subtitle: '', // guarda o subtítulo preenchido no formulário por quem usa a aplicação;
       title: '', // guarda o título preenchido no formulário por quem usa a aplicação;
       // imagePath: '', // guarda o caminho da imagem preenchido no formulário por quem usa a aplicação;
       // storyline: '', // guarda a sinopse do filme escrita no formulário por quem usa a aplicação;
@@ -25,7 +25,10 @@ class AddMovie extends React.Component {
 
   render() {
     // const { onClick } = this.props;
-    const { title } = this.state;
+    const {
+      title,
+      subtitle,
+    } = this.state;
 
     return (
       <form data-testid="add-movie-form">
@@ -36,6 +39,17 @@ class AddMovie extends React.Component {
               id="title"
               value={ title }
               data-testid="title-input"
+              onChange={ this.handleChange }
+            />
+          </label>
+        </section>
+        <section>
+          <label data-testid="subtitle-input-label" htmlFor="subtitle">
+            Subtítulo:
+            <input
+              id="subtitle"
+              value={ subtitle }
+              data-testid="subtitle-input"
               onChange={ this.handleChange }
             />
           </label>
