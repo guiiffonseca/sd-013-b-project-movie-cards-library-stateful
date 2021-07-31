@@ -2,40 +2,53 @@ import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 
 export default class AddMovie extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: 'all',
+    };
+  }
+
   render() {
-    // const {
-    //   searchText,
-    //   onSearchTextChange,
-    //   bookmarkedOnly,
+    const {
+      searchText,
+      bookmarkedOnly,
+      selectedGenre,
+    } = this.state;
+    //  onSearchTextChange,
     //   onBookmarkedChange,
-    //   selectedGenre,
     //   onSelectedGenreChange,
-    // } = this.props;
     return (
       <form>
         {/* 3 inputs e 3 callbacks */}
         <label htmlFor="search-text">
           <input
             type="text"
-            name=""
+            name="searchText"
             id="search-text"
-            onSearchTextChange={ onSearchTextChange }
+            // onChange={ onSearchTextChange }
+            value={ searchText }
           />
         </label>
         <label htmlFor="book-marked">
           <input
             type="checkbox"
-            name=""
+            name="bookmarkedOnly"
             id="book-marked"
-            onBookmarkedChange={ onBookmarkedChange }
+            // onChange={ onBookmarkedChange }
+            value={ bookmarkedOnly }
           />
         </label>
         <label htmlFor="selected-genre">
           <input
             type="text"
-            name=""
+            name="selectedGenre"
             id="selected-genre"
-            onSelectedGenreChange={ onSelectedGenreChange }
+            // onSelectedGenreChange={ onSelectedGenreChange }
+            value={ selectedGenre }
           />
         </label>
       </form>
