@@ -100,7 +100,7 @@ class AddMovie extends Component {
           </select>
         </label>
         <button
-          type="submit"
+          type="button"
           data-testid="send-button"
           onClick={ this.reset }
           form="usrform"

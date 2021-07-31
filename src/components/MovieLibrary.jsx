@@ -8,12 +8,33 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
 
+    this.onClick = this.onClick.bind(this);
+
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: props.movies,
     };
+  }
+
+  onSearchTextChange() {
+    return 'xablau';
+  }
+
+  onBookmarkedChange() {
+    return 'xablau';
+  }
+
+  onSelectedGenreChange() {
+    return 'xablau';
+  }
+
+  onClick(callback) {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, callback],
+    });
   }
 
   render() {
@@ -28,14 +49,14 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ onSearchTextChange }
+          onSearchTextChange={ this.onSearchTextChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ onBookmarkedChange }
+          onBookmarkedChange={ this.onBookmarkedChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ onSelectedGenreChange }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
         />
-        <AddMovie />
         <MovieList movies={ movies } />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }
