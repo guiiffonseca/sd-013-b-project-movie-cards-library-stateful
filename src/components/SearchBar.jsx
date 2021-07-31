@@ -1,6 +1,7 @@
 /* eslint-disable max-lines-per-function */
 import PropTypes from 'prop-types';
 import React from 'react';
+import SearchSelectInput from './SearchSelectInput';
 
 function SearchBar(props) {
   const {
@@ -13,6 +14,7 @@ function SearchBar(props) {
   } = props;
   return (
     <form data-testid="search-bar-form">
+      {/* <TextInput label="text" text="" type="text" /> */}
       <label data-testid="text-input-label" htmlFor="input-label">
         Inclui o texto:
         <input
@@ -32,28 +34,10 @@ function SearchBar(props) {
           onChange={ onBookmarkedChange }
         />
       </label>
-      <label htmlFor="label-genre-filter" data-testid="select-input-label">
-        Filtrar por gênero
-        <select
-          name=""
-          value={ selectedGenre }
-          onChange={ onSelectedGenreChange }
-          data-testid="select-input"
-        >
-          <option data-testid="select-option" value="">
-            Todos
-          </option>
-          <option data-testid="select-option" value="action">
-            Ação
-          </option>
-          <option data-testid="select-option" value="comedy">
-            Comédia
-          </option>
-          <option data-testid="select-option" value="thriller">
-            Suspense
-          </option>
-        </select>
-      </label>
+      <SearchSelectInput
+        value={ selectedGenre }
+        onSelectedGenreChange={ onSelectedGenreChange }
+      />
     </form>
   );
 }

@@ -16,22 +16,22 @@ function AddMovie(props) {
 
   return (
     <form data-testid="add-movie-form">
-      <TextInput label="Título" text={ title } type="text" setText={ setTitle } />
+      <TextInput label="title" text={ title } type="text" setText={ setTitle } />
       <TextInput
-        label="Subtítulo"
+        label="subtitle"
         text={ subtitle }
         type="text"
         setText={ setSubtitle }
       />
       <TextInput
-        label="Imagem"
+        label="image"
         text={ imagePath }
         type="text"
         setText={ setImagePath }
       />
       <TextAreaInput storyLine={ storyLine } setStoryline={ setStoryline } />
       <TextInput
-        label="Avaliação"
+        label="rating"
         text={ rating.toString() }
         type="number"
         setText={ setRating }

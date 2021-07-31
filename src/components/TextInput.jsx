@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const inputTranslate = {
-  Título: 'title',
-  Subtítulo: 'subtitle',
-  Imagem: 'image',
-  Avaliação: 'rating',
+  title: 'Título',
+  subtitle: 'Subtítulo',
+  image: 'Imagem',
+  rating: 'Avaliação',
+  text: 'Inclui o texto:',
 };
 
 function TextInput(props) {
@@ -13,13 +14,13 @@ function TextInput(props) {
   return (
     <label
       htmlFor={ `label-movie-${text}` }
-      data-testid={ `${inputTranslate[label]}-input-label` }
+      data-testid={ `${label}-input-label` }
     >
-      {label}
+      {inputTranslate[label]}
       <input
         type={ type }
         value={ text }
-        data-testid={ `${inputTranslate[label]}-input` }
+        data-testid={ `${label}-input` }
         onChange={ (event) => {
           if (type === 'number') {
             setText(Number(event.target.value));
