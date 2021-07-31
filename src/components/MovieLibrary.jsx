@@ -5,12 +5,53 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 export default class MovieLibrary extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: 'Todos',
+    };
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+  }
+
+  onSearchTextChange({ target }) {
+    this.setState({
+      searchText: target.value,
+    });
+  }
+
+  onBookmarkedChange({ target }) {
+    const value = target.checked;
+    this.setState({
+      bookmarkedOnly: value,
+    });
+  }
+
+  onSelectedGenreChange({ target }) {
+    const { value } = target;
+    this.setState({
+      selectedGenre: value,
+    });
+  }
+
   render() {
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <h2> The amazing movie library </h2>
         <MovieList />
-        <SearchBar />
+        <SearchBar
+          onSearchTextChange={ this.onSearchTextChange }
+          searchTextValue={ searchText }
+          onBookmarkedChange={ this.onBookmarkedChange }
+          bookmarkedOnlyValue={ bookmarkedOnly }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
+          selectedGenreValue={ selectedGenre }
+        />
         <AddMovie />
       </div>
     );
