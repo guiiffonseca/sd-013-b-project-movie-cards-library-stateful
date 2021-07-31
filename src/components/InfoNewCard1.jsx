@@ -5,7 +5,6 @@ class InfoNewCard1 extends Component {
   render() {
     const { state, handleChange } = this.props;
     const { subtitle, title, imagePath } = state;
-
     return (
       <div>
         <label htmlFor="title" data-testid="title-input-label">
