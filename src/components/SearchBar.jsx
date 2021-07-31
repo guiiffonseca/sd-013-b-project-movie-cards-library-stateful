@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 
-export default class AddMovie extends Component {
+export default class SearchBar extends Component {
   constructor() {
     super();
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
-      selectedGenre: 'all',
+      selectedGenre: 'Todos',
     };
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
   onSearchTextChange({ target }) {
@@ -25,6 +28,13 @@ export default class AddMovie extends Component {
     });
   }
 
+  onSelectedGenreChange({ target }) {
+    const { value } = target;
+    this.setState({
+      selectedGenre: value,
+    });
+  }
+
   render() {
     const {
       searchText,
@@ -36,7 +46,6 @@ export default class AddMovie extends Component {
     //   onSelectedGenreChange,
     return (
       <form>
-        {/* 3 inputs e 3 callbacks */}
         <label htmlFor="search-text">
           <input
             type="text"
@@ -51,16 +60,16 @@ export default class AddMovie extends Component {
             type="checkbox"
             name="bookmarkedOnly"
             id="book-marked"
-            // onChange={ onBookmarkedChange }
+            onChange={ this.onBookmarkedChange }
             value={ bookmarkedOnly }
           />
         </label>
         <label htmlFor="selected-genre">
           <input
-            type="text"
+            type="checkbox"
             name="selectedGenre"
             id="selected-genre"
-            // onSelectedGenreChange={ onSelectedGenreChange }
+            onChange={ this.onSelectedGenreChange }
             value={ selectedGenre }
           />
         </label>
