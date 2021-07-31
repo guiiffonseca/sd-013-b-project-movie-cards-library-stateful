@@ -54,11 +54,9 @@ class MovieLibrary extends React.Component {
     }
 
     if (selectedGenre !== '') {
-      console.log('teste');
       filtered = filtered.filter((movie) => movie.genre === selectedGenre)
         .map((movie) => movie);
     } else {
-      console.log('vazia');
       return filtered;
     }
 
