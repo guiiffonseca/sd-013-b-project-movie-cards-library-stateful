@@ -21,6 +21,6 @@ class TextArea extends React.Component {
 TextArea.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-}
+};
 
 export default TextArea;
