@@ -6,14 +6,15 @@ import Imagem from './imagem';
 import Sinopse from './sinopse';
 import Avaliacao from './avaliacao';
 import Genero from './genero';
+import Botao from './botao';
 
 class addMovie extends React.Component {
-  constructor() {
-    super();
+  constructor(event) {
+    super(event);
 
     this.state = {
-      title: '',
       subtitle: '',
+      title: '',
       imagePath: '',
       storyline: '',
       rating: 0,
@@ -31,7 +32,7 @@ class addMovie extends React.Component {
     // segundo a documentação event.preventDefault:Outra diferença é que você não pode retornar false para evitar o comportamento padrão no React. Você deve chamar preventDefault explícitamente. Por exemplo, com HTML simples, para evitar o comportamento padrão do formulário de envio
     event.preventDefault();
     const { onClick } = this.props;
-    onClick();
+    onClick(this.state);
     this.setState({
       title: '',
       subtitle: '',
@@ -54,13 +55,7 @@ class addMovie extends React.Component {
           <Sinopse storyline={ storyline } onChange={ this.handleChange } />
           <Avaliacao rating={ rating } onChange={ this.handleChange } />
           <Genero genre={ genre } onChange={ this.handleChange } />
-          <button
-            type="submit"
-            data-testid="send-button"
-            onClick={ this.voltaTudo }
-          >
-            Adicionar filme
-          </button>
+          <Botao onClick={ this.voltaTudo } />
         </form>
       </section>
     );

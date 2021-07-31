@@ -5,18 +5,18 @@ class Genero extends React.Component {
   render() {
     const { genre, onChange } = this.props;
     return (
-      <label htmlFor="gen" data-testid="genre-input-label">
+      <label data-testid="genre-input-label" htmlFor="genre-input">
         Gênero
         <select
-          name="gen"
-          id="gen"
+          data-testid="genre-input"
+          name="genre"
           value={ genre }
           onChange={ onChange }
-          data-testid="genre-input"
         >
-          <option value="action" data-testid="genre-option">Ação</option>
-          <option value="comedy" data-testid="genre-option">Comédia</option>
-          <option value="thriller" data-testid="genre-option">Suspense</option>
+          <option data-testid="genre-option" value="action"> Ação </option>
+          <option data-testid="genre-option" value="comedy">Comédia</option>
+          <option data-testid="genre-option" value="thriller">Suspense</option>
+
         </select>
       </label>
     );

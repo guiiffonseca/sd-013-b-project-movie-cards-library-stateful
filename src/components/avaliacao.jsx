@@ -5,13 +5,12 @@ class Avaliacao extends React.Component {
   render() {
     const { rating, onChange } = this.props;
     return (
-      <label htmlFor="Avaliação" data-testid="rating-input-label">
+      <label data-testid="rating-input-label" htmlFor="rating-input">
         Avaliação
         <input
-          id="Avaliação"
-          name="Avaliação"
-          type="number"
           data-testid="rating-input"
+          type="number"
+          name="rating"
           value={ rating }
           onChange={ onChange }
         />

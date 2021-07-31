@@ -5,13 +5,13 @@ class Sinopse extends React.Component {
   render() {
     const { storyline, onChange } = this.props;
     return (
-      <label htmlFor="Sinopse" data-testid="storyline-input-label">
+      <label data-testid="storyline-input-label" htmlFor="sinopse">
         Sinopse
-        <input
-          id="Sinopse"
-          name="Sinopse"
-          type="text"
+        <textarea
           data-testid="storyline-input"
+          name="storyline"
+          cols="30"
+          rows="10"
           value={ storyline }
           onChange={ onChange }
         />

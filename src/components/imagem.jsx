@@ -5,13 +5,12 @@ class Imagem extends React.Component {
   render() {
     const { imagePath, onChange } = this.props;
     return (
-      <label htmlFor="imagem" data-testid="image-input-label">
+      <label data-testid="image-input-label" htmlFor="image-input">
         Imagem
         <input
-          id="imagem"
-          name="imagem"
           type="text"
           data-testid="image-input"
+          name="imagePath"
           value={ imagePath }
           onChange={ onChange }
         />
