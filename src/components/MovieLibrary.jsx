@@ -20,8 +20,18 @@ class MovieLibrary extends React.Component {
     this.moviesSeachFilter = this.moviesSeachFilter.bind(this);
   }
 
-  onClickChange() {
-    return null;
+  onClickChange(newMovie) {
+    const { movies } = this.state;
+
+    if (newMovie.title !== ''
+      || newMovie.subtitle !== ''
+      || newMovie.storyline !== '') {
+      const getMovies = [...movies, newMovie];
+      this.setState({
+        movies: getMovies,
+      });
+    }
+    // this.setState()
   }
 
   genericChange({ target }) {
