@@ -5,6 +5,7 @@ export default class Select extends Component {
   render() {
     const {
       name,
+      nameId,
       testId,
       labelText,
       selectGenre,
@@ -15,21 +16,22 @@ export default class Select extends Component {
     const labelId = `${testId}-label`;
     return (
       <label
-        htmlFor={ name }
         data-testid={ labelId }
+        htmlFor={ nameId }
       >
         { labelText }
         <select
-          id={ name }
           data-testid={ testId }
+          id={ nameId }
+          name={ name }
           value={ selectGenre }
           onChange={ onSelectedGenreChange }
         >
           { optionList.map((element) => (
             <option
+              data-testid={ optionId }
               key={ element.value }
               value={ element.value }
-              data-testid={ optionId }
             >
               { element.content }
             </option>
@@ -42,6 +44,7 @@ export default class Select extends Component {
 
 Select.propTypes = {
   name: PropTypes.string.isRequired,
+  nameId: PropTypes.string.isRequired,
   testId: PropTypes.string.isRequired,
   labelText: PropTypes.string.isRequired,
   selectGenre: PropTypes.string.isRequired,

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './input';
 import TextArea from './TextArea';
-import Select from './select';
+// import Select from './select';
 
 export default class AddMovie extends Component {
   constructor() {
@@ -14,13 +14,11 @@ export default class AddMovie extends Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-      bookmarked: false,
     };
-
-    this.buttonClick = this.buttonClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.newInput = this.newInput.bind(this);
     this.inputArray = this.inputArray.bind(this);
-    this.initialState = this.state;
+    this.buttonClick = this.buttonClick.bind(this);
   }
 
   handleChange(event, stateName) {
@@ -30,8 +28,15 @@ export default class AddMovie extends Component {
   buttonClick(event) {
     event.preventDefault();
     const { onClick } = this.props;
-    onClick({ ...this.state });
-    this.setState({ ...this.initialState });
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   inputArray() {
@@ -83,11 +88,11 @@ export default class AddMovie extends Component {
 
   render() {
     const { storyline, genre } = this.state;
-    const addMovieSelect = [
-      { value: 'action', content: 'Ação' },
-      { value: 'comedy', content: 'Comédia' },
-      { value: 'thriller', content: 'Suspense' },
-    ];
+    // const addMovieSelect = [
+    //   { value: 'action', content: 'Ação' },
+    //   { value: 'comedy', content: 'Comédia' },
+    //   { value: 'thriller', content: 'Suspense' },
+    // ];
     return (
       <form data-testid="add-movie-form">
         { this.newInput(this.inputArray()[0]) }
@@ -106,19 +111,24 @@ export default class AddMovie extends Component {
         <br />
         { this.newInput(this.inputArray()[3]) }
         <br />
-        <Select
-          name="genre-input"
-          testId="genre-input"
-          optionId="genre-option"
-          labelText="Gênero"
-          selectedGenre={ genre }
-          onSelectedGenreChange={ (event) => this.handleChange(event, 'genre') }
-          optionList={ addMovieSelect }
-        />
+        <label data-testid="genre-input-label" htmlFor="add-select">
+          Gênero
+          <select
+            value={ genre }
+            data-testid="genre-input"
+            id="add-select"
+            name="genre"
+            onChange={ (event) => this.handleChange(event, 'genre') }
+          >
+            <option data-testid="genre-option" value="action">Ação</option>
+            <option data-testid="genre-option" value="comedy">Comédia</option>
+            <option data-testid="genre-option" value="thriller">Suspense</option>
+          </select>
+        </label>
         <br />
         <button
-          type="submit"
           data-testid="send-button"
+          type="submit"
           onClick={ (event) => this.buttonClick(event) }
         >
           Adicionar filme

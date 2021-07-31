@@ -38,7 +38,6 @@ export default class MovieLibrary extends Component {
 
   MovieCallback({ subtitle, title, imagePath, storyline, rating, genre, bookmarked }) {
     const newMovie = { subtitle, title, imagePath, storyline, rating, genre, bookmarked };
-    console.log(newMovie);
     this.setState((prevState) => ({
       movies: [...prevState.movies, newMovie],
     }));
@@ -48,25 +47,20 @@ export default class MovieLibrary extends Component {
     const { searchText, selectedGenre, movies } = this.state;
     if (selectedGenre !== '') {
       if (searchText !== '') {
-        console.log(`todos os filmes
-            com o genero ${selectedGenre} e o texto ${searchText}`);
         return movies.filter((movie) => movie.genre === selectedGenre)
           .filter((movie) => (
             movie.title.toLowerCase().includes(searchText.toLowerCase())
           || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
           || movie.storyline.toLowerCase().includes(searchText.toLowerCase())));
       }
-      console.log(`todos os filmes com o genêro ${selectedGenre}`);
       return movies.filter((movie) => movie.genre === selectedGenre);
     }
     if (searchText !== '') {
-      console.log(`todos os filmes  com o texto ${searchText}`);
       return movies.filter((movie) => (
         movie.title.toLowerCase().includes(searchText.toLowerCase())
         || movie.storyline.toLowerCase().includes(searchText.toLowerCase())
         || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())));
     }
-    console.log('todos os filmes');
     return movies;
   }
 
@@ -74,8 +68,6 @@ export default class MovieLibrary extends Component {
     const { searchText, selectedGenre, movies } = this.state;
     if (selectedGenre !== '') {
       if (searchText !== '') {
-        console.log(`todos os filmes
-        favoritos com o genêro ${selectedGenre} e o texto ${searchText}`);
         return movies.filter((movie) => movie.bookmarked === true)
           .filter((movie) => movie.genre === selectedGenre)
           .filter((movie) => (
@@ -83,19 +75,16 @@ export default class MovieLibrary extends Component {
         || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
         || movie.title.toLowerCase().includes(searchText.toLowerCase())));
       }
-      console.log(`todos os filmes favoritos com o genêro ${selectedGenre}`);
       return movies.filter((movie) => movie.bookmarked === true)
         .filter((movie) => movie.genre === selectedGenre);
     }
     if (searchText !== '') {
-      console.log(`todos os filmes favoritos com o texto ${searchText}`);
       return movies.filter((movie) => movie.bookmarked === true)
         .filter((movie) => (
           movie.title.toLowerCase().includes(searchText.toLowerCase())
             || movie.subtitle.toLowerCase().include(searchText.toLowerCase())
             || movie.storyline.toLowerCase().includes(searchText.toLowerCase())));
     }
-    console.log('todos os filmes favoritos');
     return movies.filter((movie) => movie.bookmarked === true);
   }
 
