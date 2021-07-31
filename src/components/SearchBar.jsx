@@ -12,6 +12,13 @@ export default class AddMovie extends Component {
     };
   }
 
+  onSearchTextChange({ target }) {
+    const { name, value } = target;
+    this.setState({
+      [name]: value,
+    });
+  }
+
   render() {
     const {
       searchText,
@@ -29,7 +36,7 @@ export default class AddMovie extends Component {
             type="text"
             name="searchText"
             id="search-text"
-            // onChange={ onSearchTextChange }
+            onChange={ this.onSearchTextChange }
             value={ searchText }
           />
         </label>
