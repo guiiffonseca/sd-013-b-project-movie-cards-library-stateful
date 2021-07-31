@@ -15,6 +15,7 @@ export default class SearchBar extends Component {
       <form data-testid="search-bar-form">
         <label htmlFor="search-text">
           <input
+            data-testid="text-input-label"
             type="text"
             name="searchText"
             id="search-text"
