@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Sinopse extends Component {
   render() {
@@ -24,5 +25,9 @@ class Sinopse extends Component {
     );
   }
 }
+Sinopse.propTypes = {
+  value: PropTypes.string.isRequired,
+  handleTextareaChange: PropTypes.func.isRequired,
+};
 
 export default Sinopse;
