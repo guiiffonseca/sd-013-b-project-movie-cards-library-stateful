@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 class SearchBar extends Component {
   render() {
     const {
+      // handleChange,
       searchText,
       onSearchTextChange,
       bookmarkedOnly,
