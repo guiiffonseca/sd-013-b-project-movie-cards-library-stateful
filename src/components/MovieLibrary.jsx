@@ -17,7 +17,9 @@ class MovieLibrary extends React.Component {
     };
 
     this.onClick = this.onClick.bind(this);
-    this.changeHandler = this.changeHandler.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.updateState = this.updateState.bind(this);
   }
 
@@ -28,11 +30,24 @@ class MovieLibrary extends React.Component {
     });
   }
 
-  changeHandler({ target }) {
-    const name = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+  onSearchTextChange({ target }) {
+    const { value, name } = target;
     this.setState({
       [name]: value,
+    }, () => this.updateState());
+  }
+
+  onBookmarkedChange({ target }) {
+    const { checked, name } = target;
+    this.setState({
+      [name]: checked,
+    }, () => this.updateState());
+  }
+
+  onSelectedGenreChange({ target }) {
+    const { value } = target;
+    this.setState({
+      selectedGenre: value,
     }, () => this.updateState());
   }
 
@@ -75,9 +90,9 @@ class MovieLibrary extends React.Component {
           searchText={ searchText }
           bookmarkedOnly={ bookmarkedOnly }
           selectGenre={ selectGenre }
-          onSearchTextChange={ this.changeHandler }
-          onBookmarkedChange={ this.changeHandler }
-          onSelectedGenreChange={ this.changeHandler }
+          onSearchTextChange={ this.onSearchTextChange }
+          onBookmarkedChange={ this.onBookmarkedChange }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <AddMovie onClick={ this.onClick } />
       </div>
