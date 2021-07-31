@@ -11,8 +11,8 @@ class AddMovie extends React.Component {
     super();
 
     this.state = {
-      title: '',
       subtitle: '',
+      title: '',
       imagePath: '',
       storyline: '',
       rating: 0,
@@ -65,13 +65,16 @@ class AddMovie extends React.Component {
           type="text"
           dataTestidLabel="image-input-label"
           dataTestidInput="image-input"
-          name="image"
+          name="imagePath"
           value={ imagePath }
           onChange={ this.handleInput }
           labelText="Imagem"
         />
         <TextArea value={ storyline } onChange={ this.handleInput } />
-        <InputNumber value={ rating } onChange={ this.handleInput } />
+        <InputNumber
+          value={ rating }
+          onChange={ this.handleInput }
+        />
         <Select value={ genre } onChange={ this.handleInput } />
         <Button onClick={ this.handleButton } />
       </form>
