@@ -13,9 +13,15 @@ export default class AddMovie extends Component {
   }
 
   onSearchTextChange({ target }) {
-    const { name, value } = target;
     this.setState({
-      [name]: value,
+      searchText: target.value,
+    });
+  }
+
+  onBookmarkedChange({ target }) {
+    const value = target.checked;
+    this.setState({
+      bookmarkedOnly: value,
     });
   }
 
