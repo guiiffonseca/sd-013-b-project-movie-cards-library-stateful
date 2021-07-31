@@ -19,6 +19,8 @@ class MovieLibrary extends Component {
     };
   }
 
+
+  //função baseada em diversos exemplos do course
   handleChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -47,7 +49,7 @@ class MovieLibrary extends Component {
     this.bookMarkedFilter();
   }
 
-  //  Função baseada no código do Aluno Vinicius Patriota (turma 12);
+  //  Função baseada no conteúdo do course (dia 13.1)
   addMovie(movie) {
     this.setState((stateBefore) => ({
       movies: [...stateBefore.movies, movie],
