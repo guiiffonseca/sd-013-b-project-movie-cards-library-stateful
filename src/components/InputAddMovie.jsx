@@ -1,54 +1,46 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class InputAddMovie extends React.Component {
   render() {
-    const { title, subtitle, imagePath, storyline, handleInput } = this.props;
+    const { rating, genre, handleInput } = this.props;
     return (
       <div>
-        <label data-testid="title-input-label" htmlFor="title-input">
-          Título
+        <label data-testid="rating-input-label" htmlFor="rating-input">
+          Avaliação
           <input
-            type="text"
-            data-testid="title-input"
-            name="title"
-            value={ title }
+            data-testid="rating-input"
+            type="number"
+            name="rating"
+            value={ rating }
             onChange={ handleInput }
           />
         </label>
-        <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
-          Subtítulo
-          <input
-            type="text"
-            data-testid="subtitle-input"
-            name="subtitle"
-            value={ subtitle }
+        <label data-testid="genre-input-label" htmlFor="genre-input">
+          Gênero
+          <select
+            data-testid="genre-input"
+            name="genre"
+            value={ genre }
             onChange={ handleInput }
-          />
-        </label>
-        <label data-testid="image-input-label" htmlFor="image-input">
-          Imagem
-          <input
-            type="text"
-            data-testid="image-input"
-            name="imagePath"
-            value={ imagePath }
-            onChange={ handleInput }
-          />
-        </label>
-        <label data-testid="storyline-input-label" htmlFor="sinopse">
-          Sinopse
-          <textarea
-            data-testid="storyline-input"
-            name="storyline"
-            cols="30"
-            rows="10"
-            value={ storyline }
-            onChange={ handleInput }
-          />
+          >
+            <option data-testid="genre-option" value="action"> Ação </option>
+            <option data-testid="genre-option" value="comedy">Comédia</option>
+            <option data-testid="genre-option" value="thriller">Suspense</option>
+
+          </select>
         </label>
       </div>
     );
   }
 }
+
+InputAddMovie.propTypes = {
+
+  genre: PropTypes.string.isRequired,
+  handleInput: PropTypes.func.isRequired,
+  rating: PropTypes.number.isRequired,
+
+};
 
 export default InputAddMovie;

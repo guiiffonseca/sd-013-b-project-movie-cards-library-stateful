@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class FormSearchBar extends React.Component {
-
   render() {
     const { searchText,
       onSearchTextChange,
@@ -53,5 +53,15 @@ class FormSearchBar extends React.Component {
     );
   }
 }
+
+FormSearchBar.propTypes = {
+
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.string.isRequired,
+  onBookmarkedChange: PropTypes.string.isRequired,
+  bookmarkedOnly: PropTypes.string.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.string.isRequired,
+};
 
 export default FormSearchBar;
