@@ -5,7 +5,7 @@ class InputCheckBox extends React.Component {
   render() {
     const { checked, onChange } = this.props;
     return (
-      <label data-testid="text-input-label" htmlFor="searchText">
+      <label data-testid="checkbox-input-label" htmlFor="searchText">
         Mostrar somente favoritos:
         <input
           type="checkbox"
