@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 
 export default class CreatSelect extends React.Component {
   render() {
-    const { value, onChange } = this.props;
+    const { value, on } = this.props;
     return (
       <select
         name="genre"
         id="genre"
         data-testid="genre-input"
         value={ value }
-        onChange={ onChange }
+        onChange={ on }
       >
         <option value="action" data-testid="genre-option">Ação</option>
         <option value="comedy" data-testid="genre-option">Comédia</option>
@@ -22,5 +22,5 @@ export default class CreatSelect extends React.Component {
 
 CreatSelect.propTypes = {
   value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  on: PropTypes.func.isRequired,
 };

@@ -1,18 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import InputText from './CreatInputText';
 import CreatLabel from './CreatLabel';
 import CreatSelect from './CreatSelect';
 import CreatTextArea from './CreatTextArea';
 
-class AddMovie extends React.Component {
-  constructor() {
-    super();
+export default class AddMovie extends React.Component {
+  constructor(props) {
+    super(props);
     this.state = {
-      subtitle: '',
       title: '',
+      subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
+      genre: 'action',
     };
   }
 
@@ -20,19 +22,36 @@ class AddMovie extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
+  handleClick = () => {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
-    const { state, handleChange } = this;
+    const { state, handleChange, handleClick } = this;
     const { title, subtitle, imagePath, storyline, rating, genre } = state;
     return (
       <form data-testid="add-movie-form">
         <CreatLabel forHtml="title" text="Título" id="title" />
         <InputText name="title" value={ title } on={ handleChange } id="title" />
+
         <CreatLabel forHtml="subtitle" text="Subtítulo" id="subtitle" />
         <InputText name="subtitle" value={ subtitle } on={ handleChange } id="subtitle" />
+
         <CreatLabel forHtml="image" text="Imagem" id="image" />
         <InputText name="imagePath" value={ imagePath } on={ handleChange } id="image" />
+
         <CreatLabel forHtml="storyline" text="Sinopse" id="storyline" />
         <CreatTextArea value={ storyline } onChange={ handleChange } />
+
         <CreatLabel forHtml="rating" text="Avaliação" id="rating" />
         <input
           type="number"
@@ -42,11 +61,22 @@ class AddMovie extends React.Component {
           onChange={ handleChange }
           value={ rating }
         />
+
         <CreatLabel forHtml="genre" text="Gênero" id="genre" />
-        <CreatSelect name="genre" value={ genre } on={ handleChange } id="genre" />
+        <CreatSelect value={ genre } on={ handleChange } id="genre" />
+
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={ handleClick }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
 
-export default AddMovie;
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
