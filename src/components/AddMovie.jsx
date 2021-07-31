@@ -5,6 +5,7 @@ import InputSubtitle from './InputSubtitle';
 import InputImage from './InputImage';
 import Sinopse from './Sinopse';
 import Avaliacao from './Avaliacao';
+import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
   constructor(props) {
