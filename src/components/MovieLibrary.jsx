@@ -5,11 +5,6 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 export default class MovieLibrary extends Component {
-  constructor() {
-    super();
-    console.log(this);
-  }
-
   render() {
     return (
       <div>
