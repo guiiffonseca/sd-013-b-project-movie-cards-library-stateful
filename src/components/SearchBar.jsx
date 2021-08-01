@@ -5,9 +5,7 @@ import PropTypes from 'prop-types';
 class SearchBar extends React.Component {
   render() {
     return (
-      <div>
-
-      </div>
+      <div>      </div>
     );
   }
 }
