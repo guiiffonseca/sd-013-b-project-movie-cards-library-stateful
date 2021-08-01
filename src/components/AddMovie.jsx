@@ -38,6 +38,7 @@ export default class AddMovie extends Component {
       subtitleValue,
       imagePathValue,
       storylineValue,
+      ratingValue,
     } = this.props;
     return (
       <form htmlFor="true" data-testid="add-movie-form">
@@ -62,7 +63,7 @@ export default class AddMovie extends Component {
         </label>
         <label htmlFor="true" data-testid="rating-input-label">
           Avaliação
-          <input type="text" />
+          <input type="number" value={ ratingValue } />
         </label>
       </form>
     );
@@ -75,6 +76,7 @@ AddMovie.propTypes = {
   subtitleValue: PropTypes.string.isRequired,
   imagePathValue: PropTypes.string.isRequired,
   storylineValue: PropTypes.string.isRequired,
+  ratingValue: PropTypes.number.isRequired,
 };
 
 // AddMovie.defaultProps = {
