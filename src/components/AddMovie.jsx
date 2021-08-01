@@ -44,6 +44,8 @@ export default class AddMovie extends Component {
           handleChange={ handleChange }
         />
         <GenreSelect genreValue={ genreValue } onChange={ handleChange } />
+        <button type="submit" data-testid="send-button">Adicionar filme</button>
+        {/* onClick */}
       </form>
     );
   }
