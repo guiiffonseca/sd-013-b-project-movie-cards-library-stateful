@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -25,7 +26,7 @@ class AddMovie extends React.Component {
 
   // Consegui ter uma ideia fazendo o code review do projeto da  Jessica (https://github.com/tryber/sd-013-b-project-movie-cards-library-stateful/pull/113/commits/9a9554fccc55639dea89496991e9fac890e11635)
 
-  creatLabel = (descrition, id, value, callBack) => {
+  creatLabel(descrition, id, value, callBack) {
     return (
       <label htmlFor={ id } data-tesid={ `${id}-input-label` }>
         { descrition }
@@ -62,18 +63,18 @@ class AddMovie extends React.Component {
           />
         </label>
         <label htmlFor="genre" data-testid="genre-input-label">
-          <selected
-            data-testid="genre-input"
+          Gênero
+          <select
             name="genre"
             id="genre"
             value={ genre }
+            data-testid="genre-input"
             onChange={ this.handleChange }
           >
-            Gênero
             <option selected data-testid="genre-option" valor="action">Ação</option>
             <option data-testid="genre-option" valor="comedy">Comedia</option>
             <option data-testid="genre-option" valor="thriller">Suspense</option>
-          </selected>
+          </select>
         </label>
         <label htmlFor="button">
           Adicionar filme
@@ -89,5 +90,9 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.PropType = {
+  onclick: PropTypes.func,
+};
 
 export default AddMovie;
