@@ -5,6 +5,7 @@ import TitleInput from './TitleInput';
 import SubtitleInput from './SubtitleInput';
 import ImagePathInput from './ImagePathInput';
 import StorylineText from './StorylineText';
+import RatingFeedback from './RatingFeedback';
 
 export default class AddMovie extends Component {
   render() {
@@ -19,27 +20,27 @@ export default class AddMovie extends Component {
     } = this.props;
     return (
       <form htmlFor="true" data-testid="add-movie-form">
-        <TitleInput titleValue={ titleValue } handleChange={ handleChange } />
-        <SubtitleInput subtitleValue={ subtitleValue } handleChange={ handleChange } />
-        <ImagePathInput imagePathValue={ imagePathValue } handleChange={ handleChange } />
-        <StorylineText storylineValue={ storylineValue } handleChange={ handleChange } />
-        <label htmlFor="true" data-testid="rating-input-label">
-          Avaliação
-          <input
-            type="text"
-            name="feedback"
-            value={ feedbackValue }
-            onChange={ handleChange }
-          />
-          <input
-            type="number"
-            name="rating"
-            data-testid="rating-input"
-            onChange={ handleChange }
-            defaultValue="0"
-            value={ ratingValue }
-          />
-        </label>
+        <TitleInput
+          titleValue={ titleValue }
+          handleChange={ handleChange }
+        />
+        <SubtitleInput
+          subtitleValue={ subtitleValue }
+          handleChange={ handleChange }
+        />
+        <ImagePathInput
+          imagePathValue={ imagePathValue }
+          handleChange={ handleChange }
+        />
+        <StorylineText
+          storylineValue={ storylineValue }
+          handleChange={ handleChange }
+        />
+        <RatingFeedback
+          ratingValue={ ratingValue }
+          feedbackValue={ feedbackValue }
+          handleChange={ handleChange }
+        />
       </form>
     );
   }
