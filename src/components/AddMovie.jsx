@@ -6,6 +6,7 @@ import SubtitleInput from './SubtitleInput';
 import ImagePathInput from './ImagePathInput';
 import StorylineText from './StorylineText';
 import RatingFeedback from './RatingFeedback';
+import GenreSelect from './GenreSelect';
 
 export default class AddMovie extends Component {
   render() {
@@ -42,14 +43,7 @@ export default class AddMovie extends Component {
           feedbackValue={ feedbackValue }
           handleChange={ handleChange }
         />
-        <label htmlFor="true" data-testid="genre-input-label">
-          Gênero
-          <select data-testid="genre-input" name="genre" value={ genreValue } onChange={ handleChange }>
-            <option selected value="action" data-testid="genre-option">Ação</option>
-            <option value="comedy" data-testid="genre-option">Comédia</option>
-            <option value="thriller" data-testid="genre-option">Suspense</option>
-          </select>
-        </label>
+        <GenreSelect genreValue={ genreValue } onChange={ handleChange } />
       </form>
     );
   }
