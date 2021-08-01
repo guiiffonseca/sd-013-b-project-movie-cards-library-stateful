@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import TitleInput from './TitleInput';
 
 export default class AddMovie extends Component {
   // this.state = {
@@ -38,15 +39,7 @@ export default class AddMovie extends Component {
     } = this.props;
     return (
       <form htmlFor="true" data-testid="add-movie-form">
-        <label htmlFor="true" data-testid="title-input-label">
-          Título
-          <input
-            data-testid="title-input"
-            type="text"
-            value={ titleValue }
-            onChange={ handleChange }
-          />
-        </label>
+        <TitleInput titleValue={ titleValue } handleChange={ handleChange } />
         <label htmlFor="true" data-testid="subtitle-input-label">
           Subtítulo
           <input
@@ -72,6 +65,10 @@ export default class AddMovie extends Component {
             data-testid="storyline-input"
             onChange={ handleChange }
           />
+        </label>
+        <label htmlFor="true" data-testid="rating-input-label">
+          Avaliação
+          <input type="text" />
         </label>
       </form>
     );
