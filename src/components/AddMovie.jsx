@@ -40,18 +40,19 @@ export default class AddMovie extends React.Component {
     const { title, subtitle, imagePath, storyline, rating, genre } = state;
     return (
       <form data-testid="add-movie-form">
+        {/* input title */}
         <CreatLabel forHtml="title" text="Título" id="title" />
         <InputText name="title" value={ title } on={ handleChange } id="title" />
-
+        {/* input subtitle */}
         <CreatLabel forHtml="subtitle" text="Subtítulo" id="subtitle" />
         <InputText name="subtitle" value={ subtitle } on={ handleChange } id="subtitle" />
-
+        {/* input image */}
         <CreatLabel forHtml="image" text="Imagem" id="image" />
         <InputText name="imagePath" value={ imagePath } on={ handleChange } id="image" />
-
+        {/* input storyline */}
         <CreatLabel forHtml="storyline" text="Sinopse" id="storyline" />
         <CreatTextArea value={ storyline } onChange={ handleChange } />
-
+        {/* input rating */}
         <CreatLabel forHtml="rating" text="Avaliação" id="rating" />
         <input
           type="number"
@@ -61,10 +62,10 @@ export default class AddMovie extends React.Component {
           onChange={ handleChange }
           value={ rating }
         />
-
+        {/* input genre */}
         <CreatLabel forHtml="genre" text="Gênero" id="genre" />
         <CreatSelect value={ genre } on={ handleChange } id="genre" />
-
+        {/* input submit */}
         <button
           type="submit"
           data-testid="send-button"
