@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import SelectInput from './SelectInput';
+import SelectSearchBar from './SelectSearchBar';
 
 class SearchBar extends Component {
   render() {
@@ -42,7 +42,7 @@ class SearchBar extends Component {
             data-testid="checkbox-input"
           />
         </label>
-        <SelectInput
+        <SelectSearchBar
           tagId="moviesGenre"
           testIdLabel="select-input-label"
           testIdTag="select-input"
