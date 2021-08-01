@@ -7,9 +7,11 @@ class AddMovie extends React.Component {
     super();
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleChangeSelect = this.handleChangeSelect.bind(this);
 
     this.state = {
       estadoNumber: '0',
+      genre: '',
     };
   }
 
@@ -19,8 +21,14 @@ class AddMovie extends React.Component {
     });
   }
 
+  handleChangeSelect(event) {
+    this.setState({
+      genre: event.target.value,
+    });
+  }
+
   render() {
-    const { estadoNumber } = this.state;
+    const { estadoNumber, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label" htmlFor="title-input">
@@ -47,6 +55,18 @@ class AddMovie extends React.Component {
             value={ estadoNumber }
             onChange={ this.handleChange }
           />
+        </label>
+        <label data-testid="genre-input-label" htmlFor="genre-input">
+          Gênero
+          <select
+            data-testid="genre-input"
+            value={ genre }
+            onChange={ this.handleChangeSelect }
+          >
+            <option data-testid="genre-option" value="action">Ação</option>
+            <option data-testid="genre-option" value="comedy">Comédia</option>
+            <option data-testid="genre-option" value="thriller">Suspense</option>
+          </select>
         </label>
       </form>
     );
