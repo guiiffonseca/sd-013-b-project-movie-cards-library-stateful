@@ -15,23 +15,18 @@ export default class MovieLibrary extends Component {
       title: '',
       subtitle: '',
       imagePath: '',
+      storyline: '',
     };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    this.onTitleChange = this.onTitleChange.bind(this);
-    this.onImagePathChange = this.onImagePathChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  onTitleChange({ target }) {
+  handleChange({ target }) {
+    const { name, value } = target;
     this.setState({
-      title: target.value,
-    });
-  }
-
-  onSubtitleChange({ target }) {
-    this.setState({
-      subtitle: target.value,
+      [name]: value,
     });
   }
 
@@ -55,12 +50,6 @@ export default class MovieLibrary extends Component {
     });
   }
 
-  onImagePathChange({ target }) {
-    this.setState({
-      imagePath: target.value,
-    });
-  }
-
   render() {
     const {
       searchText,
@@ -69,6 +58,7 @@ export default class MovieLibrary extends Component {
       title,
       subtitle,
       imagePath,
+      storyline,
     } = this.state;
 
     return (
@@ -89,6 +79,7 @@ export default class MovieLibrary extends Component {
           subtitleValue={ subtitle }
           onSubtitleChange={ this.onSubtitleChange }
           imagePathValue={ imagePath }
+          storylineValue={ storyline }
         />
       </div>
     );
