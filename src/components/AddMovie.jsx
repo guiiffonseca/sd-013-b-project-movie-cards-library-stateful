@@ -54,7 +54,6 @@ export default class AddMovie extends Component {
         </label>
         <label htmlFor="true" data-testid="image-input-label">
           Imagem
-          {/* inpuy initial value by imagePath */}
           <input
             type="text"
             data-testid="image-input"
@@ -62,7 +61,15 @@ export default class AddMovie extends Component {
             onChange={ onImagePathChange }
           />
         </label>
-        {/* onChange on input add to imagemPAth the current path of the image */}
+        <label htmlFor="true" data-testid="storyline-input-label">
+          Sinopse
+          {/* <textarea value={ storylineValue } ></textarea> */}
+        </label>
+        {/* textarea associated with an label with tex "Sinopse" */}
+        {/* label w id: data-testid="storyline-input-label" */}
+        {/* textarea initial value defined by prop storylineValue */}
+        {/* textarea w id: data-testid="storyline-input" */}
+        {/* prop onChange w onChange synopsis */}
       </form>
     );
   }
