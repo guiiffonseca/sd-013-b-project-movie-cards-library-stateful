@@ -20,6 +20,7 @@ export default class MovieLibrary extends Component {
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.onTitleChange = this.onTitleChange.bind(this);
+    this.onImagePathChange = this.onImagePathChange.bind(this);
   }
 
   onTitleChange({ target }) {
@@ -51,6 +52,12 @@ export default class MovieLibrary extends Component {
     const { value } = target;
     this.setState({
       selectedGenre: value,
+    });
+  }
+
+  onImagePathChange({ target }) {
+    this.setState({
+      imagePath: target.value,
     });
   }
 
