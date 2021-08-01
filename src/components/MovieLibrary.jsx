@@ -37,11 +37,11 @@ class MovieLibrary extends Component {
       <div>
         <SearchBar
           searchText={ searchText }
-          bookmarkValue={ bookmarkedOnly }
-          genreValue={ selectedGenre }
+          bookmarkedOnly={ bookmarkedOnly }
+          selectedGenre={ selectedGenre }
           onSearchTextChange={ this.onSearchTextChange }
-          funcBookmarked={ this.onBookmarkedChange }
-          funcGenre={ this.onSelectedGenreChange }
+          onBookmarkedChange={ this.onBookmarkedChange }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
         {/* <AddMovie /> */}
