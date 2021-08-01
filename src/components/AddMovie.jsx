@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 
 export default class AddMovie extends Component {
   // this.state = {
-  //   title: '',
+  //    title: '',
+  //    subtitle: '',
+  //    imagePath: '',
   // };
   //  onTitleChange({ target }) {
   //  this.setState({
@@ -16,7 +18,13 @@ export default class AddMovie extends Component {
   // });
   // }
   render() {
-    const { titleValue, onTitleChange, subtitleValue, onSubtitleChange } = this.props;
+    const {
+      titleValue,
+      onTitleChange,
+      subtitleValue,
+      onSubtitleChange,
+      imagePathValue,
+    } = this.props;
     return (
       <form htmlFor="true" data-testid="add-movie-form">
         <label htmlFor="true" data-testid="title-input-label">
@@ -39,10 +47,10 @@ export default class AddMovie extends Component {
         </label>
         <label htmlFor="true" data-testid="image-input-label">
           Imagem
-          <input type="text" />
+          {/* inpuy initial value by imagePath */}
+          {/* input id: data-testid="image-input"  */}
+          <input type="text" data-testid="image-input" value={ imagePathValue } />
         </label>
-        {/* inpuy initial value by imagePath */}
-        {/* input id: data-testid="image-input"  */}
         {/* onChange on input add to imagemPAth the current path of the image */}
       </form>
     );
@@ -54,6 +62,7 @@ AddMovie.propTypes = {
   onTitleChange: PropTypes.func.isRequired,
   subtitleValue: PropTypes.string.isRequired,
   onSubtitleChange: PropTypes.func.isRequired,
+  imagePathValue: PropTypes.string.isRequired,
 };
 
 // AddMovie.defaultProps = {

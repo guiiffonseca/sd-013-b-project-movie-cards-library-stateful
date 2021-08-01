@@ -14,6 +14,7 @@ export default class MovieLibrary extends Component {
       selectedGenre: 'Todos',
       title: '',
       subtitle: '',
+      imagePath: '',
     };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
@@ -54,7 +55,15 @@ export default class MovieLibrary extends Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, title, subtitle } = this.state;
+    const {
+      searchText,
+      bookmarkedOnly,
+      selectedGenre,
+      title,
+      subtitle,
+      imagePath,
+    } = this.state;
+
     return (
       <div>
         <h2> The amazing movie library </h2>
@@ -72,6 +81,7 @@ export default class MovieLibrary extends Component {
           onTitleChange={ this.onTitleChange }
           subtitleValue={ subtitle }
           onSubtitleChange={ this.onSubtitleChange }
+          imagePathValue={ imagePath }
         />
       </div>
     );
