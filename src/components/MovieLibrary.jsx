@@ -16,6 +16,8 @@ export default class MovieLibrary extends Component {
       subtitle: '',
       imagePath: '',
       storyline: '',
+      rating: 0,
+      feedback: '',
     };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
@@ -59,6 +61,8 @@ export default class MovieLibrary extends Component {
       subtitle,
       imagePath,
       storyline,
+      rating,
+      feedback,
     } = this.state;
 
     return (
@@ -75,11 +79,12 @@ export default class MovieLibrary extends Component {
         />
         <AddMovie
           titleValue={ title }
-          onTitleChange={ this.onTitleChange }
+          handleChange={ this.handleChange }
           subtitleValue={ subtitle }
-          onSubtitleChange={ this.onSubtitleChange }
           imagePathValue={ imagePath }
           storylineValue={ storyline }
+          ratingValue={ rating }
+          feedbackValue={ feedback }
         />
       </div>
     );

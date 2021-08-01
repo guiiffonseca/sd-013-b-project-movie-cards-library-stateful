@@ -9,6 +9,7 @@ export default class TitleInput extends Component {
         Título
         <input
           data-testid="title-input"
+          name="title"
           type="text"
           value={ titleValue }
           onChange={ handleChange }
