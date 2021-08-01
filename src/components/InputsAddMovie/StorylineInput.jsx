@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-class StorylineImput extends React.Component {
+class StorylineInput extends React.Component {
   render() {
-    const { value, handleChange } = this.props;
+    const { props } = this;
+    const { value, handleChange } = props;
     return (
       <label htmlFor="storyline-input" data-testid="storyline-input-label">
         Sinopse
@@ -19,4 +21,9 @@ class StorylineImput extends React.Component {
   }
 }
 
-export default StorylineImput;
+StorylineInput.propTypes = {
+  value: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
+
+export default StorylineInput;
