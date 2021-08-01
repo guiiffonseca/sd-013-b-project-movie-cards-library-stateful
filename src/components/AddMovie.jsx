@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
 import TitleInput from './TitleInput';
+import SubtitleInput from './SubtitleInput';
 
 export default class AddMovie extends Component {
   // this.state = {
@@ -40,15 +42,7 @@ export default class AddMovie extends Component {
     return (
       <form htmlFor="true" data-testid="add-movie-form">
         <TitleInput titleValue={ titleValue } handleChange={ handleChange } />
-        <label htmlFor="true" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            data-testid="subtitle-input"
-            type="text"
-            value={ subtitleValue }
-            onChange={ handleChange }
-          />
-        </label>
+        <SubtitleInput subtitleValue={ subtitleValue } handleChange={ handleChange } />
         <label htmlFor="true" data-testid="image-input-label">
           Imagem
           <input
