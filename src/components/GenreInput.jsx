@@ -8,11 +8,13 @@ function GenreInput(props) {
     <label htmlFor="select-genre" data-testid="genre-input-label">
       Gênero
       <select
+        name="genre"
         id="select-genre"
         data-testid="genre-input"
         value={ genre }
-        onChange={ (event) => {
-          setGenre(event.target.value);
+        onChange={ (e) => {
+          console.log(e.target.name);
+          setGenre(e);
         } }
       >
         <option value="action" data-testid="genre-option">

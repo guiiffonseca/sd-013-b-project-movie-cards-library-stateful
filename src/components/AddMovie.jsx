@@ -5,54 +5,59 @@ import TextInput from './TextInput';
 import GenreInput from './GenreInput';
 import TextAreaInput from './TextAreaInput';
 
+// const [title, setTitle] = useState('');
+// const [subtitle, setSubtitle] = useState('');
+// const [imagePath, setImagePath] = useState('');
+// const [storyLine, setStoryline] = useState('');
+// const [rating, setRating] = useState(0);
+// const [genre, setGenre] = useState('action');
+const initialState = {
+  title: '',
+  subtitle: '',
+  imagePath: '',
+  storyLine: '',
+  rating: 0,
+  genre: 'action',
+};
 function AddMovie(props) {
   const { onClick } = props;
-  const [subtitle, setSubtitle] = useState('');
-  const [title, setTitle] = useState('');
-  const [imagePath, setImagePath] = useState('');
-  const [storyLine, setStoryline] = useState('');
-  const [rating, setRating] = useState(0);
-  const [genre, setGenre] = useState('action');
+  const [
+    { title, subtitle, imagePath, storyLine, rating, genre }, setState,
+  ] = useState(initialState);
+  const onChange = (e) => {
+    const { name, value } = e.target;
+    setState((prevState) => ({ ...prevState, [name]: value }));
+  };
 
   return (
     <form data-testid="add-movie-form">
-      <TextInput label="title" text={ title } type="text" setText={ setTitle } />
+      <TextInput label="title" text={ title } type="text" setText={ onChange } />
       <TextInput
         label="subtitle"
         text={ subtitle }
         type="text"
-        setText={ setSubtitle }
+        setText={ onChange }
       />
       <TextInput
         label="image"
         text={ imagePath }
         type="text"
-        setText={ setImagePath }
+        setText={ onChange }
       />
-      <TextAreaInput storyLine={ storyLine } setStoryline={ setStoryline } />
+      <TextAreaInput storyLine={ storyLine } setStoryline={ onChange } />
       <TextInput
         label="rating"
         text={ rating.toString() }
         type="number"
-        setText={ setRating }
+        setText={ onChange }
       />
-      <GenreInput genre={ genre } setGenre={ setGenre } />
+      <GenreInput genre={ genre } setGenre={ onChange } />
       <button
         data-testid="send-button"
         type="reset"
         onClick={ () => {
-          onClick({
-            title,
-            subtitle,
-            storyLine,
-            rating,
-            genre,
-          });
-          setTitle('');
-          setSubtitle('');
-          setStoryline('');
-          setRating(0);
-          setGenre('action');
+          onClick({ title, subtitle, storyLine, rating, genre });
+          setState(initialState);
         } }
       >
         Adicionar filme

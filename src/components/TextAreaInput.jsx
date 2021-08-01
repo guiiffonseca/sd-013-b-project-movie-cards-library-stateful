@@ -7,11 +7,10 @@ function TextAreaInput(props) {
     <label htmlFor="label-movie-textarea" data-testid="storyline-input-label">
       Sinopse
       <textarea
+        name="storyLine"
         value={ storyLine }
         data-testid="storyline-input"
-        onChange={ (event) => {
-          setStoryline(event.target.value);
-        } }
+        onChange={ setStoryline }
       />
     </label>
   );
