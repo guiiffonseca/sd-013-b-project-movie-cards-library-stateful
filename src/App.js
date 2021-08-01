@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './components/Header';
-import './App.css';
 import MovieLibrary from './components/MovieLibrary';
+import './App.css';
 
 function App() {
   return (
@@ -11,5 +11,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
