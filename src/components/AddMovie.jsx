@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import Title from './Title';
 import Subtitle from './Subtitle';
 import Image from './Image';
@@ -10,6 +10,7 @@ import Genre from './GenreInput';
 class AddMovie extends Component {
   constructor() {
     super();
+
     this.state = {
       subtitle: '',
       title: '',
@@ -20,10 +21,30 @@ class AddMovie extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleButton = this.handleButton.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
+  // handleChange feito como ensinado no course:
+
+  handleChange({ target }) {
+    const { name, value } = target;
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  handleButton(event) {
+    event.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
@@ -36,16 +57,21 @@ class AddMovie extends Component {
         <Image value={ imagePath } onChange={ this.handleChange } />
         <Storyline value={ storyline } onChange={ this.handleChange } />
         <RatingInput value={ rating } onChange={ this.handleChange } />
-        <Genre value={ genre } onChange={ this.handleChange } />
+        <Genre valor={ genre } onChange={ this.handleChange } />
         <button
           type="button"
           data-testid="send-button"
+          onClick={ this.handleButton }
         >
-          Adicionar Filme
+          Adicionar filme
         </button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
