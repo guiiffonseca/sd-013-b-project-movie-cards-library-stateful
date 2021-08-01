@@ -46,9 +46,13 @@ export default class MovieLibrary extends React.Component {
       });
   }
 
-  onClick = ({ target }) => {
-    console.log(target);
-  }
+  onSelectedGenreChange = ({ target }) => {
+    const { movies } = this.props;
+    this.setState({ selectedGenre: target.value },
+      () => {
+        this.setState({ movies: movies.filter(({ genre }) => genre === target.value) });
+      });
+  };
 
   render() {
     const { movies } = this.state;
@@ -61,7 +65,7 @@ export default class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSearchTextChange={ this.handleChange }
           onBookmarkedChange={ this.onBookmarkedChange }
-          onSelectedGenreChange={ this.handleChange }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <AddMovie onClick={ this.onClick } />
         <MovieList className="movie-list" movies={ movies } title={ movies.title } />

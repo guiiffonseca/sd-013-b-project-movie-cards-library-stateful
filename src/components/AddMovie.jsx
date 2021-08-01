@@ -33,10 +33,10 @@ export default class AddMovie extends React.Component {
   onClick = () => {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     this.setState({ subtitle, title, imagePath, storyline, rating, genre },
-      () => { this.resetAddMovie(); });
+      () => { this.setState(INITIAL_STATE); });
   }
 
-  resetAddMovie = () => { this.setState(INITIAL_STATE); };
+  // resetAddMovie = () => { this.setState(INITIAL_STATE); };
 
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;

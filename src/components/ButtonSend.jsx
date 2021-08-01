@@ -6,6 +6,7 @@ export default class ButtonSend extends React.Component {
     const { onClick, resetAddMovie } = this.props;
     return (
       <button
+        name="sendButton"
         type="button"
         onClick={ onClick }
         onChange={ resetAddMovie }
