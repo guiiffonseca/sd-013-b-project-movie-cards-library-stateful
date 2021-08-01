@@ -1,12 +1,14 @@
 // implement SearchBar component here
 import React from 'react';
+import PropTypes from 'prop-types';
+
 class SearchBar extends React.Component {
   render() {
     return (
       <div>
 
       </div>
-    )
+    );
   }
 }
 
@@ -18,3 +20,5 @@ SearchBar.propTypes = {
   selectedGenre: PropTypes.string,
   onSelectedGenreChange: PropTypes.func
 };
+
+export default SearchBar;
