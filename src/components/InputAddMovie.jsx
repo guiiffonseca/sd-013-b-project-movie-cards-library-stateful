@@ -39,7 +39,7 @@ InputAddMovie.propTypes = {
 
   genre: PropTypes.string.isRequired,
   handleInput: PropTypes.func.isRequired,
-  rating: PropTypes.number.isRequired,
+  rating: PropTypes.string.isRequired,
 
 };
 

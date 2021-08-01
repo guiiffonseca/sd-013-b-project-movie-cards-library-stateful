@@ -57,11 +57,11 @@ class FormSearchBar extends React.Component {
 FormSearchBar.propTypes = {
 
   searchText: PropTypes.string.isRequired,
-  onSearchTextChange: PropTypes.string.isRequired,
-  onBookmarkedChange: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
   bookmarkedOnly: PropTypes.string.isRequired,
   selectedGenre: PropTypes.string.isRequired,
-  onSelectedGenreChange: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
 };
 
 export default FormSearchBar;
