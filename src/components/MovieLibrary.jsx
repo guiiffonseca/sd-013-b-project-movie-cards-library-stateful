@@ -15,16 +15,12 @@ export default class MovieLibrary extends React.Component {
   }
 
   handleChange = ({ target }) => {
-    this.setState({ [target.name]: target.value });
-  }
-
-  handleBookmark = ({ target }) => {
-    const { bookmarkedOnly } = this.state;
-    this.setState({ [target.name]: !bookmarkedOnly });
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({ [target.name]: value });
   }
 
   render() {
-    const { state, handleChange, handleBookmark } = this;
+    const { state, handleChange } = this;
     const { movies, bookmarkedOnly, searchText, selectedGenre } = state;
     return (
       <div>
@@ -32,13 +28,15 @@ export default class MovieLibrary extends React.Component {
           searchText={ searchText }
           onSearchTextChange={ handleChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ handleBookmark }
+          onBookmarkedChange={ handleChange }
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ handleChange }
         />
         <MovieList
           movies={ movies }
           bookmarkedOnly={ bookmarkedOnly }
+          selectedGenre={ selectedGenre }
+          searchText={ searchText }
         />
       </div>
     );
