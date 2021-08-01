@@ -44,15 +44,12 @@ export default class AddMovie extends Component {
         />
         <label htmlFor="true" data-testid="genre-input-label">
           Gênero
-          <select data-testid="genre-input" name="genre" id="" value={ genreValue }>
-            <option value="action" selected>Ação</option>
-            <option value="comedy">Comédia</option>
-            <option value="thriller">Suspense</option>
+          <select data-testid="genre-input" name="genre" value={ genreValue } onChange={ handleChange }>
+            <option selected value="action" data-testid="genre-option">Ação</option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
         </label>
-        {/* onChange  */}
-        {/* select tags option: 'Ação' - action, Comédia - comedy , Suspense - thriller */}
-        {/* each option id: data-testid="genre-option" */}
       </form>
     );
   }

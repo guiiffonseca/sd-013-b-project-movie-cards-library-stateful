@@ -18,7 +18,7 @@ export default class MovieLibrary extends Component {
       storyline: '',
       rating: 0,
       feedback: '',
-      genre: 'action',
+      genre: '',
     };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
@@ -27,7 +27,8 @@ export default class MovieLibrary extends Component {
   }
 
   handleChange({ target }) {
-    const { name, value } = target;
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [name]: value,
     });
