@@ -18,6 +18,7 @@ export default class MovieLibrary extends Component {
       storyline: '',
       rating: 0,
       feedback: '',
+      genre: 'action',
     };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
@@ -63,6 +64,7 @@ export default class MovieLibrary extends Component {
       storyline,
       rating,
       feedback,
+      genre,
     } = this.state;
 
     return (
@@ -85,6 +87,7 @@ export default class MovieLibrary extends Component {
           storylineValue={ storyline }
           ratingValue={ rating }
           feedbackValue={ feedback }
+          genreValue={ genre }
         />
       </div>
     );
