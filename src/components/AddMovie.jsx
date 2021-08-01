@@ -41,6 +41,17 @@ export default class AddMovie extends Component {
           feedbackValue={ feedbackValue }
           handleChange={ handleChange }
         />
+        {/* select associete w label: 'Gênero' */}
+        {/* label id: data-testid="genre-input-label"  */}
+        <label htmlFor="true" data-testid="genre-input-label">
+          Gênero
+          <select name="genre" id=""/>
+        </label>
+        {/* select initial value by genre */}
+        {/* select id: data-testid="genre-input" */}
+        {/* onChange  */}
+        {/* select tags option: 'Ação' - action, Comédia - comedy , Suspense - thriller */}
+        {/* each option id: data-testid="genre-option" */}
       </form>
     );
   }
