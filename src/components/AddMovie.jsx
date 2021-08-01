@@ -37,6 +37,13 @@ export default class AddMovie extends Component {
             onChange={ onSubtitleChange }
           />
         </label>
+        <label htmlFor="true" data-testid="image-input-label">
+          Imagem
+          <input type="text" />
+        </label>
+        {/* inpuy initial value by imagePath */}
+        {/* input id: data-testid="image-input"  */}
+        {/* onChange on input add to imagemPAth the current path of the image */}
       </form>
     );
   }
