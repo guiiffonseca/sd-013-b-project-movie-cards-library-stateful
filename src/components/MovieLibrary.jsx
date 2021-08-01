@@ -67,7 +67,7 @@ export default class MovieLibrary extends React.Component {
           onBookmarkedChange={ this.onBookmarkedChange }
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
-        <AddMovie onClick={ this.onClick } />
+        <AddMovie onClick={ movies } />
         <MovieList className="movie-list" movies={ movies } title={ movies.title } />
       </div>
     );
@@ -76,12 +76,6 @@ export default class MovieLibrary extends React.Component {
 
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      subtitle: PropTypes.string,
-      storyline: PropTypes.string,
-      rating: PropTypes.number,
-      imagePath: PropTypes.string,
-    }),
+    PropTypes.object,
   ).isRequired,
 };

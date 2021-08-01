@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import InputTitle from './InputTitle';
 import InputSubTitle from './InputSubTitle';
 import ImagePath from './ImagePath';
@@ -25,18 +26,15 @@ export default class AddMovie extends React.Component {
 
   handleChange({ target }) {
     const { name } = target;
-    console.log(target);
     const elementValue = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({ [name]: elementValue });
   }
 
-  onClick = () => {
-    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
-    this.setState({ subtitle, title, imagePath, storyline, rating, genre },
-      () => { this.setState(INITIAL_STATE); });
+  handleClick = () => {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState(INITIAL_STATE);
   }
-
-  // resetAddMovie = () => { this.setState(INITIAL_STATE); };
 
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
@@ -48,8 +46,12 @@ export default class AddMovie extends React.Component {
         <TextAreaSynopsis storyline={ storyline } handleChange={ this.handleChange } />
         <InputRating rating={ rating } handleChange={ this.handleChange } />
         <SelectGenre genre={ genre } handleChange={ this.handleChange } />
-        <ButtonSend onClick={ this.onClick } />
+        <ButtonSend onClick={ this.handleClick } />
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
