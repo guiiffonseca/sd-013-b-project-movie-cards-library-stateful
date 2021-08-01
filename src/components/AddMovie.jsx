@@ -32,6 +32,7 @@ export default class AddMovie extends React.Component {
 
   handleClick = () => {
     const { onClick } = this.props;
+    // Esta linha faz a mágica acontecer!
     onClick(this.state);
     this.setState(INITIAL_STATE);
   }

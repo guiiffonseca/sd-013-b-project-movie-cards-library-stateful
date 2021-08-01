@@ -34,6 +34,13 @@ export default class MovieLibrary extends React.Component {
         .toLowerCase().includes(value.toLowerCase())) });
   }
 
+  updateMovies = (movieCardData) => {
+    const { movies } = this.state;
+    const moviesPlus = [...movies];
+    moviesPlus.push({ ...movieCardData });
+    this.setState({ movies: moviesPlus });
+  }
+
   onBookmarkedChange = () => {
     this.setState((priorState) => ({ bookmarkedOnly: !priorState.bookmarkedOnly }),
       () => {
@@ -67,8 +74,12 @@ export default class MovieLibrary extends React.Component {
           onBookmarkedChange={ this.onBookmarkedChange }
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
-        <AddMovie onClick={ movies } />
-        <MovieList className="movie-list" movies={ movies } title={ movies.title } />
+        <AddMovie onClick={ this.updateMovies } />
+        <MovieList
+          className="movie-list"
+          movies={ movies }
+          title={ movies.title }
+        />
       </div>
     );
   }
