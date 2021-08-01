@@ -1,29 +1,50 @@
 import React, { Component } from 'react';
-// import MovieList from './MovieList';
 import SearchBar from './SearchBar';
-import AddMovie from './AddMovie';
-// import movies from './src/data';
+import MovieList from './MovieList';
+import movies from '../data';
+// import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-//   constructor() {
-//     super();
-//   }
+  constructor() {
+    super();
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: true,
+      selectedGenre: '',
+    };
+  }
+
+  onSearchTextChange(event) {
+    // const { name } = target;
+    // const value = target.type === 'checkbox' ? target.checked : target.value;
+
+    this.setState({ searchText: event.target.value });
+  }
+
+  onBookmarkedChange() {
+  }
+
+  onSelectedGenreChange() {
+  }
 
   render() {
-    // const { movies } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
-        <h2> My awesome movie library </h2>
         <SearchBar
-          searchText="text"
-          onSearchTextChange=""
-          bookmarkedOnly=""
-          onBookmarkedChange=""
-          selectedGenre=""
-          onSelectedGenreChange=""
+          searchText={ searchText }
+          bookmarkValue={ bookmarkedOnly }
+          genreValue={ selectedGenre }
+          onSearchTextChange={ this.onSearchTextChange }
+          funcBookmarked={ this.onBookmarkedChange }
+          funcGenre={ this.onSelectedGenreChange }
         />
-        {/* <MovieList movies={ movies } /> */}
-        <AddMovie />
+        <MovieList movies={ movies } />
+        {/* <AddMovie /> */}
       </div>
     );
   }
