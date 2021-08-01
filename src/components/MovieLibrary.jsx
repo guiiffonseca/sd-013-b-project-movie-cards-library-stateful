@@ -3,24 +3,45 @@ import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieCard from './MovieCard';
-
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     const { movies } = this.props;
-    console.log(movies);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies,
     };
-    console.log(this.state);
+  }
+
+  addMovie = (newMovie) => {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, newMovie],
+    });
+  }
+
+  onSearchTextChange = ({ target }) => {
+    this.setState({
+      searchText: target.value,
+    });
+  }
+
+  onBookmarkedChange = ({ target }) => {
+    this.setState({
+      bookmarkedOnly: target.checked,
+    });
+  }
+
+  onSelectedGenreChange = ({ target }) => {
+    this.setState({
+      selectedGenre: target.value,
+    });
   }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    console.log(movies);
     return (
       <div>
         {movies.map((movie) => (
@@ -33,20 +54,22 @@ class MovieLibrary extends Component {
           searchText={ searchText }
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
+          onSearchTextChange={ this.onSearchTextChange }
+          onBookmarkedChange={ this.onBookmarkedChange }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         {/* <MovieList movies={this.props.movies} /> */}
-        <AddMovie handleMovieButton={ this.handleMovieButton } />
+        <AddMovie addMovie={ this.addMovie } />
       </div>
     );
   }
 }
-
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string,
     subtitle: PropTypes.string,
     storyline: PropTypes.string,
-    rating: PropTypes.number,
+    rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     imagePath: PropTypes.string,
     bookmarked: PropTypes.bool,
     genre: PropTypes.string,
