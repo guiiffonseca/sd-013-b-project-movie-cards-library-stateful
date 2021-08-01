@@ -14,8 +14,8 @@ class Select extends React.Component {
           onChange={ onChange }
         >
           <option value="action" data-testid="genre-option">Ação</option>
-          <option value="comedy" ata-testid="genre-option">Comédia</option>
-          <option value="thriller" ata-testid="genre-option">Suspense</option>
+          <option value="comedy" data-testid="genre-option">Comédia</option>
+          <option value="thriller" data-testid="genre-option">Suspense</option>
         </select>
       </label>
     );
