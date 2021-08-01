@@ -8,6 +8,7 @@ export default class CheckBox extends React.Component {
       <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
         Mostrar somente favoritos
         <input
+          id="checkbox-input"
           type="checkbox"
           name="checkbox-input"
           checked={ bookmarkedOnly }

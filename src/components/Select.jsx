@@ -8,6 +8,7 @@ export default class Select extends React.Component {
       <label htmlFor="select-input" data-testid="select-input-label">
         Filtrar por gênero
         <select
+          id="select-input"
           name="select-input"
           onChange={ onSelectedGenreChange }
           data-testid="select-input"

@@ -2,15 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default class ButtonSend extends React.Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-
   render() {
-    const { onClick } = this.props;
+    const { onClick, resetAddMovie } = this.props;
     return (
-      <button type="button" onClick={ onClick } data-testid="send-button">
+      <button
+        type="button"
+        onClick={ onClick }
+        onChange={ resetAddMovie }
+        data-testid="send-button"
+      >
         Adicionar filme
       </button>
     );
@@ -19,4 +19,5 @@ export default class ButtonSend extends React.Component {
 
 ButtonSend.propTypes = {
   onClick: PropTypes.func.isRequired,
+  resetAddMovie: PropTypes.func.isRequired,
 };

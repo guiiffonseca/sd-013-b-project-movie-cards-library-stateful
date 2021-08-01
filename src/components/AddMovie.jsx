@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import InputTitle from './InputTitle';
 import InputSubTitle from './InputSubTitle';
 import ImagePath from './ImagePath';
@@ -8,53 +7,49 @@ import InputRating from './InputRating';
 import SelectGenre from './SelectGenre';
 import ButtonSend from './ButtonSend';
 
+const INITIAL_STATE = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
+
 export default class AddMovie extends React.Component {
   constructor() {
     super();
-    // this.state = {
-    //   subtitle: '',
-    //   title: '',
-    //   imagePath: '',
-    //   storyline: '',
-    //   rating: 0,
-    //   genre: 'action',
-    // };
+    this.state = INITIAL_STATE;
     this.handleChange = this.handleChange.bind(this);
-    this.onClick = this.onClick.bind(this);
   }
 
   handleChange({ target }) {
     const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState({ [name]: value });
+    console.log(target);
+    const elementValue = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({ [name]: elementValue });
   }
 
-  onClick() {
-
+  onClick = () => {
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
+    this.setState({ subtitle, title, imagePath, storyline, rating, genre },
+      () => { this.resetAddMovie(); });
   }
+
+  resetAddMovie = () => { this.setState(INITIAL_STATE); };
 
   render() {
-    const { title, subtitle, storyline, imagePath, rating, genre, onClick } = this.props;
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <InputTitle title={ title } />
-        <InputSubTitle subtitle={ subtitle } />
-        <ImagePath imagePath={ imagePath } />
-        <TextAreaSynopsis storyline={ storyline } />
-        <InputRating rating={ rating } />
-        <SelectGenre genre={ genre } />
-        <ButtonSend onClick={ onClick } />
+        <InputTitle title={ title } handleChange={ this.handleChange } />
+        <InputSubTitle subtitle={ subtitle } handleChange={ this.handleChange } />
+        <ImagePath imagePath={ imagePath } handleChange={ this.handleChange } />
+        <TextAreaSynopsis storyline={ storyline } handleChange={ this.handleChange } />
+        <InputRating rating={ rating } handleChange={ this.handleChange } />
+        <SelectGenre genre={ genre } handleChange={ this.handleChange } />
+        <ButtonSend onClick={ this.onClick } />
       </form>
     );
   }
 }
-
-AddMovie.propTypes = {
-  subtitle: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  imagePath: PropTypes.string.isRequired,
-  storyline: PropTypes.string.isRequired,
-  rating: PropTypes.number.isRequired,
-  genre: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
-};

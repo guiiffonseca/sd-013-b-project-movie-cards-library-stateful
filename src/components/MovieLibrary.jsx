@@ -28,18 +28,30 @@ export default class MovieLibrary extends React.Component {
   handleMovies(value) {
     const { movies } = this.props;
     this.setState({ movies: movies
-      .filter(({ title, storyline }) => (title)
+      .filter(({ title, subtitle, storyline }) => (title)
+        .toLowerCase().includes(value.toLowerCase()) || (subtitle)
         .toLowerCase().includes(value.toLowerCase()) || (storyline)
         .toLowerCase().includes(value.toLowerCase())) });
   }
 
   onBookmarkedChange = () => {
-    this.setState((priorState) => ({ bookmarkedOnly: !priorState.bookmarkedOnly }));
+    this.setState((priorState) => ({ bookmarkedOnly: !priorState.bookmarkedOnly }),
+      () => {
+        const { movies } = this.props;
+        const { bookmarkedOnly } = this.state;
+        this.setState({ movies });
+        if (bookmarkedOnly) {
+          this.setState({ movies: movies.filter(({ bookmarked }) => bookmarked) });
+        }
+      });
+  }
+
+  onClick = ({ target }) => {
+    console.log(target);
   }
 
   render() {
     const { movies } = this.state;
-    const { title, subtitle, storyline, imagePath, rating, genre } = movies;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
@@ -51,14 +63,7 @@ export default class MovieLibrary extends React.Component {
           onBookmarkedChange={ this.onBookmarkedChange }
           onSelectedGenreChange={ this.handleChange }
         />
-        <AddMovie
-          title={ title }
-          subtitle={ subtitle }
-          storyline={ storyline }
-          imagePath={ imagePath }
-          rating={ rating }
-          genre={ genre }
-        />
+        <AddMovie onClick={ this.onClick } />
         <MovieList className="movie-list" movies={ movies } title={ movies.title } />
       </div>
     );
