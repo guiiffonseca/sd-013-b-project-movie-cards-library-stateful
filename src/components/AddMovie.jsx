@@ -17,6 +17,7 @@ export default class AddMovie extends Component {
       storylineValue,
       ratingValue,
       feedbackValue,
+      genreValue,
     } = this.props;
     return (
       <form htmlFor="true" data-testid="add-movie-form">
@@ -41,14 +42,14 @@ export default class AddMovie extends Component {
           feedbackValue={ feedbackValue }
           handleChange={ handleChange }
         />
-        {/* select associete w label: 'Gênero' */}
-        {/* label id: data-testid="genre-input-label"  */}
         <label htmlFor="true" data-testid="genre-input-label">
           Gênero
-          <select name="genre" id=""/>
+          <select data-testid="genre-input" name="genre" id="" value={ genreValue }>
+            <option value="action" selected>Ação</option>
+            <option value="comedy">Comédia</option>
+            <option value="thriller">Suspense</option>
+          </select>
         </label>
-        {/* select initial value by genre */}
-        {/* select id: data-testid="genre-input" */}
         {/* onChange  */}
         {/* select tags option: 'Ação' - action, Comédia - comedy , Suspense - thriller */}
         {/* each option id: data-testid="genre-option" */}
@@ -65,6 +66,7 @@ AddMovie.propTypes = {
   storylineValue: PropTypes.string.isRequired,
   ratingValue: PropTypes.number.isRequired,
   feedbackValue: PropTypes.string.isRequired,
+  genreValue: PropTypes.string.isRequired,
 };
 
 // AddMovie.defaultProps = {
