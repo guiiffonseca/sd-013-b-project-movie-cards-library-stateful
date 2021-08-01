@@ -74,6 +74,7 @@ class AddMovie extends React.Component {
         <InputNumber
           value={ rating }
           onChange={ this.handleInput }
+          labelText="Avaliação"
         />
         <Select value={ genre } onChange={ this.handleInput } />
         <Button onClick={ this.handleButton } />
