@@ -13,6 +13,7 @@ export default class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: 'Todos',
       title: '',
+      subtitle: '',
     };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
@@ -23,6 +24,12 @@ export default class MovieLibrary extends Component {
   onTitleChange({ target }) {
     this.setState({
       title: target.value,
+    });
+  }
+
+  onSubtitleChange({ target }) {
+    this.setState({
+      subtitle: target.value,
     });
   }
 
@@ -47,7 +54,7 @@ export default class MovieLibrary extends Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, title } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, title, subtitle } = this.state;
     return (
       <div>
         <h2> The amazing movie library </h2>
@@ -60,7 +67,12 @@ export default class MovieLibrary extends Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
           selectedGenreValue={ selectedGenre }
         />
-        <AddMovie titleValue={ title } onTitleChange={ this.onTitleChange } />
+        <AddMovie
+          titleValue={ title }
+          onTitleChange={ this.onTitleChange }
+          subtitleValue={ subtitle }
+          onSubtitleChange={ this.onSubtitleChange }
+        />
       </div>
     );
   }
