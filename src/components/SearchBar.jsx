@@ -13,7 +13,14 @@ export default class SearchBar extends Component {
     } = this.props;
     return (
       <form data-testid="search-bar-form">
-      
+        <label htmlFor="text-input" data-testid="text-input-label">
+          <input
+            type="text"
+            onChange={ onSearchTextChange }
+            value={ searchText }
+            data-testid="text-input"
+          />
+        </label>
       </form>
     );
   }
