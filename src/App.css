@@ -81,21 +81,3 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
-
-#search-bar-form {
-  display: flex;
-  flex-direction: column;
-}
-
-body label {
-  display: flex;
-  flex-direction: column;
-  padding-left: 10px;
-  max-width: 25%;
-}
-
-body button {
-  margin-left: 100px;
-  margin-bottom: 20px;
-  margin-top: 10px;
-}
