@@ -7,6 +7,7 @@ export default class ShowFavorites extends React.Component {
       bookmarkedOnly,
       onBookmarkedChange,
     } = this.props;
+
     return (
       <label htmlFor="checkbox" data-testid="checkbox-input-label">
         Mostrar somente favoritos

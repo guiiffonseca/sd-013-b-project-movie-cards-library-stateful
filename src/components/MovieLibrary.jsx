@@ -20,6 +20,13 @@ class MovieLibrary extends Component {
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.moviesFiltered = this.moviesFiltered.bind(this);
+    this.handleAddCard = this.handleAddCard.bind(this);
+  }
+
+  handleAddCard(newMovie) {
+    this.setState((prevState) => ({
+      movies: [...prevState.movies, newMovie],
+    }));
   }
 
   onSearchTextChange(event) {
@@ -70,7 +77,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ this.moviesFiltered() } />
-        <AddMovie />
+        <AddMovie onClick={ this.handleAddCard } />
       </div>
     );
   }
