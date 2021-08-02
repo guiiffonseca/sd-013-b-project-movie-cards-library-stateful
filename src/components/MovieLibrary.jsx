@@ -31,7 +31,6 @@ class MovieLibrary extends React.Component {
         movies: getMovies,
       });
     }
-    // this.setState()
   }
 
   genericChange({ target }) {

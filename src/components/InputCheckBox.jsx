@@ -21,7 +21,7 @@ class InputCheckBox extends React.Component {
 }
 
 InputCheckBox.propTypes = {
-  checked: PropTypes.string.isRequired,
+  checked: PropTypes.bool.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
