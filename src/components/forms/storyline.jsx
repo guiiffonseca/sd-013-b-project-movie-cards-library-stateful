@@ -1,22 +1,8 @@
 import React from 'react';
 
 class StoryLine extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      storyline: '',
-    };
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  }
-
   render() {
-    const { storyline } = this.state;
+    const { storyline, onChange } = this.props;
     return (
       <label htmlFor="storyline" data-testid="storyline-input-label">
         Sinopse
@@ -24,7 +10,7 @@ class StoryLine extends React.Component {
           name="storyline"
           value={ storyline }
           data-testid="storyline-input"
-          onChange={ this.handleChange }
+          onChange={ onChange }
         />
       </label>
     );
