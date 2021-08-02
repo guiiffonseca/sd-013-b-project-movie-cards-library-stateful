@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import movies from '../data';
-// import AddMovie from './AddMovie';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor() {
@@ -44,7 +44,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
-        {/* <AddMovie /> */}
+        <AddMovie />
       </div>
     );
   }
