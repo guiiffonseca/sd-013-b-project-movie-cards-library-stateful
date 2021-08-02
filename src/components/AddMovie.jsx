@@ -1,35 +1,53 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TextArea from './TextArea';
+import NewRating from './NewRating';
+import Selected from './Selected';
+import Botao from './Botao';
 
 class AddMovie extends React.Component {
-  constructor() {
-    super();
-
-    this.OnChange = this.OnChange.bind(this);
+  constructor(props) {
+    super(props);
 
     this.state = {
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: "action",
+      genre: 'action',
     };
+    this.OnChange = this.OnChange.bind(this);
+    this.OnClick = this.OnClick.bind(this);
   }
 
   OnChange({ target }) {
     const { name, value } = target;
     this.setState({
-      [name]: value });
+      [name]: value,
+    });
+  }
+
+  OnClick() {
+    const { onClick } = this.props;
+    const { movie } = this.state;
+
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+    onClick(movie);
   }
 
   render() {
-    const { OnClick } = this.props;
-    const { OnChange } = this.props;
-    const { subtitle, title, imagePath, storyline, rating, genre } = this.props;
+    const { OnChange, OnClick } = this;
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form data-testid="title-input-label">
+      <form data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">
           Título
           <input
@@ -48,16 +66,19 @@ class AddMovie extends React.Component {
             onChange={ OnChange }
           />
         </label>
-        <label htmlFor="image" data-testid="image-input-label">
+        <label htmlFor="imagePath" data-testid="image-input-label">
           Imagem
           <input
             data-testid="image-input"
-            name="image"
+            name="imagePath"
             value={ imagePath }
             onChange={ OnChange }
           />
-          <TextArea />
         </label>
+        <TextArea OnChange={ OnChange } storyline={ storyline } />
+        <NewRating OnChange={ OnChange } rating={ rating } />
+        <Selected OnChange={ OnChange } genre={ genre } />
+        <Botao onClick={ OnClick } />
       </form>
     );
   }
