@@ -19,19 +19,16 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-
-    this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleChange(event) {
-    const { name, value } = event.target;
+  handleChange = ({ target }) => {
+    const { name, value } = target;
     this.setState({
       [name]: value,
     });
   }
 
-  handleClick(e) {
+  handleClick = (e) => {
     e.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
