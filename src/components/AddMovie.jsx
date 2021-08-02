@@ -1,9 +1,12 @@
 import React from 'react';
+import CompData from './CompData';
+import CompGenre from './CompGenre';
 
 class AddMovie extends React.Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
+    this.onClick = this.onClick.bind(this);
 
     this.state = {
       subtitle: '',
@@ -16,10 +19,20 @@ class AddMovie extends React.Component {
   }
 
   handleChange(event) {
-    // const { name } = target;
-    // const value = target.type === 'checkbox' ? target.checked : target.value;
+    const { name } = event.target;
+    this.setState({ [name]: event.target.value });
+  }
 
-    this.setState({ title: event.target.value });
+  onClick(event) {
+    event.preventDefault();
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
@@ -29,7 +42,7 @@ class AddMovie extends React.Component {
       <div>
         <form data-testid="add-movie-form">
           <fieldset>
-            <legend>== Adicionar filme ==</legend>
+            <legend>== Atualizar biblioteca ==</legend>
             <label htmlFor="title" data-testid="title-input-label">
               Título
               <input
@@ -41,12 +54,31 @@ class AddMovie extends React.Component {
                 onChange={ this.handleChange }
               />
             </label>
-            { subtitle}
-            { title }
-            { imagePath }
-            { storyline }
-            { rating }
-            { genre }
+            <label htmlFor="subtitle" data-testid="subtitle-input-label">
+              Subtítulo
+              <input
+                id="subtitle"
+                name="subtitle"
+                data-testid="subtitle-input"
+                type="text"
+                value={ subtitle }
+                onChange={ this.handleChange }
+              />
+            </label>
+            <CompData
+              imagePath={ imagePath }
+              storyline={ storyline }
+              rating={ parseFloat(rating) }
+              handleChange={ this.handleChange }
+            />
+            <CompGenre genre={ genre } handleChange={ this.handleChange } />
+            <button
+              type="submit"
+              data-testid="send-button"
+              onClick={ this.onClick }
+            >
+              Adicionar filme
+            </button>
           </fieldset>
         </form>
       </div>
