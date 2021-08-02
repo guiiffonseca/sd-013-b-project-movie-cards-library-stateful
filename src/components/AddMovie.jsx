@@ -22,9 +22,10 @@ export default class AddMovie extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  handleClick = () => {
+  handleClick = (event) => {
     const { onClick } = this.props;
-    onClick(this.state);
+    const { state } = this;
+    onClick(state, event);
     this.setState({
       title: '',
       subtitle: '',

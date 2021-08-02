@@ -22,7 +22,6 @@ class MovieList extends React.Component {
     );
   }
 }
-// <MovieCard key={ movie.title } movie={ movie } />
 MovieList.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.object,
