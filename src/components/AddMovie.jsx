@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import InputNew from './InputNew';
+import InputNew from './InputNew.jsx';
 
 class AddMovie extends React.Component {
   constructor(props) {
