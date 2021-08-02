@@ -23,15 +23,27 @@ export default class MovieLibrary extends React.Component {
   onClick = (state, event) => {
     event.preventDefault();
     const { props } = this;
-    const { movies } = props;
-    movies.push(state);
+    const movies = [...props.movies, state];
     movies.bookmarkedOnly = true;
     this.setState({ movies });
   }
 
+  filterMovie = () => {
+    const { movies, bookmarkedOnly, searchText, selectedGenre } = this.state;
+    return movies.filter((bookmarked) => {
+      if (bookmarkedOnly) return bookmarked.bookmarked;
+      if (selectedGenre) {
+        return bookmarked.genre === selectedGenre;
+      }
+      return bookmarked.title.includes(searchText)
+      || bookmarked.subtitle.includes(searchText)
+      || bookmarked.storyline.includes(searchText);
+    });
+  }
+
   render() {
-    const { state, handleChange, onClick } = this;
-    const { movies, bookmarkedOnly, searchText, selectedGenre, newMovie } = state;
+    const { state, handleChange, onClick, filterMovie } = this;
+    const { bookmarkedOnly, searchText, selectedGenre } = state;
     return (
       <div>
         <SearchBar
@@ -43,13 +55,7 @@ export default class MovieLibrary extends React.Component {
           onSelectedGenreChange={ handleChange }
         />
         <AddMovie onClick={ onClick } />
-        <MovieList
-          movies={ movies }
-          bookmarkedOnly={ bookmarkedOnly }
-          selectedGenre={ selectedGenre }
-          searchText={ searchText }
-          newMovie={ newMovie }
-        />
+        <MovieList movies={ filterMovie() } />
       </div>
     );
   }
