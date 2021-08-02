@@ -80,7 +80,7 @@ describe('17 - Renderize `<SearchBar />` dentro de `<MovieLibrary />`', () => {
     expect(searchBar).toHaveLength(1);
   });
 
-  it.skip('Altere o estado da `<SearchBar />` quando algo for digitado nela', () => {
+  it('Altere o estado da `<SearchBar />` quando algo for digitado nela', () => {
     const { getByTestId } = render(<MovieLibrary movies={ movies } />);
     const searchText = getByTestId(textTestId);
     event.type(searchText, 'My Search Text');
@@ -95,7 +95,7 @@ describe('17 - Renderize `<SearchBar />` dentro de `<MovieLibrary />`', () => {
     expect(bookmarkedOnly).toBeChecked();
   });
 
-  it.skip('Disponibilize a opção de filtrar por categorias', () => {
+  it('Disponibilize a opção de filtrar por categorias', () => {
     const { getByTestId } = render(<MovieLibrary movies={ movies } />);
     const selectInput = getByTestId(selectTestId);
     expect(selectInput).toHaveValue('');

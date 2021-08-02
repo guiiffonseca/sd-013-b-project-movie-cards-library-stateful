@@ -27,16 +27,20 @@ class MovieLibrary extends Component {
     }));
   }
 
-  onSelectedGenreChange() {
+  onSelectedGenreChange({ target }) {
+    const { name, value } = target;
 
+    this.setState({
+      [name]: value,
+    });
   }
 
-  onSearchTextChange() {
-    // const { name } = target;
+  onSearchTextChange(event) {
+    const { name, value } = event.target;
 
-    // this.setState({
-    //   [name]: value,
-    // });
+    this.setState({
+      [name]: value,
+    });
   }
 
   render() {

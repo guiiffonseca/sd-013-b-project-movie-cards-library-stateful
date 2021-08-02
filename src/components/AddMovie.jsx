@@ -5,6 +5,7 @@ import SubtitleInput from './InputsAddMovie/SubtitleInput';
 import ImageInput from './InputsAddMovie/ImageInput';
 import StorylineInput from './InputsAddMovie/StorylineInput';
 import RatingInput from './InputsAddMovie/RatingInput';
+// import MovieCard from './MovieCard';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -32,14 +33,18 @@ class AddMovie extends React.Component {
   }
 
   submitButton() {
-    this.setState({
-      title: '',
-      subtitle: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    });
+    const { state } = this;
+    console.log(state);
+    // return (
+    //   <MovieCard
+    //     title={ state.title }
+    //     subtitle={ state.subtitle }
+    //     imagePath={ state.imagePath }
+    //     storyline={ state.storyline }
+    //     rating={ state.rating }
+    //     genre={ state.genre }
+    //   />
+    // );
   }
 
   render() {
@@ -81,8 +86,7 @@ class AddMovie extends React.Component {
           </select>
         </label>
         <button
-          id="genre-input"
-          type="submit"
+          type="button"
           data-testid="send-button"
           onClick={ this.submitButton }
         >
