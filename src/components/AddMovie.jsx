@@ -4,8 +4,6 @@ import NewInput from './NewInput';
 import NewTextarea from './NewTextarea';
 import NewSelect from './NewSelect';
 
-
-
 class AddMovie extends React.Component {
   constructor() {
     super();
@@ -102,4 +100,3 @@ AddMovie.propTypes = {
 };
 
 export default AddMovie;
-
