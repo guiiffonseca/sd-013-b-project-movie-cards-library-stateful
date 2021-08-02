@@ -15,7 +15,7 @@ export default class AddMovie extends React.Component {
       subtitle: '',
       imagePath: '',
       storyline: '',
-      ValorRating: 0,
+      rating: 0,
       genre: '',
     };
   }
@@ -28,7 +28,7 @@ export default class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, ValorRating, genre } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
 
@@ -36,7 +36,6 @@ export default class AddMovie extends React.Component {
 
         <InputSubtilte
           value={ subtitle }
-          name="subtitle"
           onChange={ this.handleChange }
         />
 
@@ -44,11 +43,13 @@ export default class AddMovie extends React.Component {
 
         <InputStoryLine
           value={ storyline }
-          name="storyline"
           onChange={ this.handleChange }
         />
 
-        <InputRating value={ ValorRating } name="rating" onChange={ this.handleChange } />
+        <InputRating
+          value={ rating }
+          onChange={ this.handleChange }
+        />
 
         <Genre value={ genre } name="genre" onChange={ this.handleChange } />
 

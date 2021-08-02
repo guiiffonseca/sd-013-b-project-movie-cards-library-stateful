@@ -8,6 +8,7 @@ class InputStoryLine extends React.Component {
         <input
           type="text"
           data-testid="storyline-input"
+          id="storyline-input"
         />
       </label>
     );
