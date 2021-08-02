@@ -18,7 +18,7 @@ export default class RatingFeedback extends Component {
           name="rating"
           data-testid="rating-input"
           onChange={ handleChange }
-          defaultValue="0"
+          min={ 0 }
           value={ ratingValue }
         />
       </label>
@@ -27,7 +27,13 @@ export default class RatingFeedback extends Component {
 }
 
 RatingFeedback.propTypes = {
-  feedbackValue: PropTypes.string.isRequired,
-  ratingValue: PropTypes.number.isRequired,
-  handleChange: PropTypes.func.isRequired,
+  feedbackValue: PropTypes.string,
+  ratingValue: PropTypes.number,
+  handleChange: PropTypes.func,
+};
+
+RatingFeedback.defaultProps = {
+  feedbackValue: undefined,
+  handleChange: undefined,
+  ratingValue: 0,
 };

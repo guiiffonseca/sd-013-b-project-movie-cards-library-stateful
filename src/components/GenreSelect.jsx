@@ -13,7 +13,7 @@ export default class GenreSelect extends Component {
           value={ genreValue }
           onChange={ handleChange }
         >
-          <option selected value="action" data-testid="genre-option">Ação</option>
+          <option value="action" data-testid="genre-option">Ação</option>
           <option value="comedy" data-testid="genre-option">Comédia</option>
           <option value="thriller" data-testid="genre-option">Suspense</option>
         </select>
@@ -23,6 +23,11 @@ export default class GenreSelect extends Component {
 }
 
 GenreSelect.propTypes = {
-  genreValue: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
+  genreValue: PropTypes.string,
+  handleChange: PropTypes.func,
+};
+
+GenreSelect.defaultProps = {
+  genreValue: undefined,
+  handleChange: undefined,
 };
