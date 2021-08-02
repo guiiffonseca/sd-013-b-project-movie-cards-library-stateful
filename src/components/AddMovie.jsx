@@ -59,6 +59,16 @@ export default class AddMovie extends Component {
             ></textarea>
           </label>
         </div>
+
+        <div>
+          <label htmlFor="rating" data-testid="rating-input-label">
+            Avaliação
+            <input type="number" name="number" id="number" data-testid="rating-input"
+              value= { rating }
+              onChange={ (e) => this.setState({ rating: e.target.value})}
+            />
+          </label>
+        </div>
       </form>
     );
   }
