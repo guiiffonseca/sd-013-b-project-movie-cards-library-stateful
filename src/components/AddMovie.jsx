@@ -25,6 +25,7 @@ class AddMovie extends React.Component {
     this.setState({
       [name]: value,
     });
+    console.log(target.name);
   }
 
   addMovie() {
