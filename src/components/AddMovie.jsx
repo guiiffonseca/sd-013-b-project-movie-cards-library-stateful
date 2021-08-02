@@ -1,8 +1,8 @@
 import React from 'react';
 
 class AddMovie extends React.Component {
-  render () {
-    return(
+  render() {
+    return (
       <p>xablau</p>
     );
   }
