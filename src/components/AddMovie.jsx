@@ -1,56 +1,52 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import InputNew from './InputNew';
 
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
 
     this.handleChange = this.handleChange.bind(this);
-    this.creatLabel = this.creatLabel.bind(this);
+    this.otherClick = this.otherClick.bind(this);
 
     this.state = {
       subtitle: '',
       title: '',
       imagePath: '',
-      storyLine: '',
+      storyline: '',
       rating: 0,
       genre: 'action',
     };
   }
 
-  handleChange = (event) => {
-    const { name, value } = event.target;
-
+  handleChange = ({ target }) => {
+    const { value } = target;
+    const name = target.name === "image" ? "imagePath" : target.name;
     this.setState({ [name]: value });
   }
 
-  // Consegui ter uma ideia fazendo o code review do projeto da  Jessica (https://github.com/tryber/sd-013-b-project-movie-cards-library-stateful/pull/113/commits/9a9554fccc55639dea89496991e9fac890e11635)
-
-  creatLabel(descrition, id, value, callBack) {
-    return (
-      <label htmlFor={ id } data-tesid={ `${id}-input-label` }>
-        { descrition }
-        <input
-          type="text"
-          name={ id }
-          value={ value }
-          id={ id }
-          data-tesid={ `${id}-input` }
-          onChange={ callBack }
-        />
-      </label>);
+  otherClick() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
-    const onClick = this.props;
     const { subtitle, title, imagePath, storyLine,
       rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        {this.creatLabel('Título', 'title', title, this.handleChange)}
-        {this.creatLabel('Subtítulo', 'subtitle', subtitle, this.handleChange)}
-        {this.creatLabel('Imagem', 'image', imagePath, this.handleChange)}
-        {this.creatLabel('Sinopse', 'storyline', storyLine, this.handleChange)}
+        <InputNew descritions="Título" id="title" value={ title } callback={ this.handleChange } />
+        <InputNew descritions="Subtítulo" id="subtitle" value={ subtitle } callback={ this.handleChange } />
+        <InputNew descritions="Imagem" id="image" value={ imagePath } callback={ this.handleChange } />
+        <InputNew descritions="Sinopse" id="storyline" value={ storyLine } callback={ this.handleChange } />
         <label htmlFor="rating" data-testid="rating-input-label">
           Avaliação
           <input
@@ -71,21 +67,18 @@ class AddMovie extends React.Component {
             data-testid="genre-input"
             onChange={ this.handleChange }
           >
-            <option selected data-testid="genre-option" valor="action">Ação</option>
-            <option data-testid="genre-option" valor="comedy">Comedia</option>
-            <option data-testid="genre-option" valor="thriller">Suspense</option>
+            <option data-testid="genre-option" value="action">Ação</option>
+            <option data-testid="genre-option" value="comedy">Comédia</option>
+            <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
-        <label htmlFor="button">
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ this.otherClick }
+        >
           Adicionar filme
-          <input
-            data-testid="send-button"
-            type="button"
-            name="button"
-            id="button"
-            onClick={ onClick }
-          />
-        </label>
+        </button>
       </form>
     );
   }
