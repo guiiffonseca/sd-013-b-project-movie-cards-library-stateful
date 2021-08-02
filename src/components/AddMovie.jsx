@@ -1,9 +1,10 @@
 import React from 'react';
-import subtitleInput from './subtitleInput';
-import titleInput from './titleInput';
-import storyLine from './storyLine';
+import InputSubtilte from './InputSubtilte';
+import InputStoryLine from './storyLineInput';
 import ImagePath from './ImagePath';
-import RatingInput from './RatingInput';
+import InputRating from './InputRating';
+import Genre from './Genre';
+import InputTitle from './InputTitle';
 
 export default class AddMovie extends React.Component {
   constructor() {
@@ -14,7 +15,8 @@ export default class AddMovie extends React.Component {
       subtitle: '',
       imagePath: '',
       storyline: '',
-      rating: 0,
+      ValorRating: 0,
+      genre: '',
     };
   }
 
@@ -26,19 +28,29 @@ export default class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, ValorRating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
 
-        <titleInput value={ title } onChange={ this.handleChange } />
+        <InputTitle value={ title } name="title" onChange={ this.handleChange } />
 
-        <subtitleInput value={ subtitle } onChange={ this.handleChange } />
+        <InputSubtilte
+          value={ subtitle }
+          name="subtitle"
+          onChange={ this.handleChange }
+        />
 
-        <ImagePath value={ imagePath } onChange={ this.handleChange } />
+        <ImagePath value={ imagePath } name="imagePath" onChange={ this.handleChange } />
 
-        <storyLine value={ storyline } onChange={ this.handleChange } />
+        <InputStoryLine
+          value={ storyline }
+          name="storyline"
+          onChange={ this.handleChange }
+        />
 
-        <RatingInput value={ rating } onChange={ this.handleChange } />
+        <InputRating value={ ValorRating } name="rating" onChange={ this.handleChange } />
+
+        <Genre value={ genre } name="genre" onChange={ this.handleChange } />
 
       </form>
     );

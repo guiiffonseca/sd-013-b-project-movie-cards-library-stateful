@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class RatingInput extends React.Component {
+class InputRating extends React.Component {
   render() {
     return (
       <label htmlFor="rating-input" data-testid="rating-input-label">
@@ -14,3 +14,5 @@ export default class RatingInput extends React.Component {
     );
   }
 }
+
+export default InputRating;
