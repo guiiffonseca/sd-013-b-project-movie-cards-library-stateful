@@ -31,7 +31,7 @@ class AddMovie extends React.Component {
     });
   }
 
-  submitButton(props) {
+  submitButton() {
     this.setState({
       title: '',
       subtitle: '',

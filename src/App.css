@@ -93,3 +93,9 @@ body label {
   padding-left: 10px;
   max-width: 25%;
 }
+
+body button {
+  margin-left: 100px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
