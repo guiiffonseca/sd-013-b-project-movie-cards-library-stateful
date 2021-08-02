@@ -21,6 +21,12 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  handleChanges = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     const { movies } = this.props;
@@ -31,6 +37,9 @@ class MovieLibrary extends React.Component {
           searchText={ searchText }
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
+          onSearchTextChange={ this.handleChanges }
+          onBookmarkedChange={ this.handleChanges }
+          onSelectedGenreChange={ this.handleChanges }
         />
         <MovieList movies={ movies } />
         <AddMovie onClick={ this.addNewMovie } />

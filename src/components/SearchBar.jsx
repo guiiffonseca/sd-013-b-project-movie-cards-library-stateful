@@ -3,12 +3,7 @@ import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
-    const {
-      onSearchTextChange,
-      onBookmarkedChange,
-      onSelectedGenreChange,
-    } = this.props;
-
+    const { onSearchTextChange, onBookmarkedChange, onSelectedGenreChange } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre } = this.props;
     return (
       <div>
@@ -16,31 +11,33 @@ class SearchBar extends React.Component {
           <label htmlFor="Inclui o texto" data-testid="text-input-label">
             Inclui o texto:
             <input
-              value={ searchText }
-              type="text"
-              name=""
-              id="Inclui o texto"
               data-testid="text-input"
+              id="Inclui o texto"
+              name="searchText"
               onChange={ onSearchTextChange }
+              type="text"
+              value={ searchText }
             />
           </label>
           <label htmlFor="filter-checkbox" data-testid="checkbox-input-label">
             Mostrar somente favoritos
             <input
-              type="checkbox"
               checked={ bookmarkedOnly }
-              onChange={ onBookmarkedChange }
-              id="filter-checkbox"
               data-testid="checkbox-input"
+              id="filter-checkbox"
+              name="bookmarkedOnly"
+              onChange={ onBookmarkedChange }
+              type="checkbox"
             />
           </label>
           <label htmlFor="input-select-genre" data-testid="select-input-label">
             Filtrar por gênero
             <select
-              id="input-select-genre"
-              value={ selectedGenre }
-              onChange={ onSelectedGenreChange }
               data-testid="select-input"
+              id="input-select-genre"
+              onChange={ onSelectedGenreChange }
+              name="selectedGenre"
+              value={ selectedGenre }
             >
               <option value="" data-testid="select-option">Todos</option>
               <option value="action" data-testid="select-option">Ação</option>
