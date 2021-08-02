@@ -21,7 +21,7 @@ class AddMovie extends React.Component {
 
   handleChange = ({ target }) => {
     const { value } = target;
-    const name = target.name === "image" ? "imagePath" : target.name;
+    const name = target.name === 'image' ? 'imagePath' : target.name;
     this.setState({ [name]: value });
   }
 
@@ -39,14 +39,20 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { subtitle, title, imagePath, storyLine,
+    const { subtitle: su, title, imagePath: im, storyLine: st,
       rating, genre } = this.state;
+    const { handleChange } = this;
     return (
       <form data-testid="add-movie-form">
-        <InputNew descritions="Título" id="title" value={ title } callback={ this.handleChange } />
-        <InputNew descritions="Subtítulo" id="subtitle" value={ subtitle } callback={ this.handleChange } />
-        <InputNew descritions="Imagem" id="image" value={ imagePath } callback={ this.handleChange } />
-        <InputNew descritions="Sinopse" id="storyline" value={ storyLine } callback={ this.handleChange } />
+        <InputNew
+          d="Título"
+          id="title"
+          value={ title }
+          callback={ handleChange }
+        />
+        <InputNew d="Subtítulo" id="subtitle" value={ su } callback={ handleChange } />
+        <InputNew d="Imagem" id="image" value={ im } callback={ handleChange } />
+        <InputNew d="Sinopse" id="storyline" value={ st } callback={ handleChange } />
         <label htmlFor="rating" data-testid="rating-input-label">
           Avaliação
           <input
@@ -55,7 +61,7 @@ class AddMovie extends React.Component {
             name="rating"
             id="rating"
             value={ rating }
-            onChange={ this.handleChange }
+            onChange={ handleChange }
           />
         </label>
         <label htmlFor="genre" data-testid="genre-input-label">
@@ -65,7 +71,7 @@ class AddMovie extends React.Component {
             id="genre"
             value={ genre }
             data-testid="genre-input"
-            onChange={ this.handleChange }
+            onChange={ handleChange }
           >
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
@@ -84,8 +90,8 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.PropType = {
-  onclick: PropTypes.func,
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
 };
 
 export default AddMovie;
