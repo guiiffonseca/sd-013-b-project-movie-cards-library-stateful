@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class StoryLine extends React.Component {
   render() {
@@ -15,6 +16,11 @@ class StoryLine extends React.Component {
       </label>
     );
   }
+}
+
+StoryLine.propTypes = {
+  storyline: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 }
 
 export default StoryLine;

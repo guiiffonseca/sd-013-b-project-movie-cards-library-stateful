@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddImagePath extends React.Component {
   render() {
@@ -17,6 +18,11 @@ class AddImagePath extends React.Component {
       </label>
     );
   }
+}
+
+AddImagePath.propTypes = {
+  imagePath: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 }
 
 export default AddImagePath;
