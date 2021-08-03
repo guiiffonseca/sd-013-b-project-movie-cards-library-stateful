@@ -54,19 +54,19 @@ beforeEach(() => {
 });
 
 describe('6 - Crie um componente chamado `<AddMovie />`', () => {
-  it.only('Renderize o componente', () => {
+  it('Renderize o componente', () => {
     render(<AddMovie onClick={ () => jest.fn() } />);
   });
 });
 
 describe('7 - Renderize um formulário dentro de `<AddMovie />`', () => {
-  it.only('Renderize 1, e apenas 1, form', () => {
+  it('Renderize 1, e apenas 1, form', () => {
     expect(form).toHaveLength(1);
   });
 });
 
 describe('8 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o título do novo filme', () => {
-  it.only('Renderize um input de texto para quem usa escrever o titulo do filme', () => {
+  it('Renderize um input de texto para quem usa escrever o titulo do filme', () => {
     expect(titleInput).toBeInTheDocument();
   });
 
@@ -87,20 +87,20 @@ describe('8 - Renderize um input do tipo texto dentro do formulário em `<AddMov
 });
 
 describe('9 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o subtítulo do novo filme', () => {
-  it('Renderize um input de texto para quem usa escrever o subtítulo do filme', () => {
+  it.only('Renderize um input de texto para quem usa escrever o subtítulo do filme', () => {
     expect(subtitleInput).toBeInTheDocument();
   });
 
-  it('Renderize a label "Subtítulo" para o input de subtitulo', () => {
+  it.only('Renderize a label "Subtítulo" para o input de subtitulo', () => {
     expect(subtitleInputLabel).toBeInTheDocument();
     expect(subtitleInputLabel).toHaveTextContent('Subtítulo');
   });
 
-  it('Defina o  estado inicial do subtitulo como "", ou seja, uma string vazia', () => {
+  it.only('Defina o  estado inicial do subtitulo como "", ou seja, uma string vazia', () => {
     expect(subtitleInput).toHaveValue(initialState.subtitle);
   });
 
-  it('Altere o valor do input de subtitulo quando algo é digitado nele', () => {
+  it.only('Altere o valor do input de subtitulo quando algo é digitado nele', () => {
     event.type(subtitleInput, 'my awesome movie subtitle');
 
     expect(subtitleInput).toHaveValue('my awesome movie subtitle');
