@@ -22,4 +22,6 @@ class InputTitle extends React.Component {
 
 export default InputTitle;
 
-InputTitle.prop
+InputTitle.propTypes = {
+  onChange: PropTypes.func.isRequired,
+};
