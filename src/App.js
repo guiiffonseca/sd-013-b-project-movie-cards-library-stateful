@@ -1,4 +1,5 @@
 import React from 'react';
+import AddMovie from './components/AddMovie';
 import Header from './components/Header';
 import MovieLibrary from './components/MovieLibrary';
 import SearchBar from './components/SearchBar';
@@ -18,6 +19,7 @@ function App() {
         onSelectedGenreChange={ onSelectedGenreChange }
       />
       <MovieLibrary movies={ movies } />
+      <AddMovie onClick={ onClick } />
     </div>
   );
 }
