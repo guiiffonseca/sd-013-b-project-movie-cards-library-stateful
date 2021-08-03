@@ -17,11 +17,16 @@ class SearchBar extends React.Component {
             id="searchText"
           />
         </label>
-        <input
-          checked={ bookmarkedOnly }
-          type="checkbox"
-          onChange={ onBookmarkedChange }
-        />
+        <label htmlFor="onlyMarked" data-testid="checkbox-input-label">
+          Mostrar somente favoritos
+          <input
+            checked={ bookmarkedOnly }
+            type="checkbox"
+            onChange={ onBookmarkedChange }
+            data-testid="checkbox-input"
+            id="onlyMarked"
+          />
+        </label>
         <select>
           <option
             value={ selectedGenre }
