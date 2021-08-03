@@ -4,7 +4,8 @@ import AddMovieTitle from './AddMovieTitle';
 import AddMovieSubtitle from './AddMovieSubtitle';
 import AddMovieImagePath from './AddMovieImagePath';
 import AddMovieStoryLine from './AddMovieStoryLine';
-import AddMovieRating from './AddMovieRating'
+import AddMovieRating from './AddMovieRating';
+import AddMovieGenre from './AddMovieGenre';
 
 class AddMovie extends React.Component {
   constructor(props) {

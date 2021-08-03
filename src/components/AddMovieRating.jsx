@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class AddMovieRating extends React.Component {
-
   render() {
     const {
       rating,
@@ -19,7 +18,7 @@ class AddMovieRating extends React.Component {
             value={ rating }
             data-testid="rating-input"
             onChange={ handleChange }
-            />
+          />
         </label>
       </section>
     );
@@ -29,6 +28,6 @@ class AddMovieRating extends React.Component {
 AddMovieRating.propTypes = {
   rating: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
-}
+};
 
 export default AddMovieRating;
