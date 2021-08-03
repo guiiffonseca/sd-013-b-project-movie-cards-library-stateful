@@ -2,18 +2,18 @@ import React from 'react';
 
 export default class TextAreaInput extends React.Component {
   render() {
-    const { onInputChange, text, type } = this.props;
+    const { name, onChange, text, value } = this.props;
     return (
-      <label data-testid={ `${type}-input-label` } htmlFor={ `${type}` }>
+      <label data-testid={ `${name}-input-label` } htmlFor={ `${name}` }>
         {text}
         <textarea
           cols="10"
-          data-testid={ `${type}-input` }
-          id={ `${type}` }
-          name={ `${type}` }
-          onChange={ onInputChange }
+          data-testid={ `${name}-input` }
+          id={ `${name}` }
+          name={ `${name}` }
+          onChange={ onChange }
           rows="4"
-          type="text"
+          value={ value }
         />
       </label>
     );

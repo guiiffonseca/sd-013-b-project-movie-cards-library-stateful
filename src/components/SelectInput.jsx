@@ -2,15 +2,16 @@ import React from 'react';
 
 export default class SelectInput extends React.Component {
   render() {
-    const { onInputChange, text, type } = this.props;
+    const { name, onChange, text, value } = this.props;
     return (
-      <label data-testid={ `${type}-input-label` } htmlFor={ `${type}` }>
+      <label data-testid={ `${name}-input-label` } htmlFor={ `${name}` }>
         {text}
         <select
-          data-testid={ `${type}-input` }
-          id={ `${type}` }
-          name={ `${type}` }
-          onChange={ onInputChange }
+          data-testid={ `${name}-input` }
+          id={ `${name}` }
+          name={ `${name}` }
+          onChange={ onChange }
+          value={ value }
         >
           <option data-testid="select-option" value="">Todos</option>
           <option data-testid="select-option" value="action">Ação</option>

@@ -2,19 +2,20 @@ import React from 'react';
 
 export default class NumberInput extends React.Component {
   render() {
-    const { onInputChange, text, type } = this.props;
+    const { name, onChange, text, value } = this.props;
     return (
-      <label data-testid={ `${type}-input-label` } htmlFor={ `${type}` }>
+      <label data-testid={ `${name}-input-label` } htmlFor={ `${name}` }>
         {text}
-        <textarea
-          data-testid={ `${type}-input` }
-          id={ `${type}` }
+        <input
+          data-testid={ `${name}-input` }
+          id={ `${name}` }
           min="0"
           max="5"
-          name={ `${type}` }
-          onChange={ onInputChange }
+          name={ `${name}` }
+          onChange={ onChange }
           step="0.5"
           type="number"
+          value={ value }
         />
       </label>
     );

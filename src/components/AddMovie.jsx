@@ -1,8 +1,9 @@
 import React from 'react';
-import TextInput from './TextInput';
-import TextAreaInput from './TextAreaInput';
+import ButtonInput from './ButtonInput';
 import NumberInput from './NumberInput';
 import SelectInput from './SelectInput';
+import TextAreaInput from './TextAreaInput';
+import TextInput from './TextInput';
 
 export default class AddMovie extends React.Component {
   constructor(props) {
@@ -21,7 +22,7 @@ export default class AddMovie extends React.Component {
   }
 
   onInputChange(event) {
-    console.log('1');
+    this.setState({ [event.target.name]: event.target.value });
   }
 
   render() {
@@ -31,36 +32,44 @@ export default class AddMovie extends React.Component {
       <form data-testid="add-movie-form">
         <TextInput
           text="Título"
-          type="title"
+          name="title"
           value={ title }
           onChange={ this.onInputChange }
         />
         <TextInput
           text="Subtítulo"
-          type="subtitle"
+          name="subtitle"
           value={ subtitle }
           onChange={ this.onInputChange }
         />
         <TextInput
           text="Imagem"
-          type="image"
+          name="image"
           value={ imagePath }
           onChange={ this.onInputChange }
         />
         <TextAreaInput
           text="Sinopse"
+          name="storyline"
           value={ storyline }
           onChange={ this.onInputChange }
         />
         <NumberInput
           text="Avaliação"
+          name="rating"
           value={ rating }
           onChange={ this.onInputChange }
         />
         <SelectInput
           text="Gênero"
+          name="genre"
           value={ genre }
           onChange={ this.onInputChange }
+        />
+        <ButtonInput
+          text="Adicionar filme"
+          name="button"
+          onClick={ onClick }
         />
       </form>
     );
