@@ -25,6 +25,8 @@ export default class AddMovie extends Component {
 handleChange = ({ target }) => this.setState({ [target.name]: target.value })
 
 handleClick = () => {
+  const { onClick } = this.props;
+  onClick(this.state);
   this.setState({ subtitle: '',
     title: '',
     imagePath: '',
@@ -36,20 +38,18 @@ handleClick = () => {
 
 render() {
   const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
-  const { onClick } = this.props;
   return (
     <form data-testid="add-movie-form">
-      <Title title={ title } handleChange={ handleChange } />
-      <Subtitulo subtitle={ subtitle } handleChange={ handleChange } />
-      <ImagePath imagePath={ imagePath } handleChange={ handleChange } />
-      <Storyline storyline={ storyline } handleChange={ handleChange } />
-      <RatingForm rating={ rating } handleChange={ handleChange } />
-      <Genre genre={ genre } handleChange={ handleChange } />
+      <Title title={ title } handleChange={ this.handleChange } />
+      <Subtitulo subtitle={ subtitle } handleChange={ this.handleChange } />
+      <ImagePath imagePath={ imagePath } handleChange={ this.handleChange } />
+      <Storyline storyline={ storyline } handleChange={ this.handleChange } />
+      <RatingForm rating={ rating } handleChange={ this.handleChange } />
+      <Genre genre={ genre } handleChange={ this.handleChange } />
       <button
         type="button"
-        onSubmit={ onClick }
         data-testid="send-button"
-        onClick={ handleClick }
+        onClick={ this.handleClick }
       >
         Adicionar filme
       </button>
