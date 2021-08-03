@@ -21,6 +21,6 @@ class StoryLine extends React.Component {
 StoryLine.propTypes = {
   storyline: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-}
+};
 
 export default StoryLine;

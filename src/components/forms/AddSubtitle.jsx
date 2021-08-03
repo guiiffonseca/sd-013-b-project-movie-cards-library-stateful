@@ -22,6 +22,6 @@ class AddSubtitle extends React.Component {
 AddSubtitle.propTypes = {
   subtitle: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-}
+};
 
 export default AddSubtitle;

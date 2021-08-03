@@ -23,6 +23,6 @@ class AddRating extends React.Component {
 AddRating.propTypes = {
   rating: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
-}
+};
 
 export default AddRating;

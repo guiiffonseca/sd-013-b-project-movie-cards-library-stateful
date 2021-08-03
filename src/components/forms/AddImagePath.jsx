@@ -23,6 +23,6 @@ class AddImagePath extends React.Component {
 AddImagePath.propTypes = {
   imagePath: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-}
+};
 
 export default AddImagePath;

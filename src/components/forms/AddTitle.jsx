@@ -22,6 +22,6 @@ class Addtitle extends React.Component {
 Addtitle.propTypes = {
   title: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-}
+};
 
 export default Addtitle;
