@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import AddMovieTitle from './AddMovieTitle';
 import AddMovieSubtitle from './AddMovieSubtitle';
 import AddMovieImagePath from './AddMovieImagePath';
+import AddMovieStoryLine from './AddMovieStoryLine';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -43,17 +44,7 @@ class AddMovie extends React.Component {
         <AddMovieTitle title={ title } handleChange={ this.handleChange } />
         <AddMovieSubtitle subtitle={ subtitle } handleChange={ this.handleChange } />
         <AddMovieImagePath imagePath={ imagePath } handleChange={ this.handleChange } />
-        <section className="storyline-form">
-          <label data-testid="storyline-input-label" htmlFor="storyline">
-            Sinopse:
-            <textarea
-              id="storyline"
-              value={ storyline }
-              data-testid="storyline-input"
-              onChange={ this.handleChange }
-            />
-          </label>
-        </section>
+        <AddMovieStoryLine storyline={ storyline } handleChange={ this.handleChange } />
         <section className="rating-form">
           <label data-testid="rating-input-label" htmlFor="rating">
             Avaliação:
