@@ -9,7 +9,6 @@ class AddMovie extends React.Component {
     };
 
     this.onNewTitle = this.onNewTitle.bind(this);
-
   }
 
   onNewTitle(event) {
