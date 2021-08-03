@@ -29,6 +29,18 @@ class AddMovie extends React.Component {
               type="text"
             />
           </label>
+          <label
+            htmlFor="add-movie-image"
+            data-testid="image-input-label"
+          >
+            Imagem:
+            <input
+              id="add-movie-image"
+              className="search-field"
+              data-testid="image-input"
+              type="text"
+            />
+          </label>
         </form>
       </div>
     );
