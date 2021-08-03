@@ -6,7 +6,7 @@ class SearchBar extends React.Component {
     const { searchText, bookmarkedOnly, selectedGenre } = this.props;
     const { onSearchTextChange, onBookmarkedChange, onSelectedGenreChange } = this.props;
     return (
-      <section>
+      <form action="" data-testid="search-bar-form">
         <input
           value={ searchText }
           type="text"
@@ -25,7 +25,7 @@ class SearchBar extends React.Component {
             Todos
           </option>
         </select>
-      </section>
+      </form>
     );
   }
 }
