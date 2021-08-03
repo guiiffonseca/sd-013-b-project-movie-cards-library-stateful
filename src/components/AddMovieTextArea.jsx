@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class AddMovieTextArea extends React.Component {
   render() {
-    const { value, onChange } = this.props;
+    const { value: storyline, onChange: handleChange } = this.props;
     return (
       <label htmlFor="storyline" data-testid="storyline-input-label">
         Sinopse
@@ -12,8 +12,8 @@ class AddMovieTextArea extends React.Component {
           cols="30"
           rows="10"
           data-testid="storyline-input"
-          value={ value }
-          onChange={ onChange }
+          value={ storyline }
+          onChange={ handleChange }
         />
       </label>
     );

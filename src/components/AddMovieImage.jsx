@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class AddMovieImage extends React.Component {
   render() {
-    const { value, onChange } = this.props;
+    const { value: imagePath, onChange: handleChange } = this.props;
     return (
       <label htmlFor="imagePath" data-testid="image-input-label">
         Imagem
@@ -11,8 +11,8 @@ class AddMovieImage extends React.Component {
           type="text"
           name="imagePath"
           data-testid="image-input"
-          value={ value }
-          onChange={ onChange }
+          value={ imagePath }
+          onChange={ handleChange }
         />
       </label>
     );
