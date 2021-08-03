@@ -1,5 +1,5 @@
 // implement MovieLibrary component here
-import React, { Component } from 'react';
+/* import React, { Component } from 'react';
 import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
 
@@ -10,7 +10,7 @@ export default class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: 
+      movies:
     };
   }
   render() {
@@ -21,4 +21,4 @@ export default class MovieLibrary extends Component {
       </div>
     );
   }
-}
+} */
