@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TextInput from './TextInput';
 
 export default class SearchBar extends React.Component {
@@ -47,3 +48,12 @@ export default class SearchBar extends React.Component {
     );
   }
 }
+
+SearchBar.propTypes = {
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
+  searchText: PropTypes.string.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+};

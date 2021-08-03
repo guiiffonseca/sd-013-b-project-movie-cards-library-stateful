@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ButtonInput from './ButtonInput';
 import NumberInput from './NumberInput';
 import SelectInput from './SelectInput';
@@ -75,3 +76,7 @@ export default class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};

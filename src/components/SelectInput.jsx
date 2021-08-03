@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class SelectInput extends React.Component {
   render() {
@@ -22,3 +23,10 @@ export default class SelectInput extends React.Component {
     );
   }
 }
+
+SelectInput.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+};

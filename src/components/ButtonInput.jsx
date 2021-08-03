@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class ButtonInput extends React.Component {
   render() {
@@ -18,3 +19,9 @@ export default class ButtonInput extends React.Component {
     );
   }
 }
+
+ButtonInput.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+};
