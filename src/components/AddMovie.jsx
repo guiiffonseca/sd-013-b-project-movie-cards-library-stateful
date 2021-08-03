@@ -1,6 +1,7 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
 import Title from './Title';
 import Subtitulo from './Subtitulo';
 import ImagePath from './ImagePath';
@@ -38,12 +39,12 @@ render() {
   const { onClick } = this.props;
   return (
     <form data-testid="add-movie-form">
-      <Title title={ title } callback={ handleChange } />
-      <Subtitulo subtitle={ subtitle } callback={ handleChange } />
-      <ImagePath imagePath={ imagePath } callback={ handleChange } />
-      <Storyline storyline={ storyline } callback={ handleChange } />
-      <RatingForm rating={ rating } callback={ handleChange } />
-      <Genre genre={ genre } callback={ handleChange } />
+      <Title title={ title } handleChange={ handleChange } />
+      <Subtitulo subtitle={ subtitle } handleChange={ handleChange } />
+      <ImagePath imagePath={ imagePath } handleChange={ handleChange } />
+      <Storyline storyline={ storyline } handleChange={ handleChange } />
+      <RatingForm rating={ rating } handleChange={ handleChange } />
+      <Genre genre={ genre } handleChange={ handleChange } />
       <button
         type="button"
         onSubmit={ onClick }
