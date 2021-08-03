@@ -5,7 +5,7 @@ export default class ButtonSubmmit extends Component {
   render() {
     const { onClick } = this.props;
     return (
-      <button type="submit" data-testid="send-button" onClick={ onClick }>
+      <button type="button" data-testid="send-button" onClick={ onClick }>
         Adicionar filme
       </button>
     );

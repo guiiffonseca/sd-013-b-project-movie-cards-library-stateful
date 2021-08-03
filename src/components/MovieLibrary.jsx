@@ -1,9 +1,10 @@
 // implement MovieLibrary component here
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-import '../App.css';
+// import data from '../data';
 
 export default class MovieLibrary extends Component {
   constructor() {
@@ -11,70 +12,40 @@ export default class MovieLibrary extends Component {
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
-      selectedGenre: 'Todos',
+      selectedGenre: '',
+      // movies: data,
     };
-    this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
-  onSearchTextChange({ target }) {
+  handleChange = ({ target }) => {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
-      searchText: target.value,
-    });
-  }
-
-  onBookmarkedChange({ target }) {
-    const value = target.checked;
-    this.setState({
-      bookmarkedOnly: value,
-    });
-  }
-
-  onSelectedGenreChange({ target }) {
-    const { value } = target;
-    this.setState({
-      selectedGenre: value,
+      [name]: value,
     });
   }
 
   render() {
-    const {
-      searchText,
-      bookmarkedOnly,
-      selectedGenre,
-      title,
-      subtitle,
-      imagePath,
-      storyline,
-      rating,
-      feedback,
-      genre,
-    } = this.state;
-
+    const { movies } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <h2> The amazing movie library </h2>
-        <MovieList />
+        <MovieList movies={ movies } />
         <SearchBar
-          onSearchTextChange={ this.onSearchTextChange }
-          searchTextValue={ searchText }
-          onBookmarkedChange={ this.onBookmarkedChange }
-          bookmarkedOnlyValue={ bookmarkedOnly }
-          onSelectedGenreChange={ this.onSelectedGenreChange }
-          selectedGenreValue={ selectedGenre }
+          searchText={ searchText }
+          onSearchTextChange={ this.handleChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedOnlyChange={ this.handleChange }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.handleChange }
         />
-        <AddMovie
-          titleValue={ title }
-          handleChange={ this.handleChange }
-          subtitleValue={ subtitle }
-          imagePathValue={ imagePath }
-          storylineValue={ storyline }
-          ratingValue={ rating }
-          feedbackValue={ feedback }
-          genreValue={ genre }
-        />
+        <AddMovie onClick={ this.callbackAddMovie } />
       </div>
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.string.isRequired,
+};
