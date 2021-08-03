@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import InputAddMovie from './InputAddMovie';
 import InputTypeText from './inputTypeText';
 
+/* ajuda rodrigo para a lógica do requisito 19 */
 class AddMovie extends React.Component {
   constructor() {
     super();
-
     this.state = {
       subtitle: '',
       title: '',
