@@ -6,14 +6,14 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.handleClick = this.handleClick.bind//(this);
-  // }
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind;// (this);
+  }
 
-  // handleClick() {
-  //  console.log('test');
-  // }
+  handleClick() {
+    console.log('test');
+  }
 
   render() {
     const { movies } = this.props;
@@ -29,7 +29,7 @@ class MovieLibrary extends Component {
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(propTypes.object).isRequired,
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default MovieLibrary;
