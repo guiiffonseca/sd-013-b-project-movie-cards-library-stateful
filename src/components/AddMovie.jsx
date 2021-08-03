@@ -39,18 +39,18 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { subtitle: su, title, imagePath: im, storyLine: st,
+    const { subtitle: su, title, imagePath: im, storyline: st,
       rating, genre } = this.state;
     const { handleChange } = this;
     return (
       <form data-testid="add-movie-form">
+        <InputNew d="Subtítulo" id="subtitle" value={ su } callback={ handleChange } />
         <InputNew
           d="Título"
           id="title"
           value={ title }
           callback={ handleChange }
         />
-        <InputNew d="Subtítulo" id="subtitle" value={ su } callback={ handleChange } />
         <InputNew d="Imagem" id="image" value={ im } callback={ handleChange } />
         <InputNew d="Sinopse" id="storyline" value={ st } callback={ handleChange } />
         <label htmlFor="rating" data-testid="rating-input-label">
