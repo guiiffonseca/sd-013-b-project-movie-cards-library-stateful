@@ -13,7 +13,7 @@ export default class SearchBar extends React.Component {
       <form data-testid="search-bar-form">
         <TextInput
           text="Inclui o texto"
-          type="text"
+          name="text"
           value={ searchText }
           onChange={ onSearchTextChange }
         />

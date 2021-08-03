@@ -21,15 +21,32 @@ export default class MovieLibrary extends React.Component {
   }
 
   onSearchTextChange(event) {
-    console.log('1');
+    this.setState({ searchText: event.target.value }, () => {
+      const { movies, searchText } = this.state;
+      const filtered = movies
+        .filter(({ title, subtitle, storyline }) => title.includes(searchText)
+    || subtitle.includes(searchText)
+    || storyline.includes(searchText));
+      this.setState({ movies: filtered });
+    });
   }
 
   onBookmarkedChange(event) {
-    console.log('2');
+    this.setState({ bookmarkedOnly: event.target.checked }, () => {
+      const { movies, bookmarkedOnly } = this.state;
+      const filtered = (bookmarkedOnly)
+        ? movies.filter(({ bookmarked }) => bookmarked === true) : movies;
+      this.setState({ movies: filtered });
+    });
   }
 
   onSelectedGenreChange(event) {
-    console.log('3');
+    this.setState({ selectedGenre: event.target.value }, () => {
+      const { movies, selectedGenre } = this.state;
+      const filtered = movies
+        .filter(({ genre }) => genre.includes(selectedGenre));
+      this.setState({ movies: filtered });
+    });
   }
 
   onClick(event) {
