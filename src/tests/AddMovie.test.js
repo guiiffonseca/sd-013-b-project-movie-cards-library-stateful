@@ -149,11 +149,11 @@ describe('11 - Renderize uma `textarea` dentro do formulário em `<AddMovie />` 
 });
 
 describe('12 - Renderize um `input` do tipo `number` dentro do formulário em `<AddMovie />` para obter a avaliação do novo filme', () => {
-  it.skip('Renderize um input de texto para quem usa escrever a avaliação do filme', () => {
+  it('Renderize um input de texto para quem usa escrever a avaliação do filme', () => {
     expect(ratingInput).toBeInTheDocument();
   });
 
-  it.skip('Renderize a label "Avaliação" para o input de avaliação', () => {
+  it('Renderize a label "Avaliação" para o input de avaliação', () => {
     expect(ratingInputLabel).toBeInTheDocument();
     expect(ratingInputLabel).toHaveTextContent('Avaliação');
   });
@@ -162,7 +162,7 @@ describe('12 - Renderize um `input` do tipo `number` dentro do formulário em `<
     expect(ratingInput).toHaveValue(initialState.rating);
   });
 
-  it.skip('Altere o valor do input de avaliação quando algo é digitado nele', () => {
+  it('Altere o valor do input de avaliação quando algo é digitado nele', () => {
     const expectedValue = 1.5;
     event.type(ratingInput, '1.5');
 

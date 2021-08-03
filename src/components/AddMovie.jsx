@@ -53,6 +53,19 @@ class AddMovie extends React.Component {
               type="textarea"
             />
           </label>
+          <label
+            htmlFor="add-movie-rating"
+            data-testid="rating-input-label"
+          >
+            Avaliação:
+            <input
+              id="add-movie-rating"
+              className="search-field"
+              data-testid="rating-input"
+              type="number"
+            >
+            </input>
+          </label>
         </form>
       </div>
     );
