@@ -24,8 +24,9 @@ export default class AddMovie extends Component {
 
 handleChange = ({ target }) => this.setState({ [target.name]: target.value })
 
-handleClick = () => {
+handleClick = (event) => {
   const { onClick } = this.props;
+  event.preventDefault();
   onClick(this.state);
   this.setState({ subtitle: '',
     title: '',

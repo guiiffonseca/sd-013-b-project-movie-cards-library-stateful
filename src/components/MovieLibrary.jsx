@@ -16,9 +16,13 @@ export default class MovieLibrary extends Component {
     };
   }
 
-  /* onSearchTextChange = (e) => this.setState({
+onSearchTextChange = (e) => {
+  this.setState({
     searchText: e.target.value,
-  })
+  });
+  const { movies, searchText } = this.state;
+  movies.filter((movie) => movie.includes(searchText));
+}
 
   onBookmarkedChange = (e) => this.setState({
     bookmarkedOnly: e.target.value,
@@ -27,40 +31,34 @@ export default class MovieLibrary extends Component {
   onSelectedGenreChange = (e) => this.setState({
     selectedGenre: e.target.value,
   })
- */
-
-  handleChange = ({ target }) => this.setState({
-    [target.name]: target.value,
-  })
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
-        <AddMovie />
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.handleChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.handleChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.handleChange }
+          onSearchTextChange={ this.onSearchTextChange }
+          onBookmarkedChange={ this.onBookmarkedChange }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
+        <AddMovie />
       </div>
     );
   }
 }
 
 MovieLibrary.propTypes = {
-  searchText: PropTypes.string,
-  bookmarkedOnly: PropTypes.bool,
-  selectedGenre: PropTypes.string,
-  movies: PropTypes.arrayOf(
-    PropTypes.object,
-  ).isRequired,
-};
-
-MovieLibrary.defaultProps = {
-  bookmarkedOnly: false,
+  movies: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    storyline: PropTypes.string,
+    rating: PropTypes.number,
+    imagePath: PropTypes.string,
+    bookmarked: PropTypes.bool,
+    genre: PropTypes.string,
+  })).isRequired,
 };
