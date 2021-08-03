@@ -6,18 +6,20 @@ import InputRating from './InputRating';
 import Genre from './Genre';
 import InputTitle from './InputTitle';
 
+const INITIAL_STATE = {
+  title: '',
+  subtitle: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: '',
+};
+
 export default class AddMovie extends React.Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
-    this.state = {
-      title: '',
-      subtitle: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: '',
-    };
+    this.state = INITIAL_STATE;
   }
 
   handleChange(event) {
