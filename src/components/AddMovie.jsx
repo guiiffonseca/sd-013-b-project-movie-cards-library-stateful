@@ -8,13 +8,13 @@ class AddMovie extends Component {
     this.handleChange = this.handleChange.bind(this);
 
     this.state = {
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
       genre: 'action',
-    }
+    };
   }
 
   handleChange({ target }) {
@@ -36,12 +36,27 @@ class AddMovie extends Component {
             type="text"
             name="movie-title"
             value={ this.title }
-            onChange={this.handleChange}
+            onChange={ this.handleChange }
+          />
+        </label>
+
+        <label htmlFor="movie-subtitle" data-testid="subtitle-input-label">
+          Subtítulo
+          <input
+            data-testid="subtitle-input"
+            type="text"
+            name="movie-subtitle"
+            value={ this.subtitle }
+            onChange={ this.handleChange }
           />
         </label>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
