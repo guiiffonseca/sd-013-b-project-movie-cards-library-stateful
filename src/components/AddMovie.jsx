@@ -4,6 +4,7 @@ import AddMovieTitle from './AddMovieTitle';
 import AddMovieSubtitle from './AddMovieSubtitle';
 import AddMovieImagePath from './AddMovieImagePath';
 import AddMovieStoryLine from './AddMovieStoryLine';
+import AddMovieRating from './AddMovieRating'
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -45,33 +46,8 @@ class AddMovie extends React.Component {
         <AddMovieSubtitle subtitle={ subtitle } handleChange={ this.handleChange } />
         <AddMovieImagePath imagePath={ imagePath } handleChange={ this.handleChange } />
         <AddMovieStoryLine storyline={ storyline } handleChange={ this.handleChange } />
-        <section className="rating-form">
-          <label data-testid="rating-input-label" htmlFor="rating">
-            Avaliação:
-            <input
-              type="number"
-              id="rating"
-              value={ rating }
-              data-testid="rating-input"
-              onChange={ this.handleChange }
-            />
-          </label>
-        </section>
-        <section className="genre-form">
-          <label data-testid="genre-input-label" htmlFor="genre">
-            Gênero
-            <select
-              id="genre"
-              value={ genre }
-              data-testid="genre-input"
-              onChange={ this.handleChange }
-            >
-              <option data-testid="genre-option" value="action">Ação</option>
-              <option data-testid="genre-option" value="comedy">Comédia</option>
-              <option data-testid="genre-option" value="thriller">Suspense</option>
-            </select>
-          </label>
-        </section>
+        <AddMovieRating rating={ rating } handleChange={ this.handleChange } />
+        <AddMovieGenre genre={ genre } handleChange={ this.handleChange } />
         <button
           data-testid="send-button"
           onClick={ onClick }
