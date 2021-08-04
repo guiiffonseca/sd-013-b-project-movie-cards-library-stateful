@@ -54,6 +54,7 @@ class AddMovie extends React.Component {
           onClick={ this.reset }
           data-testid="send-button"
           type="submit"
+          className="button"
         >
           Adicionar filme
         </button>

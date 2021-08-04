@@ -6,7 +6,7 @@ class Title extends React.Component {
     const { state, callback } = this.props;
 
     return (
-      <label htmlFor="title" data-testid="title-input-label">
+      <label htmlFor="title" data-testid="title-input-label" className="label">
         Título
         <input
           type="text"

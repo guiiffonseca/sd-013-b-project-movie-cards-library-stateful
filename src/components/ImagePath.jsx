@@ -6,7 +6,7 @@ class ImagePath extends React.Component {
     const { state, callback } = this.props;
 
     return (
-      <label htmlFor="imagePath" data-testid="image-input-label">
+      <label htmlFor="imagePath" data-testid="image-input-label" className="label">
         Imagem
         <input
           type="text"

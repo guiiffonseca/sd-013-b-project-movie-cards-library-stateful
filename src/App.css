@@ -37,7 +37,6 @@ body {
   width: 300px;
 }
 
-
 .movie-card-image {
   width: 100%;
 }
@@ -80,4 +79,26 @@ body {
   display: flex;
   justify-content: flex-end;
   padding: 12px 20px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  margin-left: 5px;
+}
+
+.c-lbl {
+  margin: 5px;
+}
+
+.s-lbl {
+  margin-top: 5px;
+}
+
+.button {
+  background-color: #007bff;
+  border-radius: 5px;
+  border-style: outset;
+  color: white;
+  margin-left: 5px;
 }

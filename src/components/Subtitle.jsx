@@ -6,7 +6,7 @@ class Subtitle extends React.Component {
     const { state, callback } = this.props;
 
     return (
-      <label htmlFor="subtitle" data-testid="subtitle-input-label">
+      <label htmlFor="subtitle" data-testid="subtitle-input-label" className="label">
         Subtítulo
         <input
           type="text"

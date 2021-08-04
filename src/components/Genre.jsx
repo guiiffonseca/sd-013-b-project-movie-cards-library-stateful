@@ -6,7 +6,7 @@ class Genre extends React.Component {
     const { state, callback } = this.props;
 
     return (
-      <label htmlFor="genre" data-testid="genre-input-label">
+      <label htmlFor="genre" data-testid="genre-input-label" className="label">
         Gênero
         <select
           name="genre"

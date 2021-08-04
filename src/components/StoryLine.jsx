@@ -6,7 +6,7 @@ class StoryLine extends React.Component {
     const { state, callback } = this.props;
 
     return (
-      <label htmlFor="storyLine" data-testid="storyline-input-label">
+      <label htmlFor="storyLine" data-testid="storyline-input-label" className="label">
         Sinopse
         <textarea
           name="storyLine"
