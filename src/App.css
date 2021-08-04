@@ -9,9 +9,10 @@ form label {
   flex-direction: column;
   margin-left: 50px;
   margin-right: 50px;
-  padding: 5px 5px;
+  padding: 5px;
 
 }
+
 .movie-card-header {
   align-items: center;
   background-color: #343a40;
