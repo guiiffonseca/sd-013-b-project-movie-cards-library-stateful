@@ -22,7 +22,6 @@ export default class AddMovie extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.onAddMovieClick = this.onAddMovieClick.bind(this);
-    console.log(this);
   }
 
   handleChange({ target }) {

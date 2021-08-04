@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-// import data from '../data';
+import MovieCard from './MovieCard';
+// import moviesList from '../data';
 
 export default class MovieLibrary extends Component {
   constructor() {
@@ -13,7 +14,7 @@ export default class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      // movies: data,
+      // movies: [...data],
     };
   }
 
@@ -31,16 +32,17 @@ export default class MovieLibrary extends Component {
     return (
       <div>
         <h2> The amazing movie library </h2>
-        <MovieList movies={ movies } />
+        <AddMovie onClick={ this.callbackAddMovie } />
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.handleChange }
-          bookmarkedOnly={ bookmarkedOnly }
+          checked={ bookmarkedOnly }
           onBookmarkedOnlyChange={ this.handleChange }
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />
-        <AddMovie onClick={ this.callbackAddMovie } />
+        <MovieList />
+        { movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
       </div>
     );
   }
