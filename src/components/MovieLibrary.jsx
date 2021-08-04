@@ -3,19 +3,25 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
-import AddMovie from './AddMovie';
+// import AddMovie from './AddMovie';
 import MovieCard from './MovieCard';
-// import moviesList from '../data';
 
 export default class MovieLibrary extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      // movies: [...data],
+      movies: props.movies,
     };
+  }
+
+  filtredMovies = () => {
+    const { bookmarkedOnly, movies } = this.state;
+    const favoritMovies = movies
+      .filter((movie) => (bookmarkedOnly ? movie : movies));
+    return favoritMovies;
   }
 
   handleChange = ({ target }) => {
@@ -27,12 +33,13 @@ export default class MovieLibrary extends Component {
   }
 
   render() {
-    const { movies } = this.props;
+    // const { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <h2> The amazing movie library </h2>
-        <AddMovie onClick={ this.callbackAddMovie } />
+        {/* { bookmarkedOnly === } */}
+        {/* <AddMovie onClick={ this.callbackAddMovie } /> */}
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.handleChange }
@@ -41,8 +48,8 @@ export default class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList />
-        { movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
+        <MovieList movies={ this.filtredMovies() } />
+        {/* { movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)} */}
       </div>
     );
   }
