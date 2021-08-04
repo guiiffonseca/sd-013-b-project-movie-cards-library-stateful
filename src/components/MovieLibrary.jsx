@@ -47,13 +47,11 @@ class MovieLibrary extends Component {
   }
 
   handleCheck({ target }) {
-    const { checked } = target;
-
     this.setState({
-      bookmarkedOnly: checked,
+      bookmarkedOnly: target.checked,
     });
 
-    this.filterBookmarked({ checked });
+    this.filterBookmarked(target.checked);
   }
 
   handleGenre({ target }) {
