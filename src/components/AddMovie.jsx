@@ -18,7 +18,20 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.OnChange = this.OnChange.bind(this);
-    this.OnClick = this.OnClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   OnChange({ target }) {
@@ -28,23 +41,8 @@ class AddMovie extends React.Component {
     });
   }
 
-  OnClick() {
-    const { onClick } = this.props;
-    const { movie } = this.state;
-
-    this.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    });
-    onClick(movie);
-  }
-
   render() {
-    const { OnChange, OnClick } = this;
+    const { OnChange, handleClick } = this;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -78,7 +76,7 @@ class AddMovie extends React.Component {
         <TextArea OnChange={ OnChange } storyline={ storyline } />
         <NewRating OnChange={ OnChange } rating={ rating } />
         <Selected OnChange={ OnChange } genre={ genre } />
-        <Botao onClick={ OnClick } />
+        <Botao funcao={ handleClick } />
       </form>
     );
   }
