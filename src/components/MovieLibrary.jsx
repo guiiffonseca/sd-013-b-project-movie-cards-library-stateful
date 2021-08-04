@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 // import AddMovie from './AddMovie';
-import MovieCard from './MovieCard';
+// import MovieCard from './MovieCard';
 
 export default class MovieLibrary extends Component {
   constructor(props) {
@@ -18,10 +18,15 @@ export default class MovieLibrary extends Component {
   }
 
   filtredMovies = () => {
-    const { bookmarkedOnly, movies } = this.state;
+    const { bookmarkedOnly, movies, searchText } = this.state;
     const favoritMovies = movies
       .filter((movie) => (bookmarkedOnly ? movie : movies));
-    return favoritMovies;
+
+    const searchedMovies = favoritMovies
+      .filter(({ title, subtitle, storyline }) => title.includes(searchText)
+     || subtitle.includes(searchText) || storyline.includes(searchText));
+
+    return searchedMovies;
   }
 
   handleChange = ({ target }) => {
@@ -49,7 +54,6 @@ export default class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ this.filtredMovies() } />
-        {/* { movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)} */}
       </div>
     );
   }
