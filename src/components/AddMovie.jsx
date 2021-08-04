@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Image from './Image';
 import SubTitle from './SubTitle';
 import TextArea from './TextaArea';
-import Number from './Number'
+import Number from './Number';
 import Title from './Title';
 import Genre from './Genre';
 
@@ -15,12 +15,13 @@ class AddMovie extends React.Component {
       subtitle: '',
       magePath: '',
       storyline: '',
-      ating: 0,
+      rating: 0,
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value,
@@ -52,8 +53,13 @@ class AddMovie extends React.Component {
         <Number value={ rating } onChange={ this.handleChange } />
         <Genre value={ genre } onChange={ this.handleChange } />
 
-        <button type="submit" data-testid="send-button"
-          onClick={ this.handleSubmit }>Adicionar filme</button>
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={ this.handleSubmit }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
