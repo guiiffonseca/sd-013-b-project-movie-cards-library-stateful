@@ -44,7 +44,6 @@ onSearchTextChange = (event) => {
 
   onSelectedGenreChange = (e) => {
     const { movies } = this.props;
-    const { selectedGenre } = this.state;
     if (e.target.value === '') {
       this.setState({
         selectedGenre: e.target.value,
