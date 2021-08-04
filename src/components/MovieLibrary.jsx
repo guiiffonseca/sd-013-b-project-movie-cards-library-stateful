@@ -18,10 +18,11 @@ class MovieLibrary extends React.Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
-  onClick() {
-    return {};
+  onClick(newMovie) {
+    console.log(newMovie);
   }
 
   onSearchTextChange({ target }) {
@@ -69,13 +70,11 @@ class MovieLibrary extends React.Component {
     const { movies } = this.props;
     const allMovies = [...movies];
 
-    // this.setState({
-    //   filtredMovies: allMovies.filter((movie) => search
-    //     ? movie.title.toLowerCase().includes(search) : movies),
-    // });
     this.setState({
       filtredMovies: allMovies.filter((movie) => (search
-        ? movie.title.toLowerCase().includes(search) : movies)),
+        ? movie.title.toLowerCase().includes(search)
+        ||movie.subtitle.toLowerCase().includes(search)
+        ||movie.storyline.toLowerCase().includes(search) : movies)),
     });
   }
 

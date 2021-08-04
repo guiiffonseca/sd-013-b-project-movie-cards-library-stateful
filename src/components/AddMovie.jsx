@@ -7,34 +7,32 @@ import AddMovieStoryLine from './AddMovieStoryLine';
 import AddMovieRating from './AddMovieRating';
 import AddMovieGenre from './AddMovieGenre';
 
+const defaultState = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
+
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      subtitle: '', // guarda o subtítulo preenchido no formulário por quem usa a aplicação;
-      title: '', // guarda o título preenchido no formulário por quem usa a aplicação;
-      imagePath: '', // guarda o caminho da imagem preenchido no formulário por quem usa a aplicação;
-      storyline: '', // guarda a sinopse do filme escrita no formulário por quem usa a aplicação;
-      rating: 0, // guarda a nota de avaliação dada no formulário por quem usa a aplicação;
-      genre: 'action', // guarda o gênero do filme selecionado no formulário por quem usa a aplicação.
-    };
+    this.state = defaultState;
 
     this.handleChange = this.handleChange.bind(this);
-    // this.onClick = this.onClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  // onClick(event) {
-  //   event.preventDefault();
-  //   this.setState({
-  //     subtitle: '',
-  //     title: '',
-  //     imagePath: '',
-  //     storyline: '',
-  //     rating: 0,
-  //     genre: 'action',
-  //   });
-  // }
+  handleClick(event) {
+    event.preventDefault();
+    const {onClick} = this.props;
+
+    onClick(this.state);
+    this.setState(defaultState);
+  }
 
   handleChange({ target }) {
     this.setState({
@@ -43,10 +41,6 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    // const {
-    //   onClick,
-    // } = this.props;
-
     const {
       title,
       subtitle,
@@ -66,7 +60,7 @@ class AddMovie extends React.Component {
         <AddMovieGenre genre={ genre } handleChange={ this.handleChange } />
         <button
           data-testid="send-button"
-          onClick={ this.onClick }
+          onClick={ this.handleClick }
           type="submit"
         >
           Adicionar filme
