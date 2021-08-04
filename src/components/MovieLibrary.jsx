@@ -13,6 +13,9 @@ class MovieLibrary extends Component {
     this.filterBookmarked = this.filterBookmarked.bind(this);
     this.filterByGenre = this.filterByGenre.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleCheck = this.handleCheck.bind(this);
+    this.handleGenre = this.handleGenre.bind(this);
+    this.handleNewMovie = this.handleNewMovie.bind(this);
 
     this.state = {
       searchText: '',
@@ -90,6 +93,17 @@ class MovieLibrary extends Component {
     this.filterByGenre(value);
   }
 
+  handleNewMovie(newMovie) {
+    const { movies } = this.props;
+    const newMoviesList = [...movies];
+
+    newMoviesList.push({...newMovie, bookmarked: false});
+
+    this.setState({
+      filteredMovies: newMoviesList,
+    })
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, filteredMovies } = this.state;
     return (
@@ -104,7 +118,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleGenre }
         />
         <MovieList movies={ filteredMovies } />
-        <AddMovie onClick={} />
+        <AddMovie onClick={ this.handleNewMovie } />
       </div>
     );
   }
