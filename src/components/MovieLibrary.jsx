@@ -29,9 +29,8 @@ onSearchTextChange = (event) => {
 
   onBookmarkedChange = (e) => {
     const { movies } = this.props;
-    const { bookmarkedOnly } = this.state;
     const bolleanTrue = movies.filter(({ bookmarked }) => (bookmarked));
-    if (bookmarkedOnly) {
+    if (e.target.checked) {
       this.setState({
         bookmarkedOnly: e.target.checked,
         movies: bolleanTrue });
@@ -54,9 +53,10 @@ onSearchTextChange = (event) => {
     } else {
       this.setState({
         selectedGenre: e.target.value,
-        movies: movies.filter(({ genre }) => genre.includes(selectedGenre)),
+        movies: movies.filter(({ genre }) => genre.includes(e.target.value)),
       });
     }
+    console.log(e.target.value, movies);
   }
 
   newMovie = (movie) => {
@@ -90,7 +90,7 @@ MovieLibrary.propTypes = {
     title: PropTypes.string,
     subtitle: PropTypes.string,
     storyline: PropTypes.string,
-    rating: PropTypes.number,
+    rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     imagePath: PropTypes.string,
     bookmarked: PropTypes.bool,
     genre: PropTypes.string,
