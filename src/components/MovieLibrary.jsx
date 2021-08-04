@@ -12,25 +12,59 @@ export default class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: props.movies,
+      movies: [...props.movies],
     };
   }
 
-onSearchTextChange = (e) => {
+onSearchTextChange = (event) => {
   this.setState({
-    searchText: e.target.value,
+    searchText: event.target.value,
   });
-  const { movies, searchText } = this.state;
-  movies.filter((movie) => movie.includes(searchText));
+  const { movies } = this.props;
+  this.setState({ movies: movies.filter((movie) => movie
+    .title.includes(event.target.value)
+    || movie.subtitle.includes(event.target.value)
+    || movie.storyline.includes(event.target.value)) });
 }
 
-  onBookmarkedChange = (e) => this.setState({
-    bookmarkedOnly: e.target.value,
-  })
+  onBookmarkedChange = (e) => {
+    const { movies } = this.props;
+    const { bookmarkedOnly } = this.state;
+    const bolleanTrue = movies.filter(({ bookmarked }) => (bookmarked));
+    if (bookmarkedOnly) {
+      this.setState({
+        bookmarkedOnly: e.target.checked,
+        movies: bolleanTrue });
+    } else {
+      this.setState({
+        bookmarkedOnly: e.target.checked,
+        movies,
+      });
+    }
+  }
 
-  onSelectedGenreChange = (e) => this.setState({
-    selectedGenre: e.target.value,
-  })
+  onSelectedGenreChange = (e) => {
+    const { movies } = this.props;
+    const { selectedGenre } = this.state;
+    if (e.target.value === '') {
+      this.setState({
+        selectedGenre: e.target.value,
+        movies,
+      });
+    } else {
+      this.setState({
+        selectedGenre: e.target.value,
+        movies: movies.filter(({ genre }) => genre.includes(selectedGenre)),
+      });
+    }
+  }
+
+  newMovie = (movie) => {
+    const { movies } = this.props;
+    this.setState({
+      movies: [...movies, movie],
+    });
+  }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
@@ -45,7 +79,7 @@ onSearchTextChange = (e) => {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.newMovie } />
       </div>
     );
   }
