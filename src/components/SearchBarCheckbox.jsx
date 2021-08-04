@@ -19,8 +19,8 @@ class SearchBarCheckbox extends React.Component {
             type="checkbox"
             id="search-bar"
             data-testid="checkbox-input"
-            onChange={ onBookmarkedChange }
             checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
           />
         </label>
       </section>
@@ -29,7 +29,7 @@ class SearchBarCheckbox extends React.Component {
 }
 
 SearchBarCheckbox.propTypes = {
-  bookmarkedOnly: PropTypes.string.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
 };
 
