@@ -52,12 +52,12 @@ class MovieLibrary extends Component {
     })
   }
 
-  filterByGenre(genre) {
+  filterByGenre(genreForFilter) {
     const { movies } = this.props;
     let tempMovies = [...movies];
 
-    if(genre !== '') {
-      tempMovies = movies.filter(({ genre }) => genre);
+    if(genreForFilter !== '') {
+      tempMovies = movies.filter(({ genre }) => genre === genreForFilter);
     }
 
     this.setState({
@@ -81,16 +81,16 @@ class MovieLibrary extends Component {
     this.setState({
       bookmarkedOnly: checked,
     })
+
+    this.filterBookmarked({ checked })
   }
 
   handleGenre({ target }) {
-    const { value } = target;
-
     this.setState({
-      selectedGenre: value,
+      selectedGenre: target.value,
     })
 
-    this.filterByGenre(value);
+    this.filterByGenre(target.value);
   }
 
   handleNewMovie(newMovie) {
