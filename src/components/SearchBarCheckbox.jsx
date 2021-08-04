@@ -29,7 +29,7 @@ class SearchBarCheckbox extends React.Component {
 }
 
 SearchBarCheckbox.propTypes = {
-  bookmarkedOnly: PropTypes.bool.isRequired,
+  bookmarkedOnly: PropTypes.string.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
 };
 
