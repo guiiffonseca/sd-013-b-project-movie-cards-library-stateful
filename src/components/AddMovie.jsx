@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import AddMovieTitle from './AddMovieTitle';
 import AddMovieSubtitle from './AddMovieSubtitle';
 import AddMovieImagePath from './AddMovieImagePath';
@@ -28,7 +28,7 @@ class AddMovie extends React.Component {
 
   handleClick(event) {
     event.preventDefault();
-    const {onClick} = this.props;
+    const { onClick } = this.props;
 
     onClick(this.state);
     this.setState(defaultState);
@@ -70,8 +70,8 @@ class AddMovie extends React.Component {
   }
 }
 
-// AddMovie.propTypes = {
-//   onClick: PropTypes.func.isRequired,
-// };
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;

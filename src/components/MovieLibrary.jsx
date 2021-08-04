@@ -73,8 +73,8 @@ class MovieLibrary extends React.Component {
     this.setState({
       filtredMovies: allMovies.filter((movie) => (search
         ? movie.title.toLowerCase().includes(search)
-        ||movie.subtitle.toLowerCase().includes(search)
-        ||movie.storyline.toLowerCase().includes(search) : movies)),
+        || movie.subtitle.toLowerCase().includes(search)
+        || movie.storyline.toLowerCase().includes(search) : movies)),
     });
   }
 
