@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
-// import AddMovie from './AddMovie';
+import AddMovie from './AddMovie';
 // import MovieCard from './MovieCard';
 
 export default class MovieLibrary extends Component {
@@ -18,15 +18,23 @@ export default class MovieLibrary extends Component {
   }
 
   filtredMovies = () => {
-    const { bookmarkedOnly, movies, searchText } = this.state;
-    const favoritMovies = movies
-      .filter((movie) => (bookmarkedOnly ? movie : movies));
+    const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const searchedMovies = movies
+      .filter(({ title, subtitle, storyline }) => title.toLowerCase()
+        .includes(searchText.toLowerCase())
+     || subtitle.toLowerCase().includes(searchText.toLowerCase())
+     || storyline.toLowerCase().includes(searchText.toLowerCase()));
 
-    const searchedMovies = favoritMovies
-      .filter(({ title, subtitle, storyline }) => title.includes(searchText)
-     || subtitle.includes(searchText) || storyline.includes(searchText));
+    const favoritMovies = searchedMovies
+      .filter(
+        (movie) => (bookmarkedOnly === true ? movie
+          .bookmarked === bookmarkedOnly : movies),
+      );
 
-    return searchedMovies;
+    const filterByGenre = favoritMovies
+      .filter((movie) => (!selectedGenre ? movies : movie.genre === selectedGenre));
+
+    return filterByGenre;
   }
 
   handleChange = ({ target }) => {
@@ -38,18 +46,16 @@ export default class MovieLibrary extends Component {
   }
 
   render() {
-    // const { movies } = this.props;
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, selectedGenre, bookmarkedOnly } = this.state;
     return (
       <div>
         <h2> The amazing movie library </h2>
-        {/* { bookmarkedOnly === } */}
-        {/* <AddMovie onClick={ this.callbackAddMovie } /> */}
+        <AddMovie />
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.handleChange }
-          checked={ bookmarkedOnly }
-          onBookmarkedOnlyChange={ this.handleChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.handleChange }
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />

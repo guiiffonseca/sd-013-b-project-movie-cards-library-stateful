@@ -7,6 +7,7 @@ import ImagePathInput from './ImagePathInput';
 import StorylineText from './StorylineText';
 import RatingFeedback from './RatingFeedback';
 import GenreSelect from './GenreSelect';
+import movies from '../data';
 
 export default class AddMovie extends Component {
   constructor() {
@@ -35,6 +36,17 @@ export default class AddMovie extends Component {
   onAddMovieClick() {
     const { onClick } = this.props;
     onClick();
+    const { title, subtitle, imagePath, storyline, rating, feedback, genre } = this.state;
+    const newMovie = {
+      title,
+      subtitle,
+      imagePath,
+      storyline,
+      rating,
+      feedback,
+      genre,
+    };
+    movies.push(newMovie);
 
     this.setState({
       title: '',
@@ -59,7 +71,7 @@ export default class AddMovie extends Component {
     } = this.state;
 
     return (
-      <form htmlFor="true" data-testid="add-movie-form">
+      <form htmlFor="true" data-testid="add-movie-form" onSubmit={ this.onAddMovieClick }>
         <TitleInput
           titleValue={ title }
           handleChange={ this.handleChange }
@@ -85,8 +97,6 @@ export default class AddMovie extends Component {
           genreValue={ genre }
           handleChange={ this.handleChange }
         />
-        {/* <ButtonSubmmit onClick={ this.onAddMovieClick } /> */}
-        {/* onClick */}
         <button type="button" data-testid="send-button" onClick={ this.onAddMovieClick }>
           Adicionar filme
         </button>

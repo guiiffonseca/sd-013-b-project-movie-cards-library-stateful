@@ -13,7 +13,7 @@ export default class SearchBar extends Component {
     } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <label htmlFor="true" data-testid="text-input-label">
+        <label htmlFor data-testid="text-input-label">
           Inclui o texto:
           <input
             data-testid="text-input"
@@ -23,18 +23,18 @@ export default class SearchBar extends Component {
             value={ searchText }
           />
         </label>
-        <label htmlFor="true" data-testid="checkbox-input-label">
+        <label htmlFor="favorite" data-testid="checkbox-input-label">
           Mostrar somente favoritos
           <input
             type="checkbox"
             name="bookmarkedOnly"
+            id="favorite"
             data-testid="checkbox-input"
-            // value={ bookmarkedOnly }
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
           />
         </label>
-        <label htmlFor="true" data-testid="select-input-label">
+        <label htmlFor data-testid="select-input-label">
           Filtrar por gênero
           <select
             type="checkbox"
