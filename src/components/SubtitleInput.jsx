@@ -6,7 +6,7 @@ export default class SubtitleInput extends Component {
     const { handleChange, subtitleValue } = this.props;
     return (
       <label htmlFor="true" data-testid="subtitle-input-label">
-        Subtítulo
+        Subtítulo:
         <input
           data-testid="subtitle-input"
           name="subtitle"

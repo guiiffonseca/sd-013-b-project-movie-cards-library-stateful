@@ -3,16 +3,10 @@ import PropTypes from 'prop-types';
 
 export default class RatingFeedback extends Component {
   render() {
-    const { feedbackValue, ratingValue, handleChange } = this.props;
+    const { ratingValue, handleChange } = this.props;
     return (
       <label htmlFor="true" data-testid="rating-input-label">
-        Avaliação
-        <input
-          type="text"
-          name="feedback"
-          value={ feedbackValue }
-          onChange={ handleChange }
-        />
+        Avaliação:
         <input
           type="number"
           name="rating"
@@ -27,13 +21,11 @@ export default class RatingFeedback extends Component {
 }
 
 RatingFeedback.propTypes = {
-  feedbackValue: PropTypes.string,
-  ratingValue: PropTypes.number,
+  ratingValue: PropTypes.string,
   handleChange: PropTypes.func,
 };
 
 RatingFeedback.defaultProps = {
-  feedbackValue: undefined,
   handleChange: undefined,
   ratingValue: 0,
 };

@@ -8,6 +8,8 @@ import StorylineText from './StorylineText';
 import RatingFeedback from './RatingFeedback';
 import GenreSelect from './GenreSelect';
 import movies from '../data';
+import '../AddMovie.css';
+import '../SearchBar.css';
 
 export default class AddMovie extends Component {
   constructor() {
@@ -18,7 +20,6 @@ export default class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      feedback: '',
       genre: '',
     };
     this.handleChange = this.handleChange.bind(this);
@@ -35,17 +36,17 @@ export default class AddMovie extends Component {
 
   onAddMovieClick() {
     const { onClick } = this.props;
-    onClick();
-    const { title, subtitle, imagePath, storyline, rating, feedback, genre } = this.state;
+    onClick('oi');
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     const newMovie = {
       title,
       subtitle,
-      imagePath,
       storyline,
+      imagePath,
       rating,
-      feedback,
       genre,
     };
+    onClick(newMovie);
     movies.push(newMovie);
 
     this.setState({
@@ -54,7 +55,6 @@ export default class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      feedback: '',
       genre: 'action',
     });
   }
@@ -66,42 +66,45 @@ export default class AddMovie extends Component {
       imagePath,
       storyline,
       rating,
-      feedback,
       genre,
     } = this.state;
-
     return (
-      <form htmlFor="true" data-testid="add-movie-form" onSubmit={ this.onAddMovieClick }>
-        <TitleInput
-          titleValue={ title }
-          handleChange={ this.handleChange }
-        />
-        <SubtitleInput
-          subtitleValue={ subtitle }
-          handleChange={ this.handleChange }
-        />
-        <ImagePathInput
-          imagePathValue={ imagePath }
-          handleChange={ this.handleChange }
-        />
-        <StorylineText
-          storylineValue={ storyline }
-          handleChange={ this.handleChange }
-        />
-        <RatingFeedback
-          ratingValue={ rating }
-          feedbackValue={ feedback }
-          handleChange={ this.handleChange }
-        />
-        <GenreSelect
-          genreValue={ genre }
-          handleChange={ this.handleChange }
-        />
-        <button type="button" data-testid="send-button" onClick={ this.onAddMovieClick }>
-          Adicionar filme
-        </button>
-
-      </form>
+      <section id="add-movie-container">
+        <h4 id="add-movie-title">Add a New Movie </h4>
+        <form htmlFor="true" data-testid="add-movie-form" id="add-movie-form">
+          <TitleInput
+            titleValue={ title }
+            handleChange={ this.handleChange }
+          />
+          <SubtitleInput
+            subtitleValue={ subtitle }
+            handleChange={ this.handleChange }
+          />
+          <ImagePathInput
+            imagePathValue={ imagePath }
+            handleChange={ this.handleChange }
+          />
+          <StorylineText
+            storylineValue={ storyline }
+            handleChange={ this.handleChange }
+          />
+          <RatingFeedback
+            ratingValue={ rating }
+            handleChange={ this.handleChange }
+          />
+          <GenreSelect
+            genreValue={ genre }
+            handleChange={ this.handleChange }
+          />
+          <button
+            type="button"
+            data-testid="send-button"
+            onClick={ this.onAddMovieClick }
+          >
+            Adicionar filme
+          </button>
+        </form>
+      </section>
     );
   }
 }

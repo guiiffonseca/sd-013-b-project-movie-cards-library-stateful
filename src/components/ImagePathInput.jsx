@@ -6,7 +6,7 @@ export default class ImagePathInput extends Component {
     const { imagePathValue, handleChange } = this.props;
     return (
       <label htmlFor="true" data-testid="image-input-label">
-        Imagem
+        Imagem:
         <input
           type="text"
           data-testid="image-input"

@@ -6,7 +6,7 @@ export default class TitleInput extends Component {
     const { titleValue, handleChange } = this.props;
     return (
       <label htmlFor="true" data-testid="title-input-label">
-        Título
+        Título:
         <input
           data-testid="title-input"
           name="title"

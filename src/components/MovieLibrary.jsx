@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+// import movies from '../data';
 // import MovieCard from './MovieCard';
+import '../MovieLibrary.css';
 
 export default class MovieLibrary extends Component {
   constructor(props) {
@@ -45,12 +47,18 @@ export default class MovieLibrary extends Component {
     });
   }
 
+  addMovieClick = (newMovie) => {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, newMovie],
+    });
+  }
+
   render() {
     const { searchText, selectedGenre, bookmarkedOnly } = this.state;
     return (
-      <div>
-        <h2> The amazing movie library </h2>
-        <AddMovie />
+      <div id="movie-library-container">
+        <AddMovie onClick={ this.addMovieClick } />
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.handleChange }
