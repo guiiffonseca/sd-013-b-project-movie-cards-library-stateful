@@ -21,8 +21,15 @@ class InputRating extends React.Component {
 }
 
 InputRating.propTypes = {
-  state: PropTypes.number.isRequired,
+  state: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   callback: PropTypes.func.isRequired,
+};
+
+InputRating.defaultProps = {
+  state: 'undefined',
 };
 
 export default InputRating;

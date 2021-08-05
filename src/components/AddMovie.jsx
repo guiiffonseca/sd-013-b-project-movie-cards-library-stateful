@@ -23,7 +23,7 @@ class AddMovie extends React.Component {
     // https://medium.com/@justintulk/best-practices-for-resetting-an-es6-react-components-state-81c0c86df98d
     this.initialState = this.state;
     this.handleChange = this.handleChange.bind(this);
-    this.reset = this.reset.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
   handleChange(event) {
@@ -33,7 +33,7 @@ class AddMovie extends React.Component {
     });
   }
 
-  reset(event) {
+  addMovie(event) {
     event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
@@ -43,7 +43,7 @@ class AddMovie extends React.Component {
   render() {
     const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
     return (
-      <form data-testid="add-movie-form">
+      <form data-testid="add-movie-form" className="label-add">
         <Title state={ title } callback={ this.handleChange } />
         <Subtitle state={ subtitle } callback={ this.handleChange } />
         <ImagePath state={ imagePath } callback={ this.handleChange } />
@@ -51,7 +51,7 @@ class AddMovie extends React.Component {
         <InputRating state={ rating } callback={ this.handleChange } />
         <Genre state={ genre } callback={ this.handleChange } />
         <button
-          onClick={ this.reset }
+          onClick={ this.addMovie }
           data-testid="send-button"
           type="submit"
           className="button"
