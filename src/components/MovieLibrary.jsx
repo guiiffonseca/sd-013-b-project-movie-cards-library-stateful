@@ -25,7 +25,6 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar />
         <MovieList movies={ movies } />
-        {/* {movies.map((value, index) => <MovieCard key={ index } movie={ value } />)}; */}
         <AddMovie />
       </div>
     );
