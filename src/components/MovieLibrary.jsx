@@ -18,8 +18,8 @@ class MovieLibrary extends Component {
 
   render() {
     const { movies } = this.props;
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    console.log(searchText, bookmarkedOnly, selectedGenre);
+    // const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    // console.log(searchText, bookmarkedOnly, selectedGenre);
     return (
       <div>
         <h2> My awesome movie library </h2>
