@@ -13,7 +13,6 @@ class MovieList extends React.Component {
           key={ movie.title }
           movie={ movie }
         />)) }
-        a
       </div>
     );
   }
