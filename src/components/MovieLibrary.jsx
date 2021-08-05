@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
-import MovieCard from './MovieCard';
+// import MovieCard from './MovieCard';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -24,8 +24,8 @@ class MovieLibrary extends Component {
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar />
-        {movies.map((value, index) => <MovieCard key={ index } movie={ value } />)};
-        <MovieList />
+        <MovieList movies={ movies } />
+        {/* {movies.map((value, index) => <MovieCard key={ index } movie={ value } />)}; */}
         <AddMovie />
       </div>
     );
