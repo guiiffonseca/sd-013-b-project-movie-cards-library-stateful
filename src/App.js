@@ -1,8 +1,9 @@
 import React from 'react';
 import Header from './components/Header';
-import MovieLibrary from './components/MovieLibrary';
-import movies from './data';
 import './App.css';
+import movies from './data';
+// import MovieList from './components/MovieList';
+import MovieLibrary from './components/MovieLibrary';
 
 function App() {
   return (
@@ -12,4 +13,3 @@ function App() {
     </div>
   );
 }
-export default App;

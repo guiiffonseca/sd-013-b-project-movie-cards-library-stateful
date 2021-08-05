@@ -18,6 +18,11 @@ class MovieLibrary extends Component {
   };
 };
 
+updateMovies = () => {
+  const { movies } = this.props;
+  movies.filter((movie) => {});
+}
+
   render() {
     const { bookmarkedOnly, movies, searchText, selectedGenre } = this.state;
     return (

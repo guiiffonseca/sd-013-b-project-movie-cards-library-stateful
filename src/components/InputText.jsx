@@ -5,8 +5,8 @@ class InputText extends React.Component {
         const { text, name, value, onChange type = 'text' } = this.props;
         return (
             <label htmlFor=
-        )
-    }
-}
+        );
+    };
+};
 
 export default InputText;

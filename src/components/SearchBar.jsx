@@ -19,8 +19,7 @@ class SearchBar extends React.Component {
             type="text"
             value={ searchText }
             onChange={ onSearchTextChange }
-            data-testid="text-input"
-          />
+            data-testid="text-input" />
         </label>
         <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
           Mostrar somente favoritos
@@ -28,16 +27,14 @@ class SearchBar extends React.Component {
             type="checkbox"
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
-            data-testid="checkbox-input"
-          />
+            data-testid="checkbox-input" />
         </label>
         <label htmlFor="select-input" data-testid="select-input-label">
           Filtrar por gênero
           <select
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }
-            data-testid="select-input"
-          >
+            data-testid="select-input">
             <option data-testid="select-option" value="">
               Todos
             </option>
