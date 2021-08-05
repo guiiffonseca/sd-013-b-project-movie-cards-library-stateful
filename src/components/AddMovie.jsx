@@ -6,7 +6,7 @@ class AddMovie extends React.Component {
     super();
     this.handleChange = this.handleChange.bind(this);
     this.addButton = this.addButton.bind(this);
-    this.getStoryLine = this.getStoryLine.bind(this);
+    this.getStoryline = this.getStoryline.bind(this);
     this.getGenre = this.getGenre.bind(this);
     this.getRating = this.getRating.bind(this);
     this.resetState = this.resetState.bind(this);
@@ -14,7 +14,7 @@ class AddMovie extends React.Component {
       subtitle: '',
       title: '',
       imagePath: '',
-      storyLine: '',
+      storyline: '',
       rating: 0,
       genre: 'action',
     };
@@ -28,7 +28,7 @@ class AddMovie extends React.Component {
     });
   }
 
-  getStoryLine(storyLine) {
+  getStoryline(storyline) {
     return (
       <label data-testid="storyline-input-label" htmlFor="storyline-input">
         Sinopse
@@ -36,7 +36,7 @@ class AddMovie extends React.Component {
           type="textarea"
           name="storyline"
           data-testid="storyline-input"
-          value={ storyLine }
+          value={ storyline }
           onChange={ this.handleChange }
         />
       </label>
@@ -77,11 +77,13 @@ class AddMovie extends React.Component {
   }
 
   resetState() {
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
       imagePath: '',
-      storyLine: '',
+      storyline: '',
       rating: 0,
       genre: 'action',
     });
@@ -97,7 +99,7 @@ class AddMovie extends React.Component {
 
   render() {
     const { onClick } = this.props;
-    const { subtitle, title, imagePath, storyLine, rating, genre } = this.state;
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label" htmlFor="title-input">
@@ -127,7 +129,7 @@ class AddMovie extends React.Component {
             onChange={ this.handleChange }
           />
         </label>
-        {this.getStoryLine(storyLine)}
+        {this.getStoryline(storyline)}
         {this.getRating(rating)}
         {this.getGenre(genre)}
         {this.addButton(onClick)}
