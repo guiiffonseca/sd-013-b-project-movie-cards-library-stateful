@@ -49,7 +49,6 @@ body {
 
 .movie-card:hover {
   box-shadow: 6px 10px 15px #212121;
-
   transform: translateY(-25px);
 }
 
