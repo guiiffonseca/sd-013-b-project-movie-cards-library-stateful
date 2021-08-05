@@ -4,9 +4,14 @@ import SelectedGenre from './SelectedGenre';
 
 class SearchBar extends React.Component {
   render() {
-    const { searchText, bookmarkedOnly,
-      selectedGenre, onSearchTextChange,
-      onBookmarkedChange, onSelectedGenreChange } = this.props;
+    const {
+      searchText,
+      bookmarkedOnly,
+      selectedGenre,
+      onSearchTextChange,
+      onBookmarkedChange,
+      onSelectedGenreChange,
+    } = this.props;
     return (
       <div>
         <form className="form" data-testid="search-bar-form">

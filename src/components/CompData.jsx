@@ -3,9 +3,20 @@ import PropTypes from 'prop-types';
 
 class CompData extends React.Component {
   render() {
-    const { imagePath, storyline, rating, handleChange } = this.props;
+    const { subtitle, imagePath, storyline, handleChange } = this.props;
     return (
       <div>
+        <label htmlFor="subtitle" data-testid="subtitle-input-label">
+          Subtítulo
+          <input
+            id="subtitle"
+            name="subtitle"
+            data-testid="subtitle-input"
+            type="text"
+            value={ subtitle }
+            onChange={ handleChange }
+          />
+        </label>
         <label htmlFor="imagePath" data-testid="image-input-label">
           Imagem
           <input
@@ -23,19 +34,8 @@ class CompData extends React.Component {
             id="storyline"
             name="storyline"
             data-testid="storyline-input"
-            type="textarea"
+            type="text"
             value={ storyline }
-            onChange={ handleChange }
-          />
-        </label>
-        <label htmlFor="rating" data-testid="rating-input-label">
-          Avaliação
-          <input
-            id="rating"
-            name="rating"
-            data-testid="rating-input"
-            type="number"
-            value={ parseFloat(rating) }
             onChange={ handleChange }
           />
         </label>
@@ -45,9 +45,9 @@ class CompData extends React.Component {
 }
 
 CompData.propTypes = {
+  subtitle: PropTypes.string.isRequired,
   imagePath: PropTypes.string.isRequired,
   storyline: PropTypes.string.isRequired,
-  rating: PropTypes.number.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CompData from './CompData';
 import CompGenre from './CompGenre';
 
@@ -6,11 +7,11 @@ class AddMovie extends React.Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
-    this.onClick = this.onClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
 
     this.state = {
-      subtitle: '',
       title: '',
+      subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
@@ -19,12 +20,14 @@ class AddMovie extends React.Component {
   }
 
   handleChange(event) {
-    const { name } = event.target;
-    this.setState({ [name]: event.target.value });
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   }
 
-  onClick(event) {
+  handleClick(event) {
     event.preventDefault();
+    const { onClick } = this.props;
+    onClick();
     this.setState({
       subtitle: '',
       title: '',
@@ -54,29 +57,26 @@ class AddMovie extends React.Component {
                 onChange={ this.handleChange }
               />
             </label>
-            <label htmlFor="subtitle" data-testid="subtitle-input-label">
-              Subtítulo
+            <CompData
+              subtitle={ subtitle }
+              imagePath={ imagePath }
+              storyline={ storyline }
+              rating={ rating }
+              handleChange={ this.handleChange }
+            />
+            <label htmlFor="rating" data-testid="rating-input-label">
+              Avaliação
               <input
-                id="subtitle"
-                name="subtitle"
-                data-testid="subtitle-input"
-                type="text"
-                value={ subtitle }
+                id="rating"
+                name="rating"
+                data-testid="rating-input"
+                type="number"
+                value={ rating }
                 onChange={ this.handleChange }
               />
             </label>
-            <CompData
-              imagePath={ imagePath }
-              storyline={ storyline }
-              rating={ parseFloat(rating) }
-              handleChange={ this.handleChange }
-            />
             <CompGenre genre={ genre } handleChange={ this.handleChange } />
-            <button
-              type="submit"
-              data-testid="send-button"
-              onClick={ this.onClick }
-            >
+            <button type="submit" data-testid="send-button" onClick={ this.handleClick }>
               Adicionar filme
             </button>
           </fieldset>
@@ -85,5 +85,9 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;

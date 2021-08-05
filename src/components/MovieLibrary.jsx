@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
+// import MovieCard from './MovieCard';
 
 class MovieLibrary extends Component {
   constructor() {
@@ -15,14 +16,11 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      // movies: [],
+      // movieList: [],
     };
   }
 
   onSearchTextChange(event) {
-    // const { name } = target;
-    // const value = target.type === 'checkbox' ? target.checked : target.value;
-
     this.setState({ searchText: event.target.value });
   }
 
@@ -34,9 +32,33 @@ class MovieLibrary extends Component {
     this.setState({ selectedGenre: event.target.value });
   }
 
+  searchMovies() {
+    const { movies } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const searchByText = movies.filter((movie) => movie.title.includes(searchText)
+    || movie.subtitle.includes(searchText) || movie.storyline.includes(searchText));
+    const searchByBookmark = movies.filter((movie) => movie.bookmarked === true);
+    const searchByGenre = movies.filter((movie) => movie.genre === selectedGenre);
+
+    if (searchText !== '') {
+      return searchByText;
+    }
+    if (bookmarkedOnly === true) {
+      return searchByBookmark;
+    }
+    if (selectedGenre !== '') {
+      return searchByGenre;
+    }
+    return movies;
+  }
+
+  updateMovie() {
+    const { movies } = this.props;
+    console.log(movies);
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const { movies } = this.props;
     return (
       <div>
         <SearchBar
@@ -47,8 +69,8 @@ class MovieLibrary extends Component {
           onBookmarkedChange={ this.onBookmarkedChange }
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
-        <MovieList movies={ movies } />
-        <AddMovie />
+        <MovieList movies={ this.searchMovies() } />
+        <AddMovie onClick={ this.updateMovie() } />
       </div>
     );
   }
@@ -58,11 +80,12 @@ MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.shape(
       {
-        title: PropTypes.string,
         subtitle: PropTypes.string,
+        title: PropTypes.string,
+        imagePath: PropTypes.string,
         storyline: PropTypes.string,
         rating: PropTypes.number,
-        imagePath: PropTypes.string,
+        genre: PropTypes.string,
       },
     ),
   ).isRequired,
