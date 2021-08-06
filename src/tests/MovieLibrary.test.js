@@ -73,7 +73,7 @@ describe('16 - Configure o estado inicial do componente `<MovieLibrary />`', () 
   });
 });
 
-describe.only('17 - Renderize `<SearchBar />` dentro de `<MovieLibrary />`', () => {
+describe('17 - Renderize `<SearchBar />` dentro de `<MovieLibrary />`', () => {
   it('Renderize o componente `<SearchBar />`', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const searchBar = getAllByTestId('search-bar-form');
@@ -197,7 +197,7 @@ describe('19 - Renderize `<AddMovie />` dentro de `<MovieLibrary />`', () => {
 
   it('Adicione, após preenchimento do formulário e clique no botão de enviar, o novo filme à lista de filmes', () => {
     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={ movies } />);
-
+    console.log(movies)
     const newMovie = {
       subtitle: 'Harry Potter magical subtitle',
       title: 'Harry Potter VII',
