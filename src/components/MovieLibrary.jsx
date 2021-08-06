@@ -20,7 +20,7 @@ class MovieLibrary extends Component {
   onClick(newArray) {
     console.log(newArray);
     this.setState((old) => ({
-      movies: [...old.movies, newArray],
+      movies: [...old.movies, newArray], // Com a ajuda de Luiz Lima.
     }));
     // console.log(movies);
   }
