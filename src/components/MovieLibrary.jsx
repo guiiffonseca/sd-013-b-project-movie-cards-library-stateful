@@ -11,20 +11,21 @@ class MovieLibrary extends Component {
 
   render() {
     const {
-      movies
+      movies,
+      onClick,
     } = this.props;
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ onClick } />
       </div>
     );
   }
 }
 
-MovieLibrary.PropTypes = {
+MovieLibrary.propTypes = {
   movies: PropTypes.object.isRequired,
 };
 
