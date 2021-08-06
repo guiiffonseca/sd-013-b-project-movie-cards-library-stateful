@@ -16,6 +16,7 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
+      bookmarked: false,
     };
   }
 
@@ -27,7 +28,7 @@ class AddMovie extends React.Component {
   handleClick(event) {
     event.preventDefault();
     const { onClick } = this.props;
-    onClick();
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -35,6 +36,7 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
+      bookmarked: false,
     });
   }
 
@@ -61,7 +63,6 @@ class AddMovie extends React.Component {
               subtitle={ subtitle }
               imagePath={ imagePath }
               storyline={ storyline }
-              rating={ rating }
               handleChange={ this.handleChange }
             />
             <label htmlFor="rating" data-testid="rating-input-label">

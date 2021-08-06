@@ -5,7 +5,7 @@ class CompData extends React.Component {
   render() {
     const { subtitle, imagePath, storyline, handleChange } = this.props;
     return (
-      <div>
+      <span>
         <label htmlFor="subtitle" data-testid="subtitle-input-label">
           Subtítulo
           <input
@@ -39,7 +39,7 @@ class CompData extends React.Component {
             onChange={ handleChange }
           />
         </label>
-      </div>
+      </span>
     );
   }
 }
