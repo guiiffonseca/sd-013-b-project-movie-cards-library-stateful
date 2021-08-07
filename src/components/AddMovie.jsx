@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import InputCreater from './InputCreater';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -13,26 +14,10 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
-    this.renderInput = this.renderInput.bind(this);
   }
 
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
-  }
-
-  renderInput(Key, text) {
-    return (
-      <label htmlFor={ `${Key}-input` } data-testid={ `${Key}-input-label` }>
-        { text }
-        <input
-          name={ `${Key}` }
-          value={ Key }
-          onChange={ this.handleChange }
-          type="text"
-          data-testid={ `${Key}-input` }
-        />
-      </label>
-    );
   }
 
   render() {
@@ -41,17 +26,7 @@ class AddMovie extends React.Component {
 
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title-input" data-testid="title-input-label">
-          Título
-          <input
-            name="title"
-            value={ title }
-            onChange={ this.handleChange }
-            type="text"
-            data-testid="title-input"
-          />
-        </label>
-        { this.renderInput(subtitle, 'Subtítulo')}
+        <InputCreater Key={ subtitle } change={ this.handleChange } text="Subtítulo" />
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
           <input

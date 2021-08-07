@@ -4,19 +4,17 @@ import PropTypes from 'prop-types';
 // apartir do projeto de Felipe Ventorim na monitoria com o cajueiro
 class InputCreater extends React.Component {
   render() {
-    const { Key, handleChange, text, value } = this.props;
+    const { Key, change, text } = this.props;
     return (
       <label
-        htmlFor={ Key }
+        htmlFor={ `${Key}-input` }
         data-testid={ `${(Key === 'imagePath') ? 'image' : Key}-input-label` }
       >
         { text }
         <input
-          id={ Key }
-          name={ Key }
-          key={ Key }
-          value={ value }
-          onChange={ handleChange }
+          name={ `${Key}` }
+          value={ Key }
+          onChange={ change }
           type="text"
           data-testid={ `${(Key === 'imagePath') ? 'image' : Key}-input-label` }
         />
@@ -28,8 +26,7 @@ class InputCreater extends React.Component {
 InputCreater.propTypes = {
   text: PropTypes.string.isRequired,
   Key: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
+  change: PropTypes.func.isRequired,
 };
 
 export default InputCreater;
