@@ -8,11 +8,13 @@ class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
 
+    const { movies } = this.props;
+
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      filtredMovies: [...props.movies],
+      filtredMovies: [...movies],
     };
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
@@ -22,7 +24,13 @@ class MovieLibrary extends React.Component {
   }
 
   onClick(newMovie) {
-    console.log(newMovie);
+    const { movies } = this.props;
+    const newMovies = [...movies];
+
+    newMovies.push(newMovie);
+    this.setState({
+      filtredMovies: [...newMovies],
+    });
   }
 
   onSearchTextChange({ target }) {

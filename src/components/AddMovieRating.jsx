@@ -26,7 +26,7 @@ class AddMovieRating extends React.Component {
 }
 
 AddMovieRating.propTypes = {
-  rating: PropTypes.number.isRequired,
+  rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 

@@ -30,8 +30,10 @@ class AddMovie extends React.Component {
     event.preventDefault();
     const { onClick } = this.props;
 
-    onClick(this.state);
-    this.setState(defaultState);
+    if (JSON.stringify(this.state) !== JSON.stringify(defaultState)) {
+      onClick({ ...this.state, bookmarked: false });
+      this.setState(defaultState);
+    }
   }
 
   handleChange({ target }) {
