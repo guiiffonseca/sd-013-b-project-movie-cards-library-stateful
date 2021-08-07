@@ -42,7 +42,7 @@ class AddMovie extends Component {
           type="button"
           data-testid="send-button"
           onClick={ () => {
-            onClick();
+            onClick(this.state);
             return this.setState({
               subtitle: '',
               title: '',

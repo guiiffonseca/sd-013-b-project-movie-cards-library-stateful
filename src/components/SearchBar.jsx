@@ -5,13 +5,13 @@ import PropTypes from 'prop-types';
 class SearchBar extends Component {
   render() {
     const {
-      // handleChange,
       searchText,
       onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
       selectedGenre,
       onSelectedGenreChange,
+      // movies
     } = this.props;
     return (
       <form method="get" data-testid="search-bar-form">

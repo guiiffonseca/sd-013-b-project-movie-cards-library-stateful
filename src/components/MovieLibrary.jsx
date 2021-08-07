@@ -9,12 +9,14 @@ class MovieLibrary extends Component {
     super(props);
     this.onClick = this.onClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    // const { movies } = this.props;
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      // movies: movies,
+      movies: props.movies,
     };
   }
 
@@ -24,26 +26,73 @@ class MovieLibrary extends Component {
     this.setState({
       [name]: value,
     });
-    console.log('teste');
+    // console.log('teste');
   }
 
-  onClick() {
-    return console.log('');
+  onClick(newMovie) {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, newMovie],
+    });
+  }
+
+  onSelectedGenreChange({ target }) {
+    const { value } = target;
+    const { movies } = this.props;
+    const filterListMovies = movies.filter((movie) => movie.genre === value);
+    if (value === '') {
+      return this.setState({
+        movies,
+        selectedGenre: value,
+      });
+    }
+    this.setState({
+      movies: filterListMovies,
+      selectedGenre: value,
+    });
+  }
+
+  onBookmarkedChange() {
+    const { movies } = this.props;
+    const { bookmarkedOnly } = this.state;
+    const filterListMovies = movies.filter((movie) => movie.bookmarked === true);
+    if (bookmarkedOnly === false) {
+      return this.setState({
+        movies: filterListMovies,
+        bookmarkedOnly: true,
+      });
+    }
+    this.setState({
+      movies,
+      bookmarkedOnly: false,
+    });
+  }
+
+  onSearchTextChange({ target }) {
+    const { value } = target;
+    const { movies } = this.props;
+    const filterListMovies = movies.filter((movie) => movie.title.includes(value)
+      || movie.subtitle.includes(value)
+      || movie.storyline.includes(value));
+    this.setState({
+      movies: filterListMovies,
+      searchText: value,
+    });
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const { movies } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.handleChange }
+          onSearchTextChange={ this.onSearchTextChange }
           bookmarkedOnl={ bookmarkedOnly }
-          onBookmarkedChange={ this.handleChange }
+          onBookmarkedChange={ this.onBookmarkedChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.handleChange }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
+          movies={ movies }
         />
         <MovieList movies={ movies } />
         <AddMovie onClick={ this.onClick } />
