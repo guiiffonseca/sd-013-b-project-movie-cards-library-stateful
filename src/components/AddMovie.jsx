@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import InputCreater from './InputCreater';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -14,22 +13,25 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
-    this.renderInput = this.renderInput.bind(this);
   }
 
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  // ideia de função para renderizar o input do codigo do Rafael Nery (https://github.com/tryber/sd-013-b-project-movie-cards-library-stateful/pull/67/files)
-  renderInput(Key, text) {
-    return (
-      <InputCreater
-        Key={ Key }
-        handleChange={ this.handleChange }
-        text={ text }
-      />);
-  }
+  // renderInput(Key, text) {
+  //   return (
+  //     <label htmlFor={ `${Key}-input` } data-testid={ `${Key}-input-label` }>
+  //       { text }
+  //       <input
+  //         name={ `${Key}` }
+  //         value={ Key }
+  //         onChange={ handleChange }
+  //         type="text"
+  //         data-testid={ `${Key}-input` }
+  //       />
+  //     </label>);
+  // }
 
   render() {
     const { onClick } = this.props;
@@ -37,12 +39,16 @@ class AddMovie extends React.Component {
 
     return (
       <form data-testid="add-movie-form">
-        { this.renderInput(title, 'Título')}
-        { this.renderInput(subtitle, 'Subtítulo')}
-        { this.renderInput(imagePath, 'Imagem')}
-        {/* <InputCreater Key={ title } handleChange={ this.handleChange } text="Título" />
-        <InputCreater Key={ subtitle } handleChange={ this.handleChange } text="Subtítulo" />
-        <InputCreater Key={ imagePath } handleChange={ this.handleChange } text="Imagem" /> */}
+        <label htmlFor="title-input" data-testid="title-input-label">
+          Título
+          <input
+            name="title"
+            value={ title }
+            onChange={ this.handleChange }
+            type="text"
+            data-testid="title-input"
+          />
+        </label>
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
           <input
