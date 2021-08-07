@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import TitleInput from './TitleInput';
 import SubtitleInput from './SubtitleInput';
 import ImagePathInput from './ImagePathInput';
+import StorylineInput from './StorylineInput';
+import RatingInput from './RatingInput';
 
 class AddMovie extends Component {
   constructor() {
@@ -40,6 +42,14 @@ class AddMovie extends Component {
           />
           <ImagePathInput
             imagePath={ imagePath }
+            handleChange={ this.handleChange }
+          />
+          <StorylineInput
+            storyline={ storyline }
+            handleChange={ this.handleChange }
+          />
+          <RatingInput
+            rating={ rating }
             handleChange={ this.handleChange }
           />
         </form>

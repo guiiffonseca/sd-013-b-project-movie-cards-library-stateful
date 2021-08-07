@@ -9,6 +9,7 @@ class ImagePathInput extends Component {
         htmlFor="imagePath"
         data-testid="image-input-label"
       >
+        Imagem
         <input
           type="text"
           id="imagePath"
