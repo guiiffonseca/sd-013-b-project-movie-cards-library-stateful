@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import TitleInput from './TitleInput';
+import SubtitleInput from './SubtitleInput';
 // import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       subtitle: '',
       title: '',
@@ -17,6 +18,7 @@ class AddMovie extends Component {
   }
 
   handleChange({ target }) {
+    console.log(this.props);
     const { name, value } = target;
     this.setState({
       [name]: value,
@@ -29,7 +31,11 @@ class AddMovie extends Component {
       <div>
         <form data-testid="add-movie-form">
           <TitleInput
-            titleValue={ title }
+            title={ title }
+            handleChange={ this.handleChange }
+          />
+          <SubtitleInput
+            subtitle={ subtitle }
             handleChange={ this.handleChange }
           />
         </form>
