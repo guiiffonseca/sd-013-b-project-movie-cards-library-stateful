@@ -42,20 +42,22 @@ class MovieLibrary extends Component {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
 
     return (
-      <div>
-        <h2> My awesome movie library </h2>
-        <SearchBar
-          searchText={ searchText }
-          onSearchTextChange={ this.handleChange }
-          bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.handleCheckChange }
-          selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.handleChange }
-        />
+      <div className="movie-library">
+        {/* <h2> My awesome movie library </h2> */}
+        <div className="search-Add">
+          <SearchBar
+            searchText={ searchText }
+            onSearchTextChange={ this.handleChange }
+            bookmarkedOnly={ bookmarkedOnly }
+            onBookmarkedChange={ this.handleCheckChange }
+            selectedGenre={ selectedGenre }
+            onSelectedGenreChange={ this.handleChange }
+          />
 
-        <AddMovie onClick={ this.addMovie } />
+          <AddMovie onClick={ this.addMovie } />
+        </div>
+
         <MovieList movies={ Filter(movies, searchText, bookmarkedOnly, selectedGenre) } />
-        {/* <AddMovie onClick={ add } /> */}
       </div>
     );
   }

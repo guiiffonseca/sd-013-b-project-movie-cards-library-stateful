@@ -1,64 +1,165 @@
 body {
-  background-color: #1b1b1e;
   box-sizing: border-box;
-  color: #d8dbe2;
+  color: white;
   font-size: 16px;
 }
 
+*::selection {
+  background-color: #09abe6;
+}
+
+/* ------------------------------------------------//
+//                     HEADER                      //
+//------------------------------------------------ */
+
 .movie-card-header {
-  align-items: center;
-  background-color: #373f51;
+  background-color: black;
   display: flex;
-  height: 100px;
-  justify-content: center;
+  font-size: 2.5em;
+  font-weight: 600;
+  padding: 1em;
 }
 
 .page-title {
-  /* color: #f6aa1c; */
-  font-size: 48px;
-  font-weight: 500;
-  text-align: center;
+  display: flex;
+  font-family: Palette Mosaic , sans-serif;
+  line-height: 0.8em;
+  text-transform: lowercase;
+  width: 150px;
+}
+
+.movie-library {
+  background-image: linear-gradient(#8d8d9b, #1b1b1e, #1b1b1e);
+  padding-top: 1px;
 }
 
 .movie-list {
   display: flex;
-  flex-flow: row wrap;
-  padding: 48px 30px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 3%;
 }
 
-.movie-card {
-  background-color: #a9bcd0;
-  border: 1px solid rgba(0, 0, 0, 0.9);
-  border-radius: 3px;
-  box-shadow: 1px 1px 10px black;
+.search-Add {
+  background-color: rgba(0, 0, 0, 0.699);
+  border-radius: 10px;
+  box-shadow: 1px 3px 15px #00000080;
+  display: flex;
+  flex-flow: column wrap;
+  margin: 2%;
+  padding: 2%;
+}
+
+.form-div {
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+}
+
+.form {
+  align-items: flex-end;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+}
+
+.form input, select, textarea {
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 30px;
+  color: #8d8d9b;
+  font-size: 0.9em;
+  height: 2em;
+  overflow: hidden;
+  resize: none;
+}
+
+label {
   display: flex;
   flex-direction: column;
-  height: 450px;
+  font-size: 0.9em;
+  height: 3em;
+  margin: 0.3em 1em;
+  width: 120px;
+}
+
+.checkbox {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  width: 6em;
+}
+
+.checkbox input {
+  appearance: none;
+  height: 15px;
+  width: 15px;
+}
+
+.checkbox input:checked {
+  background-color: #09abe6;
+}
+
+.search-div {
+  margin-bottom: 3em;
+}
+
+.search-form {
+  border-bottom: 1px solid white;
+  padding-bottom: 3em;
+}
+
+button {
+  background-image: linear-gradient(#0578c4, #09abe6);
+  border: none;
+  border-radius: 30px;
+  box-shadow: 1px 3px 15px #0000006e;
+  color: white;
+  font-size: 0.9em;
+  height: 2em;
+  margin: 0.3em 1em;
+}
+
+/* ------------------------------------------------//
+//                     CARD                        //
+//------------------------------------------------ */
+
+.movie-card {
+  background-color: #ffffff15;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px #0008;
+  display: flex;
+  flex-direction: column;
+  height: 380px;
   margin: 5px;
   overflow: hidden;
   width: 300px;
 }
 
-
 .movie-card-image {
+  box-shadow: 1px 1px 20px #0008;
   width: 100%;
 }
 
+.movie-card-image-container {
+  display: flex;
+  justify-content: center;
+  margin: 5%;
+}
+
 .movie-card-body {
-  color: #1b1b1e;
+  color: #adadbf;
   flex: 1 1 auto;
-  padding: 20px;
+  padding: 0 20px 20px;
 }
 
 .movie-card-title {
-  color: black;
-  font-size: 24px;
+  color: white;
+  font-size: 1.6em;
   font-weight: 500;
   margin: 0 0 12px;
 }
 
 .movie-card-subtitle {
-  color: #6c757d;
   font-size: 16px;
   font-weight: 500;
   margin: 0 0 8px;
@@ -69,19 +170,33 @@ body {
   text-align: justify;
 }
 
-.rating {
-  background-color: #58a4b0;
-  border-radius: 25px;
-  color: #d8dbe2;
-  font-size: 16px;
-  font-weight: 700;
-  padding: 3px 9px;
+.rating-div {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
 }
 
 .movie-card-rating {
-  background-color: #d8dbe2;
-  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  align-items: center;
+  align-self: flex-end;
+  background-image: linear-gradient(#0578c4, #09abe6);
+  border-radius: 30px;
+  bottom: 10px;
+  box-shadow: 1px 3px 15px #000000af;
+  color: white;
   display: flex;
-  justify-content: flex-end;
-  padding: 12px 20px;
+  font-size: 0.8em;
+  font-weight: 500;
+  justify-content: center;
+  line-height: 1em;
+  padding: 0.5em 1em;
+  position: absolute;
+  right: 10px;
+  text-align: center;
+  text-decoration: none;
+  width: fit-content;
 }
+
+/* .search-form {
+  background-color: black;
+} */

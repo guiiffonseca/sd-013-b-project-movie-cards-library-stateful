@@ -12,6 +12,7 @@ class Checkbox extends React.Component {
       <label
         data-testid="checkbox-input-label"
         htmlFor="bookmarkedOnly"
+        className="checkbox"
       >
         Mostrar somente favoritos
         <input

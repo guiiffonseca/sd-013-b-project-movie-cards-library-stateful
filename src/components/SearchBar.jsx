@@ -16,20 +16,26 @@ class SearchBar extends React.Component {
     } = this.props;
 
     return (
-      <form data-testid="search-bar-form" action="">
-        <SearchInput
-          searchText={ searchText }
-          onSearchTextChange={ onSearchTextChange }
-        />
-        <Checkbox
-          bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ onBookmarkedChange }
-        />
-        <Select
-          selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ onSelectedGenreChange }
-        />
-      </form>
+      <div className="search-div form-div">
+        <h3>Search</h3>
+        <form
+          data-testid="search-bar-form"
+          className="form search-form"
+        >
+          <SearchInput
+            searchText={ searchText }
+            onSearchTextChange={ onSearchTextChange }
+          />
+          <Checkbox
+            bookmarkedOnly={ bookmarkedOnly }
+            onBookmarkedChange={ onBookmarkedChange }
+          />
+          <Select
+            selectedGenre={ selectedGenre }
+            onSelectedGenreChange={ onSelectedGenreChange }
+          />
+        </form>
+      </div>
     );
   }
 }
