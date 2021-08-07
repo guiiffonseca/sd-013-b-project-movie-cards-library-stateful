@@ -13,25 +13,27 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.renderInput = this.renderInput.bind(this);
   }
 
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  // renderInput(Key, text) {
-  //   return (
-  //     <label htmlFor={ `${Key}-input` } data-testid={ `${Key}-input-label` }>
-  //       { text }
-  //       <input
-  //         name={ `${Key}` }
-  //         value={ Key }
-  //         onChange={ handleChange }
-  //         type="text"
-  //         data-testid={ `${Key}-input` }
-  //       />
-  //     </label>);
-  // }
+  renderInput(Key, text) {
+    return (
+      <label htmlFor={ `${Key}-input` } data-testid={ `${Key}-input-label` }>
+        { text }
+        <input
+          name={ `${Key}` }
+          value={ Key }
+          onChange={ this.handleChange }
+          type="text"
+          data-testid={ `${Key}-input` }
+        />
+      </label>
+    );
+  }
 
   render() {
     const { onClick } = this.props;
@@ -49,6 +51,7 @@ class AddMovie extends React.Component {
             data-testid="title-input"
           />
         </label>
+        { this.renderInput(subtitle, 'Subtítulo')}
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
           <input
