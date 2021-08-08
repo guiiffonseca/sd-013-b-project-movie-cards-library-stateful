@@ -18,6 +18,9 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange(event) {
@@ -39,6 +42,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form action="" data-testid="add-movie-form">
         <AddMovieTitle value={ title } onChange={ this.handleChange } />

@@ -13,6 +13,7 @@ class AddMovieTitle extends React.Component {
           data-testid="title-input"
           value={ value }
           onChange={ onChange }
+          name="title"
         />
       </label>
     );
