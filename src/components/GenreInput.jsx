@@ -9,6 +9,7 @@ class GenreInput extends Component {
         htmlFor="genre"
         data-testid="genre-input-label"
       >
+        Gênero
         <select
           name="genre"
           id="genre"

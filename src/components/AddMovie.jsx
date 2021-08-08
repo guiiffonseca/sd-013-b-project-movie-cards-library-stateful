@@ -4,6 +4,7 @@ import SubtitleInput from './SubtitleInput';
 import ImagePathInput from './ImagePathInput';
 import StorylineInput from './StorylineInput';
 import RatingInput from './RatingInput';
+import GenreInput from './GenreInput';
 
 class AddMovie extends Component {
   constructor() {
@@ -50,6 +51,10 @@ class AddMovie extends Component {
           />
           <RatingInput
             rating={ rating }
+            handleChange={ this.handleChange }
+          />
+          <GenreInput
+            genre={ genre }
             handleChange={ this.handleChange }
           />
         </form>
