@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // import MovieList from './MovieList';
+import SearchText from './searchBar/SearchText';
+import SearchCheckbox from './searchBar/SearchCheckbox';
+import SearchSelect from './searchBar/SearchSelect';
 
 class SearchBar extends React.Component {
-  // constructor() {
-  //   super();
-  // }
   render() {
     const { searchText, onSearchTextChange,
       bookmarkedOnly, onBookmarkedChange,
@@ -13,75 +13,20 @@ class SearchBar extends React.Component {
     return (
       <div className="search-field">
         <form data-testid="search-bar-form">
-          <label
-            htmlFor="search-movie"
-            data-testid="text-input-label"
-          >
-            Inclui o texto:
-            <input
-              id="search-movie"
-              className="search-field"
-              data-testid="text-input"
-              type="text"
-              value={ searchText }
-              onChange={ onSearchTextChange }
-            />
-          </label>
+          <SearchText
+            searchText={ searchText }
+            onSearchTextChange={ onSearchTextChange }
+          />
           <br />
-          <label
-            htmlFor="check-movie"
-            data-testid="checkbox-input-label"
-          >
-            Mostrar somente favoritos:
-            <input
-              id="check-movie"
-              className="search-field"
-              data-testid="checkbox-input"
-              type="checkbox"
-              value="ShowFavorites"
-              checked={ bookmarkedOnly }
-              onChange={ onBookmarkedChange }
-            />
-          </label>
+          <SearchCheckbox
+            bookmarkedOnly={ bookmarkedOnly }
+            onBookmarkedChange={ onBookmarkedChange }
+          />
           <br />
-          <label
-            htmlFor="select-movie"
-            data-testid="select-input-label"
-          >
-            Filtrar por gênero:
-            <select
-              id="select-movie"
-              className="search-field"
-              data-testid="select-input"
-              value={ selectedGenre }
-              onChange={ onSelectedGenreChange }
-            >
-            <option
-              value=""
-              data-testid="select-option"
-            >
-              Todos
-            </option>
-            <option
-              value="action"
-              data-testid="select-option"
-            >
-              Ação
-            </option>
-            <option
-              value="comedy"
-              data-testid="select-option"
-            >
-              Comédia
-            </option>
-            <option
-              value="thriller"
-              data-testid="select-option"
-            >
-              Suspense
-            </option>
-            </select>
-          </label>
+          <SearchSelect
+            selectedGenre={ selectedGenre }
+            onSelectedGenreChange={ onSelectedGenreChange }
+          />
         </form>
       </div>
     );
