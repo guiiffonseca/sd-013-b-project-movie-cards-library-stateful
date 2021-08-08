@@ -10,8 +10,8 @@ class SearchBar extends React.Component {
     const onSearchTextChange = this.props.onSearchTextChange;
     const bookmarkedOnly = this.props.bookmarkedOnly;
     const onBookmarkedChange = this.props.onBookmarkedChange;
-    // const selectedGenre = this.props.selectedGenre;
-    // const onSelectedGenreChange = this.props.onSelectedGenreChange;
+    const selectedGenre = this.props.selectedGenre;
+    const onSelectedGenreChange = this.props.onSelectedGenreChange;
     return (
       <div className="search-field">
         <form data-testid="search-bar-form">
@@ -44,6 +44,45 @@ class SearchBar extends React.Component {
               checked={ bookmarkedOnly }
               onChange={ onBookmarkedChange }
             />
+          </label>
+          <br />
+          <label
+            htmlFor="select-movie"
+            data-testid="select-input-label"
+          >
+            Filtrar por gênero:
+            <select
+              id="select-movie"
+              className="search-field"
+              data-testid="select-input"
+              value={ selectedGenre }
+              onChange={ onSelectedGenreChange }
+            >
+            <option
+              value=""
+              data-testid="select-option"
+            >
+              Todos
+            </option>
+            <option
+              value="action"
+              data-testid="select-option"
+            >
+              Ação
+            </option>
+            <option
+              value="comedy"
+              data-testid="select-option"
+            >
+              Comédia
+            </option>
+            <option
+              value="thriller"
+              data-testid="select-option"
+            >
+              Suspense
+            </option>
+            </select>
           </label>
         </form>
       </div>

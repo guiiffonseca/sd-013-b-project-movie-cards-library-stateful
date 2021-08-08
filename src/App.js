@@ -11,7 +11,7 @@ function App() {
       <SearchBar
         searchText={ 'My Text' }
         onSearchTextChange={ movies }
-        bookmarkedOnly={ movies }
+        bookmarkedOnly={ false }
         onBookmarkedChange={ movies }
         selectedGenre={ movies }
         onSelectedGenreChange={ movies }
