@@ -6,6 +6,7 @@ import Image from './Image';
 import Storyline from './Textarea';
 import InputNumber from './inputNumber';
 import Select from './Select';
+import Button from './Button';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -20,16 +21,30 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleChange(event) {
+  handleChange({ target }) {
     this.setState({
-      title: event.target.value,
-      subtitle: event.target.value,
-      imagePath: event.target.value,
-      storyline: event.target.value,
-      rating: event.target.value,
-      genre: event.target.value,
+      title: target.value,
+      subtitle: target.value,
+      imagePath: target.value,
+      storyline: target.value,
+      rating: target.value,
+      genre: target.value,
+    });
+  }
+
+  handleClick() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     });
   }
 
@@ -44,6 +59,7 @@ class AddMovie extends React.Component {
         <Storyline storyline={ storyline } handleChange={ this.handleChange } />
         <InputNumber rating={ rating } handleChange={ this.handleChange } />
         <Select genre={ genre } handleChange={ this.handleChange } />
+        <Button onClick={ this.handleClick } />
       </form>
     );
   }
