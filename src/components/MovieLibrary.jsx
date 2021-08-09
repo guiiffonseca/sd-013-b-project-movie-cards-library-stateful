@@ -61,10 +61,10 @@ class MovieLibrary extends Component {
     });
   }
 
-  onAddMovie(back) {
+  onAddMovie(callback) {
     const { movies } = this.state;
     this.setState({
-      movies: [...movies, back],
+      movies: [...movies, callback],
     });
   }
 
