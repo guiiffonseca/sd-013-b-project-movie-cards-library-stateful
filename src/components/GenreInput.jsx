@@ -13,9 +13,9 @@ class GenreInput extends Component {
           value={ valueProp }
           onChange={ on }
         >
-          <option value="action" data-testid="genre-input">Ação</option>
-          <option value="comedy" data-testid="genre-input">Comédia</option>
-          <option value="thriller" data-testid="genre-input">Suspense</option>
+          <option value="action" data-testid="genre-option">Ação</option>
+          <option value="comedy" data-testid="genre-option">Comédia</option>
+          <option value="thriller" data-testid="genre-option">Suspense</option>
         </select>
         {/* <input
           data-test-id="genre-input"
