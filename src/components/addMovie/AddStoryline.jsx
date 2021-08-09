@@ -8,11 +8,13 @@ class AddStoryline extends React.Component {
         data-testid="storyline-input-label"
       >
         Sinopse:
-        <input
+        <textarea
           id="add-movie-storyline"
           className="search-field"
           data-testid="storyline-input"
           type="textarea"
+          rows="7"
+          maxLength="400"
         />
       </label>
     );
