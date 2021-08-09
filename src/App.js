@@ -5,37 +5,48 @@ import MovieLibrary from './components/MovieLibrary';
 import movies from './data';
 import './App.css';
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <Header />
-//       <SearchBar
-//         searchText=""
-//         onSearchTextChange={ movies }
-//         bookmarkedOnly={ false }
-//         onBookmarkedChange={ movies }
-//         selectedGenre={ movies }
-//         onSelectedGenreChange={ movies }
-//       />
-//       <MovieLibrary />
-//     </div>
-//   );
-// }
-
 class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+    };
+
+    this.handleTitleChange = this.handleTitleChange.bind(this);
+    this.handleBookmarkChange = this.handleBookmarkChange.bind(this);
+    this.handleGenreChange = this.handleGenreChange.bind(this);
+  }
+
+  handleTitleChange(event) {
+    this.setState({ searchText: event.target.value });
+  }
+
+  handleBookmarkChange(event) {
+    this.setState({ bookmarkedOnly: event.target.value });
+  }
+
+  handleGenreChange(event) {
+    this.setState({ selectedGenre: event.target.value });
+  }
+
   render() {
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div className="App">
         <Header />
         <SearchBar
-          searchText=""
-          onSearchTextChange={ movies }
-          bookmarkedOnly={ false }
-          onBookmarkedChange={ movies }
-          selectedGenre={ movies }
-          onSelectedGenreChange={ movies }
+          searchText={ searchText }
+          onSearchTextChange={ this.handleTitleChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.handleBookmarkChange }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.handleGenreChange }
         />
-        <MovieLibrary />
+        <MovieLibrary
+          movies={ movies }
+        />
       </div>
     );
   }
