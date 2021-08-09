@@ -13,17 +13,11 @@ class GenreInput extends Component {
           value={ valueProp }
           onChange={ on }
         >
+          {/* Inputs consertados graças à ajuda do Eduardo Prando e Lucas Caribé. */}
           <option value="action" data-testid="genre-option">Ação</option>
           <option value="comedy" data-testid="genre-option">Comédia</option>
           <option value="thriller" data-testid="genre-option">Suspense</option>
         </select>
-        {/* <input
-          data-test-id="genre-input"
-          type="text"
-          value={ valueProp }
-          name="genre"
-          onChange={ on }
-        /> */}
       </label>
     );
   }

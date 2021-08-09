@@ -56,6 +56,7 @@ class AddMovie extends React.Component {
         <button
           type="button"
           data-testid="send-button"
+          // Botão consertado graças à ajuda do Eduardo Prando e Lucas Caribé.
           onClick={ handleClick }
         >
           Adicionar filme
