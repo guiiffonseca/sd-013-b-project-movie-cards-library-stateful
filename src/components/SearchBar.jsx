@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { check } from 'yargs';
 
 class SearchBar extends React.Component {
   render() {
