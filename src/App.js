@@ -28,12 +28,12 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <SearchBar
-        searchText=""
-        onSearchTextChange={ movies }
-        bookmarkedOnly={ false }
-        onBookmarkedChange={ movies }
-        selectedGenre={ movies }
-        onSelectedGenreChange={ movies }
+          searchText=""
+          onSearchTextChange={ movies }
+          bookmarkedOnly={ false }
+          onBookmarkedChange={ movies }
+          selectedGenre={ movies }
+          onSelectedGenreChange={ movies }
         />
         <MovieLibrary />
       </div>
