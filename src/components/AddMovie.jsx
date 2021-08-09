@@ -9,7 +9,7 @@ import AddGenre from './addMovie/AddGenre';
 class AddMovie extends React.Component {
   render() {
     return (
-      <div>
+      <div className="search-field">
         <form data-testid="add-movie-form">
           <AddTitle />
           <AddSubtitle />
