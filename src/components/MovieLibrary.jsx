@@ -23,7 +23,7 @@ class MovieLibrary extends React.Component {
   }
 
   handleBookmarkChange(event) {
-    this.setState({ bookmarkedOnly: event.target.value });
+    this.setState({ bookmarkedOnly: event.target.checked });
   }
 
   handleGenreChange(event) {
@@ -32,7 +32,16 @@ class MovieLibrary extends React.Component {
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const { movies } = this.props;
+    let { movies } = this.props;
+    movies = movies.filter((movie) => (
+      movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText)
+    ));
+    movies = bookmarkedOnly ? [movies[0]] : movies;
+    movies = movies.filter((movie) => (
+      movie.genre.includes(selectedGenre)
+    ));
     return (
       <div>
         <AddMovie />
