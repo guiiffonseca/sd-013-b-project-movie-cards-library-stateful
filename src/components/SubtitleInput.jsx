@@ -8,7 +8,7 @@ class SubtitleInput extends Component {
       <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
         Subtítulo
         <input
-          data-test-id="subtitle-input"
+          data-testid="subtitle-input"
           type="text"
           value={ valueProp }
           name="subtitle"

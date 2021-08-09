@@ -8,7 +8,7 @@ class TitleInput extends Component {
       <label htmlFor="title-input" data-testid="title-input-label">
         Título
         <input
-          data-test-id="title-input"
+          data-testid="title-input"
           type="text"
           value={ valueProp }
           name="title"

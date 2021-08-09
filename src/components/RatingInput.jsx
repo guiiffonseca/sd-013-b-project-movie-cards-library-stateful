@@ -8,7 +8,7 @@ class RatingInput extends Component {
       <label htmlFor="rating-input" data-testid="rating-input-label">
         Avaliação
         <input
-          data-test-id="rating-input"
+          data-testid="rating-input"
           type="number"
           value={ valueProp }
           name="rating"
