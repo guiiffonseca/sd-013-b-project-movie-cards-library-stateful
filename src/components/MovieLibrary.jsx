@@ -25,18 +25,24 @@ class MovieLibrary extends React.Component {
     this.setState({
       searchText: target.value,
     });
+
+    this.selectedMovies(target.value);
   }
 
   onBookmarkedChange({ target }) {
     this.setState({
       bookmarkedOnly: target.checked,
     });
+
+    this.favoritesMovies(target.checked);
   }
 
   onSelectedGenreChange({ target }) {
     this.setState({
       selectedGenre: target.value,
     });
+
+    this.genderMovies(target.value);
   }
 
    selectedMovies = (event) => {
@@ -51,6 +57,22 @@ class MovieLibrary extends React.Component {
          return byTitle || bySubtitle || byStoryline;
        }),
      });
+   }
+
+   favoritesMovies = (checked) => {
+     const { movies } = this.state;
+
+     this.setState({
+       choseMovies: movies.filter((movie) => movie.bookmarked === true)
+     })
+   }
+
+   genderMovies = (event) => {
+    const { movies } = this.state;
+
+    this.setState({
+      choseMovies: movies.filter((movie) => movie.genre === event),
+    })
    }
 
    render() {
