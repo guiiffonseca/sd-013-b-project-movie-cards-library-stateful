@@ -31,7 +31,7 @@ class SearchBar extends React.Component {
               data-testid="checkbox-input"
             />
           </label>
-          <label htmlFor="select-input" data-testid="select-input-label">
+          <label data-testid="select-input-label" htmlFor="select-input">
             Filtrar por gênero
             <select
               value={ selectedGenre }
