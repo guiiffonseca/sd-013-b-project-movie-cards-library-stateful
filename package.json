@@ -1,0 +1,22 @@
+{
+  "name": "sd-013-b-project-movie-cards-library-stateful",
+  "version": "1.0.0",
+  "description": "Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e Conduta e do Manual da Pessoa Estudante da Trybe.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tryber/sd-013-b-project-movie-cards-library-stateful.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tryber/sd-013-b-project-movie-cards-library-stateful/issues"
+  },
+  "homepage": "https://github.com/tryber/sd-013-b-project-movie-cards-library-stateful#readme",
+  "dependencies": {
+    "axios": "^0.21.1"
+  }
+}

@@ -34,7 +34,6 @@ class MovieLibrary extends React.Component {
     this.setState({
       bookmarkedOnly: target.checked,
     });
-
     this.favoritesMovies(target.checked);
   }
 
@@ -63,17 +62,23 @@ class MovieLibrary extends React.Component {
    favoritesMovies = (checked) => {
      const { movies } = this.state;
 
-     this.setState({
-       choseMovies: movies.filter((movie) => movie.bookmarked === true)
-     })
+     if (checked) {
+       this.setState({
+         choseMovies: movies.filter((movie) => movie.bookmarked === true),
+       });
+     }
    }
 
    genderMovies = (event) => {
-    const { movies } = this.state;
+     const { movies } = this.state;
 
-    this.setState({
-      choseMovies: movies.filter((movie) => movie.genre === event),
-    })
+     this.setState({
+       choseMovies: movies.filter((movie) => movie.genre === event),
+     });
+   }
+
+   onClick = () => {
+
    }
 
    render() {
