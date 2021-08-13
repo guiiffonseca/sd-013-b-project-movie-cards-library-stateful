@@ -5,12 +5,13 @@ import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      movies: props.movies,
     };
 
     this.handleTitleChange = this.handleTitleChange.bind(this);
@@ -22,18 +23,27 @@ class MovieLibrary extends React.Component {
     this.setState({ searchText: event.target.value });
   }
 
+  handleGenreChange(event) {
+    this.setState({ selectedGenre: event.target.value });
+  }
+
   handleBookmarkChange(event) {
     this.setState({ bookmarkedOnly: event.target.checked });
   }
 
-  handleGenreChange(event) {
-    this.setState({ selectedGenre: event.target.value });
+  // handleMovies(event) {
+  //
+  // }
+
+  submitMovie({ target }) {
+    const movieInfo = target.parentNode;
+    // sessionStorage.setItem('movie', JSON.stringify(this.state));
   }
 
   render() {
     const {
       searchText, bookmarkedOnly,
-      selectedGenre, movieRating,
+      selectedGenre,
     } = this.state;
     let { movies } = this.props;
     movies = movies.filter((movie) => (
@@ -47,7 +57,7 @@ class MovieLibrary extends React.Component {
     ));
     return (
       <div>
-        <AddMovie />
+        <AddMovie onClick={ this.submitMovie } />
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.handleTitleChange }
