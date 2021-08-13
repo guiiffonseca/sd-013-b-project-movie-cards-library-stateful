@@ -11,7 +11,6 @@ class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movieRating: 0,
     };
 
     this.handleTitleChange = this.handleTitleChange.bind(this);
@@ -48,9 +47,7 @@ class MovieLibrary extends React.Component {
     ));
     return (
       <div>
-        <AddMovie
-          movieRating={ movieRating }
-        />
+        <AddMovie />
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.handleTitleChange }
