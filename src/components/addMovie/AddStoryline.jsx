@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddStoryline extends React.Component {
   render() {
+    const { storyline, onChange } = this.props;
     return (
       <label
         htmlFor="add-movie-storyline"
@@ -13,6 +15,9 @@ class AddStoryline extends React.Component {
           className="search-field"
           data-testid="storyline-input"
           type="textarea"
+          name="storyline"
+          value={ storyline }
+          onChange={ onChange }
           rows="7"
           maxLength="400"
         />
@@ -20,5 +25,10 @@ class AddStoryline extends React.Component {
     );
   }
 }
+
+AddStoryline.propTypes = {
+  storyline: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default AddStoryline;
