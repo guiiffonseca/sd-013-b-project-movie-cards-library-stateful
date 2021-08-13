@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class AddSubTitle extends React.Component {
   render() {
-    const { subtitle, onChange} = this.props;
+    const { subtitle, onChange } = this.props;
     return (
       <label
         htmlFor="add-movie-subtitle"

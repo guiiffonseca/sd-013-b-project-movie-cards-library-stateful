@@ -8,14 +8,13 @@ import AddRating from './addMovie/AddRating';
 import AddGenre from './addMovie/AddGenre';
 
 class AddMovie extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       title: '',
       subtitle: '',
       storyline: '',
       imagePath: '',
-      bookmarked: false,
       genre: 'action',
     };
 
@@ -29,7 +28,7 @@ class AddMovie extends React.Component {
   render() {
     const {
       title, subtitle, storyline,
-      imagePath, bookmarked, genre,
+      imagePath, genre,
     } = this.state;
     const { onClick } = this.props;
     return (
