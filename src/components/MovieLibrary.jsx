@@ -11,6 +11,7 @@ class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      movieRating: 0,
     };
 
     this.handleTitleChange = this.handleTitleChange.bind(this);
@@ -31,7 +32,10 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const {
+      searchText, bookmarkedOnly,
+      selectedGenre, movieRating,
+    } = this.state;
     let { movies } = this.props;
     movies = movies.filter((movie) => (
       movie.title.includes(searchText)
@@ -44,7 +48,9 @@ class MovieLibrary extends React.Component {
     ));
     return (
       <div>
-        <AddMovie />
+        <AddMovie
+          movieRating={ movieRating }
+        />
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.handleTitleChange }
