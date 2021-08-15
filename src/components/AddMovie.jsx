@@ -16,34 +16,52 @@ class AddMovie extends React.Component {
       storyline: '',
       imagePath: '',
       genre: 'action',
+      rating: 0,
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange({ target }) {
     this.setState({ [target.name]: target.value });
   }
 
+  // componentDidUpdate() {
+  //
+  // }
+
+  handleClick() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      title: '',
+      subtitle: '',
+      storyline: '',
+      imagePath: '',
+      genre: 'action',
+      rating: 0,
+    });
+  }
+
   render() {
     const {
       title, subtitle, storyline,
-      imagePath, genre,
+      imagePath, genre, rating,
     } = this.state;
-    const { onClick } = this.props;
     return (
-      <div className="search-field">
-        <form data-testid="add-movie-form">
+      <div className="search-field" id="add-movie">
+        <form data-testid="add-movie-form" id="add-movie-form">
           <AddTitle title={ title } onChange={ this.handleChange } />
           <AddSubtitle subtitle={ subtitle } onChange={ this.handleChange } />
           <AddImage imagePath={ imagePath } onChange={ this.handleChange } />
           <AddStoryline storyline={ storyline } onChange={ this.handleChange } />
           <AddGenre genre={ genre } onChange={ this.handleChange } />
-          <AddRating />
+          <AddRating rating={ parseFloat(rating) } onChange={ this.handleChange } />
           <button
             data-testid="send-button"
             type="button"
-            onClick={ onClick }
+            onClick={ this.handleClick }
           >
             Adicionar filme
           </button>
@@ -55,6 +73,12 @@ class AddMovie extends React.Component {
 
 AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
+  // title: PropTypes.string.isRequired,
+  // subtitle: PropTypes.string.isRequired,
+  // storyline: PropTypes.string.isRequired,
+  // genre: PropTypes.string.isRequired,
+  // imagePath: PropTypes.string.isRequired,
+  // rating: PropTypes.number.isRequired,
 };
 
 export default AddMovie;

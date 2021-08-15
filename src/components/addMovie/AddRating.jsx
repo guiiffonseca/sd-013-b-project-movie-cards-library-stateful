@@ -1,21 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddRating extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      movieRating: 0,
-    };
-
-    this.onRatingChange = this.onRatingChange.bind(this);
-  }
-
-  onRatingChange(event) {
-    this.setState({ movieRating: event.target.value });
-  }
-
   render() {
-    const { movieRating } = this.state;
+    const { rating, onChange } = this.props;
     return (
       <label
         htmlFor="add-movie-rating"
@@ -30,12 +18,18 @@ class AddRating extends React.Component {
           min="0"
           max="5"
           step="0.1"
-          value={ movieRating }
-          onChange={ this.onRatingChange }
+          name="rating"
+          value={ rating }
+          onChange={ onChange }
         />
       </label>
     );
   }
 }
+
+AddRating.propTypes = {
+  rating: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default AddRating;

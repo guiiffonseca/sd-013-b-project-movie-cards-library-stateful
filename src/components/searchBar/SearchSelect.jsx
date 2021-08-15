@@ -12,6 +12,7 @@ class SearchSelect extends React.Component {
         Filtrar por gênero:
         <select
           id="select-movie"
+          name="selectedGenre"
           className="search-field"
           data-testid="select-input"
           value={ selectedGenre }

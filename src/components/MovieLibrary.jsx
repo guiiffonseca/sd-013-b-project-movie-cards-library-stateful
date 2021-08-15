@@ -14,30 +14,24 @@ class MovieLibrary extends React.Component {
       movies: props.movies,
     };
 
-    this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleBookmarkChange = this.handleBookmarkChange.bind(this);
-    this.handleGenreChange = this.handleGenreChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.submitMovie = this.submitMovie.bind(this);
   }
 
-  handleTitleChange(event) {
-    this.setState({ searchText: event.target.value });
+  handleBookmarkChange({ target }) {
+    this.setState({ [target.name]: target.checked });
   }
 
-  handleGenreChange(event) {
-    this.setState({ selectedGenre: event.target.value });
+  handleChange({ target }) {
+    this.setState({ [target.name]: target.value });
   }
 
-  handleBookmarkChange(event) {
-    this.setState({ bookmarkedOnly: event.target.checked });
-  }
-
-  // handleMovies(event) {
-  //
-  // }
-
-  submitMovie({ target }) {
-    const movieInfo = target.parentNode;
-    // sessionStorage.setItem('movie', JSON.stringify(this.state));
+  submitMovie(newMovie) {
+    console.log(newMovie);
+    this.setState(({ movies }) => ({
+      movies: [...movies, newMovie],
+    }));
   }
 
   render() {
@@ -45,7 +39,7 @@ class MovieLibrary extends React.Component {
       searchText, bookmarkedOnly,
       selectedGenre,
     } = this.state;
-    let { movies } = this.props;
+    let { movies } = this.state;
     movies = movies.filter((movie) => (
       movie.title.includes(searchText)
       || movie.subtitle.includes(searchText)
@@ -60,11 +54,11 @@ class MovieLibrary extends React.Component {
         <AddMovie onClick={ this.submitMovie } />
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.handleTitleChange }
+          onSearchTextChange={ this.handleChange }
           bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ this.handleBookmarkChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.handleGenreChange }
+          onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ movies } />
       </div>

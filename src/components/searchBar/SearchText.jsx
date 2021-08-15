@@ -12,6 +12,7 @@ class SearchText extends React.Component {
         Inclui o texto:
         <input
           id="search-movie"
+          name="searchText"
           className="search-field"
           data-testid="text-input"
           type="text"

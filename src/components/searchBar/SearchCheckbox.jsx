@@ -12,6 +12,7 @@ class SearchCheckbox extends React.Component {
         Mostrar somente favoritos:
         <input
           id="check-movie"
+          name="bookmarkedOnly"
           className="search-field"
           data-testid="checkbox-input"
           type="checkbox"

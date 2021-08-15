@@ -6,6 +6,7 @@ import './App.css';
 
 class App extends React.Component {
   render() {
+    sessionStorage.setItem('submitted', false);
     return (
       <div className="App">
         <Header />
