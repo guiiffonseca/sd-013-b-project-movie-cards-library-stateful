@@ -2,9 +2,22 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
+  }
+
   render() {
     return (
-      <h1>Add Movie</h1>
+      <form data-testid="add-movie-form">Add Movie</form>
     );
   }
 }
