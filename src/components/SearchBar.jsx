@@ -6,6 +6,8 @@ class SearchBar extends Component {
     const {
       searchText,
       onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
     } = this.props;
     return (
       <div className="search-bar">
@@ -19,6 +21,17 @@ class SearchBar extends Component {
               id="search-text"
               value={ searchText }
             />
+          </label>
+          <label data-testid="checkbox-input-label" htmlFor="only-favorites">
+            <input
+              onChange={ onBookmarkedChange }
+              data-testid="checkbox-input"
+              checked={ bookmarkedOnly }
+              type="checkbox"
+              name="only-favorites"
+              id="only-favorites"
+            />
+            Mostrar somente favoritos
           </label>
         </form>
       </div>
