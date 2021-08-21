@@ -3,10 +3,23 @@ import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
   render() {
+    const {
+      searchText,
+      onSearchTextChange,
+    } = this.props;
     return (
       <div className="search-bar">
         <form data-testid="search-bar-form" action="#">
-          <h1>Search Bar</h1>
+          <label data-testid="text-input-label" htmlFor="search-text">
+            Inclui o texto:
+            <input
+              onChange={ onSearchTextChange }
+              data-testid="text-input"
+              type="text"
+              id="search-text"
+              value={ searchText }
+            />
+          </label>
         </form>
       </div>
     );
