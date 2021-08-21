@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
@@ -16,7 +17,7 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label" htmlFor="movie-title">
@@ -57,6 +58,16 @@ class AddMovie extends Component {
             type="text"
             id="movie-storyline"
             value={ storyline }
+          />
+        </label>
+        <label data-testid="rating-input-label" htmlFor="movie-rating">
+          Avaliação
+          <input
+            onChange={ (event) => this.setState({ rating: event.target.value }) }
+            data-testid="rating-input"
+            type="number"
+            id="movie-rating"
+            value={ rating }
           />
         </label>
       </form>
