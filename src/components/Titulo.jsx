@@ -8,6 +8,7 @@ class Title extends React.Component {
       <label htmlFor="input-title" data-testid="title-input-label">
         Título
         <input
+          name="title"
           type="text"
           value={ title }
           data-testid="title-input"

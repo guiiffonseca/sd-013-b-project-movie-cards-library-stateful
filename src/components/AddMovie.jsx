@@ -9,8 +9,8 @@ import Select from './Select';
 import Button from './Button';
 
 class AddMovie extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       subtitle: '',
@@ -26,16 +26,18 @@ class AddMovie extends React.Component {
 
   handleChange({ target }) {
     this.setState({
-      title: target.value,
-      subtitle: target.value,
-      imagePath: target.value,
-      storyline: target.value,
-      rating: target.value,
-      genre: target.value,
+      [target.name]: target.value,
+      // title: target.value,
+      // subtitle: target.value,
+      // imagePath: target.value,
+      // storyline: target.value,
+      // rating: target.value,
+      // genre: target.value,
     });
   }
 
-  handleClick() {
+  handleClick(event) {
+    event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
