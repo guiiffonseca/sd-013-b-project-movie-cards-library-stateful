@@ -34,7 +34,7 @@ class AddMovie extends Component {
     const { title } = this.state;
     return (
       <label data-testid="title-input-label" htmlFor="movie-title">
-        Título
+        Título:
         <input
           onChange={ (event) => this.setState({ title: event.target.value }) }
           data-testid="title-input"
@@ -50,7 +50,7 @@ class AddMovie extends Component {
     const { subtitle } = this.state;
     return (
       <label data-testid="subtitle-input-label" htmlFor="movie-subtitle">
-        Subtítulo
+        Subtítulo:
         <input
           onChange={ (event) => this.setState({ subtitle: event.target.value }) }
           data-testid="subtitle-input"
@@ -66,7 +66,7 @@ class AddMovie extends Component {
     const { imagePath } = this.state;
     return (
       <label data-testid="image-input-label" htmlFor="movie-image-path">
-        Imagem
+        Imagem:
         <input
           onChange={ (event) => this.setState({ imagePath: event.target.value }) }
           data-testid="image-input"
@@ -82,7 +82,7 @@ class AddMovie extends Component {
     const { storyline } = this.state;
     return (
       <label data-testid="storyline-input-label" htmlFor="movie-storyline">
-        Sinopse
+        Sinopse:
         <textarea
           onChange={ (event) => this.setState({ storyline: event.target.value }) }
           data-testid="storyline-input"
@@ -98,7 +98,7 @@ class AddMovie extends Component {
     const { rating } = this.state;
     return (
       <label data-testid="rating-input-label" htmlFor="movie-rating">
-        Avaliação
+        Avaliação:
         <input
           onChange={ (event) => this.setState({ rating: event.target.value }) }
           data-testid="rating-input"
@@ -114,7 +114,7 @@ class AddMovie extends Component {
     const { genre } = this.state;
     return (
       <label data-testid="genre-input-label" htmlFor="movie-genre">
-        Gênero
+        Gênero:
         <select
           onChange={ (event) => this.setState({ genre: event.target.value }) }
           data-testid="genre-input"
