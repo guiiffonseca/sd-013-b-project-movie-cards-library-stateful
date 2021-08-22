@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 // import AddMovie from './AddMovie';
 import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class MovieLibrary extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   handleChange({ target }) {
@@ -38,12 +40,19 @@ class MovieLibrary extends React.Component {
       });
     } else if (searchText !== '') {
       this.setState({
-        movies: movies.filter((movie) => movie.title.includes(searchText)
-        || movie.subtitle.includes(searchText) || movie.storyline.includes(searchText)),
+        movies: movies.filter((element) => element.title.includes(searchText)),
+        // || movie.subtitle.includes(searchText) || movie.storyline.includes(searchText)),
       });
     }
   }
 
+  onClick(state) {
+    // const { movies } = this.state
+    // const test = this.state
+    this.setState(
+      (estado) => ({ movies: estado.movies.concat(state) }),
+    );
+  }
   // Como texto do readme está confuso olhei o PR :https://github.com/tryber/sd-013-b-project-movie-cards-library-stateful/pull/109/files para entender o que fazer;
   // Toda logica desenvolvida foi feita por mim!
 
@@ -60,6 +69,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ movies } />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }
