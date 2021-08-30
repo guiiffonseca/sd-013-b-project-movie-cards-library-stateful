@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Select from './Select';
 
 export default class SearchBar extends Component {
   render() {
@@ -23,6 +26,21 @@ export default class SearchBar extends Component {
             onChange={ onSearchTextChange }
           />
         </label>
+        <FormControlLabel
+          data-testid="checkbox-input-label"
+          control={
+            <Checkbox
+              checked={ bookmarkedOnly }
+              onChange={ onBookmarkedChange }
+              inputProps={ { 'data-testid': 'checkbox-input' } }
+            />
+          }
+          label="Mostrar somente favoritos"
+        />
+        <Select
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ onSelectedGenreChange }
+        />
       </form>
     );
   }
