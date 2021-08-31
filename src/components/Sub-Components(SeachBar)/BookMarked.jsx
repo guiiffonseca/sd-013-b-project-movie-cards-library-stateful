@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
@@ -8,14 +7,15 @@ export default class BookMarked extends Component {
       onBookmarkedChange } = this.props;
     return (
       <div>
-        <label className="imputCheckboxLabel" data-testid="checkbox-input-label">
+        <label htmlFor="bookmarkedOnly" data-testid="checkbox-input-label">
           Mostrar somente favoritos
           <input
-            checked={ bookmarkedOnly }
-            type="checkBox"
-            name="CheckboxImput"
-            onChange={ onBookmarkedChange }
+            id="bookmarkedOnly"
+            name="bookmarkedOnly"
             data-testid="checkbox-input"
+            type="checkbox"
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
           />
         </label>
       </div>

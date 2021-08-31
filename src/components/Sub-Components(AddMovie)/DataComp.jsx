@@ -1,45 +1,45 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-export default class DataComp extends Component {
+export default class DataComp extends React.Component {
   render() {
-    const { subtitle, storyline, imagePath, handleChange } = this.props;
+    const { subtitle, imagePath, storyline, handleChange } = this.props;
     return (
-      <div>
-        <label data-testid="subtitle-input-label">
-          <imput
-            data-testid="subtitle-input"
-            type="text"
+      <span>
+        <label htmlFor="subtitle" data-testid="subtitle-input-label">
+          Subtítulo
+          <input
             id="subtitle"
             name="subtitle"
+            data-testid="subtitle-input"
+            type="text"
             value={ subtitle }
             onChange={ handleChange }
           />
         </label>
-        <label data-testid="image-input-label">
-          <imput
-            data-testid="image-input"
-            type="text"
+        <label htmlFor="imagePath" data-testid="image-input-label">
+          Imagem
+          <input
             id="imagePath"
             name="imagePath"
+            data-testid="image-input"
+            type="text"
             value={ imagePath }
             onChange={ handleChange }
           />
         </label>
-        <label data-testid="storyline-input-label" htmlFor="story">
-
-          <textarea
+        <label htmlFor="storyline" data-testid="storyline-input-label">
+          Sinopse
+          <input
+            id="storyline"
+            name="storyline"
             data-testid="storyline-input"
-            id="story"
-            name="story"
+            type="text"
             value={ storyline }
             onChange={ handleChange }
-            rows="5"
-            cols="33"
           />
         </label>
-      </div>
+      </span>
     );
   }
 }

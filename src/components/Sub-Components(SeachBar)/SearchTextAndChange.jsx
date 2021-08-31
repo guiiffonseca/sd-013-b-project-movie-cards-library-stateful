@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
@@ -8,14 +7,15 @@ export default class SearchTextAndChange extends Component {
       onSearchTextChange } = this.props;
     return (
       <div>
-        <label className="imputTextLabel" data-testid="text-input-label">
+        <label htmlFor="searchText" data-testid="text-input-label">
           Inclui o texto:
           <input
-            value={ searchText }
-            type="text"
-            name="name"
-            onChange={ onSearchTextChange }
+            id="searchText"
+            name="searchText"
             data-testid="text-input"
+            type="text"
+            value={ searchText }
+            onChange={ onSearchTextChange }
           />
         </label>
       </div>
