@@ -1,1 +1,44 @@
-// implement SearchBar component here
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import SearchTextAndChange from './Sub-Components(SeachBar)/SearchTextAndChange';
+import BookMarked from './Sub-Components(SeachBar)/BookMarked';
+import SelectGenre from './Sub-Components(SeachBar)/SelectGenre';
+
+export default class SearchBar extends Component {
+  render() {
+    const { searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange } = this.props;
+
+    return (
+      <div>
+        <form data-testid="search-bar-form">
+          <SearchTextAndChange
+            searchText={ searchText }
+            onSearchTextChange={ onSearchTextChange }
+          />
+          <BookMarked
+            bookmarkedOnly={ bookmarkedOnly }
+            onBookmarkedChange={ onBookmarkedChange }
+          />
+          <SelectGenre
+            selectedGenre={ selectedGenre }
+            onSelectedGenreChange={ onSelectedGenreChange }
+          />
+        </form>
+      </div>
+    );
+  }
+}
+
+SearchBar.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
+};
