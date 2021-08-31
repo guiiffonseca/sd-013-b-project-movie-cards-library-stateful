@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import Select from './Select';
 
 export default class SearchBar extends Component {
   render() {
@@ -37,10 +36,10 @@ export default class SearchBar extends Component {
           }
           label="Mostrar somente favoritos"
         />
-        <Select
+        {/* <Select
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ onSelectedGenreChange }
-        />
+        /> */}
       </form>
     );
   }
