@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import DataComp from './Sub-Components(AddMovie)/DataComp';
+import GenreComp from './Sub-Components(AddMovie)/GenreComp';
 
 export default class AddMovie extends Component {
   constructor() {
@@ -34,6 +36,24 @@ export default class AddMovie extends Component {
               id="title"
               name="title"
               value={ title }
+              onChange={ this.handleChange }
+            />
+          </label>
+          <DataComp
+            subtitle={ subtitle }
+            storyline={ storyline }
+            imagePath={ imagePath }
+          />
+          <GenreComp
+            genre={ genre }
+          />
+          <label data-testid="rating-input-label">
+            <imput
+              data-testid="rating-input"
+              type="number"
+              id="rating"
+              name="rating"
+              value={ rating }
               onChange={ this.handleChange }
             />
           </label>
