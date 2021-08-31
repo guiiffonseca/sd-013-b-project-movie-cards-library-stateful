@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+import Select from './Select';
 
 export default class SearchBar extends Component {
   render() {
@@ -10,8 +11,8 @@ export default class SearchBar extends Component {
       onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
-      // selectedGenre,
-      // onSelectedGenreChange,
+      selectedGenre,
+      onSelectedGenreChange,
     } = this.props;
     return (
       <form data-testid="search-bar-form">
@@ -32,14 +33,15 @@ export default class SearchBar extends Component {
               checked={ bookmarkedOnly }
               onChange={ onBookmarkedChange }
               inputProps={ { 'data-testid': 'checkbox-input' } }
+              data-testid="checkbox-input"
             />
           }
           label="Mostrar somente favoritos"
         />
-        {/* <Select
+        <Select
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ onSelectedGenreChange }
-        /> */}
+        />
       </form>
     );
   }
@@ -50,6 +52,6 @@ SearchBar.propTypes = {
   onSearchTextChange: PropTypes.func.isRequired,
   bookmarkedOnly: PropTypes.bool.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
-  // selectedGenre: PropTypes.string.isRequired,
-  // onSelectedGenreChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
 };
