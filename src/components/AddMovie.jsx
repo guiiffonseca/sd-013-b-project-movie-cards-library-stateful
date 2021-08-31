@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import DataComp from './Sub-Components(AddMovie)/DataComp';
@@ -24,45 +23,64 @@ export default class AddMovie extends Component {
     this.setState({ [name]: value });
   }
 
+  handleClick = (event) => {
+    const { onClick } = this.props;
+    event.preventDefault();
+    onClick(this.state);
+    this.setState({ subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
     const { title, subtitle, storyline, rating, genre, imagePath } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">
-          <label data-testid="title-input-label">
-            Título
-            <imput
-              type="text"
-              id="title"
-              name="title"
-              value={ title }
-              onChange={ this.handleChange }
+          <fieldset>
+            <label htmlFor="title" data-testid="title-input-label">
+              Título
+              <input
+                id="title"
+                name="title"
+                data-testid="title-input"
+                type="text"
+                value={ title }
+                onChange={ this.handleChange }
+              />
+            </label>
+            <DataComp
+              subtitle={ subtitle }
+              imagePath={ imagePath }
+              storyline={ storyline }
+              handleChange={ this.handleChange }
             />
-          </label>
-          <DataComp
-            subtitle={ subtitle }
-            storyline={ storyline }
-            imagePath={ imagePath }
-          />
-          <GenreComp
-            genre={ genre }
-          />
-          <label data-testid="rating-input-label">
-            <imput
-              data-testid="rating-input"
-              type="number"
-              id="rating"
-              name="rating"
-              value={ rating }
-              onChange={ this.handleChange }
-            />
-          </label>
+            <label htmlFor="rating" data-testid="rating-input-label">
+              Avaliação
+              <input
+                id="rating"
+                name="rating"
+                data-testid="rating-input"
+                type="number"
+                value={ rating }
+                onChange={ this.handleChange }
+              />
+            </label>
+            <GenreComp genre={ genre } handleChange={ this.handleChange } />
+            <button type="submit" data-testid="send-button" onClick={ this.handleClick }>
+              Adicionar filme
+            </button>
+          </fieldset>
         </form>
       </div>
     );
   }
 }
 
-AddMovie.protoTypes = {
+AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
