@@ -57,7 +57,7 @@ class AddMovie extends React.Component {
           <AddMovieRating value={ rating } onChange={ this.handleChange } />
           <AddMovieGenre value={ genre } onChange={ this.handleChange } />
           <button
-            type="button"
+            type="submit"
             data-testid="send-button"
             onClick={ this.handleClick }
           >
