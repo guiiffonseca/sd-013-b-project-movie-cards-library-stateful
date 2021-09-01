@@ -20,6 +20,7 @@ class AddMovie extends Component {
   constructor(props) {
     super(props);
     this.state = initialState;
+    this.handleClick = this.handleClick.bind(this);
   }
 
     handleChange = ({ target }) => {
