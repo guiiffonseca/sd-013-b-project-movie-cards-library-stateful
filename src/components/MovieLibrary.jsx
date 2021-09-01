@@ -21,6 +21,9 @@ class MovieLibrary extends React.Component {
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.onClick = this.onClick.bind(this);
+    this.filterMoviesByGenre = this.filterMoviesByGenre.bind(this);
+    this.filterMoviesByFavorite = this.filterMoviesByFavorite.bind(this);
+    this.filterMoviesByText = this.filterMoviesByText.bind(this);
   }
 
   onClick(newMovie) {
