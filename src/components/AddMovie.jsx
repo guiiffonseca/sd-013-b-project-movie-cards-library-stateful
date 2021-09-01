@@ -20,14 +20,14 @@ class AddMovie extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    // this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  handleClick(event) {
+  handleClick = (event) => {
     const { onClick } = this.props;
     event.preventDefault();
     onClick(this.state);
@@ -45,19 +45,25 @@ class AddMovie extends React.Component {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form action="" data-testid="add-movie-form">
-        <AddMovieTitle value={ title } onChange={ this.handleChange } />
-        <AddMovieSubtitle value={ subtitle } onChange={ this.handleChange } />
-        <AddMovieImg value={ imagePath } onChange={ this.handleChange } />
-        <AddMovieStoryline value={ storyline } onChange={ this.handleChange } />
-        <AddMovieRating value={ rating } onChange={ this.handleChange } />
-        <AddMovieGenre value={ genre } onChange={ this.handleChange } />
-        <button
-          type="submit"
-          data-testid="send-button"
-          onClick={ this.handleClick }
-        >
-          Adicionar filme
-        </button>
+        <fieldset>
+
+          <AddMovieTitle value={ title } onChange={ this.handleChange } />
+          <AddMovieSubtitle value={ subtitle } onChange={ this.handleChange } />
+          <AddMovieImg
+            value={ imagePath }
+            onChange={ (event) => this.setState({ imagePath: event.target.value }) }
+          />
+          <AddMovieStoryline value={ storyline } onChange={ this.handleChange } />
+          <AddMovieRating value={ rating } onChange={ this.handleChange } />
+          <AddMovieGenre value={ genre } onChange={ this.handleChange } />
+          <button
+            type="button"
+            data-testid="send-button"
+            onClick={ this.handleClick }
+          >
+            Adicionar filme
+          </button>
+        </fieldset>
       </form>
     );
   }

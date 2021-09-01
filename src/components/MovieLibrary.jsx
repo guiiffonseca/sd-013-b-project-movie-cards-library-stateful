@@ -45,7 +45,8 @@ class MovieLibrary extends React.Component {
 
   onClick(newMovie) {
     // const { movies } = this.state;
-    this.setState((prev) => ({ selectedMovies: [prev.selectMovies, newMovie] }));
+    this.setState((prevstate) => (
+      { selectedMovies: [prevstate.selectedMovies, newMovie] }));
   }
 
   selectMovies() {
